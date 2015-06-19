@@ -21,7 +21,8 @@
     <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="LICENSE.md" />
+    <Content Include="LICENSE" />
+    <Content Include="README.md" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +203,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="mozurestsdk\__init__.py" />
+    <Compile Include="setup.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="test\functional_test\commerce\catalog\admin\product_test.py">
       <SubType>Code</SubType>
     </Compile>

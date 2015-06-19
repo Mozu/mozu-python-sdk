@@ -46,7 +46,7 @@ def validateResponse(response):
 	apiException.correlationId = correlationId;
 	apiException.statusCode = status;
 
-	if (response.headers.get("content-length") is not None):
+	if (response.json() is not None):
 		content =  response.json();
 		apiException.message = content["message"];
 		apiException.errorCode = content["errorCode"];
@@ -67,10 +67,11 @@ def http_call(url, method, **args):
 	
 	args["headers"]["User-Agent"] = getUserAgent();	
 	args["headers"][Headers.X_VOL_VERSION] = __apiversion__;
+	args["stream"] = False;
 	response = requests.request(method, url, **args)
 
 	duration = datetime.datetime.now() - start_time
-	logging.info('Request[%s], Url[%s], Response[%d]: %s, Duration: %s.%ss.' % (method, url, response.status_code, response.reason, duration.seconds, duration.microseconds))
+	logging.info('Request[%s], Url[%s], Response[%s]: %s, Duration: %s.%ss.' % (method, url, response.status_code, response.reason, duration.seconds, duration.microseconds))
 	correlationId = response.headers.get(Headers.X_VOL_CORRELATION);
 	if correlationId:
 		logging.debug('Request[%s], Url[%s],correlationId: %s' % (method, url, correlationId));

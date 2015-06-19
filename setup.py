@@ -9,10 +9,6 @@ long_description="""
     2. https://developer.mozu.com/api - API Reference
   """
 
-license='Apache License'
-if os.path.exists('LICENSE'):
-  license = open('LICENSE').read()
-
 setup(
   name="mozurestsdk",
   version= __version__,
@@ -21,11 +17,13 @@ setup(
   packages=['mozurestsdk'],
   scripts=[],
   url="https://github.com/mozu/mozu-python-sdk",
-  license=license,
+  license='Apache License',
   description='Mozu Rest SDK.',
   long_description=long_description,
-  install_requires=['requests>=2.7.0', 'six>=1.9.0'],
+  install_requires=['requests', 'six'],
+  extras_require={'test': ['coverage']},
   classifiers=[
+	'Development Status :: 3 - Alpha',
     'Intended Audience :: Developers',
     'Natural Language :: English',
     'Operating System :: OS Independent',

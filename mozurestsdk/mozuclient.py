@@ -1,6 +1,7 @@
 import logging
 import json
 import configparser
+import os;
 from urllib.parse import urlparse;
 from mozurestsdk.headers import Headers;
 from mozurestsdk.security.appauthenticator import AppAuthenticator
@@ -44,7 +45,9 @@ class MozuClient(object):
 		self.applicationKey = args.get("applicationKey", None);
 		self.sharedSecret = args.get("sharedSecret", None);
 
-		self.verifySSLCert = args.get("verifySSLCert", True) == 'True';
+		self.verifySSLCert = args.get("verifySSLCert", None);
+		if (self.verifySSLCert is not None):
+			self.verifySSLCert = self.verifySSLCert == "True";
 		if (self.applicationKey == None or self.sharedSecret == None):
 			raise Exception("applicationKey or sharedSecret is missing");
 
@@ -53,9 +56,8 @@ class MozuClient(object):
 		if (not authScheme):
 			self.__scheme = urlparse(self.baseAuthUrl).scheme;
 		self.basePCIUrl = args.get("basePCIUrl", __basePciUrl__);
-		self.appAuth = AppAuthenticator(self.applicationKey, self.sharedSecret, self.baseAuthUrl);
-		self.appAuth.authenticate();
-	
+		
+		self.appAuth = None;
 		tenantId = args.get("tenantId", None);
 		if (tenantId is not None):
 			self.__apiContext = ApiContext(**args);
@@ -121,6 +123,7 @@ class MozuClient(object):
 		return self.response.json();
 
 	def execute(self):
+		self.authenticate();
 		self.validate();
 		logging.info("executing request using url : %s" % self.__resourceUrl.uri);
 		self.__headers[Headers.X_VOL_APP_CLAIMS] = self.appAuth.getAccessToken();
@@ -134,7 +137,7 @@ class MozuClient(object):
 
 	def validate(self):
 		logging.info("Validating request");
-		logging.info("Uri Location : %s" % self.__resourceUrl.location);
+		logging.info("Uri Location : %s" % self.__resourceUrl.location);			
 		if (self.__resourceUrl.location is UrlLocation.HomePod):
 			self.__baseAddress = self.baseAuthUrl;
 		elif (self.__resourceUrl.location is UrlLocation.PCIPod):
@@ -160,7 +163,13 @@ class MozuClient(object):
 				self.__baseAddress = self.__scheme+"://"+self.__baseAddress;
 		logging.info("Base URi address set to %s " % self.__baseAddress);
 
+	def authenticate(self):
+		if (self.appAuth is None):
+			self.appAuth = AppAuthenticator(self.applicationKey, self.sharedSecret, self.baseAuthUrl, self.verifySSLCert);
+			self.appAuth.authenticate();
+
 	def getTenant(self, tenantId: int):
+		self.authenticate();
 		requestUrl = self.baseAuthUrl+"/api/platform/tenants/"+str(tenantId);
 		headers = {};
 		headers[Headers.X_VOL_APP_CLAIMS] = self.appAuth.getAccessToken();
