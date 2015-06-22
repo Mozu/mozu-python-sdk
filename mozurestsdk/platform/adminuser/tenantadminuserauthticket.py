@@ -29,7 +29,7 @@ class TenantAdminUserAuthTicket(object):
 		url = MozuUrl("/api/platform/adminuser/authtickets/tenants?tenantId={tenantId}&responseFields={responseFields}", "POST", UrlLocation.HomePod, False);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("tenantId", tenantId);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(userAuthInfo).execute();
 		return self.client.result();
 
 	
@@ -48,7 +48,7 @@ class TenantAdminUserAuthTicket(object):
 		url = MozuUrl("/api/platform/adminuser/authtickets/tenants?tenantId={tenantId}&responseFields={responseFields}", "PUT", UrlLocation.HomePod, False);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("tenantId", tenantId);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(existingAuthTicket).execute();
 		return self.client.result();
 
 	

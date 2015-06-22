@@ -71,7 +71,7 @@ class Channel(object):
 
 		url = MozuUrl("/api/commerce/channels/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(channel).execute();
 		return self.client.result();
 
 	
@@ -90,7 +90,7 @@ class Channel(object):
 		url = MozuUrl("/api/commerce/channels/{code}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("code", code);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(channel).execute();
 		return self.client.result();
 
 	

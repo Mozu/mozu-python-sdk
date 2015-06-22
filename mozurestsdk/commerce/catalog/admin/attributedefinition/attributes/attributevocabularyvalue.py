@@ -109,7 +109,7 @@ class AttributeVocabularyValue(object):
 		url.formatUrl("attributeFQN", attributeFQN);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("value", value);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(localizedContent).execute();
 		return self.client.result();
 
 	
@@ -128,7 +128,7 @@ class AttributeVocabularyValue(object):
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("attributeFQN", attributeFQN);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(attributeVocabularyValue).execute();
 		return self.client.result();
 
 	
@@ -145,7 +145,7 @@ class AttributeVocabularyValue(object):
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("attributeFQN", attributeFQN);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(vocabularyValues).execute();
 		return self.client.result();
 
 	
@@ -164,7 +164,7 @@ class AttributeVocabularyValue(object):
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}/LocalizedContent", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("attributeFQN", attributeFQN);
 		url.formatUrl("value", value);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(localizedContent).execute();
 		return self.client.result();
 
 	
@@ -187,7 +187,7 @@ class AttributeVocabularyValue(object):
 		url.formatUrl("localeCode", localeCode);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("value", value);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(localizedContent).execute();
 		return self.client.result();
 
 	
@@ -208,7 +208,7 @@ class AttributeVocabularyValue(object):
 		url.formatUrl("attributeFQN", attributeFQN);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("value", value);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(attributeVocabularyValue).execute();
 		return self.client.result();
 
 	

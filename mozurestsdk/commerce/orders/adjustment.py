@@ -35,7 +35,7 @@ class Adjustment(object):
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("updateMode", updateMode);
 		url.formatUrl("version", version);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(adjustment).execute();
 		return self.client.result();
 
 	
@@ -58,7 +58,7 @@ class Adjustment(object):
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("updateMode", updateMode);
 		url.formatUrl("version", version);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(adjustment).execute();
 		return self.client.result();
 
 	

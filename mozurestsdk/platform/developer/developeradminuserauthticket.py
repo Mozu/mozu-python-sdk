@@ -29,7 +29,7 @@ class DeveloperAdminUserAuthTicket(object):
 		url = MozuUrl("/api/platform/developer/authtickets/?developerAccountId={developerAccountId}&responseFields={responseFields}", "POST", UrlLocation.HomePod, False);
 		url.formatUrl("developerAccountId", developerAccountId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(userAuthInfo).execute();
 		return self.client.result();
 
 	
@@ -48,7 +48,7 @@ class DeveloperAdminUserAuthTicket(object):
 		url = MozuUrl("/api/platform/developer/authtickets/?developerAccountId={developerAccountId}&responseFields={responseFields}", "PUT", UrlLocation.HomePod, False);
 		url.formatUrl("developerAccountId", developerAccountId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(existingAuthTicket).execute();
 		return self.client.result();
 
 	

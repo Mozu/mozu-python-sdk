@@ -25,7 +25,7 @@ class PublicCard(object):
 		"""
 
 		url = MozuUrl("/payment/commerce/payments/cards/", "POST", UrlLocation.PCIPod, False);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(request).execute();
 		return self.client.result();
 
 	
@@ -42,7 +42,7 @@ class PublicCard(object):
 
 		url = MozuUrl("/payment/commerce/payments/cards/{cardId}", "PUT", UrlLocation.PCIPod, False);
 		url.formatUrl("cardId", cardId);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(request).execute();
 		return self.client.result();
 
 	

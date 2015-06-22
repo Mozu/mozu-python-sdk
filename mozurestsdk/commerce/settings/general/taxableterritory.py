@@ -41,7 +41,7 @@ class TaxableTerritory(object):
 
 		url = MozuUrl("/api/commerce/settings/general/taxableterritories?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(taxableTerritory).execute();
 		return self.client.result();
 
 	
@@ -56,7 +56,7 @@ class TaxableTerritory(object):
 		"""
 
 		url = MozuUrl("/api/commerce/settings/general/taxableterritories", "PUT", UrlLocation.TenantPod, False);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(taxableterritories).execute();
 		return self.client.result();
 
 	

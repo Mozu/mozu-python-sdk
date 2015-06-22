@@ -45,7 +45,7 @@ class Application(object):
 
 		url = MozuUrl("/api/commerce/settings/applications/?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(application).execute();
 		return self.client.result();
 
 	

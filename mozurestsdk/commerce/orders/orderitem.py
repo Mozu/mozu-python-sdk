@@ -101,7 +101,7 @@ class OrderItem(object):
 		url.formatUrl("skipInventoryCheck", skipInventoryCheck);
 		url.formatUrl("updateMode", updateMode);
 		url.formatUrl("version", version);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(orderItem).execute();
 		return self.client.result();
 
 	
@@ -128,7 +128,7 @@ class OrderItem(object):
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("updateMode", updateMode);
 		url.formatUrl("version", version);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(discount).execute();
 		return self.client.result();
 
 	
@@ -179,7 +179,7 @@ class OrderItem(object):
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("updateMode", updateMode);
 		url.formatUrl("version", version);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(orderItem).execute();
 		return self.client.result();
 
 	

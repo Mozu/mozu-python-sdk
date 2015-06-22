@@ -47,7 +47,7 @@ class Transaction(object):
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/transactions?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("accountId", accountId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(transaction).execute();
 		return self.client.result();
 
 	

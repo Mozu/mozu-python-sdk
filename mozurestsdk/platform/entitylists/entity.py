@@ -77,7 +77,7 @@ class Entity(object):
 		url = MozuUrl("/api/platform/entitylists/{entityListFullName}/entities/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("entityListFullName", entityListFullName);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(item).execute();
 		return self.client.result();
 
 	
@@ -98,7 +98,7 @@ class Entity(object):
 		url.formatUrl("entityListFullName", entityListFullName);
 		url.formatUrl("id", id);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(item).execute();
 		return self.client.result();
 
 	

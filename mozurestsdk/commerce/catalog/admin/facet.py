@@ -71,7 +71,7 @@ class Facet(object):
 
 		url = MozuUrl("/api/commerce/catalog/admin/facets/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(facet).execute();
 		return self.client.result();
 
 	
@@ -90,7 +90,7 @@ class Facet(object):
 		url = MozuUrl("/api/commerce/catalog/admin/facets/{facetId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("facetId", facetId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(facet).execute();
 		return self.client.result();
 
 	

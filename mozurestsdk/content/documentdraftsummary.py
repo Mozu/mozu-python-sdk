@@ -50,7 +50,7 @@ class DocumentDraftSummary(object):
 
 		url = MozuUrl("/api/content/documentpublishing/draft?documentLists={documentLists}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("documentLists", documentLists);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(documentIds).execute();
 
 	
 		
@@ -65,7 +65,7 @@ class DocumentDraftSummary(object):
 
 		url = MozuUrl("/api/content/documentpublishing/active?documentLists={documentLists}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("documentLists", documentLists);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(documentIds).execute();
 
 	
 	

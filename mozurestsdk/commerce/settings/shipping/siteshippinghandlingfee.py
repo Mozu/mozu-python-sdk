@@ -45,7 +45,7 @@ class SiteShippingHandlingFee(object):
 
 		url = MozuUrl("/api/commerce/settings/shipping/orderhandlingfee?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(orderHandlingFee).execute();
 		return self.client.result();
 
 	
@@ -62,7 +62,7 @@ class SiteShippingHandlingFee(object):
 
 		url = MozuUrl("/api/commerce/settings/shipping/orderhandlingfee?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(orderHandlingFee).execute();
 		return self.client.result();
 
 	

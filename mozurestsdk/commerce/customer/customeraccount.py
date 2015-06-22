@@ -97,7 +97,7 @@ class CustomerAccount(object):
 
 		url = MozuUrl("/api/commerce/customer/accounts/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(account).execute();
 		return self.client.result();
 
 	
@@ -115,7 +115,7 @@ class CustomerAccount(object):
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/Change-Password?unlockAccount={unlockAccount}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("accountId", accountId);
 		url.formatUrl("unlockAccount", unlockAccount);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(passwordInfo).execute();
 
 	
 		
@@ -133,7 +133,7 @@ class CustomerAccount(object):
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/Create-Login?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("accountId", accountId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(customerAuthInfo).execute();
 		return self.client.result();
 
 	
@@ -163,7 +163,7 @@ class CustomerAccount(object):
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/Set-Login-Locked", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("accountId", accountId);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(isLocked).execute();
 
 	
 		
@@ -178,7 +178,7 @@ class CustomerAccount(object):
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/Set-Password-Change-Required", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("accountId", accountId);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(isPasswordChangeRequired).execute();
 
 	
 		
@@ -194,7 +194,7 @@ class CustomerAccount(object):
 
 		url = MozuUrl("/api/commerce/customer/accounts/Add-Account-And-Login?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(accountAndAuthInfo).execute();
 		return self.client.result();
 
 	
@@ -211,7 +211,7 @@ class CustomerAccount(object):
 
 		url = MozuUrl("/api/commerce/customer/accounts/Bulk?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(customers).execute();
 		return self.client.result();
 
 	
@@ -228,7 +228,7 @@ class CustomerAccount(object):
 
 		url = MozuUrl("/api/commerce/customer/accounts/Change-Passwords?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(accountPasswordInfos).execute();
 		return self.client.result();
 
 	
@@ -278,7 +278,7 @@ class CustomerAccount(object):
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/Reset-Password", "POST", UrlLocation.TenantPod, False);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(resetPasswordInfo).execute();
 
 	
 		
@@ -296,7 +296,7 @@ class CustomerAccount(object):
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("accountId", accountId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(account).execute();
 		return self.client.result();
 
 	

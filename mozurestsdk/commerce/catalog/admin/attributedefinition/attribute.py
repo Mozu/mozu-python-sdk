@@ -71,7 +71,7 @@ class Attribute(object):
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(attribute).execute();
 		return self.client.result();
 
 	
@@ -90,7 +90,7 @@ class Attribute(object):
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("attributeFQN", attributeFQN);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(attribute).execute();
 		return self.client.result();
 
 	

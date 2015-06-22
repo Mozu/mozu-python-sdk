@@ -69,7 +69,7 @@ class PropertyType(object):
 
 		url = MozuUrl("/api/content/propertytypes/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(propertyType).execute();
 		return self.client.result();
 
 	
@@ -88,7 +88,7 @@ class PropertyType(object):
 		url = MozuUrl("/api/content/propertytypes/{propertyTypeName}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("propertyTypeName", propertyTypeName);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(propertyType).execute();
 		return self.client.result();
 
 	

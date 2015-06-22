@@ -31,7 +31,7 @@ class Refund(object):
 		url = MozuUrl("/api/commerce/orders/{orderId}/refunds?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("orderId", orderId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(refund).execute();
 		return self.client.result();
 
 	

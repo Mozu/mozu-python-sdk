@@ -107,7 +107,7 @@ class Discount(object):
 
 		url = MozuUrl("/api/commerce/catalog/admin/discounts/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(discount).execute();
 		return self.client.result();
 
 	
@@ -126,7 +126,7 @@ class Discount(object):
 		url = MozuUrl("/api/commerce/catalog/admin/discounts/{discountId}/content?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("discountId", discountId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(content).execute();
 		return self.client.result();
 
 	
@@ -145,7 +145,7 @@ class Discount(object):
 		url = MozuUrl("/api/commerce/catalog/admin/discounts/{discountId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("discountId", discountId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(discount).execute();
 		return self.client.result();
 
 	

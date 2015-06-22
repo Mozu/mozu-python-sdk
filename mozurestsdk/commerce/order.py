@@ -127,7 +127,7 @@ class Order(object):
 
 		url = MozuUrl("/api/commerce/orders/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(order).execute();
 		return self.client.result();
 
 	
@@ -146,7 +146,7 @@ class Order(object):
 		url = MozuUrl("/api/commerce/orders/{orderId}/actions?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("orderId", orderId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(action).execute();
 		return self.client.result();
 
 	
@@ -171,7 +171,7 @@ class Order(object):
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("updateMode", updateMode);
 		url.formatUrl("version", version);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(discount).execute();
 		return self.client.result();
 
 	
@@ -203,7 +203,7 @@ class Order(object):
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/email/resend", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("orderId", orderId);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(action).execute();
 
 	
 		
@@ -243,7 +243,7 @@ class Order(object):
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("updateMode", updateMode);
 		url.formatUrl("version", version);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(order).execute();
 		return self.client.result();
 
 	

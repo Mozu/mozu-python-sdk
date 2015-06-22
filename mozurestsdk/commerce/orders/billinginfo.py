@@ -55,7 +55,7 @@ class BillingInfo(object):
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("updateMode", updateMode);
 		url.formatUrl("version", version);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(billingInfo).execute();
 		return self.client.result();
 
 	

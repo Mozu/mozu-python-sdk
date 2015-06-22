@@ -97,7 +97,7 @@ class Document(object):
 		url = MozuUrl("/api/content/documentlists/{documentListName}/documents?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("documentListName", documentListName);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(document).execute();
 		return self.client.result();
 
 	
@@ -115,7 +115,7 @@ class Document(object):
 		url = MozuUrl("/api/content/documentlists/{documentListName}/documents/{documentId}/content", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("documentId", documentId);
 		url.formatUrl("documentListName", documentListName);
-		self.client.withResourceUrl(url).withContentType(contentType).execute();
+		self.client.withResourceUrl(url).withBody(stream).withContentType(contentType).execute();
 
 	
 		
@@ -135,7 +135,7 @@ class Document(object):
 		url.formatUrl("documentId", documentId);
 		url.formatUrl("documentListName", documentListName);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(document).execute();
 		return self.client.result();
 
 	

@@ -117,7 +117,7 @@ class ProductExtra(object):
 		url.formatUrl("productCode", productCode);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("value", value);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(localizedDeltaPrice).execute();
 		return self.client.result();
 
 	
@@ -136,7 +136,7 @@ class ProductExtra(object):
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Extras?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("productCode", productCode);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(productExtra).execute();
 		return self.client.result();
 
 	
@@ -157,7 +157,7 @@ class ProductExtra(object):
 		url.formatUrl("attributeFQN", attributeFQN);
 		url.formatUrl("productCode", productCode);
 		url.formatUrl("value", value);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(localizedDeltaPrice).execute();
 		return self.client.result();
 
 	
@@ -182,7 +182,7 @@ class ProductExtra(object):
 		url.formatUrl("productCode", productCode);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("value", value);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(localizedDeltaPrice).execute();
 		return self.client.result();
 
 	
@@ -203,7 +203,7 @@ class ProductExtra(object):
 		url.formatUrl("attributeFQN", attributeFQN);
 		url.formatUrl("productCode", productCode);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(productExtra).execute();
 		return self.client.result();
 
 	

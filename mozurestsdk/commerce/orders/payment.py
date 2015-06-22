@@ -89,7 +89,7 @@ class Payment(object):
 		url.formatUrl("orderId", orderId);
 		url.formatUrl("paymentId", paymentId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(action).execute();
 		return self.client.result();
 
 	
@@ -108,7 +108,7 @@ class Payment(object):
 		url = MozuUrl("/api/commerce/orders/{orderId}/payments/actions?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("orderId", orderId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(action).execute();
 		return self.client.result();
 
 	

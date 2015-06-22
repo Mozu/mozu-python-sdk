@@ -27,7 +27,7 @@ class AuthTicket(object):
 
 		url = MozuUrl("/api/platform/applications/authtickets/?responseFields={responseFields}", "POST", UrlLocation.HomePod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(appAuthInfo).execute();
 		return self.client.result();
 
 	
@@ -44,7 +44,7 @@ class AuthTicket(object):
 
 		url = MozuUrl("/api/platform/applications/authtickets/refresh-ticket?responseFields={responseFields}", "PUT", UrlLocation.HomePod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(authTicketRequest).execute();
 		return self.client.result();
 
 	

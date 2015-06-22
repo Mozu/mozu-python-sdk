@@ -69,7 +69,7 @@ class SoftAllocation(object):
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/softallocations/", "POST", UrlLocation.TenantPod, False);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(softAllocationsIn).execute();
 		return self.client.result();
 
 	
@@ -84,7 +84,7 @@ class SoftAllocation(object):
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/softallocations/convert", "POST", UrlLocation.TenantPod, False);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(softAllocations).execute();
 		return self.client.result();
 
 	
@@ -99,7 +99,7 @@ class SoftAllocation(object):
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/softallocations/renew", "POST", UrlLocation.TenantPod, False);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(softAllocationRenew).execute();
 		return self.client.result();
 
 	
@@ -114,7 +114,7 @@ class SoftAllocation(object):
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/softallocations/", "PUT", UrlLocation.TenantPod, False);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(softAllocations).execute();
 		return self.client.result();
 
 	

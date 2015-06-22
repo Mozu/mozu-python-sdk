@@ -87,7 +87,7 @@ class Package(object):
 		url = MozuUrl("/api/commerce/orders/{orderId}/packages?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("orderId", orderId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(package).execute();
 		return self.client.result();
 
 	
@@ -108,7 +108,7 @@ class Package(object):
 		url.formatUrl("orderId", orderId);
 		url.formatUrl("packageId", packageId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(package).execute();
 		return self.client.result();
 
 	

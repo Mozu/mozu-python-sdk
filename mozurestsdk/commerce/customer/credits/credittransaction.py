@@ -57,7 +57,7 @@ class CreditTransaction(object):
 		url = MozuUrl("/api/commerce/customer/credits/{code}/transactions?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("code", code);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(creditTransaction).execute();
 		return self.client.result();
 
 	

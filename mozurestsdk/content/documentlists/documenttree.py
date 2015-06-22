@@ -70,7 +70,7 @@ class DocumentTree(object):
 		url = MozuUrl("/api/content/documentlists/{documentListName}/documentTree/{documentName}/content?folderPath={folderPath}&folderId={folderId}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("documentListName", documentListName);
 		url.formatUrl("documentName", documentName);
-		self.client.withResourceUrl(url).withContentType(contentType).execute();
+		self.client.withResourceUrl(url).withBody(stream).withContentType(contentType).execute();
 
 	
 		
@@ -87,7 +87,7 @@ class DocumentTree(object):
 		url = MozuUrl("/api/content/documentlists/{documentListName}/documentTree/{documentName}/content?folderPath={folderPath}&folderId={folderId}", "DELETE", UrlLocation.TenantPod, False);
 		url.formatUrl("documentListName", documentListName);
 		url.formatUrl("documentName", documentName);
-		self.client.withResourceUrl(url).withContentType(contentType).execute();
+		self.client.withResourceUrl(url).withBody(stream).withContentType(contentType).execute();
 
 	
 	

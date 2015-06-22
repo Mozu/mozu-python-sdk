@@ -91,7 +91,7 @@ class Category(object):
 		url = MozuUrl("/api/commerce/catalog/admin/categories/?incrementSequence={incrementSequence}&responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("incrementSequence", incrementSequence);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(category).execute();
 		return self.client.result();
 
 	
@@ -112,7 +112,7 @@ class Category(object):
 		url.formatUrl("cascadeVisibility", cascadeVisibility);
 		url.formatUrl("categoryId", categoryId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(category).execute();
 		return self.client.result();
 
 	

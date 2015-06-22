@@ -65,7 +65,7 @@ class MasterCatalog(object):
 		url = MozuUrl("/api/commerce/catalog/admin/mastercatalogs/{masterCatalogId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("masterCatalogId", masterCatalogId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(masterCatalog).execute();
 		return self.client.result();
 
 	

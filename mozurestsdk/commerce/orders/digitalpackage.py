@@ -69,7 +69,7 @@ class DigitalPackage(object):
 		url = MozuUrl("/api/commerce/orders/{orderId}/digitalpackages?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("orderId", orderId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(digitalPackage).execute();
 		return self.client.result();
 
 	
@@ -90,7 +90,7 @@ class DigitalPackage(object):
 		url.formatUrl("digitalPackageId", digitalPackageId);
 		url.formatUrl("orderId", orderId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(digitalPackage).execute();
 		return self.client.result();
 
 	

@@ -71,7 +71,7 @@ class ChannelGroup(object):
 
 		url = MozuUrl("/api/commerce/channelgroups/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(channelGroup).execute();
 		return self.client.result();
 
 	
@@ -90,7 +90,7 @@ class ChannelGroup(object):
 		url = MozuUrl("/api/commerce/channelgroups/{code}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("code", code);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(channelGroup).execute();
 		return self.client.result();
 
 	

@@ -41,7 +41,7 @@ class CustomerAuthTicket(object):
 
 		url = MozuUrl("/api/commerce/customer/authtickets/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(userAuthInfo).execute();
 		return self.client.result();
 
 	

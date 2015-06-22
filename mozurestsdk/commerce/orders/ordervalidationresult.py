@@ -47,7 +47,7 @@ class OrderValidationResult(object):
 		url = MozuUrl("/api/commerce/orders/{orderId}/validationresults?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("orderId", orderId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(validationResult).execute();
 		return self.client.result();
 
 	

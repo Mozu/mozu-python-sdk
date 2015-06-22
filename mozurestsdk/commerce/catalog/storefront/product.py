@@ -107,7 +107,7 @@ class Product(object):
 		url.formatUrl("productCode", productCode);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("skipInventoryCheck", skipInventoryCheck);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(productOptionSelections).execute();
 		return self.client.result();
 
 	
@@ -128,7 +128,7 @@ class Product(object):
 		url.formatUrl("productCode", productCode);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("skipInventoryCheck", skipInventoryCheck);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(productOptionSelections).execute();
 		return self.client.result();
 
 	
@@ -155,7 +155,7 @@ class Product(object):
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("skipInventoryCheck", skipInventoryCheck);
 		url.formatUrl("variationProductCode", variationProductCode);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(discountSelections).execute();
 		return self.client.result();
 
 	
@@ -172,7 +172,7 @@ class Product(object):
 
 		url = MozuUrl("/api/commerce/catalog/storefront/products/locationinventory?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(query).execute();
 		return self.client.result();
 
 	

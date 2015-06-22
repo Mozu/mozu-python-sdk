@@ -181,7 +181,7 @@ class Return(object):
 
 		url = MozuUrl("/api/commerce/returns/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(ret).execute();
 		return self.client.result();
 
 	
@@ -200,7 +200,7 @@ class Return(object):
 		url = MozuUrl("/api/commerce/returns/{returnId}/items?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("returnId", returnId);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(returnItem).execute();
 		return self.client.result();
 
 	
@@ -221,7 +221,7 @@ class Return(object):
 		url.formatUrl("paymentId", paymentId);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("returnId", returnId);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(action).execute();
 		return self.client.result();
 
 	
@@ -240,7 +240,7 @@ class Return(object):
 		url = MozuUrl("/api/commerce/returns/{returnId}/payments/actions?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("returnId", returnId);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(action).execute();
 		return self.client.result();
 
 	
@@ -257,7 +257,7 @@ class Return(object):
 
 		url = MozuUrl("/api/commerce/returns/actions?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(action).execute();
 		return self.client.result();
 
 	
@@ -276,7 +276,7 @@ class Return(object):
 		url = MozuUrl("/api/commerce/returns/{returnId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("returnId", returnId);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(ret).execute();
 		return self.client.result();
 
 	
@@ -290,7 +290,7 @@ class Return(object):
 		"""
 
 		url = MozuUrl("/api/commerce/returns/email/resend", "PUT", UrlLocation.TenantPod, False);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(action).execute();
 
 	
 		

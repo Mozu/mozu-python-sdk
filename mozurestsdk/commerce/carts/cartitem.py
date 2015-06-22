@@ -63,7 +63,7 @@ class CartItem(object):
 
 		url = MozuUrl("/api/commerce/carts/current/items?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(cartItem).execute();
 		return self.client.result();
 
 	
@@ -102,7 +102,7 @@ class CartItem(object):
 		url = MozuUrl("/api/commerce/carts/current/items/{cartItemId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("cartItemId", cartItemId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(cartItem).execute();
 		return self.client.result();
 
 	

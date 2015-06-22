@@ -46,7 +46,7 @@ class SiteData(object):
 
 		url = MozuUrl("/api/platform/sitedata/{*dbEntryQuery}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("dbEntryQuery", dbEntryQuery);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(value).execute();
 
 	
 		
@@ -61,7 +61,7 @@ class SiteData(object):
 
 		url = MozuUrl("/api/platform/sitedata/{*dbEntryQuery}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("dbEntryQuery", dbEntryQuery);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(value).execute();
 
 	
 		

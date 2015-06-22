@@ -9,7 +9,7 @@ class Product_Test(unittest.TestCase):
 		logging.basicConfig(level=logging.DEBUG);
 		client = mozuclient.configure(config="c:\projects\mozuconfig.txt");
 		
-	def test_getProduct(self):
+	def test_getProductNotFound(self):
 		apiContext = ApiContext(catalogId=1,masterCatalogId=1);
 		product = Product(apiContext);
 		p = product.getProduct("test");

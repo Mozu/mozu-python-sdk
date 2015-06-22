@@ -69,7 +69,7 @@ class Card(object):
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/cards?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("accountId", accountId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(card).execute();
 		return self.client.result();
 
 	
@@ -90,7 +90,7 @@ class Card(object):
 		url.formatUrl("accountId", accountId);
 		url.formatUrl("cardId", cardId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(card).execute();
 		return self.client.result();
 
 	

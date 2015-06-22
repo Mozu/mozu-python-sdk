@@ -69,7 +69,7 @@ class DocumentType(object):
 
 		url = MozuUrl("/api/content/documenttypes/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(documentType).execute();
 		return self.client.result();
 
 	
@@ -88,7 +88,7 @@ class DocumentType(object):
 		url = MozuUrl("/api/content/documenttypes/{documentTypeName}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("documentTypeName", documentTypeName);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(documentType).execute();
 		return self.client.result();
 
 	

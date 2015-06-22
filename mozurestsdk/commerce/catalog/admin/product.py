@@ -115,7 +115,7 @@ class Product(object):
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(product).execute();
 		return self.client.result();
 
 	
@@ -134,7 +134,7 @@ class Product(object):
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/ProductInCatalogs?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("productCode", productCode);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(productInCatalogInfoIn).execute();
 		return self.client.result();
 
 	
@@ -148,7 +148,7 @@ class Product(object):
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/Actions/RenameProductCodes", "POST", UrlLocation.TenantPod, False);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(productCodeRenames).execute();
 
 	
 		
@@ -164,7 +164,7 @@ class Product(object):
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/ProductInCatalogs", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("productCode", productCode);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(productInCatalogsIn).execute();
 		return self.client.result();
 
 	
@@ -185,7 +185,7 @@ class Product(object):
 		url.formatUrl("catalogId", catalogId);
 		url.formatUrl("productCode", productCode);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(productInCatalogInfoIn).execute();
 		return self.client.result();
 
 	
@@ -204,7 +204,7 @@ class Product(object):
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("productCode", productCode);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(product).execute();
 		return self.client.result();
 
 	

@@ -121,7 +121,7 @@ class ProductVariation(object):
 		url.formatUrl("productCode", productCode);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("variationKey", variationKey);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(localizedDeltaPrice).execute();
 		return self.client.result();
 
 	
@@ -140,7 +140,7 @@ class ProductVariation(object):
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedDeltaPrice", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("productCode", productCode);
 		url.formatUrl("variationKey", variationKey);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(localizedDeltaPrice).execute();
 		return self.client.result();
 
 	
@@ -163,7 +163,7 @@ class ProductVariation(object):
 		url.formatUrl("productCode", productCode);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("variationKey", variationKey);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(localizedDeltaPrice).execute();
 		return self.client.result();
 
 	
@@ -184,7 +184,7 @@ class ProductVariation(object):
 		url.formatUrl("productCode", productCode);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("variationKey", variationKey);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(productVariation).execute();
 		return self.client.result();
 
 	
@@ -203,7 +203,7 @@ class ProductVariation(object):
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/variations?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("productCode", productCode);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(productVariations).execute();
 		return self.client.result();
 
 	

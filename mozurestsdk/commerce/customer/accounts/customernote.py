@@ -77,7 +77,7 @@ class CustomerNote(object):
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/notes?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("accountId", accountId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(note).execute();
 		return self.client.result();
 
 	
@@ -98,7 +98,7 @@ class CustomerNote(object):
 		url.formatUrl("accountId", accountId);
 		url.formatUrl("noteId", noteId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(note).execute();
 		return self.client.result();
 
 	

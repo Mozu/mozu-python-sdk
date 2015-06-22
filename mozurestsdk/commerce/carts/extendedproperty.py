@@ -39,7 +39,7 @@ class ExtendedProperty(object):
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current/extendedproperties", "POST", UrlLocation.TenantPod, False);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(extendedProperties).execute();
 		return self.client.result();
 
 	
@@ -60,7 +60,7 @@ class ExtendedProperty(object):
 		url.formatUrl("key", key);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("upsert", upsert);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(extendedProperty).execute();
 		return self.client.result();
 
 	
@@ -77,7 +77,7 @@ class ExtendedProperty(object):
 
 		url = MozuUrl("/api/commerce/carts/current/extendedproperties?upsert={upsert}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("upsert", upsert);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(extendedProperties).execute();
 		return self.client.result();
 
 	
@@ -91,7 +91,7 @@ class ExtendedProperty(object):
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current/extendedproperties", "DELETE", UrlLocation.TenantPod, False);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(keys).execute();
 
 	
 		

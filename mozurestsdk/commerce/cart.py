@@ -115,7 +115,7 @@ class Cart(object):
 
 		url = MozuUrl("/api/commerce/carts/current?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(cart).execute();
 		return self.client.result();
 
 	

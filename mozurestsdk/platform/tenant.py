@@ -16,13 +16,17 @@ class Tenant(object):
 		self.client = mozuClient or default_client();
 	
 	def getTenant(self,tenantId, responseFields = None):
-		"""
-			Retrieve details about a specific tenant by providing the tenant ID.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				int tenantId Unique identifier of the Mozu tenant.
-			Response
-				Tenant 
+		"""Retrieve details about a specific tenant by providing the tenant ID.
+
+		Args:
+			string responseFields Use this field to include those fields which are not included by default.
+			int tenantId Unique identifier of the Mozu tenant.
+
+		Returns:
+			Tenant
+
+		Raises:
+			ApiException: Mozu exception
 		"""
 
 		url = MozuUrl("/api/platform/tenants/{tenantId}?responseFields={responseFields}", "GET", UrlLocation.HomePod, False);

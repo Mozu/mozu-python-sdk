@@ -29,7 +29,7 @@ class AddressValidationRequest(object):
 
 		url = MozuUrl("/api/commerce/customer/addressvalidation/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(addressValidationRequest).execute();
 		return self.client.result();
 
 	

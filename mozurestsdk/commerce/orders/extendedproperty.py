@@ -51,7 +51,7 @@ class ExtendedProperty(object):
 		url.formatUrl("orderId", orderId);
 		url.formatUrl("updateMode", updateMode);
 		url.formatUrl("version", version);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(extendedProperties).execute();
 		return self.client.result();
 
 	
@@ -78,7 +78,7 @@ class ExtendedProperty(object):
 		url.formatUrl("updateMode", updateMode);
 		url.formatUrl("upsert", upsert);
 		url.formatUrl("version", version);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(extendedProperty).execute();
 		return self.client.result();
 
 	
@@ -101,7 +101,7 @@ class ExtendedProperty(object):
 		url.formatUrl("updateMode", updateMode);
 		url.formatUrl("upsert", upsert);
 		url.formatUrl("version", version);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(extendedProperties).execute();
 		return self.client.result();
 
 	
@@ -141,7 +141,7 @@ class ExtendedProperty(object):
 		url.formatUrl("orderId", orderId);
 		url.formatUrl("updateMode", updateMode);
 		url.formatUrl("version", version);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(keys).execute();
 
 	
 	

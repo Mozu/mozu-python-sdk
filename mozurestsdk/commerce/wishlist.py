@@ -95,7 +95,7 @@ class Wishlist(object):
 
 		url = MozuUrl("/api/commerce/wishlists/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(wishlist).execute();
 		return self.client.result();
 
 	
@@ -114,7 +114,7 @@ class Wishlist(object):
 		url = MozuUrl("/api/commerce/wishlists/{wishlistId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("wishlistId", wishlistId);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(wishlist).execute();
 		return self.client.result();
 
 	

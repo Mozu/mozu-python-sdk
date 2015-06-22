@@ -45,7 +45,7 @@ class Search(object):
 
 		url = MozuUrl("/api/commerce/catalog/admin/search/settings?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(settings).execute();
 		return self.client.result();
 
 	

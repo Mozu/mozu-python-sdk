@@ -67,7 +67,7 @@ class AttributeLocalizedContent(object):
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/LocalizedContent?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("attributeFQN", attributeFQN);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(localizedContent).execute();
 		return self.client.result();
 
 	
@@ -84,7 +84,7 @@ class AttributeLocalizedContent(object):
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/LocalizedContent", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("attributeFQN", attributeFQN);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(localizedContent).execute();
 		return self.client.result();
 
 	
@@ -105,7 +105,7 @@ class AttributeLocalizedContent(object):
 		url.formatUrl("attributeFQN", attributeFQN);
 		url.formatUrl("localeCode", localeCode);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(localizedContent).execute();
 		return self.client.result();
 
 	

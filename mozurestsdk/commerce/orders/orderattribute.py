@@ -45,7 +45,7 @@ class OrderAttribute(object):
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/attributes", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("orderId", orderId);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(orderAttributes).execute();
 		return self.client.result();
 
 	
@@ -64,7 +64,7 @@ class OrderAttribute(object):
 		url = MozuUrl("/api/commerce/orders/{orderId}/attributes?removeMissing={removeMissing}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("orderId", orderId);
 		url.formatUrl("removeMissing", removeMissing);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(orderAttributes).execute();
 		return self.client.result();
 
 	

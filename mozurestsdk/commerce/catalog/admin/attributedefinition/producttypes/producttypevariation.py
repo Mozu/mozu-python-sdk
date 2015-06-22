@@ -41,7 +41,7 @@ class ProductTypeVariation(object):
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("sortBy", sortBy);
 		url.formatUrl("startIndex", startIndex);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(productOptionsIn).execute();
 		return self.client.result();
 
 	

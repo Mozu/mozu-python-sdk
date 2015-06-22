@@ -45,7 +45,7 @@ class CustomerCheckoutSettings(object):
 
 		url = MozuUrl("/api/commerce/settings/checkout/customercheckoutsettings?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(customerCheckoutSettings).execute();
 		return self.client.result();
 
 	

@@ -6,16 +6,18 @@ import json;
 import requests;
 import datetime;
 import platform;
+import configparser;
+
+def readConfigFile(configFile):
+	if (configFile is None):
+		return None;
+	config = configparser.ConfigParser();
+	config.optionxform=str
+	config.read(configFile);
+	logging.info("Getting values from configFile : %s" % configFile);
+	return configSectionToDict(config, "MozuConfig");
 
 def merge_dict(data, *override):
-    """
-    Merges any number of dictionaries together, and returns a single dictionary
-
-    Usage::
-
-        >>> util.merge_dict({"foo": "bar"}, {1: 2}, {"Pay": "Pal"})
-        {1: 2, 'foo': 'bar', 'Pay': 'Pal'}
-    """
     result = {}
     for current_dict in (data,) + override:
         result.update(current_dict)
@@ -46,7 +48,7 @@ def validateResponse(response):
 	apiException.correlationId = correlationId;
 	apiException.statusCode = status;
 
-	if (response.json() is not None):
+	if (response.text is not ''):
 		content =  response.json();
 		apiException.message = content["message"];
 		apiException.errorCode = content["errorCode"];

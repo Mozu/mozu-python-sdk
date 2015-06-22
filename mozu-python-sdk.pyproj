@@ -190,6 +190,15 @@
     <Compile Include="mozurestsdk\platform\userdata.py" />
     <Compile Include="mozurestsdk\platform\__init__.py" />
     <Compile Include="mozurestsdk\security\appauthenticator.py" />
+    <Compile Include="mozurestsdk\security\authenticationscope.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="mozurestsdk\security\sha256generator.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="mozurestsdk\security\userauthenticator.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="mozurestsdk\security\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -213,6 +222,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="test\functional_test\security_test\appauthenticator_test.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="test\functional_test\security_test\userauthenticator_test.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

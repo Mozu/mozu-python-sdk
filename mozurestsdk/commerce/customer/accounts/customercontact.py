@@ -77,7 +77,7 @@ class CustomerContact(object):
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/contacts?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("accountId", accountId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(contact).execute();
 		return self.client.result();
 
 	
@@ -98,7 +98,7 @@ class CustomerContact(object):
 		url.formatUrl("accountId", accountId);
 		url.formatUrl("contactId", contactId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(contact).execute();
 		return self.client.result();
 
 	

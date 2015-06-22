@@ -107,7 +107,7 @@ class Application(object):
 		url.formatUrl("filepath", filepath);
 		url.formatUrl("lastModifiedTime", lastModifiedTime);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).withContentType(contentType).execute();
+		self.client.withResourceUrl(url).withBody(stream).withContentType(contentType).execute();
 		return self.client.result();
 
 	
@@ -126,7 +126,7 @@ class Application(object):
 		url = MozuUrl("/api/platform/developer/packages/{applicationKey}/files_rename?responseFields={responseFields}", "POST", UrlLocation.HomePod, False);
 		url.formatUrl("applicationKey", applicationKey);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(renameInfo).execute();
 		return self.client.result();
 
 	

@@ -69,7 +69,7 @@ class ProductTypeOption(object):
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Options?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("productTypeId", productTypeId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(attributeInProductType).execute();
 		return self.client.result();
 
 	
@@ -90,7 +90,7 @@ class ProductTypeOption(object):
 		url.formatUrl("attributeFQN", attributeFQN);
 		url.formatUrl("productTypeId", productTypeId);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(attributeInProductType).execute();
 		return self.client.result();
 
 	

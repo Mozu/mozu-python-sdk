@@ -65,7 +65,7 @@ class LocationUsage(object):
 		url = MozuUrl("/api/commerce/settings/locationUsages/{code}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("code", code);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(usage).execute();
 		return self.client.result();
 
 	

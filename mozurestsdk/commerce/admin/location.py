@@ -71,7 +71,7 @@ class Location(object):
 
 		url = MozuUrl("/api/commerce/admin/locations/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(location).execute();
 		return self.client.result();
 
 	
@@ -90,7 +90,7 @@ class Location(object):
 		url = MozuUrl("/api/commerce/admin/locations/{locationCode}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("locationCode", locationCode);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(location).execute();
 		return self.client.result();
 
 	

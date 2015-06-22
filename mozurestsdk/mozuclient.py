@@ -1,10 +1,9 @@
 import logging
 import json
-import configparser
 import os;
 from urllib.parse import urlparse;
 from mozurestsdk.headers import Headers;
-from mozurestsdk.security.appauthenticator import AppAuthenticator
+from mozurestsdk.security import appauthenticator;
 from mozurestsdk import util
 from mozurestsdk.mozuurl import MozuUrl;
 from mozurestsdk.urllocation import UrlLocation
@@ -33,23 +32,16 @@ class MozuClient(object):
 		"""
 
 		args = util.merge_dict(options or {}, args);
-
+		
 		configFile = args.get("config", None);
 		if (configFile != None):
-			config = configparser.ConfigParser();
-			config.optionxform=str
-			config.read(configFile);
-			logging.info("Getting values from configFile : %s" % configFile);
-			args = util.merge_dict(util.configSectionToDict(config, "MozuConfig") or {}, args)
+			args = util.merge_dict(util.readConfigFile(configFile) or {}, args)
 			
-		self.applicationKey = args.get("applicationKey", None);
-		self.sharedSecret = args.get("sharedSecret", None);
 
 		self.verifySSLCert = args.get("verifySSLCert", None);
 		if (self.verifySSLCert is not None):
 			self.verifySSLCert = self.verifySSLCert == "True";
-		if (self.applicationKey == None or self.sharedSecret == None):
-			raise Exception("applicationKey or sharedSecret is missing");
+		
 
 		self.baseAuthUrl = args.get("baseAuthUrl", __baseUrl__);
 		authScheme = urlparse(self.baseAuthUrl).scheme;
@@ -57,7 +49,8 @@ class MozuClient(object):
 			self.__scheme = urlparse(self.baseAuthUrl).scheme;
 		self.basePCIUrl = args.get("basePCIUrl", __basePciUrl__);
 		
-		self.appAuth = None;
+		self.appAuth = appauthenticator.configure(**args);
+		#self.isAuthenticated = False;
 		tenantId = args.get("tenantId", None);
 		if (tenantId is not None):
 			self.__apiContext = ApiContext(**args);
@@ -123,7 +116,6 @@ class MozuClient(object):
 		return self.response.json();
 
 	def execute(self):
-		self.authenticate();
 		self.validate();
 		logging.info("executing request using url : %s" % self.__resourceUrl.uri);
 		self.__headers[Headers.X_VOL_APP_CLAIMS] = self.appAuth.getAccessToken();
@@ -152,8 +144,7 @@ class MozuClient(object):
 				raise Exception("TenantId is missing in apiContext");
 
 			if (self.apicontext.tenantUrl is None):
-				tenant =  self.getTenant(self.apicontext.tenantId);
-				self.__baseAddress = tenant["domain"];
+				self.__baseAddress =  self.getTenantUrl(self.apicontext.tenantId);
 			else:
 				self.__baseAddress = self.apicontext.tenantUrl;
 
@@ -163,34 +154,32 @@ class MozuClient(object):
 				self.__baseAddress = self.__scheme+"://"+self.__baseAddress;
 		logging.info("Base URi address set to %s " % self.__baseAddress);
 
-	def authenticate(self):
-		if (self.appAuth is None):
-			self.appAuth = AppAuthenticator(self.applicationKey, self.sharedSecret, self.baseAuthUrl, self.verifySSLCert);
-			self.appAuth.authenticate();
-
 	def getTenant(self, tenantId: int):
-		self.authenticate();
 		requestUrl = self.baseAuthUrl+"/api/platform/tenants/"+str(tenantId);
 		headers = {};
 		headers[Headers.X_VOL_APP_CLAIMS] = self.appAuth.getAccessToken();
 		response = util.http_call(requestUrl,"GET", headers=headers, verify=self.verifySSLCert);
 		return response.json();
 
-	
+	def getTenantUrl(self, tenantId: int):
+		tenant = self.getTenant(tenantId);
+		scheme = urlparse(self.__baseAddress).scheme;
+		self.__baseAddress = self.__scheme+"://"+tenant["domain"];
+
 __mozuclient__ = None
 
 def default():
 	global __mozuclient__
 	if (__mozuclient__ is None):
-		configFile = os.getenv("mozuConfig", None);
+		configFile = os.getenv("config", None);
 
 		if (configFile is not None):
 			__mozuclient__ = MozuClient(config=configFile);
 		else:
-			applicationKey = os.getenv("ApplicationKey", None);
-			sharedSecret = os.getenv("SharedSecret", None);
-			baseAuthUrl = os.getenv("AuthUrl",__baseUrl__);
-			basePCIUrl = os.getenv("PCIUrl", __basePciUrl__);
+			applicationKey = os.getenv("applicationKey", None);
+			sharedSecret = os.getenv("sharedSecret", None);
+			baseAuthUrl = os.getenv("baseAuthUrl",__baseUrl__);
+			basePCIUrl = os.getenv("basePCIUrl", __basePciUrl__);
 			__mozuclient__ = MozuClient(applicationKey=applicationKey, sharedSecret=sharedSecret,baseAuthUrl=baseAuthUrl,basePCIUrl=basePCIUrl);
 	return __mozuclient__;
 

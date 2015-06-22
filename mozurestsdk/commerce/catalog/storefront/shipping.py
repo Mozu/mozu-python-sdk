@@ -29,7 +29,7 @@ class Shipping(object):
 
 		url = MozuUrl("/api/commerce/catalog/storefront/shipping/request-rates?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(rateRequest).execute();
 		return self.client.result();
 
 	

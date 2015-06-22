@@ -45,7 +45,7 @@ class GeneralSettings(object):
 
 		url = MozuUrl("/api/commerce/settings/general/?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(generalSettings).execute();
 		return self.client.result();
 
 	

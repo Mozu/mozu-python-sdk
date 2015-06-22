@@ -73,7 +73,7 @@ class ProductReservation(object):
 
 		url = MozuUrl("/api/commerce/catalog/admin/productreservations/?skipInventoryCheck={skipInventoryCheck}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("skipInventoryCheck", skipInventoryCheck);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(productReservations).execute();
 		return self.client.result();
 
 	
@@ -87,7 +87,7 @@ class ProductReservation(object):
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/productreservations/commit", "POST", UrlLocation.TenantPod, False);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(productReservations).execute();
 
 	
 		
@@ -103,7 +103,7 @@ class ProductReservation(object):
 
 		url = MozuUrl("/api/commerce/catalog/admin/productreservations/?skipInventoryCheck={skipInventoryCheck}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("skipInventoryCheck", skipInventoryCheck);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(productReservations).execute();
 		return self.client.result();
 
 	

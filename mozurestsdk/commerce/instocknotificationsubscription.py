@@ -71,7 +71,7 @@ class InStockNotificationSubscription(object):
 
 		url = MozuUrl("/api/commerce/instocknotifications/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(inStockNotificationSubscription).execute();
 		return self.client.result();
 
 	

@@ -28,7 +28,7 @@ class PublishingScope(object):
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/publishing/discarddrafts", "POST", UrlLocation.TenantPod, False);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(publishScope).execute();
 
 	
 		
@@ -41,7 +41,7 @@ class PublishingScope(object):
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/publishing/publishdrafts", "POST", UrlLocation.TenantPod, False);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(publishScope).execute();
 
 	
 	

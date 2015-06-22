@@ -45,7 +45,7 @@ class TenantExtensions(object):
 
 		url = MozuUrl("/api/platform/extensions/?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(extensions).execute();
 		return self.client.result();
 
 	

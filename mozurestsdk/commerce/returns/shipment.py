@@ -49,7 +49,7 @@ class Shipment(object):
 
 		url = MozuUrl("/api/commerce/returns/{returnId}/shipments", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("returnId", returnId);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(packageIds).execute();
 		return self.client.result();
 
 	

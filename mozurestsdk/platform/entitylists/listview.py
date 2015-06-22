@@ -165,7 +165,7 @@ class ListView(object):
 		url = MozuUrl("/api/platform/entitylists/{entityListFullName}/views/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("entityListFullName", entityListFullName);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(listView).execute();
 		return self.client.result();
 
 	
@@ -186,7 +186,7 @@ class ListView(object):
 		url.formatUrl("entityListFullName", entityListFullName);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("viewName", viewName);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(listView).execute();
 		return self.client.result();
 
 	

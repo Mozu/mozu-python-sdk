@@ -71,7 +71,7 @@ class CustomerSegment(object):
 
 		url = MozuUrl("/api/commerce/customer/segments/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(segment).execute();
 		return self.client.result();
 
 	
@@ -87,7 +87,7 @@ class CustomerSegment(object):
 
 		url = MozuUrl("/api/commerce/customer/segments/{id}/accounts", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("id", id);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(accountIds).execute();
 
 	
 		
@@ -105,7 +105,7 @@ class CustomerSegment(object):
 		url = MozuUrl("/api/commerce/customer/segments/{id}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("id", id);
 		url.formatUrl("responseFields", responseFields);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(segment).execute();
 		return self.client.result();
 
 	

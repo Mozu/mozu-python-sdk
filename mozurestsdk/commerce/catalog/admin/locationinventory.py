@@ -79,7 +79,7 @@ class LocationInventory(object):
 		url = MozuUrl("/api/commerce/catalog/admin/locationinventory/{locationCode}?performUpserts={performUpserts}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("locationCode", locationCode);
 		url.formatUrl("performUpserts", performUpserts);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(locationInventoryList).execute();
 		return self.client.result();
 
 	
@@ -96,7 +96,7 @@ class LocationInventory(object):
 
 		url = MozuUrl("/api/commerce/catalog/admin/locationinventory/{locationCode}", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("locationCode", locationCode);
-		self.client.withResourceUrl(url).execute();
+		self.client.withResourceUrl(url).withBody(locationInventoryAdjustments).execute();
 		return self.client.result();
 
 	
