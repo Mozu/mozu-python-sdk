@@ -42,7 +42,7 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *,cover
-TestReults/
+TestResults/*
 
 # Translations
 *.mo
@@ -56,3 +56,5 @@ docs/_build/
 
 # PyBuilder
 target/
+
+**/__pycache__
