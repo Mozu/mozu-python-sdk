@@ -18,13 +18,18 @@ class SiteData(object):
 		client.withApiContext(apiContext);
 	
 	def getDBValue(self,dbEntryQuery, responseFields = None):
-		"""
-			Retrieves the value of a record in the Mozu database.
-			Request Params
-				string dbEntryQuery The database entry string to create.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				string 
+		""" Retrieves the value of a record in the Mozu database.
+		
+		Args:
+			| dbEntryQuery (string) - The database entry string to create.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| string 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/sitedata/{*dbEntryQuery}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -36,12 +41,15 @@ class SiteData(object):
 	
 		
 	def createDBValue(self,value, dbEntryQuery):
-		"""
-			Creates a new record in the Mozu database based on the information supplied in the request.
-			Request Params
-				string dbEntryQuery The database entry string to create.
-				value The value string to create.
-			Response
+		""" Creates a new record in the Mozu database based on the information supplied in the request.
+		
+		Args:
+			| value(value) - The value string to create.
+			| dbEntryQuery (string) - The database entry string to create.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/sitedata/{*dbEntryQuery}", "POST", UrlLocation.TenantPod, False);
@@ -51,12 +59,15 @@ class SiteData(object):
 	
 		
 	def updateDBValue(self,value, dbEntryQuery):
-		"""
-			Updates a record in the Mozu database based on the information supplied in the request.
-			Request Params
-				string dbEntryQuery The database entry string to create.
-				value The value string to create.
-			Response
+		""" Updates a record in the Mozu database based on the information supplied in the request.
+		
+		Args:
+			| value(value) - The value string to create.
+			| dbEntryQuery (string) - The database entry string to create.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/sitedata/{*dbEntryQuery}", "PUT", UrlLocation.TenantPod, False);
@@ -66,11 +77,14 @@ class SiteData(object):
 	
 		
 	def deleteDBValue(self,dbEntryQuery):
-		"""
-			Removes a previously defined record in the Mozu database.
-			Request Params
-				string dbEntryQuery The database entry string to create.
-			Response
+		""" Removes a previously defined record in the Mozu database.
+		
+		Args:
+			| dbEntryQuery (string) - The database entry string to create.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/sitedata/{*dbEntryQuery}", "DELETE", UrlLocation.TenantPod, False);

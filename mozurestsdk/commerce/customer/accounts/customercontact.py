@@ -18,14 +18,19 @@ class CustomerContact(object):
 		client.withApiContext(apiContext);
 	
 	def getAccountContact(self,accountId, contactId, responseFields = None):
-		"""
-			Retrieves the specified contact for a customer account such as a billing or shipping contact.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				int contactId Unique identifer of the customer account contact being updated.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				CustomerContact 
+		""" Retrieves the specified contact for a customer account such as a billing or shipping contact.
+		
+		Args:
+			| accountId (int) - Unique identifier of the customer account.
+			| contactId (int) - Unique identifer of the customer account contact being updated.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CustomerContact 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/contacts/{contactId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -38,17 +43,22 @@ class CustomerContact(object):
 	
 		
 	def getAccountContacts(self,accountId, startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		"""
-			Retrieves a list of contacts for a customer according to any specified filter criteria and sort options.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				string filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-				int pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-				string responseFields Use this field to include those fields which are not included by default.
-				string sortBy 
-				int startIndex 
-			Response
-				CustomerContactCollection 
+		""" Retrieves a list of contacts for a customer according to any specified filter criteria and sort options.
+		
+		Args:
+			| accountId (int) - Unique identifier of the customer account.
+			| startIndex (int) - 
+			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+			| sortBy (string) - 
+			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CustomerContactCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/contacts?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -64,14 +74,19 @@ class CustomerContact(object):
 	
 		
 	def addAccountContact(self,contact, accountId, responseFields = None):
-		"""
-			Creates a new contact for a customer account such as a new shipping address.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				string responseFields Use this field to include those fields which are not included by default.
-				contact Contact information, including the contact's name, address, phone numbers, email addresses, and company (if supplied). Also indicates whether this is a billing, shipping, or billing and shipping contact.
-			Response
-				CustomerContact 
+		""" Creates a new contact for a customer account such as a new shipping address.
+		
+		Args:
+			| contact(contact) - Contact information, including the contact's name, address, phone numbers, email addresses, and company (if supplied). Also indicates whether this is a billing, shipping, or billing and shipping contact.
+			| accountId (int) - Unique identifier of the customer account.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CustomerContact 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/contacts?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -83,15 +98,20 @@ class CustomerContact(object):
 	
 		
 	def updateAccountContact(self,contact, accountId, contactId, responseFields = None):
-		"""
-			Updates a contact for a specified customer account such as to update addresses or change which contact is the primary contact for billing.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				int contactId Unique identifer of the customer account contact being updated.
-				string responseFields Use this field to include those fields which are not included by default.
-				contact Contact information, including the contact's name, address, phone numbers, email addresses, and company (if supplied). Also indicates whether this is a billing, shipping, or billing and shipping contact.
-			Response
-				CustomerContact 
+		""" Updates a contact for a specified customer account such as to update addresses or change which contact is the primary contact for billing.
+		
+		Args:
+			| contact(contact) - Contact information, including the contact's name, address, phone numbers, email addresses, and company (if supplied). Also indicates whether this is a billing, shipping, or billing and shipping contact.
+			| accountId (int) - Unique identifier of the customer account.
+			| contactId (int) - Unique identifer of the customer account contact being updated.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CustomerContact 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/contacts/{contactId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -104,12 +124,15 @@ class CustomerContact(object):
 	
 		
 	def deleteAccountContact(self,accountId, contactId):
-		"""
-			Deletes a contact for the specified customer account.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				int contactId Unique identifer of the customer account contact being updated.
-			Response
+		""" Deletes a contact for the specified customer account.
+		
+		Args:
+			| accountId (int) - Unique identifier of the customer account.
+			| contactId (int) - Unique identifer of the customer account contact being updated.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/contacts/{contactId}", "DELETE", UrlLocation.TenantPod, False);

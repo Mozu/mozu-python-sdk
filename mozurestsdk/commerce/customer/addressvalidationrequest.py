@@ -18,13 +18,18 @@ class AddressValidationRequest(object):
 		client.withApiContext(apiContext);
 	
 	def validateAddress(self,addressValidationRequest, responseFields = None):
-		"""
-			Validates the customer address supplied in the request.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				addressValidationRequest Properties of the address used for validation of the account's full address. This content may include multiple lines of an address, city, state/province, zip/postal code, and country.
-			Response
-				AddressValidationResponse 
+		""" Validates the customer address supplied in the request.
+		
+		Args:
+			| addressValidationRequest(addressValidationRequest) - Properties of the address used for validation of the account's full address. This content may include multiple lines of an address, city, state/province, zip/postal code, and country.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| AddressValidationResponse 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/addressvalidation/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);

@@ -18,9 +18,14 @@ class CustomerAuthTicket(object):
 		client.withApiContext(apiContext);
 	
 	def createAnonymousShopperAuthTicket(self,):
-		"""
-			Creates an authentication ticket for an anonymous shopper user.
-				Stream 
+		""" Creates an authentication ticket for an anonymous shopper user.
+		
+		Returns:
+			| Stream 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/authtickets/anonymousshopper", "GET", UrlLocation.TenantPod, False);
@@ -30,13 +35,18 @@ class CustomerAuthTicket(object):
 	
 		
 	def createUserAuthTicket(self,userAuthInfo, responseFields = None):
-		"""
-			Generates a new authentication ticket for a customer account.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				userAuthInfo The authentication information required to generate an authentication ticket for a customer account.
-			Response
-				CustomerAuthTicket 
+		""" Generates a new authentication ticket for a customer account.
+		
+		Args:
+			| userAuthInfo(userAuthInfo) - The authentication information required to generate an authentication ticket for a customer account.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CustomerAuthTicket 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/authtickets/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -47,13 +57,18 @@ class CustomerAuthTicket(object):
 	
 		
 	def refreshUserAuthTicket(self,refreshToken, responseFields = None):
-		"""
-			Refreshes an existing authentication ticket for a customer account by providing the refresh token string.
-			Request Params
-				string refreshToken Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				CustomerAuthTicket 
+		""" Refreshes an existing authentication ticket for a customer account by providing the refresh token string.
+		
+		Args:
+			| refreshToken (string) - Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CustomerAuthTicket 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/authtickets/refresh?refreshToken={refreshToken}&responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);

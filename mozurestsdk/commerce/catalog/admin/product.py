@@ -20,19 +20,24 @@ class Product(object):
 		self.client.withApiContext(apiContext);
 	
 	def getProducts(self,startIndex = None, pageSize = None, sortBy = None, filter = None, q = None, qLimit = None, noCount = False, responseFields = None):
-		"""
-			Retrieves a list of products according to any specified facets, filter criteria, and sort options.
-			Request Params
-				string filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-				bool noCount If true, the operation does not return the TotalCount number of results.
-				int pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-				string q A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.
-				int qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
-				string responseFields Use this field to include those fields which are not included by default.
-				string sortBy 
-				int startIndex 
-			Response
-				ProductCollection 
+		""" Retrieves a list of products according to any specified facets, filter criteria, and sort options.
+		
+		Args:
+			| startIndex (int) - 
+			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+			| sortBy (string) - 
+			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+			| q (string) - A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.
+			| qLimit (int) - The maximum number of search results to return in the response. You can limit any range between 1-100.
+			| noCount (bool) - If true, the operation does not return the TotalCount number of results.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&q={q}&qLimit={qLimit}&noCount={noCount}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -50,12 +55,17 @@ class Product(object):
 	
 		
 	def getProductInCatalogs(self,productCode):
-		"""
-			Retrieves a product that is associated with one or more specific catalogs.
-			Request Params
-				string productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			Response
-				array|ProductInCatalogInfo 
+		""" Retrieves a product that is associated with one or more specific catalogs.
+		
+		Args:
+			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+		
+		Returns:
+			| array of ProductInCatalogInfo 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/ProductInCatalogs", "GET", UrlLocation.TenantPod, False);
@@ -66,14 +76,19 @@ class Product(object):
 	
 		
 	def getProductInCatalog(self,productCode, catalogId, responseFields = None):
-		"""
-			Retrieves the details of a product associated with a specific catalog.
-			Request Params
-				int catalogId The unique identifier of the catalog of products used by a site.
-				string productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				ProductInCatalogInfo 
+		""" Retrieves the details of a product associated with a specific catalog.
+		
+		Args:
+			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			| catalogId (int) - The unique identifier of the catalog of products used by a site.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductInCatalogInfo 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/ProductInCatalogs/{catalogId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -86,13 +101,18 @@ class Product(object):
 	
 		
 	def getProduct(self,productCode, responseFields = None):
-		"""
-			Retrieves the details of a product definition.
-			Request Params
-				string productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				Product 
+		""" Retrieves the details of a product definition.
+		
+		Args:
+			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Product 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -104,13 +124,18 @@ class Product(object):
 	
 		
 	def addProduct(self,product, responseFields = None):
-		"""
-			Creates a new product definition in the specified master catalog.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				product The properties of a product, referenced and used by carts, orders, wish lists, and returns.
-			Response
-				Product 
+		""" Creates a new product definition in the specified master catalog.
+		
+		Args:
+			| product(product) - The properties of a product, referenced and used by carts, orders, wish lists, and returns.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Product 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -121,14 +146,19 @@ class Product(object):
 	
 		
 	def addProductInCatalog(self,productInCatalogInfoIn, productCode, responseFields = None):
-		"""
-			Associates a new product defined in the master catalog with a specific catalog.
-			Request Params
-				string productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-				string responseFields Use this field to include those fields which are not included by default.
-				productInCatalogInfoIn Properties of a product associated with a specific catalog.
-			Response
-				ProductInCatalogInfo 
+		""" Associates a new product defined in the master catalog with a specific catalog.
+		
+		Args:
+			| productInCatalogInfoIn(productInCatalogInfoIn) - Properties of a product associated with a specific catalog.
+			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductInCatalogInfo 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/ProductInCatalogs?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -140,11 +170,14 @@ class Product(object):
 	
 		
 	def renameProductCodes(self,productCodeRenames):
-		"""
-			Performs an update to a product code by renaming or replacing the current product code with a new one.
-			Request Params
-				array|productCodeRenames Properties for a product code current and changed content.
-			Response
+		""" Performs an update to a product code by renaming or replacing the current product code with a new one.
+		
+		Args:
+			| productCodeRenames(array|productCodeRenames) - Properties for a product code current and changed content.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/Actions/RenameProductCodes", "POST", UrlLocation.TenantPod, False);
@@ -153,13 +186,18 @@ class Product(object):
 	
 		
 	def updateProductInCatalogs(self,productInCatalogsIn, productCode):
-		"""
-			Updates the properties of a product specific to each catalog associated with the product.
-			Request Params
-				string productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-				array|productInCatalogsIn Properties of a product associated with a specific catalog.
-			Response
-				array|ProductInCatalogInfo 
+		""" Updates the properties of a product specific to each catalog associated with the product.
+		
+		Args:
+			| productInCatalogsIn(array|productInCatalogsIn) - Properties of a product associated with a specific catalog.
+			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+		
+		Returns:
+			| array of ProductInCatalogInfo 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/ProductInCatalogs", "PUT", UrlLocation.TenantPod, False);
@@ -170,15 +208,20 @@ class Product(object):
 	
 		
 	def updateProductInCatalog(self,productInCatalogInfoIn, productCode, catalogId, responseFields = None):
-		"""
-			Updates one or more properties of a product associated with a specific catalog.
-			Request Params
-				int catalogId The unique identifier of the catalog of products used by a site.
-				string productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-				string responseFields Use this field to include those fields which are not included by default.
-				productInCatalogInfoIn Properties of a product associated with a specific catalog.
-			Response
-				ProductInCatalogInfo 
+		""" Updates one or more properties of a product associated with a specific catalog.
+		
+		Args:
+			| productInCatalogInfoIn(productInCatalogInfoIn) - Properties of a product associated with a specific catalog.
+			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			| catalogId (int) - The unique identifier of the catalog of products used by a site.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductInCatalogInfo 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/ProductInCatalogs/{catalogId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -191,14 +234,19 @@ class Product(object):
 	
 		
 	def updateProduct(self,product, productCode, responseFields = None):
-		"""
-			Updates one or more properties of a product definition in a master catalog.
-			Request Params
-				string productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-				string responseFields Use this field to include those fields which are not included by default.
-				product The properties of a product, referenced and used by carts, orders, wish lists, and returns.
-			Response
-				Product 
+		""" Updates one or more properties of a product definition in a master catalog.
+		
+		Args:
+			| product(product) - The properties of a product, referenced and used by carts, orders, wish lists, and returns.
+			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Product 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -210,11 +258,14 @@ class Product(object):
 	
 		
 	def deleteProduct(self,productCode):
-		"""
-			Deletes the specified product from a master catalog.
-			Request Params
-				string productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
-			Response
+		""" Deletes the specified product from a master catalog.
+		
+		Args:
+			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}", "DELETE", UrlLocation.TenantPod, False);
@@ -224,12 +275,15 @@ class Product(object):
 	
 		
 	def deleteProductInCatalog(self,productCode, catalogId):
-		"""
-			Removes the product association defined for a specific catalog.
-			Request Params
-				int catalogId The unique identifier of the catalog of products used by a site.
-				string productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			Response
+		""" Removes the product association defined for a specific catalog.
+		
+		Args:
+			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			| catalogId (int) - The unique identifier of the catalog of products used by a site.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/ProductInCatalogs/{catalogId}", "DELETE", UrlLocation.TenantPod, False);

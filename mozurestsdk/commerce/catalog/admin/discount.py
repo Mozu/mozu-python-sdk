@@ -20,16 +20,21 @@ class Discount(object):
 		self.client.withApiContext(apiContext);
 	
 	def getDiscounts(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		"""
-			Retrieves a list of discounts according to any specified filter criteria and sort options.
-			Request Params
-				string filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-				int pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-				string responseFields Use this field to include those fields which are not included by default.
-				string sortBy 
-				int startIndex 
-			Response
-				DiscountCollection 
+		""" Retrieves a list of discounts according to any specified filter criteria and sort options.
+		
+		Args:
+			| startIndex (int) - 
+			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+			| sortBy (string) - 
+			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| DiscountCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/discounts/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -44,13 +49,18 @@ class Discount(object):
 	
 		
 	def getDiscountContent(self,discountId, responseFields = None):
-		"""
-			Retrieves the localized content specified for the specified discount.
-			Request Params
-				int discountId Unique identifier of the discount. System-supplied and read only.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				DiscountLocalizedContent 
+		""" Retrieves the localized content specified for the specified discount.
+		
+		Args:
+			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| DiscountLocalizedContent 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/discounts/{discountId}/content?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -62,13 +72,18 @@ class Discount(object):
 	
 		
 	def getDiscount(self,discountId, responseFields = None):
-		"""
-			Retrieves the details of a single discount.
-			Request Params
-				int discountId Unique identifier of the discount. System-supplied and read only.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				Discount 
+		""" Retrieves the details of a single discount.
+		
+		Args:
+			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Discount 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/discounts/{discountId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -80,12 +95,17 @@ class Discount(object):
 	
 		
 	def generateRandomCoupon(self,responseFields = None):
-		"""
-			Generates a random code for a coupon.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				string 
+		""" Generates a random code for a coupon.
+		
+		Args:
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| string 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/discounts/generate-random-coupon?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -96,13 +116,18 @@ class Discount(object):
 	
 		
 	def createDiscount(self,discount, responseFields = None):
-		"""
-			Creates a new discount or coupon to apply to a product, category, order, or shipping.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				discount Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
-			Response
-				Discount 
+		""" Creates a new discount or coupon to apply to a product, category, order, or shipping.
+		
+		Args:
+			| discount(discount) - Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Discount 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/discounts/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -113,14 +138,19 @@ class Discount(object):
 	
 		
 	def updateDiscountContent(self,content, discountId, responseFields = None):
-		"""
-			Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
-			Request Params
-				int discountId Unique identifier of the discount. System-supplied and read only.
-				string responseFields Use this field to include those fields which are not included by default.
-				content The container for the language-specific name of the discount. A container exists for each supported language (LocaleCode). This parameter enables you to display the discount name in multiple languages yet manage it as a single discount internally.
-			Response
-				DiscountLocalizedContent 
+		""" Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
+		
+		Args:
+			| content(content) - The container for the language-specific name of the discount. A container exists for each supported language (LocaleCode). This parameter enables you to display the discount name in multiple languages yet manage it as a single discount internally.
+			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| DiscountLocalizedContent 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/discounts/{discountId}/content?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -132,14 +162,19 @@ class Discount(object):
 	
 		
 	def updateDiscount(self,discount, discountId, responseFields = None):
-		"""
-			Updates one or more properties of a defined discount.
-			Request Params
-				int discountId Unique identifier of the discount. System-supplied and read only.
-				string responseFields Use this field to include those fields which are not included by default.
-				discount Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
-			Response
-				Discount 
+		""" Updates one or more properties of a defined discount.
+		
+		Args:
+			| discount(discount) - Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
+			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Discount 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/discounts/{discountId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -151,11 +186,14 @@ class Discount(object):
 	
 		
 	def deleteDiscount(self,discountId):
-		"""
-			Deletes a discount specified by its discount ID.
-			Request Params
-				int discountId Unique identifier of the discount. System-supplied and read only.
-			Response
+		""" Deletes a discount specified by its discount ID.
+		
+		Args:
+			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/discounts/{discountId}", "DELETE", UrlLocation.TenantPod, False);

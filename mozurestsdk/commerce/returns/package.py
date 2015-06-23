@@ -18,13 +18,18 @@ class Package(object):
 		client.withApiContext(apiContext);
 	
 	def getPackageLabel(self,returnId, packageId):
-		"""
-			Retrieves the package label image supplied by the carrier for a return replacement.
-			Request Params
-				string packageId Unique identifier of the package for which to retrieve the label.
-				string returnId Unique identifier of the return whose items you want to get.
-			Response
-				Stream 
+		""" Retrieves the package label image supplied by the carrier for a return replacement.
+		
+		Args:
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| packageId (string) - Unique identifier of the package for which to retrieve the label.
+		
+		Returns:
+			| Stream 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/returns/{returnId}/packages/{packageId}/label", "GET", UrlLocation.TenantPod, False);
@@ -36,14 +41,19 @@ class Package(object):
 	
 		
 	def getPackage(self,returnId, packageId, responseFields = None):
-		"""
-			Retrieves the details of a package of return replacement items.
-			Request Params
-				string packageId Unique identifier of the package for which to retrieve the label.
-				string responseFields Use this field to include those fields which are not included by default.
-				string returnId Unique identifier of the return whose items you want to get.
-			Response
-				Package 
+		""" Retrieves the details of a package of return replacement items.
+		
+		Args:
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| packageId (string) - Unique identifier of the package for which to retrieve the label.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Package 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/returns/{returnId}/packages/{packageId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -56,14 +66,19 @@ class Package(object):
 	
 		
 	def createPackage(self,package, returnId, responseFields = None):
-		"""
-			Creates a new physical package of return replacement items.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				string returnId Unique identifier of the return whose items you want to get.
-				package Properties of a physical package shipped for an order.
-			Response
-				Package 
+		""" Creates a new physical package of return replacement items.
+		
+		Args:
+			| package(package) - Properties of a physical package shipped for an order.
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Package 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/returns/{returnId}/packages?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -75,15 +90,20 @@ class Package(object):
 	
 		
 	def updatePackage(self,package, returnId, packageId, responseFields = None):
-		"""
-			Updates one or more properties of a package associated with a return replacement.
-			Request Params
-				string packageId Unique identifier of the package for which to retrieve the label.
-				string responseFields Use this field to include those fields which are not included by default.
-				string returnId Unique identifier of the return whose items you want to get.
-				package Properties of a physical package shipped for an order.
-			Response
-				Package 
+		""" Updates one or more properties of a package associated with a return replacement.
+		
+		Args:
+			| package(package) - Properties of a physical package shipped for an order.
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| packageId (string) - Unique identifier of the package for which to retrieve the label.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Package 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/returns/{returnId}/packages/{packageId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -96,12 +116,15 @@ class Package(object):
 	
 		
 	def deletePackage(self,returnId, packageId):
-		"""
-			Deletes a package associated with a return replacement.
-			Request Params
-				string packageId Unique identifier of the package for which to retrieve the label.
-				string returnId Unique identifier of the return whose items you want to get.
-			Response
+		""" Deletes a package associated with a return replacement.
+		
+		Args:
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| packageId (string) - Unique identifier of the package for which to retrieve the label.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/returns/{returnId}/packages/{packageId}", "DELETE", UrlLocation.TenantPod, False);

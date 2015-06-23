@@ -20,13 +20,18 @@ class DiscountTarget(object):
 		self.client.withApiContext(apiContext);
 	
 	def getDiscountTarget(self,discountId, responseFields = None):
-		"""
-			Retrieves the discount target, that is which products, categories, or shipping methods are eligible for the discount.
-			Request Params
-				int discountId Unique identifier of the discount. System-supplied and read only.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				DiscountTarget 
+		""" Retrieves the discount target, that is which products, categories, or shipping methods are eligible for the discount.
+		
+		Args:
+			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| DiscountTarget 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/discounts/{discountId}/target?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -38,14 +43,19 @@ class DiscountTarget(object):
 	
 		
 	def updateDiscountTarget(self,discountTarget, discountId, responseFields = None):
-		"""
-			Modifies properties of the discount target, for example, the dollar amount, or precentage off the price.
-			Request Params
-				int discountId Unique identifier of the discount. System-supplied and read only.
-				string responseFields Use this field to include those fields which are not included by default.
-				discountTarget Properties of the target to which the discount applies, such as the type of discount and which products, categories, or shipping methods are eligible for the discount and the properties of this discount target.
-			Response
-				DiscountTarget 
+		""" Modifies properties of the discount target, for example, the dollar amount, or precentage off the price.
+		
+		Args:
+			| discountTarget(discountTarget) - Properties of the target to which the discount applies, such as the type of discount and which products, categories, or shipping methods are eligible for the discount and the properties of this discount target.
+			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| DiscountTarget 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/discounts/{discountId}/target?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);

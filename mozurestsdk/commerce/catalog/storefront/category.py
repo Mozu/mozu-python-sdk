@@ -18,16 +18,21 @@ class Category(object):
 		client.withApiContext(apiContext);
 	
 	def getCategories(self,filter = None, startIndex = None, pageSize = None, sortBy = None, responseFields = None):
-		"""
-			Retrieves a list of categories according to any specified filter criteria and sort options.
-			Request Params
-				string filter A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
-				int pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-				string sortBy 
-				int startIndex 
-			Response
-				CategoryPagedCollection 
+		""" Retrieves a list of categories according to any specified filter criteria and sort options.
+		
+		Args:
+			| filter (string) - A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
+			| startIndex (int) - 
+			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+			| sortBy (string) - 
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| CategoryPagedCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/storefront/categories/?filter={filter}&startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -42,14 +47,19 @@ class Category(object):
 	
 		
 	def getCategory(self,categoryId, allowInactive = False, responseFields = None):
-		"""
-			Retrieves the details of a single category.
-			Request Params
-				bool allowInactive If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.
-				int categoryId Unique identifier for the storefront container used to organize products.
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-			Response
-				Category 
+		""" Retrieves the details of a single category.
+		
+		Args:
+			| categoryId (int) - Unique identifier for the storefront container used to organize products.
+			| allowInactive (bool) - If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| Category 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/storefront/categories/{categoryId}?allowInactive={allowInactive}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -62,12 +72,17 @@ class Category(object):
 	
 		
 	def getCategoryTree(self,responseFields = None):
-		"""
-			Retrieves the list of product categories that appear on the storefront organized in a hierarchical format. Hidden categories do not appear in the list.
-			Request Params
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-			Response
-				CategoryCollection 
+		""" Retrieves the list of product categories that appear on the storefront organized in a hierarchical format. Hidden categories do not appear in the list.
+		
+		Args:
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| CategoryCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/storefront/categories/tree?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);

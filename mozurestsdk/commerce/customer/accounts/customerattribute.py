@@ -18,14 +18,19 @@ class CustomerAttribute(object):
 		client.withApiContext(apiContext);
 	
 	def getAccountAttribute(self,accountId, attributeFQN, responseFields = None):
-		"""
-			Retrieves the contents of an attribute associated with the specified customer account.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				CustomerAttribute 
+		""" Retrieves the contents of an attribute associated with the specified customer account.
+		
+		Args:
+			| accountId (int) - Unique identifier of the customer account.
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CustomerAttribute 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/attributes/{attributeFQN}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -38,17 +43,22 @@ class CustomerAttribute(object):
 	
 		
 	def getAccountAttributes(self,accountId, startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		"""
-			Retrieves the list of customer account attributes.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				string filter 
-				int pageSize 
-				string responseFields Use this field to include those fields which are not included by default.
-				string sortBy 
-				int startIndex 
-			Response
-				CustomerAttributeCollection 
+		""" Retrieves the list of customer account attributes.
+		
+		Args:
+			| accountId (int) - Unique identifier of the customer account.
+			| startIndex (int) - 
+			| pageSize (int) - 
+			| sortBy (string) - 
+			| filter (string) - 
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CustomerAttributeCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/attributes?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -64,14 +74,19 @@ class CustomerAttribute(object):
 	
 		
 	def addAccountAttribute(self,attribute, accountId, responseFields = None):
-		"""
-			Applies a defined attribute to the customer account specified in the request and assigns a value to the customer attribute.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				string responseFields Use this field to include those fields which are not included by default.
-				attribute Properties of an attribute associated with a customer account.
-			Response
-				CustomerAttribute 
+		""" Applies a defined attribute to the customer account specified in the request and assigns a value to the customer attribute.
+		
+		Args:
+			| attribute(attribute) - Properties of an attribute associated with a customer account.
+			| accountId (int) - Unique identifier of the customer account.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CustomerAttribute 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/attributes?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -83,15 +98,20 @@ class CustomerAttribute(object):
 	
 		
 	def updateAccountAttribute(self,attribute, accountId, attributeFQN, responseFields = None):
-		"""
-			Updates one or more details of a customer account attribute.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-				string responseFields Use this field to include those fields which are not included by default.
-				attribute Properties of an attribute associated with a customer account.
-			Response
-				CustomerAttribute 
+		""" Updates one or more details of a customer account attribute.
+		
+		Args:
+			| attribute(attribute) - Properties of an attribute associated with a customer account.
+			| accountId (int) - Unique identifier of the customer account.
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CustomerAttribute 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/attributes/{attributeFQN}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -104,12 +124,15 @@ class CustomerAttribute(object):
 	
 		
 	def deleteAccountAttribute(self,accountId, attributeFQN):
-		"""
-			Removes the attribute specified in the request from the customer account.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-			Response
+		""" Removes the attribute specified in the request from the customer account.
+		
+		Args:
+			| accountId (int) - Unique identifier of the customer account.
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/attributes/{attributeFQN}", "DELETE", UrlLocation.TenantPod, False);

@@ -18,12 +18,17 @@ class SiteShippingSettings(object):
 		client.withApiContext(apiContext);
 	
 	def getSiteShippingSettings(self,responseFields = None):
-		"""
-			Retrieves a list of the shipping settings configured for a site.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				SiteShippingSettings 
+		""" Retrieves a list of the shipping settings configured for a site.
+		
+		Args:
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| SiteShippingSettings 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/settings/shipping/?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);

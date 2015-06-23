@@ -20,13 +20,18 @@ class DocumentTree(object):
 		self.client.withApiContext(apiContext);
 	
 	def getTreeDocumentContent(self,documentListName, documentName):
-		"""
-			Retrieve the content associated with the document, such as a product image or PDF specifications file.
-			Request Params
-				string documentListName Name of content documentListName to delete
-				string documentName The name of the document in the site.
-			Response
-				Stream 
+		""" Retrieve the content associated with the document, such as a product image or PDF specifications file.
+		
+		Args:
+			| documentListName (string) - Name of content documentListName to delete
+			| documentName (string) - The name of the document in the site.
+		
+		Returns:
+			| Stream 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/content/documentlists/{documentListName}/documentTree/{documentName}/content", "GET", UrlLocation.TenantPod, False);
@@ -38,14 +43,19 @@ class DocumentTree(object):
 	
 		
 	def getTreeDocument(self,documentListName, documentName, responseFields = None):
-		"""
-			Retrieves a document based on its document list and folder path in the document hierarchy.
-			Request Params
-				string documentListName Name of content documentListName to delete
-				string documentName The name of the document in the site.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				Document 
+		""" Retrieves a document based on its document list and folder path in the document hierarchy.
+		
+		Args:
+			| documentListName (string) - Name of content documentListName to delete
+			| documentName (string) - The name of the document in the site.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Document 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/content/documentlists/{documentListName}/documentTree/{documentName}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -57,14 +67,18 @@ class DocumentTree(object):
 
 	
 		
-	def updateTreeDocumentContent(self,stream, documentListName, documentName, contentType):
-		"""
-			Updates the content associated with a document, such as a product image or PDF specifications file, based on the document's position in the document hierarchy.
-			Request Params
-				string documentListName Name of content documentListName to delete
-				string documentName The name of the document in the site.
-				stream Data stream that delivers information. Used to input and output data.
-			Response
+	def updateTreeDocumentContent(self,stream, documentListName, documentName, contentType = None):
+		""" Updates the content associated with a document, such as a product image or PDF specifications file, based on the document's position in the document hierarchy.
+		
+		Args:
+			| stream(stream) - Data stream that delivers information. Used to input and output data.
+			| documentListName (string) - Name of content documentListName to delete
+			| documentName (string) - The name of the document in the site.
+			| contentType (string) - set content type of the data uploaded|
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/content/documentlists/{documentListName}/documentTree/{documentName}/content?folderPath={folderPath}&folderId={folderId}", "PUT", UrlLocation.TenantPod, False);
@@ -74,14 +88,18 @@ class DocumentTree(object):
 
 	
 		
-	def deleteTreeDocumentContent(self,stream, documentListName, documentName, contentType):
-		"""
-			Deletes the content associated with a document, such as a product image or PDF specifications file.
-			Request Params
-				string documentListName Name of content documentListName to delete
-				string documentName The name of the document in the site.
-				stream Data stream that delivers information. Used to input and output data.
-			Response
+	def deleteTreeDocumentContent(self,stream, documentListName, documentName, contentType = None):
+		""" Deletes the content associated with a document, such as a product image or PDF specifications file.
+		
+		Args:
+			| stream(stream) - Data stream that delivers information. Used to input and output data.
+			| documentListName (string) - Name of content documentListName to delete
+			| documentName (string) - The name of the document in the site.
+			| contentType (string) - set content type of the data uploaded|
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/content/documentlists/{documentListName}/documentTree/{documentName}/content?folderPath={folderPath}&folderId={folderId}", "DELETE", UrlLocation.TenantPod, False);

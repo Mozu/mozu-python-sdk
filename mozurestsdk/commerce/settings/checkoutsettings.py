@@ -18,12 +18,17 @@ class CheckoutSettings(object):
 		client.withApiContext(apiContext);
 	
 	def getCheckoutSettings(self,responseFields = None):
-		"""
-			Retrieves all checkout settings defined for the site including payment settings (payment gateway ID and credentials), shopper checkout settings (login requirement or guest mode and custom attributes), and order processing settings (when payment is authorized and captured plus any custom attributes).
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				CheckoutSettings 
+		""" Retrieves all checkout settings defined for the site including payment settings (payment gateway ID and credentials), shopper checkout settings (login requirement or guest mode and custom attributes), and order processing settings (when payment is authorized and captured plus any custom attributes).
+		
+		Args:
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CheckoutSettings 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/settings/checkout/?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);

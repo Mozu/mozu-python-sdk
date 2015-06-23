@@ -18,13 +18,18 @@ class Cart(object):
 		client.withApiContext(apiContext);
 	
 	def getCart(self,cartId, responseFields = None):
-		"""
-			Retrieves the cart specified in the request.
-			Request Params
-				string cartId Identifier of the cart to delete.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				Cart 
+		""" Retrieves the cart specified in the request.
+		
+		Args:
+			| cartId (string) - Identifier of the cart to delete.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Cart 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/{cartId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -36,12 +41,17 @@ class Cart(object):
 	
 		
 	def getOrCreateCart(self,responseFields = None):
-		"""
-			Retrieves a cart's contents for the current shopper. If the shopper does not have an active cart on the site, the service creates one.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				Cart 
+		""" Retrieves a cart's contents for the current shopper. If the shopper does not have an active cart on the site, the service creates one.
+		
+		Args:
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Cart 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -52,12 +62,17 @@ class Cart(object):
 	
 		
 	def getCartSummary(self,responseFields = None):
-		"""
-			Retrieves summary information associated with the cart of the current shopper, including the number of items, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				CartSummary 
+		""" Retrieves summary information associated with the cart of the current shopper, including the number of items, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
+		
+		Args:
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CartSummary 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/summary?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -68,13 +83,18 @@ class Cart(object):
 	
 		
 	def getUserCartSummary(self,userId, responseFields = None):
-		"""
-			Retrieves summary information associated with the cart of user specified in the request, including the number of items in the cart, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				string userId Unique identifier of the user whose tenant scopes you want to retrieve.
-			Response
-				CartSummary 
+		""" Retrieves summary information associated with the cart of user specified in the request, including the number of items in the cart, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
+		
+		Args:
+			| userId (string) - Unique identifier of the user whose tenant scopes you want to retrieve.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CartSummary 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/user/{userId}/summary?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -86,13 +106,18 @@ class Cart(object):
 	
 		
 	def getUserCart(self,userId, responseFields = None):
-		"""
-			Retrieves the cart of the user specified in the request.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				string userId Unique identifier of the user whose tenant scopes you want to retrieve.
-			Response
-				Cart 
+		""" Retrieves the cart of the user specified in the request.
+		
+		Args:
+			| userId (string) - Unique identifier of the user whose tenant scopes you want to retrieve.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Cart 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/user/{userId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -104,13 +129,18 @@ class Cart(object):
 	
 		
 	def updateCart(self,cart, responseFields = None):
-		"""
-			Update the current shopper's cart.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				cart Properties of a shopping cart.
-			Response
-				Cart 
+		""" Update the current shopper's cart.
+		
+		Args:
+			| cart(cart) - Properties of a shopping cart.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Cart 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -121,11 +151,14 @@ class Cart(object):
 	
 		
 	def deleteCart(self,cartId):
-		"""
-			Deletes the cart specified in the request.
-			Request Params
-				string cartId Identifier of the cart to delete.
-			Response
+		""" Deletes the cart specified in the request.
+		
+		Args:
+			| cartId (string) - Identifier of the cart to delete.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/{cartId}", "DELETE", UrlLocation.TenantPod, False);
@@ -135,8 +168,11 @@ class Cart(object):
 	
 		
 	def deleteCurrentCart(self,):
-		"""
-			Deletes the cart of the currently active shopper.
+		""" Deletes the cart of the currently active shopper.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current", "DELETE", UrlLocation.TenantPod, False);

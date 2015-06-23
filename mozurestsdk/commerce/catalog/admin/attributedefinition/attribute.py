@@ -18,16 +18,21 @@ class Attribute(object):
 		client.withApiContext(apiContext);
 	
 	def getAttributes(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		"""
-			Retrieves a paged list of attributes according to any specified filter criteria and sort options.
-			Request Params
-				string filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-				int pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-				string responseFields Use this field to include those fields which are not included by default.
-				string sortBy 
-				int startIndex 
-			Response
-				AttributeCollection 
+		""" Retrieves a paged list of attributes according to any specified filter criteria and sort options.
+		
+		Args:
+			| startIndex (int) - 
+			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+			| sortBy (string) - 
+			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| AttributeCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -42,13 +47,18 @@ class Attribute(object):
 	
 		
 	def getAttribute(self,attributeFQN, responseFields = None):
-		"""
-			Retrieves the details of the specified product attribute.
-			Request Params
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				Attribute 
+		""" Retrieves the details of the specified product attribute.
+		
+		Args:
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Attribute 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -60,13 +70,18 @@ class Attribute(object):
 	
 		
 	def addAttribute(self,attribute, responseFields = None):
-		"""
-			Creates a new attribute to describe one aspect of a product such as color or size, based on its defined product type. The attribute name, attribute type, input type, and data type are required.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				attribute Properties of an attribute used to describe customers or orders.
-			Response
-				Attribute 
+		""" Creates a new attribute to describe one aspect of a product such as color or size, based on its defined product type. The attribute name, attribute type, input type, and data type are required.
+		
+		Args:
+			| attribute(attribute) - Properties of an attribute used to describe customers or orders.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Attribute 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -77,14 +92,19 @@ class Attribute(object):
 	
 		
 	def updateAttribute(self,attribute, attributeFQN, responseFields = None):
-		"""
-			Updates an existing attribute with attribute properties to set.
-			Request Params
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-				string responseFields Use this field to include those fields which are not included by default.
-				attribute Properties of an attribute used to describe customers or orders.
-			Response
-				Attribute 
+		""" Updates an existing attribute with attribute properties to set.
+		
+		Args:
+			| attribute(attribute) - Properties of an attribute used to describe customers or orders.
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Attribute 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -96,11 +116,14 @@ class Attribute(object):
 	
 		
 	def deleteAttribute(self,attributeFQN):
-		"""
-			Deletes a defined product attribute. You cannot delete an attribute assigned a value for a product.
-			Request Params
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-			Response
+		""" Deletes a defined product attribute. You cannot delete an attribute assigned a value for a product.
+		
+		Args:
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}", "DELETE", UrlLocation.TenantPod, False);

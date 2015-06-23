@@ -18,12 +18,17 @@ class MasterCatalog(object):
 		client.withApiContext(apiContext);
 	
 	def getMasterCatalogs(self,responseFields = None):
-		"""
-			Retrieve the details of all master catalog associated with a tenant.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				MasterCatalogCollection 
+		""" Retrieve the details of all master catalog associated with a tenant.
+		
+		Args:
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| MasterCatalogCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/mastercatalogs/?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -34,13 +39,18 @@ class MasterCatalog(object):
 	
 		
 	def getMasterCatalog(self,masterCatalogId, responseFields = None):
-		"""
-			Retrieve the details of the master catalog specified in the request.
-			Request Params
-				int masterCatalogId The unique identifier of the master catalog associated with the entity.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				MasterCatalog 
+		""" Retrieve the details of the master catalog specified in the request.
+		
+		Args:
+			| masterCatalogId (int) - The unique identifier of the master catalog associated with the entity.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| MasterCatalog 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/mastercatalogs/{masterCatalogId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -52,14 +62,19 @@ class MasterCatalog(object):
 	
 		
 	def updateMasterCatalog(self,masterCatalog, masterCatalogId, responseFields = None):
-		"""
-			Updates the product publishing mode for the master catalog specified in the request.
-			Request Params
-				int masterCatalogId 
-				string responseFields Use this field to include those fields which are not included by default.
-				masterCatalog Properties of a master product catalog defined for a tenant. All catalogs and sites associated with a master catalog share product definitions.
-			Response
-				MasterCatalog 
+		""" Updates the product publishing mode for the master catalog specified in the request.
+		
+		Args:
+			| masterCatalog(masterCatalog) - Properties of a master product catalog defined for a tenant. All catalogs and sites associated with a master catalog share product definitions.
+			| masterCatalogId (int) - 
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| MasterCatalog 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/mastercatalogs/{masterCatalogId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);

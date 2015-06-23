@@ -20,16 +20,21 @@ class ProductType(object):
 		self.client.withApiContext(apiContext);
 	
 	def getProductTypes(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		"""
-			Retrieves a list of product types according to any specified filter criteria and sort options.
-			Request Params
-				string filter A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
-				int pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-				string responseFields Use this field to include those fields which are not included by default.
-				string sortBy 
-				int startIndex 
-			Response
-				ProductTypeCollection 
+		""" Retrieves a list of product types according to any specified filter criteria and sort options.
+		
+		Args:
+			| startIndex (int) - 
+			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+			| sortBy (string) - 
+			| filter (string) - A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductTypeCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/producttypes/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -44,13 +49,18 @@ class ProductType(object):
 	
 		
 	def getProductType(self,productTypeId, responseFields = None):
-		"""
-			Retrieves the details of the product type specified in the request.
-			Request Params
-				int productTypeId Identifier of the product type.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				ProductType 
+		""" Retrieves the details of the product type specified in the request.
+		
+		Args:
+			| productTypeId (int) - Identifier of the product type.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductType 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -62,13 +72,18 @@ class ProductType(object):
 	
 		
 	def addProductType(self,productType, responseFields = None):
-		"""
-			Creates a new product type based on the information supplied in the request.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				productType A product type is like a product template.
-			Response
-				ProductType 
+		""" Creates a new product type based on the information supplied in the request.
+		
+		Args:
+			| productType(productType) - A product type is like a product template.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductType 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/producttypes/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -79,14 +94,19 @@ class ProductType(object):
 	
 		
 	def updateProductType(self,productType, productTypeId, responseFields = None):
-		"""
-			Updates one or more properties of a product type.
-			Request Params
-				int productTypeId Identifier of the product type.
-				string responseFields Use this field to include those fields which are not included by default.
-				productType A product type is like a product template.
-			Response
-				ProductType 
+		""" Updates one or more properties of a product type.
+		
+		Args:
+			| productType(productType) - A product type is like a product template.
+			| productTypeId (int) - Identifier of the product type.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductType 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -98,11 +118,14 @@ class ProductType(object):
 	
 		
 	def deleteProductType(self,productTypeId):
-		"""
-			Deletes the product type by providing the product type ID.
-			Request Params
-				int productTypeId Identifier of the product type.
-			Response
+		""" Deletes the product type by providing the product type ID.
+		
+		Args:
+			| productTypeId (int) - Identifier of the product type.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}", "DELETE", UrlLocation.TenantPod, False);

@@ -16,13 +16,18 @@ class Application(object):
 		self.client = mozuClient or default_client();
 	
 	def getAppPackageNames(self,applicationKey, responseFields = None):
-		"""
-			platform-developer Get GetAppPackageNames description DOCUMENT_HERE 
-			Request Params
-				string applicationKey 
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-			Response
-				PackageNamesCollection 
+		""" platform-developer Get GetAppPackageNames description DOCUMENT_HERE 
+		
+		Args:
+			| applicationKey (string) - 
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| PackageNamesCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/developer/applications/{applicationKey}/packagenames?responseFields={responseFields}", "GET", UrlLocation.HomePod, False);
@@ -34,13 +39,18 @@ class Application(object):
 	
 		
 	def getAppVersions(self,nsAndAppId, responseFields = None):
-		"""
-			platform-developer Get GetAppVersions description DOCUMENT_HERE 
-			Request Params
-				string nsAndAppId 
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-			Response
-				ApplicationVersionsCollection 
+		""" platform-developer Get GetAppVersions description DOCUMENT_HERE 
+		
+		Args:
+			| nsAndAppId (string) - 
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| ApplicationVersionsCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/developer/applications/versions/{nsAndAppId}?responseFields={responseFields}", "GET", UrlLocation.HomePod, False);
@@ -52,14 +62,19 @@ class Application(object):
 	
 		
 	def getPackageFileMetadata(self,applicationKey, filepath, responseFields = None):
-		"""
-			platform-developer Get GetPackageFileMetadata description DOCUMENT_HERE 
-			Request Params
-				string applicationKey 
-				string filepath 
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-			Response
-				FileMetadata 
+		""" platform-developer Get GetPackageFileMetadata description DOCUMENT_HERE 
+		
+		Args:
+			| applicationKey (string) - 
+			| filepath (string) - 
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| FileMetadata 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/developer/packages/{applicationKey}/filemetadata/{filepath}?responseFields={responseFields}", "GET", UrlLocation.HomePod, False);
@@ -72,13 +87,18 @@ class Application(object):
 	
 		
 	def getPackageMetadata(self,applicationKey, responseFields = None):
-		"""
-			platform-developer Get GetPackageMetadata description DOCUMENT_HERE 
-			Request Params
-				string applicationKey 
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-			Response
-				FolderMetadata 
+		""" platform-developer Get GetPackageMetadata description DOCUMENT_HERE 
+		
+		Args:
+			| applicationKey (string) - 
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| FolderMetadata 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/developer/packages/{applicationKey}/metadata?responseFields={responseFields}", "GET", UrlLocation.HomePod, False);
@@ -89,17 +109,23 @@ class Application(object):
 
 	
 		
-	def upsertPackageFile(self,stream, applicationKey, filepath, lastModifiedTime = None, responseFields = None, contentType):
-		"""
-			platform-developer Post UpsertPackageFile description DOCUMENT_HERE 
-			Request Params
-				string applicationKey 
-				string filepath 
-				string lastModifiedTime 
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-				stream Data stream that delivers information. Used to input and output data.
-			Response
-				FileMetadata 
+	def upsertPackageFile(self,stream, applicationKey, filepath, lastModifiedTime = None, responseFields = None, contentType = None):
+		""" platform-developer Post UpsertPackageFile description DOCUMENT_HERE 
+		
+		Args:
+			| stream(stream) - Data stream that delivers information. Used to input and output data.
+			| applicationKey (string) - 
+			| filepath (string) - 
+			| lastModifiedTime (string) - 
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| contentType (string) - set content type of the data uploaded|
+		
+		Returns:
+			| FileMetadata 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/developer/packages/{applicationKey}/files/{filepath}?lastModifiedTime={lastModifiedTime}&responseFields={responseFields}", "POST", UrlLocation.HomePod, False);
@@ -113,14 +139,19 @@ class Application(object):
 	
 		
 	def renamePackageFile(self,renameInfo, applicationKey, responseFields = None):
-		"""
-			platform-developer Post RenamePackageFile description DOCUMENT_HERE 
-			Request Params
-				string applicationKey 
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-				renameInfo Information required to update the name of a file in a package, which consists of the original name and the new name.
-			Response
-				FileMetadata 
+		""" platform-developer Post RenamePackageFile description DOCUMENT_HERE 
+		
+		Args:
+			| renameInfo(renameInfo) - Information required to update the name of a file in a package, which consists of the original name and the new name.
+			| applicationKey (string) - 
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| FileMetadata 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/developer/packages/{applicationKey}/files_rename?responseFields={responseFields}", "POST", UrlLocation.HomePod, False);
@@ -132,12 +163,15 @@ class Application(object):
 	
 		
 	def deletePackageFile(self,applicationKey, filepath):
-		"""
-			platform-developer Delete DeletePackageFile description DOCUMENT_HERE 
-			Request Params
-				string applicationKey 
-				string filepath 
-			Response
+		""" platform-developer Delete DeletePackageFile description DOCUMENT_HERE 
+		
+		Args:
+			| applicationKey (string) - 
+			| filepath (string) - 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/developer/packages/{applicationKey}/files/{filepath}", "DELETE", UrlLocation.HomePod, False);

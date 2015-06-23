@@ -20,13 +20,18 @@ class DocumentListType(object):
 		self.client.withApiContext(apiContext);
 	
 	def createDocumentListType(self,list, responseFields = None):
-		"""
-			Creates a new documentListType
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				list Properties for the document list type. Document lists contain documents with an associated document type, such as web pages.
-			Response
-				DocumentListType 
+		""" Creates a new documentListType
+		
+		Args:
+			| list(list) - Properties for the document list type. Document lists contain documents with an associated document type, such as web pages.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| DocumentListType 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/content/documentlistTypes/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -37,14 +42,19 @@ class DocumentListType(object):
 	
 		
 	def updateDocumentListType(self,list, documentListTypeFQN, responseFields = None):
-		"""
-			Updates a DocumentListType
-			Request Params
-				string documentListTypeFQN 
-				string responseFields Use this field to include those fields which are not included by default.
-				list Properties for the document list type. Document lists contain documents with an associated document type, such as web pages.
-			Response
-				DocumentListType 
+		""" Updates a DocumentListType
+		
+		Args:
+			| list(list) - Properties for the document list type. Document lists contain documents with an associated document type, such as web pages.
+			| documentListTypeFQN (string) - 
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| DocumentListType 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/content/documentlistTypes/{documentListTypeFQN}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);

@@ -16,12 +16,17 @@ class PublicCard(object):
 		self.client = mozuClient or default_client();
 	
 	def create(self,request):
-		"""
-			payments-cards Post Create description DOCUMENT_HERE 
-			Request Params
-				request Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE 
-			Response
-				SyncResponse 
+		""" payments-cards Post Create description DOCUMENT_HERE 
+		
+		Args:
+			| request(request) - Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE 
+		
+		Returns:
+			| SyncResponse 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/payment/commerce/payments/cards/", "POST", UrlLocation.PCIPod, False);
@@ -31,13 +36,18 @@ class PublicCard(object):
 	
 		
 	def update(self,request, cardId):
-		"""
-			payments-cards Put Update description DOCUMENT_HERE 
-			Request Params
-				string cardId Unique identifier of the card associated with the customer account billing contact.
-				request Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE 
-			Response
-				SyncResponse 
+		""" payments-cards Put Update description DOCUMENT_HERE 
+		
+		Args:
+			| request(request) - Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE 
+			| cardId (string) - Unique identifier of the card associated with the customer account billing contact.
+		
+		Returns:
+			| SyncResponse 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/payment/commerce/payments/cards/{cardId}", "PUT", UrlLocation.PCIPod, False);
@@ -48,11 +58,14 @@ class PublicCard(object):
 	
 		
 	def delete(self,cardId):
-		"""
-			payments-cards Delete Delete description DOCUMENT_HERE 
-			Request Params
-				string cardId Unique identifier of the card associated with the customer account billing contact.
-			Response
+		""" payments-cards Delete Delete description DOCUMENT_HERE 
+		
+		Args:
+			| cardId (string) - Unique identifier of the card associated with the customer account billing contact.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/payment/commerce/payments/cards/{cardId}", "DELETE", UrlLocation.PCIPod, False);

@@ -20,14 +20,19 @@ class DocumentList(object):
 		self.client.withApiContext(apiContext);
 	
 	def getDocumentLists(self,pageSize = None, startIndex = None, responseFields = None):
-		"""
-			Retrieves a collection of document lists.
-			Request Params
-				int pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-				string responseFields Use this field to include those fields which are not included by default.
-				int startIndex 
-			Response
-				DocumentListCollection 
+		""" Retrieves a collection of document lists.
+		
+		Args:
+			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+			| startIndex (int) - 
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| DocumentListCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/content/documentlists/?pageSize={pageSize}&startIndex={startIndex}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -40,13 +45,18 @@ class DocumentList(object):
 	
 		
 	def getDocumentList(self,documentListName, responseFields = None):
-		"""
-			Retrieve the details of a document list by providing the list name.
-			Request Params
-				string documentListName Name of content documentListName to delete
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				DocumentList 
+		""" Retrieve the details of a document list by providing the list name.
+		
+		Args:
+			| documentListName (string) - Name of content documentListName to delete
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| DocumentList 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/content/documentlists/{documentListName}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -58,13 +68,18 @@ class DocumentList(object):
 	
 		
 	def createDocumentList(self,list, responseFields = None):
-		"""
-			Creates a new documentList
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				list The list of document types and related properties that define content used by the content management system (CMS).
-			Response
-				DocumentList 
+		""" Creates a new documentList
+		
+		Args:
+			| list(list) - The list of document types and related properties that define content used by the content management system (CMS).
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| DocumentList 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/content/documentlists/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -75,14 +90,19 @@ class DocumentList(object):
 	
 		
 	def updateDocumentList(self,list, documentListName, responseFields = None):
-		"""
-			Updates a `DocumentListName`.
-			Request Params
-				string documentListName Name of content documentListName to delete
-				string responseFields Use this field to include those fields which are not included by default.
-				list The list of document types and related properties that define content used by the content management system (CMS).
-			Response
-				DocumentList 
+		""" Updates a  DocumentListName .
+		
+		Args:
+			| list(list) - The list of document types and related properties that define content used by the content management system (CMS).
+			| documentListName (string) - Name of content documentListName to delete
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| DocumentList 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/content/documentlists/{documentListName}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -94,11 +114,14 @@ class DocumentList(object):
 	
 		
 	def deleteDocumentList(self,documentListName):
-		"""
-			Deletes the specified `DocumentListName`.
-			Request Params
-				string documentListName Name of content documentListName to delete
-			Response
+		""" Deletes the specified  DocumentListName .
+		
+		Args:
+			| documentListName (string) - Name of content documentListName to delete
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/content/documentlists/{documentListName}", "DELETE", UrlLocation.TenantPod, False);

@@ -18,13 +18,18 @@ class ExtendedProperty(object):
 		client.withApiContext(apiContext);
 	
 	def getExtendedProperties(self,orderId, draft = False):
-		"""
-			orders-extendedproperties Get GetExtendedProperties description DOCUMENT_HERE 
-			Request Params
-				bool draft If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
-				string orderId Unique identifier of the order.
-			Response
-				array|ExtendedProperty 
+		""" orders-extendedproperties Get GetExtendedProperties description DOCUMENT_HERE 
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
+		
+		Returns:
+			| array of ExtendedProperty 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/extendedproperties?draft={draft}", "GET", UrlLocation.TenantPod, False);
@@ -36,15 +41,20 @@ class ExtendedProperty(object):
 	
 		
 	def addExtendedProperties(self,extendedProperties, orderId, updateMode = None, version = None):
-		"""
-			orders-extendedproperties Post AddExtendedProperties description DOCUMENT_HERE 
-			Request Params
-				string orderId Unique identifier of the order.
-				string updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-				string version Determines whether or not to check versioning of items for concurrency purposes.
-				array|extendedProperties Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
-			Response
-				array|ExtendedProperty 
+		""" orders-extendedproperties Post AddExtendedProperties description DOCUMENT_HERE 
+		
+		Args:
+			| extendedProperties(array|extendedProperties) - Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+		
+		Returns:
+			| array of ExtendedProperty 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/extendedproperties?updatemode={updateMode}&version={version}", "POST", UrlLocation.TenantPod, False);
@@ -57,18 +67,23 @@ class ExtendedProperty(object):
 	
 		
 	def updateExtendedProperty(self,extendedProperty, orderId, key, updateMode = None, version = None, upsert = False, responseFields = None):
-		"""
-			orders-extendedproperties Put UpdateExtendedProperty description DOCUMENT_HERE 
-			Request Params
-				string key 
-				string orderId Unique identifier of the order.
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-				string updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-				bool upsert 
-				string version Determines whether or not to check versioning of items for concurrency purposes.
-				extendedProperty Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
-			Response
-				ExtendedProperty 
+		""" orders-extendedproperties Put UpdateExtendedProperty description DOCUMENT_HERE 
+		
+		Args:
+			| extendedProperty(extendedProperty) - Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
+			| orderId (string) - Unique identifier of the order.
+			| key (string) - 
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| upsert (bool) - 
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| ExtendedProperty 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/extendedproperties/{key}?updatemode={updateMode}&version={version}&upsert={upsert}&responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -84,16 +99,21 @@ class ExtendedProperty(object):
 	
 		
 	def updateExtendedProperties(self,extendedProperties, orderId, updateMode = None, version = None, upsert = False):
-		"""
-			orders-extendedproperties Put UpdateExtendedProperties description DOCUMENT_HERE 
-			Request Params
-				string orderId Unique identifier of the order.
-				string updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-				bool upsert 
-				string version Determines whether or not to check versioning of items for concurrency purposes.
-				array|extendedProperties Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
-			Response
-				array|ExtendedProperty 
+		""" orders-extendedproperties Put UpdateExtendedProperties description DOCUMENT_HERE 
+		
+		Args:
+			| extendedProperties(array|extendedProperties) - Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| upsert (bool) - 
+		
+		Returns:
+			| array of ExtendedProperty 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/extendedproperties?updatemode={updateMode}&version={version}&upsert={upsert}", "PUT", UrlLocation.TenantPod, False);
@@ -107,14 +127,17 @@ class ExtendedProperty(object):
 	
 		
 	def deleteExtendedProperty(self,orderId, key, updateMode = None, version = None):
-		"""
-			orders-extendedproperties Delete DeleteExtendedProperty description DOCUMENT_HERE 
-			Request Params
-				string key 
-				string orderId Unique identifier of the order.
-				string updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-				string version Determines whether or not to check versioning of items for concurrency purposes.
-			Response
+		""" orders-extendedproperties Delete DeleteExtendedProperty description DOCUMENT_HERE 
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| key (string) - 
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/extendedproperties/{key}?updatemode={updateMode}&version={version}", "DELETE", UrlLocation.TenantPod, False);
@@ -127,14 +150,17 @@ class ExtendedProperty(object):
 	
 		
 	def deleteExtendedProperties(self,keys, orderId, updateMode = None, version = None):
-		"""
-			orders-extendedproperties Delete DeleteExtendedProperties description DOCUMENT_HERE 
-			Request Params
-				string orderId Unique identifier of the order.
-				string updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-				string version Determines whether or not to check versioning of items for concurrency purposes.
-				array|keys 
-			Response
+		""" orders-extendedproperties Delete DeleteExtendedProperties description DOCUMENT_HERE 
+		
+		Args:
+			| keys(array|keys) - 
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/extendedproperties?updatemode={updateMode}&version={version}", "DELETE", UrlLocation.TenantPod, False);

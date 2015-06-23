@@ -18,20 +18,25 @@ class CustomerAccount(object):
 		client.withApiContext(apiContext);
 	
 	def getAccounts(self,startIndex = None, pageSize = None, sortBy = None, filter = None, fields = None, q = None, qLimit = None, isAnonymous = False, responseFields = None):
-		"""
-			Retrieves a list of customer accounts.
-			Request Params
-				string fields The fields to include in the response.
-				string filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-				bool isAnonymous If true, retrieve anonymous shopper accounts in the response.
-				int pageSize 
-				string q A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.
-				int qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
-				string responseFields Use this field to include those fields which are not included by default.
-				string sortBy 
-				int startIndex 
-			Response
-				CustomerAccountCollection 
+		""" Retrieves a list of customer accounts.
+		
+		Args:
+			| startIndex (int) - 
+			| pageSize (int) - 
+			| sortBy (string) - 
+			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+			| fields (string) - The fields to include in the response.
+			| q (string) - A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.
+			| qLimit (int) - The maximum number of search results to return in the response. You can limit any range between 1-100.
+			| isAnonymous (bool) - If true, retrieve anonymous shopper accounts in the response.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CustomerAccountCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&fields={fields}&q={q}&qLimit={qLimit}&isAnonymous={isAnonymous}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -50,13 +55,18 @@ class CustomerAccount(object):
 	
 		
 	def getLoginState(self,accountId, responseFields = None):
-		"""
-			Retrieves the current login state of the customer account specified in the request.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				LoginState 
+		""" Retrieves the current login state of the customer account specified in the request.
+		
+		Args:
+			| accountId (int) - Unique identifier of the customer account.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| LoginState 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/loginstate?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -68,13 +78,18 @@ class CustomerAccount(object):
 	
 		
 	def getAccount(self,accountId, responseFields = None):
-		"""
-			Retrieve details of a customer account.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				CustomerAccount 
+		""" Retrieve details of a customer account.
+		
+		Args:
+			| accountId (int) - Unique identifier of the customer account.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CustomerAccount 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -86,13 +101,18 @@ class CustomerAccount(object):
 	
 		
 	def addAccount(self,account, responseFields = None):
-		"""
-			Creates a new customer account based on the information specified in the request.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				account Properties of the customer account.
-			Response
-				CustomerAccount 
+		""" Creates a new customer account based on the information specified in the request.
+		
+		Args:
+			| account(account) - Properties of the customer account.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CustomerAccount 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -103,13 +123,16 @@ class CustomerAccount(object):
 	
 		
 	def changePassword(self,passwordInfo, accountId, unlockAccount = False):
-		"""
-			Modify the password associated with a customer account.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				bool unlockAccount 
-				passwordInfo The information required to modify a shopper account password.
-			Response
+		""" Modify the password associated with a customer account.
+		
+		Args:
+			| passwordInfo(passwordInfo) - The information required to modify a shopper account password.
+			| accountId (int) - Unique identifier of the customer account.
+			| unlockAccount (bool) - 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/Change-Password?unlockAccount={unlockAccount}", "POST", UrlLocation.TenantPod, False);
@@ -120,14 +143,19 @@ class CustomerAccount(object):
 	
 		
 	def addLoginToExistingCustomer(self,customerAuthInfo, accountId, responseFields = None):
-		"""
-			Adds a new user login to a defined customer account.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				string responseFields Use this field to include those fields which are not included by default.
-				customerAuthInfo The login information for a customer account.
-			Response
-				CustomerAuthTicket 
+		""" Adds a new user login to a defined customer account.
+		
+		Args:
+			| customerAuthInfo(customerAuthInfo) - The login information for a customer account.
+			| accountId (int) - Unique identifier of the customer account.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CustomerAuthTicket 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/Create-Login?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -139,11 +167,14 @@ class CustomerAccount(object):
 	
 		
 	def recomputeCustomerLifetimeValue(self,accountId):
-		"""
-			Updates the customer lifetime value of the specified customer account in the event of an order import or a lifetime value calculation error.
-			Request Params
-				int accountId Unique identifier of the customer account.
-			Response
+		""" Updates the customer lifetime value of the specified customer account in the event of an order import or a lifetime value calculation error.
+		
+		Args:
+			| accountId (int) - Unique identifier of the customer account.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/recomputelifetimevalue", "POST", UrlLocation.TenantPod, False);
@@ -153,12 +184,15 @@ class CustomerAccount(object):
 	
 		
 	def setLoginLocked(self,isLocked, accountId):
-		"""
-			Lock or unlock a customer account.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				isLocked If true, the customer account is locked from logging in.
-			Response
+		""" Lock or unlock a customer account.
+		
+		Args:
+			| isLocked(isLocked) - If true, the customer account is locked from logging in.
+			| accountId (int) - Unique identifier of the customer account.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/Set-Login-Locked", "POST", UrlLocation.TenantPod, False);
@@ -168,12 +202,15 @@ class CustomerAccount(object):
 	
 		
 	def setPasswordChangeRequired(self,isPasswordChangeRequired, accountId):
-		"""
-			Requires the password for the customer account to be changed.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				isPasswordChangeRequired If true, the password for the customer account must be changed.
-			Response
+		""" Requires the password for the customer account to be changed.
+		
+		Args:
+			| isPasswordChangeRequired(isPasswordChangeRequired) - If true, the password for the customer account must be changed.
+			| accountId (int) - Unique identifier of the customer account.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/Set-Password-Change-Required", "POST", UrlLocation.TenantPod, False);
@@ -183,13 +220,18 @@ class CustomerAccount(object):
 	
 		
 	def addAccountAndLogin(self,accountAndAuthInfo, responseFields = None):
-		"""
-			Creates a new customer account and logs the user associated with the customer account into the site.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				accountAndAuthInfo The authentication information associated with a customer account. The data includes the account properties such as the name, username, authorization access, and email address, the required password to match, and indicates if the account was imported from a third party resource. 
-			Response
-				CustomerAuthTicket 
+		""" Creates a new customer account and logs the user associated with the customer account into the site.
+		
+		Args:
+			| accountAndAuthInfo(accountAndAuthInfo) - The authentication information associated with a customer account. The data includes the account properties such as the name, username, authorization access, and email address, the required password to match, and indicates if the account was imported from a third party resource. 
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CustomerAuthTicket 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/Add-Account-And-Login?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -200,13 +242,18 @@ class CustomerAccount(object):
 	
 		
 	def addAccounts(self,customers, responseFields = None):
-		"""
-			Creates multiple customer accounts based on the information specified in the request.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				array|customers The authentication information associated with a customer account. The data includes the account properties such as the name, username, authorization access, and email address, the required password to match, and indicates if the account was imported from a third party resource. 
-			Response
-				CustomerAccountCollection 
+		""" Creates multiple customer accounts based on the information specified in the request.
+		
+		Args:
+			| customers(array|customers) - The authentication information associated with a customer account. The data includes the account properties such as the name, username, authorization access, and email address, the required password to match, and indicates if the account was imported from a third party resource. 
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CustomerAccountCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/Bulk?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -217,13 +264,18 @@ class CustomerAccount(object):
 	
 		
 	def changePasswords(self,accountPasswordInfos, responseFields = None):
-		"""
-			Changes a collection of shopper passwords
-			Request Params
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-				accountPasswordInfos Mozu.Customer.Contracts.AccountPasswordInfoCollection ApiType DOCUMENT_HERE 
-			Response
-				ChangePasswordResultCollection 
+		""" Changes a collection of shopper passwords
+		
+		Args:
+			| accountPasswordInfos(accountPasswordInfos) - Mozu.Customer.Contracts.AccountPasswordInfoCollection ApiType DOCUMENT_HERE 
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| ChangePasswordResultCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/Change-Passwords?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -234,13 +286,18 @@ class CustomerAccount(object):
 	
 		
 	def getLoginStateByEmailAddress(self,emailAddress, responseFields = None):
-		"""
-			Retrieves the current login state of a customer account by providing the customer's email address.
-			Request Params
-				string emailAddress The email address associated with the customer account.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				LoginState 
+		""" Retrieves the current login state of a customer account by providing the customer's email address.
+		
+		Args:
+			| emailAddress (string) - The email address associated with the customer account.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| LoginState 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/loginstatebyemailaddress?emailAddress={emailAddress}&responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -252,13 +309,18 @@ class CustomerAccount(object):
 	
 		
 	def getLoginStateByUserName(self,userName, responseFields = None):
-		"""
-			Retrieves the current login state of a customer account by providing the user name associated with the customer account.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				string userName The user name associated with the customer account.
-			Response
-				LoginState 
+		""" Retrieves the current login state of a customer account by providing the user name associated with the customer account.
+		
+		Args:
+			| userName (string) - The user name associated with the customer account.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| LoginState 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/loginstatebyusername?userName={userName}&responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -270,11 +332,14 @@ class CustomerAccount(object):
 	
 		
 	def resetPassword(self,resetPasswordInfo):
-		"""
-			Resets the password for a customer account.
-			Request Params
-				resetPasswordInfo Information required to reset the password for a customer account.
-			Response
+		""" Resets the password for a customer account.
+		
+		Args:
+			| resetPasswordInfo(resetPasswordInfo) - Information required to reset the password for a customer account.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/Reset-Password", "POST", UrlLocation.TenantPod, False);
@@ -283,14 +348,19 @@ class CustomerAccount(object):
 	
 		
 	def updateAccount(self,account, accountId, responseFields = None):
-		"""
-			Updates a customer account.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				string responseFields Use this field to include those fields which are not included by default.
-				account Properties of the customer account.
-			Response
-				CustomerAccount 
+		""" Updates a customer account.
+		
+		Args:
+			| account(account) - Properties of the customer account.
+			| accountId (int) - Unique identifier of the customer account.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CustomerAccount 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -302,11 +372,14 @@ class CustomerAccount(object):
 	
 		
 	def deleteAccount(self,accountId):
-		"""
-			Deletes a customer account. A customer account cannot be deleted if any orders exist, past or present.
-			Request Params
-				int accountId Unique identifier of the customer account.
-			Response
+		""" Deletes a customer account. A customer account cannot be deleted if any orders exist, past or present.
+		
+		Args:
+			| accountId (int) - Unique identifier of the customer account.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}", "DELETE", UrlLocation.TenantPod, False);

@@ -16,14 +16,19 @@ class DeveloperAdminUserAuthTicket(object):
 		self.client = mozuClient or default_client();
 	
 	def createDeveloperUserAuthTicket(self,userAuthInfo, developerAccountId = None, responseFields = None):
-		"""
-			Generate an authentication ticket for a developer account.
-			Request Params
-				int developerAccountId Unique identifier of the developer account.
-				string responseFields Use this field to include those fields which are not included by default.
-				userAuthInfo Information required to authenticate a user.
-			Response
-				DeveloperAdminUserAuthTicket 
+		""" Generate an authentication ticket for a developer account.
+		
+		Args:
+			| userAuthInfo(userAuthInfo) - Information required to authenticate a user.
+			| developerAccountId (int) - Unique identifier of the developer account.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| DeveloperAdminUserAuthTicket 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/developer/authtickets/?developerAccountId={developerAccountId}&responseFields={responseFields}", "POST", UrlLocation.HomePod, False);
@@ -35,14 +40,19 @@ class DeveloperAdminUserAuthTicket(object):
 	
 		
 	def refreshDeveloperAuthTicket(self,existingAuthTicket, developerAccountId = None, responseFields = None):
-		"""
-			Generates a new developer account authentication ticket for the specified tenant by supplying the defined refresh token information.
-			Request Params
-				int developerAccountId Unique identifier of the developer account.
-				string responseFields Use this field to include those fields which are not included by default.
-				existingAuthTicket Properties of the authentication ticket to be used in developer account claims with the Mozu API.
-			Response
-				DeveloperAdminUserAuthTicket 
+		""" Generates a new developer account authentication ticket for the specified tenant by supplying the defined refresh token information.
+		
+		Args:
+			| existingAuthTicket(existingAuthTicket) - Properties of the authentication ticket to be used in developer account claims with the Mozu API.
+			| developerAccountId (int) - Unique identifier of the developer account.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| DeveloperAdminUserAuthTicket 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/developer/authtickets/?developerAccountId={developerAccountId}&responseFields={responseFields}", "PUT", UrlLocation.HomePod, False);
@@ -54,11 +64,14 @@ class DeveloperAdminUserAuthTicket(object):
 	
 		
 	def deleteUserAuthTicket(self,refreshToken):
-		"""
-			Deletes the authentication ticket for the developer account by supplying the refresh token.
-			Request Params
-				string refreshToken Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.
-			Response
+		""" Deletes the authentication ticket for the developer account by supplying the refresh token.
+		
+		Args:
+			| refreshToken (string) - Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/developer/authtickets/?refreshToken={refreshToken}", "DELETE", UrlLocation.HomePod, False);

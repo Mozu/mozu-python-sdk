@@ -16,13 +16,18 @@ class AdminUser(object):
 		self.client = mozuClient or default_client();
 	
 	def getTenantScopesForUser(self,userId, responseFields = None):
-		"""
-			Retrieves a list of the Mozu tenants or development stores for which the specified user has an assigned role.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				string userId Unique identifier of the user whose tenant scopes you want to retrieve.
-			Response
-				TenantCollection 
+		""" Retrieves a list of the Mozu tenants or development stores for which the specified user has an assigned role.
+		
+		Args:
+			| userId (string) - Unique identifier of the user whose tenant scopes you want to retrieve.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| TenantCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/adminuser/accounts/{userId}/tenants?responseFields={responseFields}", "GET", UrlLocation.HomePod, False);
@@ -34,13 +39,18 @@ class AdminUser(object):
 	
 		
 	def getUser(self,userId, responseFields = None):
-		"""
-			Retrieves the details of the specified administrator user account.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				string userId Unique identifier of the user whose tenant scopes you want to retrieve.
-			Response
-				User 
+		""" Retrieves the details of the specified administrator user account.
+		
+		Args:
+			| userId (string) - Unique identifier of the user whose tenant scopes you want to retrieve.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| User 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/adminuser/accounts/{userId}?responseFields={responseFields}", "GET", UrlLocation.HomePod, False);

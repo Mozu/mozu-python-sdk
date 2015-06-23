@@ -20,12 +20,17 @@ class ProductExtra(object):
 		self.client.withApiContext(apiContext);
 	
 	def getExtras(self,productCode):
-		"""
-			Retrieves a list of extras configured for the product according to any defined filter and sort criteria.
-			Request Params
-				string productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			Response
-				array|ProductExtra 
+		""" Retrieves a list of extras configured for the product according to any defined filter and sort criteria.
+		
+		Args:
+			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+		
+		Returns:
+			| array of ProductExtra 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Extras", "GET", UrlLocation.TenantPod, False);
@@ -36,14 +41,19 @@ class ProductExtra(object):
 	
 		
 	def getExtraValueLocalizedDeltaPrices(self,productCode, attributeFQN, value):
-		"""
-			Retrieves a collection of all localized delta price values for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
-				string value The value string to create.
-			Response
-				array|ProductExtraValueDeltaPrice 
+		""" Retrieves a collection of all localized delta price values for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		
+		Args:
+			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+		
+		Returns:
+			| array of ProductExtraValueDeltaPrice 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}/Values/{value}/localizedDeltaPrice", "GET", UrlLocation.TenantPod, False);
@@ -56,16 +66,21 @@ class ProductExtra(object):
 	
 		
 	def getExtraValueLocalizedDeltaPrice(self,productCode, attributeFQN, value, currencyCode, responseFields = None):
-		"""
-			Retrieves the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string currencyCode The three character ISO currency code, such as USD for US Dollars.
-				string productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
-				string responseFields Use this field to include those fields which are not included by default.
-				string value The value string to create.
-			Response
-				ProductExtraValueDeltaPrice 
+		""" Retrieves the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		
+		Args:
+			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductExtraValueDeltaPrice 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}/Values/{value}/localizedDeltaPrice/{currencyCode}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -80,14 +95,19 @@ class ProductExtra(object):
 	
 		
 	def getExtra(self,productCode, attributeFQN, responseFields = None):
-		"""
-			Retrieves the details of an extra attribute configuration for the product specified in the request.
-			Request Params
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-				string productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				ProductExtra 
+		""" Retrieves the details of an extra attribute configuration for the product specified in the request.
+		
+		Args:
+			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductExtra 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -100,16 +120,21 @@ class ProductExtra(object):
 	
 		
 	def addExtraValueLocalizedDeltaPrice(self,localizedDeltaPrice, productCode, attributeFQN, value, responseFields = None):
-		"""
-			Adds a localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
-				string responseFields Use this field to include those fields which are not included by default.
-				string value The value string to create.
-				localizedDeltaPrice The properties of the price difference between the product extra and the base product.
-			Response
-				ProductExtraValueDeltaPrice 
+		""" Adds a localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		
+		Args:
+			| localizedDeltaPrice(localizedDeltaPrice) - The properties of the price difference between the product extra and the base product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductExtraValueDeltaPrice 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}/Values/{value}/localizedDeltaPrice?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -123,14 +148,19 @@ class ProductExtra(object):
 	
 		
 	def addExtra(self,productExtra, productCode, responseFields = None):
-		"""
-			Configure an extra attribute for the product specified in the request.
-			Request Params
-				string productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-				string responseFields Use this field to include those fields which are not included by default.
-				productExtra Properties of an extra attribute to defined for a product that is associated with a product type that uses the extra. Setting up extras for a product enables shopper-entered information, such as initials for a monogram.
-			Response
-				ProductExtra 
+		""" Configure an extra attribute for the product specified in the request.
+		
+		Args:
+			| productExtra(productExtra) - Properties of an extra attribute to defined for a product that is associated with a product type that uses the extra. Setting up extras for a product enables shopper-entered information, such as initials for a monogram.
+			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductExtra 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Extras?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -142,15 +172,20 @@ class ProductExtra(object):
 	
 		
 	def updateExtraValueLocalizedDeltaPrices(self,localizedDeltaPrice, productCode, attributeFQN, value):
-		"""
-			Updates all localized delta price values for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
-				string value The value string to create.
-				array|localizedDeltaPrice The properties of the price difference between the product extra and the base product.
-			Response
-				array|ProductExtraValueDeltaPrice 
+		""" Updates all localized delta price values for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		
+		Args:
+			| localizedDeltaPrice(array|localizedDeltaPrice) - The properties of the price difference between the product extra and the base product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+		
+		Returns:
+			| array of ProductExtraValueDeltaPrice 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}/Values/{value}/localizedDeltaPrice", "PUT", UrlLocation.TenantPod, False);
@@ -163,17 +198,22 @@ class ProductExtra(object):
 	
 		
 	def updateExtraValueLocalizedDeltaPrice(self,localizedDeltaPrice, productCode, attributeFQN, value, currencyCode, responseFields = None):
-		"""
-			Updates the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string currencyCode The three character ISO currency code, such as USD for US Dollars.
-				string productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
-				string responseFields Use this field to include those fields which are not included by default.
-				string value The value string to create.
-				localizedDeltaPrice The properties of the price difference between the product extra and the base product.
-			Response
-				ProductExtraValueDeltaPrice 
+		""" Updates the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		
+		Args:
+			| localizedDeltaPrice(localizedDeltaPrice) - The properties of the price difference between the product extra and the base product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductExtraValueDeltaPrice 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}/Values/{value}/localizedDeltaPrice/{currencyCode}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -188,15 +228,20 @@ class ProductExtra(object):
 	
 		
 	def updateExtra(self,productExtra, productCode, attributeFQN, responseFields = None):
-		"""
-			Updates the configuration of an extra attribute for the product specified in the request.
-			Request Params
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-				string productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-				string responseFields Use this field to include those fields which are not included by default.
-				productExtra Properties of an extra attribute to defined for a product that is associated with a product type that uses the extra. Setting up extras for a product enables shopper-entered information, such as initials for a monogram.
-			Response
-				ProductExtra 
+		""" Updates the configuration of an extra attribute for the product specified in the request.
+		
+		Args:
+			| productExtra(productExtra) - Properties of an extra attribute to defined for a product that is associated with a product type that uses the extra. Setting up extras for a product enables shopper-entered information, such as initials for a monogram.
+			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductExtra 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -209,12 +254,15 @@ class ProductExtra(object):
 	
 		
 	def deleteExtra(self,productCode, attributeFQN):
-		"""
-			Delete a product extra configuration for the product specified in the request.
-			Request Params
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-				string productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			Response
+		""" Delete a product extra configuration for the product specified in the request.
+		
+		Args:
+			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}", "DELETE", UrlLocation.TenantPod, False);
@@ -225,14 +273,17 @@ class ProductExtra(object):
 	
 		
 	def deleteExtraValueLocalizedDeltaPrice(self,productCode, attributeFQN, value, currencyCode):
-		"""
-			Deletes the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string currencyCode The three character ISO currency code, such as USD for US Dollars.
-				string productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
-				string value Use this field to include those fields which are not included by default.
-			Response
+		""" Deletes the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		
+		Args:
+			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - Use this field to include those fields which are not included by default.
+			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Extras/{attributeFQN}/Values/{value}/localizedDeltaPrice/{currencyCode}", "DELETE", UrlLocation.TenantPod, False);

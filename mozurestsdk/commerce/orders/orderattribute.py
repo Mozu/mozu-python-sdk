@@ -18,12 +18,17 @@ class OrderAttribute(object):
 		client.withApiContext(apiContext);
 	
 	def getOrderAttributes(self,orderId):
-		"""
-			Retrieves a list of the attributes defined for the order specified in the request.
-			Request Params
-				string orderId Unique identifier of the order.
-			Response
-				array|OrderAttribute 
+		""" Retrieves a list of the attributes defined for the order specified in the request.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+		
+		Returns:
+			| array of OrderAttribute 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/attributes", "GET", UrlLocation.TenantPod, False);
@@ -34,13 +39,18 @@ class OrderAttribute(object):
 	
 		
 	def createOrderAttributes(self,orderAttributes, orderId):
-		"""
-			Applies a list of attributes to the order specified in the request and defines a value for each attribute in the request body.
-			Request Params
-				string orderId Unique identifier of the order.
-				array|orderAttributes Properties of an attribute applied to an order.
-			Response
-				array|OrderAttribute 
+		""" Applies a list of attributes to the order specified in the request and defines a value for each attribute in the request body.
+		
+		Args:
+			| orderAttributes(array|orderAttributes) - Properties of an attribute applied to an order.
+			| orderId (string) - Unique identifier of the order.
+		
+		Returns:
+			| array of OrderAttribute 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/attributes", "POST", UrlLocation.TenantPod, False);
@@ -51,14 +61,19 @@ class OrderAttribute(object):
 	
 		
 	def updateOrderAttributes(self,orderAttributes, orderId, removeMissing = False):
-		"""
-			Updates one or more properties of an attribute defined for the order specified in the request.
-			Request Params
-				string orderId Unique identifier of the order.
-				bool removeMissing If true, the operation removes missing properties so that the updated order attributes will not show properties with a null value.
-				array|orderAttributes Properties of an attribute applied to an order.
-			Response
-				array|OrderAttribute 
+		""" Updates one or more properties of an attribute defined for the order specified in the request.
+		
+		Args:
+			| orderAttributes(array|orderAttributes) - Properties of an attribute applied to an order.
+			| orderId (string) - Unique identifier of the order.
+			| removeMissing (bool) - If true, the operation removes missing properties so that the updated order attributes will not show properties with a null value.
+		
+		Returns:
+			| array of OrderAttribute 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/attributes?removeMissing={removeMissing}", "PUT", UrlLocation.TenantPod, False);

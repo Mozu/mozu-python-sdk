@@ -18,12 +18,17 @@ class AttributeVocabularyValue(object):
 		client.withApiContext(apiContext);
 	
 	def getAttributeVocabularyValues(self,attributeFQN):
-		"""
-			Retrieves a list of vocabulary values defined for the attribute specified in the request.
-			Request Params
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-			Response
-				array|AttributeVocabularyValue 
+		""" Retrieves a list of vocabulary values defined for the attribute specified in the request.
+		
+		Args:
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+		
+		Returns:
+			| array of AttributeVocabularyValue 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues", "GET", UrlLocation.TenantPod, False);
@@ -34,13 +39,18 @@ class AttributeVocabularyValue(object):
 	
 		
 	def getAttributeVocabularyValueLocalizedContents(self,attributeFQN, value):
-		"""
-			Retrieves a collection of localized content for vocabulary value attributes based on a `localeCode`. 
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string value The value string to create.
-			Response
-				array|AttributeVocabularyValueLocalizedContent 
+		""" Retrieves a collection of localized content for vocabulary value attributes based on a  localeCode . 
+		
+		Args:
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+		
+		Returns:
+			| array of AttributeVocabularyValueLocalizedContent 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}/LocalizedContent", "GET", UrlLocation.TenantPod, False);
@@ -52,15 +62,20 @@ class AttributeVocabularyValue(object):
 	
 		
 	def getAttributeVocabularyValueLocalizedContent(self,attributeFQN, value, localeCode, responseFields = None):
-		"""
-			Retrieves the localized content for a vocabulary value attribute based on a `localeCode`. 
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string localeCode Language used for the entity. Currently, only "en-US" is supported.
-				string responseFields Use this field to include those fields which are not included by default.
-				string value The value string to create.
-			Response
-				AttributeVocabularyValueLocalizedContent 
+		""" Retrieves the localized content for a vocabulary value attribute based on a  localeCode . 
+		
+		Args:
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| localeCode (string) - Language used for the entity. Currently, only "en-US" is supported.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| AttributeVocabularyValueLocalizedContent 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}/LocalizedContent/{localeCode}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -74,14 +89,19 @@ class AttributeVocabularyValue(object):
 	
 		
 	def getAttributeVocabularyValue(self,attributeFQN, value, responseFields = None):
-		"""
-			Retrieves the details of a vocabulary value defined for an attribute by providing the attribute's fully qualified name and the value to retrieve.
-			Request Params
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-				string responseFields Use this field to include those fields which are not included by default.
-				string value The value string to create.
-			Response
-				AttributeVocabularyValue 
+		""" Retrieves the details of a vocabulary value defined for an attribute by providing the attribute's fully qualified name and the value to retrieve.
+		
+		Args:
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| value (string) - The value string to create.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| AttributeVocabularyValue 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -94,15 +114,20 @@ class AttributeVocabularyValue(object):
 	
 		
 	def addAttributeVocabularyValueLocalizedContent(self,localizedContent, attributeFQN, value, responseFields = None):
-		"""
-			Creates and saves localized vocabulary value content for an attribute, based on the `localeCode`.
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string responseFields Use this field to include those fields which are not included by default.
-				string value The value string to create.
-				localizedContent The localized text for the string value of a product attribute.
-			Response
-				AttributeVocabularyValueLocalizedContent 
+		""" Creates and saves localized vocabulary value content for an attribute, based on the  localeCode .
+		
+		Args:
+			| localizedContent(localizedContent) - The localized text for the string value of a product attribute.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| AttributeVocabularyValueLocalizedContent 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}/localizedContent?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -115,14 +140,19 @@ class AttributeVocabularyValue(object):
 	
 		
 	def addAttributeVocabularyValue(self,attributeVocabularyValue, attributeFQN, responseFields = None):
-		"""
-			Creates a vocabulary value for a defined product attribute.
-			Request Params
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-				string responseFields Use this field to include those fields which are not included by default.
-				attributeVocabularyValue Properties of a vocabulary value defined for an extensible attribute.
-			Response
-				AttributeVocabularyValue 
+		""" Creates a vocabulary value for a defined product attribute.
+		
+		Args:
+			| attributeVocabularyValue(attributeVocabularyValue) - Properties of a vocabulary value defined for an extensible attribute.
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| AttributeVocabularyValue 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -134,13 +164,18 @@ class AttributeVocabularyValue(object):
 	
 		
 	def updateAttributeVocabularyValues(self,vocabularyValues, attributeFQN):
-		"""
-			Update existing vocabulary values for an attribute.
-			Request Params
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-				array|vocabularyValues Properties of a vocabulary value defined for an extensible attribute.
-			Response
-				array|AttributeVocabularyValue 
+		""" Update existing vocabulary values for an attribute.
+		
+		Args:
+			| vocabularyValues(array|vocabularyValues) - Properties of a vocabulary value defined for an extensible attribute.
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+		
+		Returns:
+			| array of AttributeVocabularyValue 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues", "PUT", UrlLocation.TenantPod, False);
@@ -151,14 +186,19 @@ class AttributeVocabularyValue(object):
 	
 		
 	def updateAttributeVocabularyValueLocalizedContents(self,localizedContent, attributeFQN, value):
-		"""
-			Updates a collection of localized vocabulary value content for existing attributes, based on the `localeCode`.
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string value The value string to create.
-				array|localizedContent The localized text for the string value of a product attribute.
-			Response
-				array|AttributeVocabularyValueLocalizedContent 
+		""" Updates a collection of localized vocabulary value content for existing attributes, based on the  localeCode .
+		
+		Args:
+			| localizedContent(array|localizedContent) - The localized text for the string value of a product attribute.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+		
+		Returns:
+			| array of AttributeVocabularyValueLocalizedContent 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}/LocalizedContent", "PUT", UrlLocation.TenantPod, False);
@@ -170,16 +210,21 @@ class AttributeVocabularyValue(object):
 	
 		
 	def updateAttributeVocabularyValueLocalizedContent(self,localizedContent, attributeFQN, value, localeCode, responseFields = None):
-		"""
-			Updates localized vocabulary value content for an existing attribute, based on the `localeCode`.
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string localeCode The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.
-				string responseFields Use this field to include those fields which are not included by default.
-				string value The value string to create.
-				localizedContent The localized text for the string value of a product attribute.
-			Response
-				AttributeVocabularyValueLocalizedContent 
+		""" Updates localized vocabulary value content for an existing attribute, based on the  localeCode .
+		
+		Args:
+			| localizedContent(localizedContent) - The localized text for the string value of a product attribute.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| localeCode (string) - The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| AttributeVocabularyValueLocalizedContent 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}/LocalizedContent/{localeCode}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -193,15 +238,20 @@ class AttributeVocabularyValue(object):
 	
 		
 	def updateAttributeVocabularyValue(self,attributeVocabularyValue, attributeFQN, value, responseFields = None):
-		"""
-			Updates existing attribute vocabulary values.
-			Request Params
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-				string responseFields Use this field to include those fields which are not included by default.
-				string value The value string to create.
-				attributeVocabularyValue Properties of a vocabulary value defined for an extensible attribute.
-			Response
-				AttributeVocabularyValue 
+		""" Updates existing attribute vocabulary values.
+		
+		Args:
+			| attributeVocabularyValue(attributeVocabularyValue) - Properties of a vocabulary value defined for an extensible attribute.
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| value (string) - The value string to create.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| AttributeVocabularyValue 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -214,12 +264,15 @@ class AttributeVocabularyValue(object):
 	
 		
 	def deleteAttributeVocabularyValue(self,attributeFQN, value):
-		"""
-			Deletes an attribute's vocabulary value.
-			Request Params
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-				string value The value string to create.
-			Response
+		""" Deletes an attribute's vocabulary value.
+		
+		Args:
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| value (string) - The value string to create.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}", "DELETE", UrlLocation.TenantPod, False);
@@ -230,13 +283,16 @@ class AttributeVocabularyValue(object):
 	
 		
 	def deleteAttributeVocabularyValueLocalizedContent(self,attributeFQN, value, localeCode):
-		"""
-			Removes localized content for a vocabulary value attribute. 
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string localeCode Language used for the entity. Currently, only "en-US" is supported.
-				string value The value string to create.
-			Response
+		""" Removes localized content for a vocabulary value attribute. 
+		
+		Args:
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| localeCode (string) - Language used for the entity. Currently, only "en-US" is supported.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/VocabularyValues/{value}/LocalizedContent/{localeCode}", "DELETE", UrlLocation.TenantPod, False);

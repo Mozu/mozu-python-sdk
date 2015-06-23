@@ -18,14 +18,19 @@ class BillingInfo(object):
 		client.withApiContext(apiContext);
 	
 	def getBillingInfo(self,orderId, draft = False, responseFields = None):
-		"""
-			Retrieves the billing information associated with an order.
-			Request Params
-				bool draft If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				BillingInfo 
+		""" Retrieves the billing information associated with an order.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| BillingInfo 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/billinginfo?draft={draft}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -38,16 +43,21 @@ class BillingInfo(object):
 	
 		
 	def setBillingInfo(self,billingInfo, orderId, updateMode = None, version = None, responseFields = None):
-		"""
-			Updates the billing information supplied for an order.
-			Request Params
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-				string updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-				string version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
-				billingInfo Properties of the billing information entered for an order during checkout.
-			Response
-				BillingInfo 
+		""" Updates the billing information supplied for an order.
+		
+		Args:
+			| billingInfo(billingInfo) - Properties of the billing information entered for an order during checkout.
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| BillingInfo 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/billinginfo?updatemode={updateMode}&version={version}&responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);

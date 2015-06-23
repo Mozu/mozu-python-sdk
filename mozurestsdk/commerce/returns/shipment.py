@@ -18,14 +18,19 @@ class Shipment(object):
 		client.withApiContext(apiContext);
 	
 	def getShipment(self,returnId, shipmentId, responseFields = None):
-		"""
-			Retrieves the details of the specified return replacement shipment.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				string returnId Unique identifier of the return whose items you want to get.
-				string shipmentId Unique identifier of the shipment to retrieve.
-			Response
-				Shipment 
+		""" Retrieves the details of the specified return replacement shipment.
+		
+		Args:
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| shipmentId (string) - Unique identifier of the shipment to retrieve.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Shipment 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/returns/{returnId}/shipments/{shipmentId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -38,13 +43,18 @@ class Shipment(object):
 	
 		
 	def createPackageShipments(self,packageIds, returnId):
-		"""
-			Creates a shipment from one or more packages associated with a return replacement.
-			Request Params
-				string returnId Unique identifier of the return whose items you want to get.
-				array|packageIds List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.
-			Response
-				array|Package 
+		""" Creates a shipment from one or more packages associated with a return replacement.
+		
+		Args:
+			| packageIds(array|packageIds) - List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+		
+		Returns:
+			| array of Package 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/returns/{returnId}/shipments", "POST", UrlLocation.TenantPod, False);
@@ -55,12 +65,15 @@ class Shipment(object):
 	
 		
 	def deleteShipment(self,returnId, shipmentId):
-		"""
-			Deletes a shipment for a return replacement.
-			Request Params
-				string returnId Unique identifier of the return whose items you want to get.
-				string shipmentId Unique identifier of the shipment to retrieve.
-			Response
+		""" Deletes a shipment for a return replacement.
+		
+		Args:
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| shipmentId (string) - Unique identifier of the shipment to retrieve.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/returns/{returnId}/shipments/{shipmentId}", "DELETE", UrlLocation.TenantPod, False);

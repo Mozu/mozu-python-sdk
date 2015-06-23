@@ -18,17 +18,22 @@ class CreditTransaction(object):
 		client.withApiContext(apiContext);
 	
 	def getTransactions(self,code, startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		"""
-			Retrieves a list of the transactions performed using a customer credit that update the balance of the credit.
-			Request Params
-				string code User-defined code that uniqely identifies the channel group.
-				string filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-				int pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-				string responseFields Use this field to include those fields which are not included by default.
-				string sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
-				int startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
-			Response
-				CreditTransactionCollection 
+		""" Retrieves a list of the transactions performed using a customer credit that update the balance of the credit.
+		
+		Args:
+			| code (string) - User-defined code that uniqely identifies the channel group.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
+			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+			| sortBy (string) - The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
+			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CreditTransactionCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/credits/{code}/transactions?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -44,14 +49,19 @@ class CreditTransaction(object):
 	
 		
 	def addTransaction(self,creditTransaction, code, responseFields = None):
-		"""
-			Creates a new transaction and updates the amount of a store credit or gift card.
-			Request Params
-				string code User-defined code that uniqely identifies the channel group.
-				string responseFields Use this field to include those fields which are not included by default.
-				creditTransaction Properties of a transaction performed for a customer credit that update the remaining balance of the credit.
-			Response
-				CreditTransaction 
+		""" Creates a new transaction and updates the amount of a store credit or gift card.
+		
+		Args:
+			| creditTransaction(creditTransaction) - Properties of a transaction performed for a customer credit that update the remaining balance of the credit.
+			| code (string) - User-defined code that uniqely identifies the channel group.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CreditTransaction 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/credits/{code}/transactions?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);

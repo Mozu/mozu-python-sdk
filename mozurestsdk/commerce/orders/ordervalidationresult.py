@@ -18,12 +18,17 @@ class OrderValidationResult(object):
 		client.withApiContext(apiContext);
 	
 	def getValidationResults(self,orderId):
-		"""
-			Retrieves a list of the validation results associated with the order.
-			Request Params
-				string orderId Unique identifier of the order.
-			Response
-				array|OrderValidationResult 
+		""" Retrieves a list of the validation results associated with the order.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+		
+		Returns:
+			| array of OrderValidationResult 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/validationresults", "GET", UrlLocation.TenantPod, False);
@@ -34,14 +39,19 @@ class OrderValidationResult(object):
 	
 		
 	def addValidationResult(self,validationResult, orderId, responseFields = None):
-		"""
-			Add a new order validation result to a submitted order.
-			Request Params
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-				validationResult Properties of the resulting order validation performed by an order validation capability.
-			Response
-				OrderValidationResult 
+		""" Add a new order validation result to a submitted order.
+		
+		Args:
+			| validationResult(validationResult) - Properties of the resulting order validation performed by an order validation capability.
+			| orderId (string) - Unique identifier of the order.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| OrderValidationResult 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/validationresults?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);

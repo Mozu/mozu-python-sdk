@@ -18,14 +18,19 @@ class AppliedDiscount(object):
 		client.withApiContext(apiContext);
 	
 	def applyCoupon(self,cartId, couponCode, responseFields = None):
-		"""
-			Applies a defined coupon to the cart specified in the request.
-			Request Params
-				string cartId Identifier of the cart to delete.
-				string couponCode Code associated with the coupon to remove from the cart.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				Cart 
+		""" Applies a defined coupon to the cart specified in the request.
+		
+		Args:
+			| cartId (string) - Identifier of the cart to delete.
+			| couponCode (string) - Code associated with the coupon to remove from the cart.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Cart 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/{cartId}/coupons/{couponCode}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -38,12 +43,17 @@ class AppliedDiscount(object):
 	
 		
 	def removeCoupons(self,cartId):
-		"""
-			Removes one or more applied coupons from the cart specified in the request.
-			Request Params
-				string cartId Identifier of the cart to delete.
-			Response
-				Cart 
+		""" Removes one or more applied coupons from the cart specified in the request.
+		
+		Args:
+			| cartId (string) - Identifier of the cart to delete.
+		
+		Returns:
+			| Cart 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/{cartId}/coupons", "DELETE", UrlLocation.TenantPod, False);
@@ -54,13 +64,18 @@ class AppliedDiscount(object):
 	
 		
 	def removeCoupon(self,cartId, couponCode):
-		"""
-			Removes an applied coupon from the cart specified in the request.
-			Request Params
-				string cartId Identifier of the cart to delete.
-				string couponCode Code associated with the coupon to remove from the cart.
-			Response
-				Cart 
+		""" Removes an applied coupon from the cart specified in the request.
+		
+		Args:
+			| cartId (string) - Identifier of the cart to delete.
+			| couponCode (string) - Code associated with the coupon to remove from the cart.
+		
+		Returns:
+			| Cart 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/{cartId}/coupons/{couponcode}", "DELETE", UrlLocation.TenantPod, False);

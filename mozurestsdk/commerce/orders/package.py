@@ -18,13 +18,18 @@ class Package(object):
 		client.withApiContext(apiContext);
 	
 	def getAvailablePackageFulfillmentActions(self,orderId, packageId):
-		"""
-			Retrieves a list of the actions available to perform for a package associated with order fulfillment.
-			Request Params
-				string orderId Unique identifier of the order.
-				string packageId Unique identifier of the package for which to retrieve the label.
-			Response
-				array|string 
+		""" Retrieves a list of the actions available to perform for a package associated with order fulfillment.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| packageId (string) - Unique identifier of the package for which to retrieve the label.
+		
+		Returns:
+			| array of string 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/packages/{packageId}/actions", "GET", UrlLocation.TenantPod, False);
@@ -36,13 +41,18 @@ class Package(object):
 	
 		
 	def getPackageLabel(self,orderId, packageId):
-		"""
-			Retrieves the package label image supplied by the carrier.
-			Request Params
-				string orderId Unique identifier of the order.
-				string packageId Unique identifier of the package for which to retrieve the label.
-			Response
-				Stream 
+		""" Retrieves the package label image supplied by the carrier.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| packageId (string) - Unique identifier of the package for which to retrieve the label.
+		
+		Returns:
+			| Stream 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/packages/{packageId}/label", "GET", UrlLocation.TenantPod, False);
@@ -54,14 +64,19 @@ class Package(object):
 	
 		
 	def getPackage(self,orderId, packageId, responseFields = None):
-		"""
-			Retrieves the details of a package of order items.
-			Request Params
-				string orderId Unique identifier of the order.
-				string packageId Unique identifier of the package for which to retrieve the label.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				Package 
+		""" Retrieves the details of a package of order items.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| packageId (string) - Unique identifier of the package for which to retrieve the label.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Package 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/packages/{packageId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -74,14 +89,19 @@ class Package(object):
 	
 		
 	def createPackage(self,package, orderId, responseFields = None):
-		"""
-			Creates a new physical package of order items.
-			Request Params
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-				package Properties of a physical package shipped for an order.
-			Response
-				Package 
+		""" Creates a new physical package of order items.
+		
+		Args:
+			| package(package) - Properties of a physical package shipped for an order.
+			| orderId (string) - Unique identifier of the order.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Package 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/packages?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -93,15 +113,20 @@ class Package(object):
 	
 		
 	def updatePackage(self,package, orderId, packageId, responseFields = None):
-		"""
-			Updates one or more properties of a physical package of order items.
-			Request Params
-				string orderId Unique identifier of the order.
-				string packageId Unique identifier of the package for which to retrieve the label.
-				string responseFields Use this field to include those fields which are not included by default.
-				package Properties of a physical package shipped for an order.
-			Response
-				Package 
+		""" Updates one or more properties of a physical package of order items.
+		
+		Args:
+			| package(package) - Properties of a physical package shipped for an order.
+			| orderId (string) - Unique identifier of the order.
+			| packageId (string) - Unique identifier of the package for which to retrieve the label.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Package 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/packages/{packageId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -114,12 +139,15 @@ class Package(object):
 	
 		
 	def deletePackage(self,orderId, packageId):
-		"""
-			Removes a physical package of items from the specified order.
-			Request Params
-				string orderId Unique identifier of the order.
-				string packageId Unique identifier of the package for which to retrieve the label.
-			Response
+		""" Removes a physical package of items from the specified order.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| packageId (string) - Unique identifier of the package for which to retrieve the label.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/packages/{packageId}", "DELETE", UrlLocation.TenantPod, False);

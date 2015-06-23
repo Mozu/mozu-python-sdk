@@ -18,13 +18,18 @@ class Payment(object):
 		client.withApiContext(apiContext);
 	
 	def getPayments(self,orderId, responseFields = None):
-		"""
-			Retrieves information about all payment transactions submitted for the specified order.
-			Request Params
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				PaymentCollection 
+		""" Retrieves information about all payment transactions submitted for the specified order.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| PaymentCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/payments/?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -36,13 +41,18 @@ class Payment(object):
 	
 		
 	def getAvailablePaymentActions(self,orderId, paymentId):
-		"""
-			Retrieves the list of all available payment actions dependent on the order payment status by specifying the order ID.
-			Request Params
-				string orderId Unique identifier of the order.
-				string paymentId Unique identifier of the payment for which to perform the action.
-			Response
-				array|string 
+		""" Retrieves the list of all available payment actions dependent on the order payment status by specifying the order ID.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| paymentId (string) - Unique identifier of the payment for which to perform the action.
+		
+		Returns:
+			| array of string 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/payments/{paymentId}/actions", "GET", UrlLocation.TenantPod, False);
@@ -54,14 +64,19 @@ class Payment(object):
 	
 		
 	def getPayment(self,orderId, paymentId, responseFields = None):
-		"""
-			Retrieves information about a specific payment transaction submitted for the specified order.
-			Request Params
-				string orderId Unique identifier of the order.
-				string paymentId Unique identifier of the payment for which to perform the action.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				Payment 
+		""" Retrieves information about a specific payment transaction submitted for the specified order.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| paymentId (string) - Unique identifier of the payment for which to perform the action.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Payment 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/payments/{paymentId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -74,15 +89,20 @@ class Payment(object):
 	
 		
 	def performPaymentAction(self,action, orderId, paymentId, responseFields = None):
-		"""
-			Performs the specified action for an individual order payment transaction.
-			Request Params
-				string orderId Unique identifier of the order.
-				string paymentId Unique identifier of the payment for which to perform the action.
-				string responseFields Use this field to include those fields which are not included by default.
-				action Properties of the payment action performed for an order.
-			Response
-				Order 
+		""" Performs the specified action for an individual order payment transaction.
+		
+		Args:
+			| action(action) - Properties of the payment action performed for an order.
+			| orderId (string) - Unique identifier of the order.
+			| paymentId (string) - Unique identifier of the payment for which to perform the action.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/payments/{paymentId}/actions?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -95,14 +115,19 @@ class Payment(object):
 	
 		
 	def createPaymentAction(self,action, orderId, responseFields = None):
-		"""
-			Creates a new payment transaction for the specified order and performs the specified action.
-			Request Params
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-				action Properties of the payment action performed for an order.
-			Response
-				Order 
+		""" Creates a new payment transaction for the specified order and performs the specified action.
+		
+		Args:
+			| action(action) - Properties of the payment action performed for an order.
+			| orderId (string) - Unique identifier of the order.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/payments/actions?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);

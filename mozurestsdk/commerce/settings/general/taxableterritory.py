@@ -18,9 +18,14 @@ class TaxableTerritory(object):
 		client.withApiContext(apiContext);
 	
 	def getTaxableTerritories(self,):
-		"""
-			Retrieves a list of the taxable territories configured for the site.
-				array|TaxableTerritory 
+		""" Retrieves a list of the taxable territories configured for the site.
+		
+		Returns:
+			| array of TaxableTerritory 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/settings/general/taxableterritories", "GET", UrlLocation.TenantPod, False);
@@ -30,13 +35,18 @@ class TaxableTerritory(object):
 	
 		
 	def addTaxableTerritory(self,taxableTerritory, responseFields = None):
-		"""
-			Creates a new territory for which to calculate sales tax.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				taxableTerritory Properties of the territory which is subject to sales tax.
-			Response
-				TaxableTerritory 
+		""" Creates a new territory for which to calculate sales tax.
+		
+		Args:
+			| taxableTerritory(taxableTerritory) - Properties of the territory which is subject to sales tax.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| TaxableTerritory 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/settings/general/taxableterritories?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -47,12 +57,17 @@ class TaxableTerritory(object):
 	
 		
 	def updateTaxableTerritories(self,taxableterritories):
-		"""
-			Updates one or more taxable territories configured for a site.
-			Request Params
-				array|taxableterritories Properties of the territory which is subject to sales tax.
-			Response
-				array|TaxableTerritory 
+		""" Updates one or more taxable territories configured for a site.
+		
+		Args:
+			| taxableterritories(array|taxableterritories) - Properties of the territory which is subject to sales tax.
+		
+		Returns:
+			| array of TaxableTerritory 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/settings/general/taxableterritories", "PUT", UrlLocation.TenantPod, False);

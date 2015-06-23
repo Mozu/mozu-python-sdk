@@ -18,14 +18,19 @@ class Refund(object):
 		client.withApiContext(apiContext);
 	
 	def createRefund(self,refund, orderId, responseFields = None):
-		"""
-			orders-orderrefunds Post CreateRefund description DOCUMENT_HERE 
-			Request Params
-				string orderId Unique identifier of the order.
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-				refund Mozu.CommerceRuntime.Contracts.Refunds.Refund ApiType DOCUMENT_HERE 
-			Response
-				Refund 
+		""" orders-orderrefunds Post CreateRefund description DOCUMENT_HERE 
+		
+		Args:
+			| refund(refund) - Mozu.CommerceRuntime.Contracts.Refunds.Refund ApiType DOCUMENT_HERE 
+			| orderId (string) - Unique identifier of the order.
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| Refund 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/refunds?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -37,12 +42,15 @@ class Refund(object):
 	
 		
 	def resendRefundEmail(self,orderId, refundId):
-		"""
-			orders-orderrefunds Put ResendRefundEmail description DOCUMENT_HERE 
-			Request Params
-				string orderId Unique identifier of the order.
-				string refundId 
-			Response
+		""" orders-orderrefunds Put ResendRefundEmail description DOCUMENT_HERE 
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| refundId (string) - 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/refunds/{refundId}", "PUT", UrlLocation.TenantPod, False);

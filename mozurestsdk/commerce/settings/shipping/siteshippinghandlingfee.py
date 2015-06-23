@@ -18,12 +18,17 @@ class SiteShippingHandlingFee(object):
 		client.withApiContext(apiContext);
 	
 	def getOrderHandlingFee(self,responseFields = None):
-		"""
-			Retrieves the details of the order handling fee configured for the site.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				SiteShippingHandlingFee 
+		""" Retrieves the details of the order handling fee configured for the site.
+		
+		Args:
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| SiteShippingHandlingFee 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/settings/shipping/orderhandlingfee?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -34,13 +39,18 @@ class SiteShippingHandlingFee(object):
 	
 		
 	def createOrderHandlingFee(self,orderHandlingFee, responseFields = None):
-		"""
-			Creates a new order handling fee for the site.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				orderHandlingFee Properties of the handling fee to apply to order shipments for the site.
-			Response
-				SiteShippingHandlingFee 
+		""" Creates a new order handling fee for the site.
+		
+		Args:
+			| orderHandlingFee(orderHandlingFee) - Properties of the handling fee to apply to order shipments for the site.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| SiteShippingHandlingFee 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/settings/shipping/orderhandlingfee?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -51,13 +61,18 @@ class SiteShippingHandlingFee(object):
 	
 		
 	def updateOrderHandlingFee(self,orderHandlingFee, responseFields = None):
-		"""
-			Updates the order handling fee amount for the site.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				orderHandlingFee Properties of the handling fee to apply to order shipments for the site.
-			Response
-				SiteShippingHandlingFee 
+		""" Updates the order handling fee amount for the site.
+		
+		Args:
+			| orderHandlingFee(orderHandlingFee) - Properties of the handling fee to apply to order shipments for the site.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| SiteShippingHandlingFee 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/settings/shipping/orderhandlingfee?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);

@@ -18,12 +18,17 @@ class Transaction(object):
 		client.withApiContext(apiContext);
 	
 	def getTransactions(self,accountId):
-		"""
-			Retrieves a list of transactions associated with the customer account specified in the request.
-			Request Params
-				int accountId Unique identifier of the customer account.
-			Response
-				array|Transaction 
+		""" Retrieves a list of transactions associated with the customer account specified in the request.
+		
+		Args:
+			| accountId (int) - Unique identifier of the customer account.
+		
+		Returns:
+			| array of Transaction 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/transactions", "GET", UrlLocation.TenantPod, False);
@@ -34,14 +39,19 @@ class Transaction(object):
 	
 		
 	def addTransaction(self,transaction, accountId, responseFields = None):
-		"""
-			Creates a new transaction for the customer account specified in the request.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				string responseFields Use this field to include those fields which are not included by default.
-				transaction Properties of a transaction performed by a customer account. The system creates a transaction each time the customer submits an order, returns an item, picks up items for an order, or manages items on a wish list.
-			Response
-				Transaction 
+		""" Creates a new transaction for the customer account specified in the request.
+		
+		Args:
+			| transaction(transaction) - Properties of a transaction performed by a customer account. The system creates a transaction each time the customer submits an order, returns an item, picks up items for an order, or manages items on a wish list.
+			| accountId (int) - Unique identifier of the customer account.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Transaction 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/transactions?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -53,12 +63,15 @@ class Transaction(object):
 	
 		
 	def removeTransaction(self,accountId, transactionId):
-		"""
-			Deletes a transaction from the customer account specified in the request.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				string transactionId Unique identifier of the transaction to delete.
-			Response
+		""" Deletes a transaction from the customer account specified in the request.
+		
+		Args:
+			| accountId (int) - Unique identifier of the customer account.
+			| transactionId (string) - Unique identifier of the transaction to delete.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/transactions/{transactionId}", "DELETE", UrlLocation.TenantPod, False);

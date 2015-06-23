@@ -18,13 +18,18 @@ class DigitalPackage(object):
 		client.withApiContext(apiContext);
 	
 	def getAvailableDigitalPackageFulfillmentActions(self,orderId, digitalPackageId):
-		"""
-			Retrieves a collection of fulfillment options for digital packages. Options may include emailed files/links or provided links. 
-			Request Params
-				string digitalPackageId This parameter supplies package ID to get fulfillment actions for the digital package.
-				string orderId Unique identifier of the order.
-			Response
-				array|string 
+		""" Retrieves a collection of fulfillment options for digital packages. Options may include emailed files/links or provided links. 
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| digitalPackageId (string) - This parameter supplies package ID to get fulfillment actions for the digital package.
+		
+		Returns:
+			| array of string 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/digitalpackages/{digitalPackageId}/actions", "GET", UrlLocation.TenantPod, False);
@@ -36,14 +41,19 @@ class DigitalPackage(object):
 	
 		
 	def getDigitalPackage(self,orderId, digitalPackageId, responseFields = None):
-		"""
-			This operation retreives a digital package within an order and it requires two parameters: orderId and digitalPackageId.
-			Request Params
-				string digitalPackageId This parameter supplies package ID to get fulfillment actions for the digital package.
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				DigitalPackage 
+		""" This operation retreives a digital package within an order and it requires two parameters: orderId and digitalPackageId.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| digitalPackageId (string) - This parameter supplies package ID to get fulfillment actions for the digital package.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| DigitalPackage 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/digitalpackages/{digitalPackageId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -56,14 +66,19 @@ class DigitalPackage(object):
 	
 		
 	def createDigitalPackage(self,digitalPackage, orderId, responseFields = None):
-		"""
-			Lets you apply a digital package to the order using the orderId and digitalPackage parameters.
-			Request Params
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-				digitalPackage Lets you manage an order's digital packages, by applying a digital package to the order.
-			Response
-				DigitalPackage 
+		""" Lets you apply a digital package to the order using the orderId and digitalPackage parameters.
+		
+		Args:
+			| digitalPackage(digitalPackage) - Lets you manage an order's digital packages, by applying a digital package to the order.
+			| orderId (string) - Unique identifier of the order.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| DigitalPackage 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/digitalpackages?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -75,15 +90,20 @@ class DigitalPackage(object):
 	
 		
 	def updateDigitalPackage(self,digitalPackage, orderId, digitalPackageId, responseFields = None):
-		"""
-			This method operates on one digital package, specified by the id given. This method ensures that the digital package ID provided is in the order with the id given, and then updates the properties of that package with the properties of the one passed in using the ‘digitalpackage’ parameter.
-			Request Params
-				string digitalPackageId This parameter supplies package ID to get fulfillment actions for the digital package.
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-				digitalPackage Lets you manage an order's digital packages, by applying a digital package to the order.
-			Response
-				DigitalPackage 
+		""" This method operates on one digital package, specified by the id given. This method ensures that the digital package ID provided is in the order with the id given, and then updates the properties of that package with the properties of the one passed in using the ‘digitalpackage’ parameter.
+		
+		Args:
+			| digitalPackage(digitalPackage) - Lets you manage an order's digital packages, by applying a digital package to the order.
+			| orderId (string) - Unique identifier of the order.
+			| digitalPackageId (string) - This parameter supplies package ID to get fulfillment actions for the digital package.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| DigitalPackage 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/digitalpackages/{digitalPackageId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -96,12 +116,15 @@ class DigitalPackage(object):
 	
 		
 	def deleteDigitalPackage(self,orderId, digitalPackageId):
-		"""
-			This operation deletes a digital package from an order. This operation requires three parameters: orderId, digitalPackageId, and digitalPackage.
-			Request Params
-				string digitalPackageId This parameter supplies package ID to get fulfillment actions for the digital package.
-				string orderId Unique identifier of the order.
-			Response
+		""" This operation deletes a digital package from an order. This operation requires three parameters: orderId, digitalPackageId, and digitalPackage.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| digitalPackageId (string) - This parameter supplies package ID to get fulfillment actions for the digital package.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/digitalpackages/{digitalPackageId}", "DELETE", UrlLocation.TenantPod, False);

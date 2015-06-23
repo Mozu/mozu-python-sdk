@@ -18,13 +18,18 @@ class Shipping(object):
 		client.withApiContext(apiContext);
 	
 	def getRates(self,rateRequest, responseFields = None):
-		"""
-			Retrieves the shipping rates applicable for the site.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				rateRequest Properties required to request a shipping rate calculation.
-			Response
-				RatesResponse 
+		""" Retrieves the shipping rates applicable for the site.
+		
+		Args:
+			| rateRequest(rateRequest) - Properties required to request a shipping rate calculation.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| RatesResponse 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/storefront/shipping/request-rates?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);

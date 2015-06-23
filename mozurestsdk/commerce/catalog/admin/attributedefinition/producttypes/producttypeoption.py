@@ -20,12 +20,17 @@ class ProductTypeOption(object):
 		self.client.withApiContext(apiContext);
 	
 	def getOptions(self,productTypeId):
-		"""
-			Retrieves a list of option product attributes defined for the specified product type.
-			Request Params
-				int productTypeId Identifier of the product type.
-			Response
-				array|AttributeInProductType 
+		""" Retrieves a list of option product attributes defined for the specified product type.
+		
+		Args:
+			| productTypeId (int) - Identifier of the product type.
+		
+		Returns:
+			| array of AttributeInProductType 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Options", "GET", UrlLocation.TenantPod, False);
@@ -36,14 +41,19 @@ class ProductTypeOption(object):
 	
 		
 	def getOption(self,productTypeId, attributeFQN, responseFields = None):
-		"""
-			Retrieves the details of an option attribute defined for the specified product type.
-			Request Params
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-				int productTypeId Identifier of the product type.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				AttributeInProductType 
+		""" Retrieves the details of an option attribute defined for the specified product type.
+		
+		Args:
+			| productTypeId (int) - Identifier of the product type.
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| AttributeInProductType 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Options/{attributeFQN}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -56,14 +66,19 @@ class ProductTypeOption(object):
 	
 		
 	def addOption(self,attributeInProductType, productTypeId, responseFields = None):
-		"""
-			Assigns an option attribute to the product type based on the information supplied in the request.
-			Request Params
-				int productTypeId Identifier of the product type.
-				string responseFields Use this field to include those fields which are not included by default.
-				attributeInProductType Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.
-			Response
-				AttributeInProductType 
+		""" Assigns an option attribute to the product type based on the information supplied in the request.
+		
+		Args:
+			| attributeInProductType(attributeInProductType) - Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.
+			| productTypeId (int) - Identifier of the product type.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| AttributeInProductType 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Options?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -75,15 +90,20 @@ class ProductTypeOption(object):
 	
 		
 	def updateOption(self,attributeInProductType, productTypeId, attributeFQN, responseFields = None):
-		"""
-			Updates an option attribute definition for the specified product type.
-			Request Params
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-				int productTypeId Identifier of the product type.
-				string responseFields Use this field to include those fields which are not included by default.
-				attributeInProductType Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.
-			Response
-				AttributeInProductType 
+		""" Updates an option attribute definition for the specified product type.
+		
+		Args:
+			| attributeInProductType(attributeInProductType) - Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.
+			| productTypeId (int) - Identifier of the product type.
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| AttributeInProductType 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Options/{attributeFQN}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -96,12 +116,15 @@ class ProductTypeOption(object):
 	
 		
 	def deleteOption(self,productTypeId, attributeFQN):
-		"""
-			Removes an option attribute definition for the specified product type.
-			Request Params
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-				int productTypeId Identifier of the product type.
-			Response
+		""" Removes an option attribute definition for the specified product type.
+		
+		Args:
+			| productTypeId (int) - Identifier of the product type.
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/producttypes/{productTypeId}/Options/{attributeFQN}", "DELETE", UrlLocation.TenantPod, False);

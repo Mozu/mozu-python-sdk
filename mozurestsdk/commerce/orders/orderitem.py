@@ -18,15 +18,20 @@ class OrderItem(object):
 		client.withApiContext(apiContext);
 	
 	def getOrderItemViaLineId(self,orderId, lineId, draft = False, responseFields = None):
-		"""
-			orders-orderitems Get GetOrderItemViaLineId description DOCUMENT_HERE 
-			Request Params
-				bool draft If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
-				int lineId 
-				string orderId Unique identifier of the order.
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-			Response
-				OrderItem 
+		""" orders-orderitems Get GetOrderItemViaLineId description DOCUMENT_HERE 
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| lineId (int) - 
+			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| OrderItem 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/items/{lineId}?draft={draft}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -40,15 +45,20 @@ class OrderItem(object):
 	
 		
 	def getOrderItem(self,orderId, orderItemId, draft = False, responseFields = None):
-		"""
-			Retrieves the details of a single order item.
-			Request Params
-				bool draft If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
-				string orderId Unique identifier of the order.
-				string orderItemId Unique identifier of the item to remove from the order.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				OrderItem 
+		""" Retrieves the details of a single order item.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| orderItemId (string) - Unique identifier of the item to remove from the order.
+			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| OrderItem 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/items/{orderItemId}?draft={draft}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -62,14 +72,19 @@ class OrderItem(object):
 	
 		
 	def getOrderItems(self,orderId, draft = False, responseFields = None):
-		"""
-			Retrieves the details of all items in an order.
-			Request Params
-				bool draft If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				OrderItemCollection 
+		""" Retrieves the details of all items in an order.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| OrderItemCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/items?draft={draft}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -82,17 +97,22 @@ class OrderItem(object):
 	
 		
 	def createOrderItem(self,orderItem, orderId, updateMode = None, version = None, skipInventoryCheck = False, responseFields = None):
-		"""
-			Adds a new item to a defined order.
-			Request Params
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-				bool skipInventoryCheck If true, skip the process to validate inventory when creating this product reservation.
-				string updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-				string version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
-				orderItem The details associated with a specific item in an order.
-			Response
-				Order 
+		""" Adds a new item to a defined order.
+		
+		Args:
+			| orderItem(orderItem) - The details associated with a specific item in an order.
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
+			| skipInventoryCheck (bool) - If true, skip the process to validate inventory when creating this product reservation.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/items?updatemode={updateMode}&version={version}&skipInventoryCheck={skipInventoryCheck}&responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -107,18 +127,23 @@ class OrderItem(object):
 	
 		
 	def updateOrderItemDiscount(self,discount, orderId, orderItemId, discountId, updateMode = None, version = None, responseFields = None):
-		"""
-			Update the discount applied to an item in an order.
-			Request Params
-				int discountId Unique identifier of the discount. System-supplied and read only.
-				string orderId Unique identifier of the order.
-				string orderItemId Unique identifier of the item to remove from the order.
-				string responseFields Use this field to include those fields which are not included by default.
-				string updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-				string version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
-				discount Properties of all applied discounts for an associated cart, order, or product. 
-			Response
-				Order 
+		""" Update the discount applied to an item in an order.
+		
+		Args:
+			| discount(discount) - Properties of all applied discounts for an associated cart, order, or product. 
+			| orderId (string) - Unique identifier of the order.
+			| orderItemId (string) - Unique identifier of the item to remove from the order.
+			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/items/{orderItemId}/discounts/{discountId}?updatemode={updateMode}&version={version}&responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -134,17 +159,22 @@ class OrderItem(object):
 	
 		
 	def updateItemDuty(self,orderId, orderItemId, dutyAmount, updateMode = None, version = None, responseFields = None):
-		"""
-			orders-orderitems Put UpdateItemDuty description DOCUMENT_HERE 
-			Request Params
-				decimal dutyAmount 
-				string orderId Unique identifier of the order.
-				string orderItemId Unique identifier of the item to remove from the order.
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-				string updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-				string version Determines whether or not to check versioning of items for concurrency purposes.
-			Response
-				Order 
+		""" orders-orderitems Put UpdateItemDuty description DOCUMENT_HERE 
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| orderItemId (string) - Unique identifier of the item to remove from the order.
+			| dutyAmount (decimal) - 
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/items/{orderItemId}/dutyAmount/{dutyAmount}?updatemode={updateMode}&version={version}&responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -160,17 +190,22 @@ class OrderItem(object):
 	
 		
 	def updateItemFulfillment(self,orderItem, orderId, orderItemId, updateMode = None, version = None, responseFields = None):
-		"""
-			Updates the item fulfillment information for the order specified in the request.
-			Request Params
-				string orderId Unique identifier of the order.
-				string orderItemId Unique identifier of the item to remove from the order.
-				string responseFields Use this field to include those fields which are not included by default.
-				string updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-				string version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
-				orderItem The details associated with a specific item in an order.
-			Response
-				Order 
+		""" Updates the item fulfillment information for the order specified in the request.
+		
+		Args:
+			| orderItem(orderItem) - The details associated with a specific item in an order.
+			| orderId (string) - Unique identifier of the order.
+			| orderItemId (string) - Unique identifier of the item to remove from the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/items/{orderItemId}/fulfillment?updatemode={updateMode}&version={version}&responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -185,17 +220,22 @@ class OrderItem(object):
 	
 		
 	def updateItemProductPrice(self,orderId, orderItemId, price, updateMode = None, version = None, responseFields = None):
-		"""
-			Override the price of an individual product on a line item in the specified order.
-			Request Params
-				string orderId Unique identifier of the order.
-				string orderItemId Unique identifier of the item to remove from the order.
-				decimal price The override price to specify for this item in the specified order.
-				string responseFields Use this field to include those fields which are not included by default.
-				string updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-				string version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
-			Response
-				Order 
+		""" Override the price of an individual product on a line item in the specified order.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| orderItemId (string) - Unique identifier of the item to remove from the order.
+			| price (decimal) - The override price to specify for this item in the specified order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/items/{orderItemId}/price/{price}?updatemode={updateMode}&version={version}&responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -211,17 +251,22 @@ class OrderItem(object):
 	
 		
 	def updateItemQuantity(self,orderId, orderItemId, quantity, updateMode = None, version = None, responseFields = None):
-		"""
-			Update the quantity of an item in an order.
-			Request Params
-				string orderId Unique identifier of the order.
-				string orderItemId Unique identifier of the item to remove from the order.
-				int quantity The number of cart items in the shopper's active cart.
-				string responseFields Use this field to include those fields which are not included by default.
-				string updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-				string version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
-			Response
-				Order 
+		""" Update the quantity of an item in an order.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| orderItemId (string) - Unique identifier of the item to remove from the order.
+			| quantity (int) - The number of cart items in the shopper's active cart.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/items/{orderItemId}/quantity/{quantity}?updatemode={updateMode}&version={version}&responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -237,15 +282,20 @@ class OrderItem(object):
 	
 		
 	def deleteOrderItem(self,orderId, orderItemId, updateMode = None, version = None):
-		"""
-			Removes a previously added item from a defined order.
-			Request Params
-				string orderId Unique identifier of the order.
-				string orderItemId Unique identifier of the item to remove from the order.
-				string updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-				string version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
-			Response
-				Order 
+		""" Removes a previously added item from a defined order.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| orderItemId (string) - Unique identifier of the item to remove from the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/items/{orderItemId}?updatemode={updateMode}&version={version}", "DELETE", UrlLocation.TenantPod, False);

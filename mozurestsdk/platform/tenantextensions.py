@@ -18,12 +18,17 @@ class TenantExtensions(object):
 		client.withApiContext(apiContext);
 	
 	def getExtensions(self,responseFields = None):
-		"""
-			platform-extensions Get GetExtensions description DOCUMENT_HERE 
-			Request Params
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-			Response
-				TenantExtensions 
+		""" platform-extensions Get GetExtensions description DOCUMENT_HERE 
+		
+		Args:
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| TenantExtensions 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/extensions/?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -34,13 +39,18 @@ class TenantExtensions(object):
 	
 		
 	def updateExtensions(self,extensions, responseFields = None):
-		"""
-			platform-extensions Put UpdateExtensions description DOCUMENT_HERE 
-			Request Params
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-				extensions Mozu.InstalledApplications.Contracts.TenantExtensions ApiType DOCUMENT_HERE 
-			Response
-				TenantExtensions 
+		""" platform-extensions Put UpdateExtensions description DOCUMENT_HERE 
+		
+		Args:
+			| extensions(extensions) - Mozu.InstalledApplications.Contracts.TenantExtensions ApiType DOCUMENT_HERE 
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| TenantExtensions 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/extensions/?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);

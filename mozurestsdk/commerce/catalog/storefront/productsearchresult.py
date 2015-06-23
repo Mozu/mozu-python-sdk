@@ -18,29 +18,34 @@ class ProductSearchResult(object):
 		client.withApiContext(apiContext);
 	
 	def search(self,query = None, filter = None, facetTemplate = None, facetTemplateSubset = None, facet = None, facetFieldRangeQuery = None, facetHierPrefix = None, facetHierValue = None, facetHierDepth = None, facetStartIndex = None, facetPageSize = None, facetSettings = None, facetValueFilter = None, sortBy = None, pageSize = None, startIndex = None, searchSettings = None, responseFields = None):
-		"""
-			Searches the categories displayed on the web storefront for products or product options that the shopper types in a search query.
-			Request Params
-				string facet Individually list the facet fields you want to display in a web storefront product search.
-				string facetFieldRangeQuery Display a range facet not specified in a template in a web storefront product search by listing the facet field and the range to display.
-				string facetHierDepth If filtering using category facets in a hierarchy, the number of category hierarchy levels to return for the facet. This option is only available for category facets.
-				string facetHierPrefix If filtering using category facets in a hierarchy, the parent categories you want to skip in the storefront product search. This parameter is only available for category facets.
-				string facetHierValue If filtering using category facets in a hierarchy, the category in the hierarchy to begin faceting on. This parameter is only available for category facets.
-				string facetPageSize The number of facet values to return for one or more facets.
-				string facetSettings Settings reserved for future facet search functionality on a web storefront product search.
-				string facetStartIndex When paging through multiple facets, the startIndex value for each facet.
-				string facetTemplate The facet template to use on the storefront. A template displays all facets associated with the template on the web storefront product search. Currently, only category-level facet templates are available.
-				string facetTemplateSubset Display a subset of the facets defined in the template specified in facetTemplate parameter.
-				string facetValueFilter The facet values to apply to the filter.
-				string filter A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
-				int pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-				string query A query entered for searches and facet range.
-				string responseFields Use this field to include those fields which are not included by default.
-				string searchSettings 
-				string sortBy 
-				int startIndex 
-			Response
-				ProductSearchResult 
+		""" Searches the categories displayed on the web storefront for products or product options that the shopper types in a search query.
+		
+		Args:
+			| query (string) - A query entered for searches and facet range.
+			| filter (string) - A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
+			| facetTemplate (string) - The facet template to use on the storefront. A template displays all facets associated with the template on the web storefront product search. Currently, only category-level facet templates are available.
+			| facetTemplateSubset (string) - Display a subset of the facets defined in the template specified in facetTemplate parameter.
+			| facet (string) - Individually list the facet fields you want to display in a web storefront product search.
+			| facetFieldRangeQuery (string) - Display a range facet not specified in a template in a web storefront product search by listing the facet field and the range to display.
+			| facetHierPrefix (string) - If filtering using category facets in a hierarchy, the parent categories you want to skip in the storefront product search. This parameter is only available for category facets.
+			| facetHierValue (string) - If filtering using category facets in a hierarchy, the category in the hierarchy to begin faceting on. This parameter is only available for category facets.
+			| facetHierDepth (string) - If filtering using category facets in a hierarchy, the number of category hierarchy levels to return for the facet. This option is only available for category facets.
+			| facetStartIndex (string) - When paging through multiple facets, the startIndex value for each facet.
+			| facetPageSize (string) - The number of facet values to return for one or more facets.
+			| facetSettings (string) - Settings reserved for future facet search functionality on a web storefront product search.
+			| facetValueFilter (string) - The facet values to apply to the filter.
+			| sortBy (string) - 
+			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+			| startIndex (int) - 
+			| searchSettings (string) - 
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductSearchResult 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/storefront/productsearch/search/?query={query}&filter={filter}&facetTemplate={facetTemplate}&facetTemplateSubset={facetTemplateSubset}&facet={facet}&facetFieldRangeQuery={facetFieldRangeQuery}&facetHierPrefix={facetHierPrefix}&facetHierValue={facetHierValue}&facetHierDepth={facetHierDepth}&facetStartIndex={facetStartIndex}&facetPageSize={facetPageSize}&facetSettings={facetSettings}&facetValueFilter={facetValueFilter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -68,15 +73,20 @@ class ProductSearchResult(object):
 	
 		
 	def suggest(self,query = None, groups = None, pageSize = None, responseFields = None):
-		"""
-			Suggests possible search terms as the shopper enters search text.
-			Request Params
-				string groups 
-				int pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-				string query A query entered for searches and facet range.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				SearchSuggestionResult 
+		""" Suggests possible search terms as the shopper enters search text.
+		
+		Args:
+			| query (string) - A query entered for searches and facet range.
+			| groups (string) - 
+			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| SearchSuggestionResult 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/storefront/productsearch/suggest?query={query}&groups={groups}&pageSize={pageSize}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);

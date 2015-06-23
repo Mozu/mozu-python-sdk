@@ -20,12 +20,17 @@ class ProductProperty(object):
 		self.client.withApiContext(apiContext);
 	
 	def getProperties(self,productCode):
-		"""
-			Retrieves a list of the property attributes configured for the product specified in the request.
-			Request Params
-				string productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
-			Response
-				array|ProductProperty 
+		""" Retrieves a list of the property attributes configured for the product specified in the request.
+		
+		Args:
+			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+		
+		Returns:
+			| array of ProductProperty 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Properties", "GET", UrlLocation.TenantPod, False);
@@ -36,14 +41,19 @@ class ProductProperty(object):
 	
 		
 	def getPropertyValueLocalizedContents(self,productCode, attributeFQN, value):
-		"""
-			Retrieves a collection of property values for localized content. This content is set by the locale code. 
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
-				string value The value string to create.
-			Response
-				array|ProductPropertyValueLocalizedContent 
+		""" Retrieves a collection of property values for localized content. This content is set by the locale code. 
+		
+		Args:
+			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+		
+		Returns:
+			| array of ProductPropertyValueLocalizedContent 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}/values/{value}/LocalizedContent", "GET", UrlLocation.TenantPod, False);
@@ -56,16 +66,21 @@ class ProductProperty(object):
 	
 		
 	def getPropertyValueLocalizedContent(self,productCode, attributeFQN, value, localeCode, responseFields = None):
-		"""
-			Retrieves the property value for localized content. This content is set by the locale code. 
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string localeCode Language used for the entity. Currently, only "en-US" is supported.
-				string productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
-				string responseFields Use this field to include those fields which are not included by default.
-				string value The value string to create.
-			Response
-				ProductPropertyValueLocalizedContent 
+		""" Retrieves the property value for localized content. This content is set by the locale code. 
+		
+		Args:
+			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| localeCode (string) - Language used for the entity. Currently, only "en-US" is supported.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductPropertyValueLocalizedContent 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}/values/{value}/LocalizedContent/{localeCode}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -80,14 +95,19 @@ class ProductProperty(object):
 	
 		
 	def getProperty(self,productCode, attributeFQN, responseFields = None):
-		"""
-			Retrieves the details of a property attribute configuration for the product specified in the request.
-			Request Params
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-				string productCode Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				ProductProperty 
+		""" Retrieves the details of a property attribute configuration for the product specified in the request.
+		
+		Args:
+			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductProperty 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -100,16 +120,21 @@ class ProductProperty(object):
 	
 		
 	def addPropertyValueLocalizedContent(self,localizedContent, productCode, attributeFQN, value, responseFields = None):
-		"""
-			Adds a property value for localized content. This content is set by the locale code. 
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
-				string responseFields Use this field to include those fields which are not included by default.
-				string value The value string to create.
-				localizedContent Use this field to include those fields which are not included by default.
-			Response
-				ProductPropertyValueLocalizedContent 
+		""" Adds a property value for localized content. This content is set by the locale code. 
+		
+		Args:
+			| localizedContent(localizedContent) - Use this field to include those fields which are not included by default.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductPropertyValueLocalizedContent 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}/values/{value}/LocalizedContent?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -123,14 +148,19 @@ class ProductProperty(object):
 	
 		
 	def addProperty(self,productProperty, productCode, responseFields = None):
-		"""
-			Configures a property attribute for the product specified in the request.
-			Request Params
-				string productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
-				string responseFields Use this field to include those fields which are not included by default.
-				productProperty Details of a property defined for a product.
-			Response
-				ProductProperty 
+		""" Configures a property attribute for the product specified in the request.
+		
+		Args:
+			| productProperty(productProperty) - Details of a property defined for a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductProperty 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Properties?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -142,15 +172,20 @@ class ProductProperty(object):
 	
 		
 	def updatePropertyValueLocalizedContents(self,localizedContent, productCode, attributeFQN, value):
-		"""
-			Updates all property values for localized content. This content is set by the locale code. 
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
-				string value The value string to create.
-				array|localizedContent Content of the product property value in the language defined for the locale code.
-			Response
-				array|ProductPropertyValueLocalizedContent 
+		""" Updates all property values for localized content. This content is set by the locale code. 
+		
+		Args:
+			| localizedContent(array|localizedContent) - Content of the product property value in the language defined for the locale code.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+		
+		Returns:
+			| array of ProductPropertyValueLocalizedContent 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}/values/{value}/LocalizedContent", "PUT", UrlLocation.TenantPod, False);
@@ -163,17 +198,22 @@ class ProductProperty(object):
 	
 		
 	def updatePropertyValueLocalizedContent(self,localizedContent, productCode, attributeFQN, value, localeCode, responseFields = None):
-		"""
-			Updates the property value for localized content. This content is set by the locale code. 
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string localeCode Language used for the entity. Currently, only "en-US" is supported.
-				string productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
-				string responseFields Use this field to include those fields which are not included by default.
-				string value The value string to create.
-				localizedContent Content of the product property value in the language defined for the locale code.
-			Response
-				ProductPropertyValueLocalizedContent 
+		""" Updates the property value for localized content. This content is set by the locale code. 
+		
+		Args:
+			| localizedContent(localizedContent) - Content of the product property value in the language defined for the locale code.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| localeCode (string) - Language used for the entity. Currently, only "en-US" is supported.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductPropertyValueLocalizedContent 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}/values/{value}/LocalizedContent/{localeCode}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -188,15 +228,20 @@ class ProductProperty(object):
 	
 		
 	def updateProperty(self,productProperty, productCode, attributeFQN, responseFields = None):
-		"""
-			Update one or more details of a property attribute configuration for the product specified in the request.
-			Request Params
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-				string productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
-				string responseFields Use this field to include those fields which are not included by default.
-				productProperty Details of a property defined for a product.
-			Response
-				ProductProperty 
+		""" Update one or more details of a property attribute configuration for the product specified in the request.
+		
+		Args:
+			| productProperty(productProperty) - Details of a property defined for a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| ProductProperty 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -209,12 +254,15 @@ class ProductProperty(object):
 	
 		
 	def deleteProperty(self,productCode, attributeFQN):
-		"""
-			Deletes the configuration of a property attribute for the product specified in the request.
-			Request Params
-				string attributeFQN The fully qualified name of the attribute, which is a user defined attribute identifier.
-				string productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
-			Response
+		""" Deletes the configuration of a property attribute for the product specified in the request.
+		
+		Args:
+			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}", "DELETE", UrlLocation.TenantPod, False);
@@ -225,14 +273,17 @@ class ProductProperty(object):
 	
 		
 	def deletePropertyValueLocalizedContent(self,productCode, attributeFQN, value, localeCode):
-		"""
-			Deletes the property value for localized content. This content is set by the locale code. 
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string localeCode Language used for the entity. Currently, only "en-US" is supported.
-				string productCode The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
-				string value The value string to create.
-			Response
+		""" Deletes the property value for localized content. This content is set by the locale code. 
+		
+		Args:
+			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| localeCode (string) - Language used for the entity. Currently, only "en-US" is supported.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/Properties/{attributeFQN}/values/{value}/LocalizedContent/{localeCode}", "DELETE", UrlLocation.TenantPod, False);

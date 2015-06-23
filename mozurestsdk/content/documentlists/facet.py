@@ -18,13 +18,18 @@ class Facet(object):
 		client.withApiContext(apiContext);
 	
 	def getFacets(self,documentListName, propertyName):
-		"""
-			Retrieves the properties of facets that aid in indexing and searching.
-			Request Params
-				string documentListName Name of content documentListName to delete
-				string propertyName The property name associated with the facets to retrieve.
-			Response
-				array|Facet 
+		""" Retrieves the properties of facets that aid in indexing and searching.
+		
+		Args:
+			| documentListName (string) - Name of content documentListName to delete
+			| propertyName (string) - The property name associated with the facets to retrieve.
+		
+		Returns:
+			| array of Facet 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/content/documentlists/{documentListName}/facets/{propertyName}", "GET", UrlLocation.TenantPod, False);

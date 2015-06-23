@@ -18,12 +18,17 @@ class OrderNote(object):
 		client.withApiContext(apiContext);
 	
 	def getOrderNotes(self,orderId):
-		"""
-			Retrieves a list of all notes for an order.
-			Request Params
-				string orderId Unique identifier of the order.
-			Response
-				array|OrderNote 
+		""" Retrieves a list of all notes for an order.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+		
+		Returns:
+			| array of OrderNote 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/notes", "GET", UrlLocation.TenantPod, False);
@@ -34,14 +39,19 @@ class OrderNote(object):
 	
 		
 	def getOrderNote(self,orderId, noteId, responseFields = None):
-		"""
-			Retrieves the details of a specific order note.
-			Request Params
-				string noteId Unique identifier of a particular note to retrieve.
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				OrderNote 
+		""" Retrieves the details of a specific order note.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| noteId (string) - Unique identifier of a particular note to retrieve.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| OrderNote 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/notes/{noteId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -54,14 +64,19 @@ class OrderNote(object):
 	
 		
 	def createOrderNote(self,orderNote, orderId, responseFields = None):
-		"""
-			Creates a new merchant note for the specified order.
-			Request Params
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-				orderNote Properties of an order note for a merchant, which is internal only for administrative purposes and not available to the shopper.
-			Response
-				OrderNote 
+		""" Creates a new merchant note for the specified order.
+		
+		Args:
+			| orderNote(orderNote) - Properties of an order note for a merchant, which is internal only for administrative purposes and not available to the shopper.
+			| orderId (string) - Unique identifier of the order.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| OrderNote 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/notes?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -73,15 +88,20 @@ class OrderNote(object):
 	
 		
 	def updateOrderNote(self,orderNote, orderId, noteId, responseFields = None):
-		"""
-			Updates a specific note for an order.
-			Request Params
-				string noteId Unique identifier of a particular note to retrieve.
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-				orderNote Properties of an order note for a merchant, which is internal only for administrative purposes and not available to the shopper.
-			Response
-				OrderNote 
+		""" Updates a specific note for an order.
+		
+		Args:
+			| orderNote(orderNote) - Properties of an order note for a merchant, which is internal only for administrative purposes and not available to the shopper.
+			| orderId (string) - Unique identifier of the order.
+			| noteId (string) - Unique identifier of a particular note to retrieve.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| OrderNote 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/notes/{noteId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -94,12 +114,15 @@ class OrderNote(object):
 	
 		
 	def deleteOrderNote(self,orderId, noteId):
-		"""
-			Deletes the specified order note.
-			Request Params
-				string noteId Unique identifier of a particular note to retrieve.
-				string orderId Unique identifier of the order.
-			Response
+		""" Deletes the specified order note.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| noteId (string) - Unique identifier of a particular note to retrieve.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/notes/{noteId}", "DELETE", UrlLocation.TenantPod, False);

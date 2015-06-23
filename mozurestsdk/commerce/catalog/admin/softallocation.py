@@ -18,16 +18,21 @@ class SoftAllocation(object):
 		client.withApiContext(apiContext);
 	
 	def getSoftAllocations(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		"""
-			Retrieves a list of sof allocations according to any specified filter criteria and sort options.
-			Request Params
-				string filter A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
-				int pageSize The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-				string sortBy The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.
-				int startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=3`.
-			Response
-				SoftAllocationCollection 
+		""" Retrieves a list of sof allocations according to any specified filter criteria and sort options.
+		
+		Args:
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a  pageSize  of 25, to get the 51st through the 75th items, use  startIndex=3 .
+			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the  pageCount  amount of pages. The default is 20 and maximum value is 200 per page.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.
+			| filter (string) - A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| SoftAllocationCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/softallocations/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -42,13 +47,18 @@ class SoftAllocation(object):
 	
 		
 	def getSoftAllocation(self,softAllocationId, responseFields = None):
-		"""
-			Retrieves the details of a soft allocation.
-			Request Params
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-				int softAllocationId 
-			Response
-				SoftAllocation 
+		""" Retrieves the details of a soft allocation.
+		
+		Args:
+			| softAllocationId (int) - 
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| SoftAllocation 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/softallocations/{softAllocationId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -60,12 +70,17 @@ class SoftAllocation(object):
 	
 		
 	def addSoftAllocations(self,softAllocationsIn):
-		"""
-			Creates a new product reservation for a product. This places a hold on the product inventory for the quantity specified during the ordering process.
-			Request Params
-				array|softAllocationsIn Mozu.ProductAdmin.Contracts.SoftAllocation ApiType DOCUMENT_HERE 
-			Response
-				array|SoftAllocation 
+		""" Creates a new product reservation for a product. This places a hold on the product inventory for the quantity specified during the ordering process.
+		
+		Args:
+			| softAllocationsIn(array|softAllocationsIn) - Mozu.ProductAdmin.Contracts.SoftAllocation ApiType DOCUMENT_HERE 
+		
+		Returns:
+			| array of SoftAllocation 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/softallocations/", "POST", UrlLocation.TenantPod, False);
@@ -75,12 +90,17 @@ class SoftAllocation(object):
 	
 		
 	def convertToProductReservation(self,softAllocations):
-		"""
-			Converts a set of existing softAllocations into productReservations
-			Request Params
-				array|softAllocations Mozu.ProductAdmin.Contracts.SoftAllocation ApiType DOCUMENT_HERE 
-			Response
-				array|ProductReservation 
+		""" Converts a set of existing softAllocations into productReservations
+		
+		Args:
+			| softAllocations(array|softAllocations) - Mozu.ProductAdmin.Contracts.SoftAllocation ApiType DOCUMENT_HERE 
+		
+		Returns:
+			| array of ProductReservation 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/softallocations/convert", "POST", UrlLocation.TenantPod, False);
@@ -90,12 +110,17 @@ class SoftAllocation(object):
 	
 		
 	def renewSoftAllocations(self,softAllocationRenew):
-		"""
-			Updates a set of softAllocations expiration time in a non trassactional batch
-			Request Params
-				softAllocationRenew Mozu.ProductAdmin.Contracts.SoftAllocationRenew ApiType DOCUMENT_HERE 
-			Response
-				array|SoftAllocation 
+		""" Updates a set of softAllocations expiration time in a non trassactional batch
+		
+		Args:
+			| softAllocationRenew(softAllocationRenew) - Mozu.ProductAdmin.Contracts.SoftAllocationRenew ApiType DOCUMENT_HERE 
+		
+		Returns:
+			| array of SoftAllocation 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/softallocations/renew", "POST", UrlLocation.TenantPod, False);
@@ -105,12 +130,17 @@ class SoftAllocation(object):
 	
 		
 	def updateSoftAllocations(self,softAllocations):
-		"""
-			Updates a soft allocationt. This updates a hold on the product inventory for the quantity specified during the ordering process.
-			Request Params
-				array|softAllocations Mozu.ProductAdmin.Contracts.SoftAllocation ApiType DOCUMENT_HERE 
-			Response
-				array|SoftAllocation 
+		""" Updates a soft allocationt. This updates a hold on the product inventory for the quantity specified during the ordering process.
+		
+		Args:
+			| softAllocations(array|softAllocations) - Mozu.ProductAdmin.Contracts.SoftAllocation ApiType DOCUMENT_HERE 
+		
+		Returns:
+			| array of SoftAllocation 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/softallocations/", "PUT", UrlLocation.TenantPod, False);
@@ -120,11 +150,14 @@ class SoftAllocation(object):
 	
 		
 	def deleteSoftAllocation(self,softAllocationId):
-		"""
-			Deletes a soft allocation. You might delete a allocation when an order or cart is not processed to return the product quantity back to inventory.
-			Request Params
-				int softAllocationId 
-			Response
+		""" Deletes a soft allocation. You might delete a allocation when an order or cart is not processed to return the product quantity back to inventory.
+		
+		Args:
+			| softAllocationId (int) - 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/softallocations/{softAllocationId}", "DELETE", UrlLocation.TenantPod, False);

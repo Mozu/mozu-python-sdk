@@ -18,14 +18,19 @@ class Card(object):
 		client.withApiContext(apiContext);
 	
 	def getAccountCard(self,accountId, cardId, responseFields = None):
-		"""
-			Retrieves the details of a credit card stored with a customer account billing contact.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				string cardId Unique identifier of the card associated with the customer account billing contact.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				Card 
+		""" Retrieves the details of a credit card stored with a customer account billing contact.
+		
+		Args:
+			| accountId (int) - Unique identifier of the customer account.
+			| cardId (string) - Unique identifier of the card associated with the customer account billing contact.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Card 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/cards/{cardId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -38,13 +43,18 @@ class Card(object):
 	
 		
 	def getAccountCards(self,accountId, responseFields = None):
-		"""
-			Retrieves all stored credit cards for the customer account.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				CardCollection 
+		""" Retrieves all stored credit cards for the customer account.
+		
+		Args:
+			| accountId (int) - Unique identifier of the customer account.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CardCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/cards?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -56,14 +66,19 @@ class Card(object):
 	
 		
 	def addAccountCard(self,card, accountId, responseFields = None):
-		"""
-			Creates a new credit card record and stores it for the customer account.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				string responseFields Use this field to include those fields which are not included by default.
-				card Properties of a credit card used to submit payment for an order.
-			Response
-				Card 
+		""" Creates a new credit card record and stores it for the customer account.
+		
+		Args:
+			| card(card) - Properties of a credit card used to submit payment for an order.
+			| accountId (int) - Unique identifier of the customer account.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Card 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/cards?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -75,15 +90,20 @@ class Card(object):
 	
 		
 	def updateAccountCard(self,card, accountId, cardId, responseFields = None):
-		"""
-			Update one or more properties of a credit card defined for a customer account.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				string cardId Unique identifier of the card associated with the customer account billing contact.
-				string responseFields Use this field to include those fields which are not included by default.
-				card Properties of a credit card used to submit payment for an order.
-			Response
-				Card 
+		""" Update one or more properties of a credit card defined for a customer account.
+		
+		Args:
+			| card(card) - Properties of a credit card used to submit payment for an order.
+			| accountId (int) - Unique identifier of the customer account.
+			| cardId (string) - Unique identifier of the card associated with the customer account billing contact.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Card 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/cards/{cardId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -96,12 +116,15 @@ class Card(object):
 	
 		
 	def deleteAccountCard(self,accountId, cardId):
-		"""
-			Removes a stored credit card from a customer account.
-			Request Params
-				int accountId Unique identifier of the customer account.
-				string cardId Unique identifier of the card associated with the customer account billing contact.
-			Response
+		""" Removes a stored credit card from a customer account.
+		
+		Args:
+			| accountId (int) - Unique identifier of the customer account.
+			| cardId (string) - Unique identifier of the card associated with the customer account billing contact.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/{accountId}/cards/{cardId}", "DELETE", UrlLocation.TenantPod, False);

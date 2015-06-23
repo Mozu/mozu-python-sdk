@@ -18,16 +18,21 @@ class AppliedDiscount(object):
 		client.withApiContext(apiContext);
 	
 	def applyCoupon(self,orderId, couponCode, updateMode = None, version = None, responseFields = None):
-		"""
-			Apply a coupon to the order.
-			Request Params
-				string couponCode Alphanumeric code associated with the coupon or promotion that results in a discounted price.
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-				string updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-				string version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
-			Response
-				Order 
+		""" Apply a coupon to the order.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| couponCode (string) - Alphanumeric code associated with the coupon or promotion that results in a discounted price.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/coupons/{couponCode}?updatemode={updateMode}&version={version}&responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -42,15 +47,20 @@ class AppliedDiscount(object):
 	
 		
 	def removeCoupon(self,orderId, couponCode, updateMode = None, version = None):
-		"""
-			Removes a coupon previously applied to the order.
-			Request Params
-				string couponCode Alphanumeric code associated with the coupon or promotion that results in a discounted price.
-				string orderId Unique identifier of the order.
-				string updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-				string version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
-			Response
-				Order 
+		""" Removes a coupon previously applied to the order.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| couponCode (string) - Alphanumeric code associated with the coupon or promotion that results in a discounted price.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/coupons/{couponcode}?updatemode={updateMode}&version={version}", "DELETE", UrlLocation.TenantPod, False);
@@ -64,14 +74,19 @@ class AppliedDiscount(object):
 	
 		
 	def removeCoupons(self,orderId, updateMode = None, version = None):
-		"""
-			Removes all coupons previously applied to the order.
-			Request Params
-				string orderId Unique identifier of the order.
-				string updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-				string version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
-			Response
-				Order 
+		""" Removes all coupons previously applied to the order.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/coupons?updatemode={updateMode}&version={version}", "DELETE", UrlLocation.TenantPod, False);

@@ -18,14 +18,19 @@ class Facet(object):
 		client.withApiContext(apiContext);
 	
 	def getFacet(self,facetId, validate = False, responseFields = None):
-		"""
-			Retrieves a facet specified by its unique identifier and displays its properties.
-			Request Params
-				int facetId Unique identifier of the facet to retrieve.
-				string responseFields Use this field to include those fields which are not included by default.
-				bool validate Validates that the product category associated with a facet is active. System-supplied and read only.
-			Response
-				Facet 
+		""" Retrieves a facet specified by its unique identifier and displays its properties.
+		
+		Args:
+			| facetId (int) - Unique identifier of the facet to retrieve.
+			| validate (bool) - Validates that the product category associated with a facet is active. System-supplied and read only.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Facet 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/facets/{facetId}?validate={validate}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -38,15 +43,20 @@ class Facet(object):
 	
 		
 	def getFacetCategoryList(self,categoryId, includeAvailable = False, validate = False, responseFields = None):
-		"""
-			Retrieves a list of the facets defined for the specified category.
-			Request Params
-				int categoryId Unique identifier of the category to modify.
-				bool includeAvailable If true, returns a list of the attributes and categories associated with a product type that have not been defined as a facet for the category.
-				string responseFields Use this field to include those fields which are not included by default.
-				bool validate Validates that the product category associated with a facet is active. System-supplied and read only.
-			Response
-				FacetSet 
+		""" Retrieves a list of the facets defined for the specified category.
+		
+		Args:
+			| categoryId (int) - Unique identifier of the category to modify.
+			| includeAvailable (bool) - If true, returns a list of the attributes and categories associated with a product type that have not been defined as a facet for the category.
+			| validate (bool) - Validates that the product category associated with a facet is active. System-supplied and read only.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| FacetSet 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/facets/category/{categoryId}?includeAvailable={includeAvailable}&validate={validate}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -60,13 +70,18 @@ class Facet(object):
 	
 		
 	def addFacet(self,facet, responseFields = None):
-		"""
-			Creates a new category, price, or attribute facet. Define the category or attribute source to use for the facet values.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				facet Properties of the facet used to retrieve documents.
-			Response
-				Facet 
+		""" Creates a new category, price, or attribute facet. Define the category or attribute source to use for the facet values.
+		
+		Args:
+			| facet(facet) - Properties of the facet used to retrieve documents.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Facet 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/facets/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -77,14 +92,19 @@ class Facet(object):
 	
 		
 	def updateFacet(self,facet, facetId, responseFields = None):
-		"""
-			Modifies one or more properties of a defined facet.
-			Request Params
-				int facetId Unique identifier of the facet to retrieve.
-				string responseFields Use this field to include those fields which are not included by default.
-				facet Properties of the facet used to retrieve documents.
-			Response
-				Facet 
+		""" Modifies one or more properties of a defined facet.
+		
+		Args:
+			| facet(facet) - Properties of the facet used to retrieve documents.
+			| facetId (int) - Unique identifier of the facet to retrieve.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Facet 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/facets/{facetId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -96,11 +116,14 @@ class Facet(object):
 	
 		
 	def deleteFacetById(self,facetId):
-		"""
-			Deletes the facet specified by its unique identifier.
-			Request Params
-				int facetId Unique identifier of the facet to retrieve.
-			Response
+		""" Deletes the facet specified by its unique identifier.
+		
+		Args:
+			| facetId (int) - Unique identifier of the facet to retrieve.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/facets/{facetId}", "DELETE", UrlLocation.TenantPod, False);

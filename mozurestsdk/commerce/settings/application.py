@@ -18,12 +18,17 @@ class Application(object):
 		client.withApiContext(apiContext);
 	
 	def thirdPartyGetApplication(self,responseFields = None):
-		"""
-			Retrieve the settings of a third-party application.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				Application 
+		""" Retrieve the settings of a third-party application.
+		
+		Args:
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Application 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/settings/applications/?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -34,13 +39,18 @@ class Application(object):
 	
 		
 	def thirdPartyUpdateApplication(self,application, responseFields = None):
-		"""
-			Initializes an application with the necessary configured settings.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				application Properties of an application installed in a tenant.
-			Response
-				Application 
+		""" Initializes an application with the necessary configured settings.
+		
+		Args:
+			| application(application) - Properties of an application installed in a tenant.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Application 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/settings/applications/?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);

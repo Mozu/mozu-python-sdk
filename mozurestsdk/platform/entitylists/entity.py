@@ -18,14 +18,19 @@ class Entity(object):
 		client.withApiContext(apiContext);
 	
 	def getEntity(self,entityListFullName, id, responseFields = None):
-		"""
-			Retrieves an entity with an associated entity list and context level at tenant, master catalog, catalog, or site. 
-			Request Params
-				string entityListFullName The full name of the EntityList including namespace in name@nameSpace format
-				string id Unique identifier of the customer segment to retrieve.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				JObject 
+		""" Retrieves an entity with an associated entity list and context level at tenant, master catalog, catalog, or site. 
+		
+		Args:
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| id (string) - Unique identifier of the customer segment to retrieve.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| JObject 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/entitylists/{entityListFullName}/entities/{id}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -38,17 +43,22 @@ class Entity(object):
 	
 		
 	def getEntities(self,entityListFullName, pageSize = None, startIndex = None, filter = None, sortBy = None, responseFields = None):
-		"""
-			Retrieves a collection of entities with an associated entity list and context level at tenant, master catalog, catalog, or site. 
-			Request Params
-				string entityListFullName The full name of the EntityList including namespace in name@nameSpace format
-				string filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-				int pageSize The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the `pageCount `amount of pages. The default is 20 and maximum value is 200 per page.
-				string responseFields Use this field to include those fields which are not included by default.
-				string sortBy The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.
-				int startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a `pageSize `of 25, to get the 51st through the 75th items, use `startIndex=3`.
-			Response
-				EntityCollection 
+		""" Retrieves a collection of entities with an associated entity list and context level at tenant, master catalog, catalog, or site. 
+		
+		Args:
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the  pageCount  amount of pages. The default is 20 and maximum value is 200 per page.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a  pageSize  of 25, to get the 51st through the 75th items, use  startIndex=3 .
+			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| EntityCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/entitylists/{entityListFullName}/entities?pageSize={pageSize}&startIndex={startIndex}&filter={filter}&sortBy={sortBy}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -64,14 +74,19 @@ class Entity(object):
 	
 		
 	def insertEntity(self,item, entityListFullName, responseFields = None):
-		"""
-			Inserts a new entity per the entered item, the entity list full name, and associated response fields. 
-			Request Params
-				string entityListFullName The full name of the EntityList including namespace in name@nameSpace format
-				string responseFields Use this field to include those fields which are not included by default.
-				item JSON code for objects.
-			Response
-				JObject 
+		""" Inserts a new entity per the entered item, the entity list full name, and associated response fields. 
+		
+		Args:
+			| item(item) - JSON code for objects.
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| JObject 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/entitylists/{entityListFullName}/entities/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -83,15 +98,20 @@ class Entity(object):
 	
 		
 	def updateEntity(self,item, entityListFullName, id, responseFields = None):
-		"""
-			Updates the content and associations for an existing entity.
-			Request Params
-				string entityListFullName The full name of the EntityList including namespace in name@nameSpace format
-				string id Unique identifier of the customer segment to retrieve.
-				string responseFields Use this field to include those fields which are not included by default.
-				item JSON code for objects.
-			Response
-				JObject 
+		""" Updates the content and associations for an existing entity.
+		
+		Args:
+			| item(item) - JSON code for objects.
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| id (string) - Unique identifier of the customer segment to retrieve.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| JObject 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/entitylists/{entityListFullName}/entities/{id}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -104,12 +124,15 @@ class Entity(object):
 	
 		
 	def deleteEntity(self,entityListFullName, id):
-		"""
-			Deletes an entity depending on the context of tenant, master catalog, catalog, or site level. Entities are associated to an entity list (schema and formatting) for displaying within a namespace and context level.
-			Request Params
-				string entityListFullName The full name of the EntityList including namespace in name@nameSpace format
-				string id Unique identifier of the customer segment to retrieve.
-			Response
+		""" Deletes an entity depending on the context of tenant, master catalog, catalog, or site level. Entities are associated to an entity list (schema and formatting) for displaying within a namespace and context level.
+		
+		Args:
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| id (string) - Unique identifier of the customer segment to retrieve.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/platform/entitylists/{entityListFullName}/entities/{id}", "DELETE", UrlLocation.TenantPod, False);

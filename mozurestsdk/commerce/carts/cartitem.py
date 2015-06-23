@@ -18,13 +18,18 @@ class CartItem(object):
 		client.withApiContext(apiContext);
 	
 	def getCartItem(self,cartItemId, responseFields = None):
-		"""
-			Retrieves a particular cart item by providing the cart item ID.
-			Request Params
-				string cartItemId Identifier of the cart item to delete.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				CartItem 
+		""" Retrieves a particular cart item by providing the cart item ID.
+		
+		Args:
+			| cartItemId (string) - Identifier of the cart item to delete.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CartItem 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current/items/{cartItemId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -36,12 +41,17 @@ class CartItem(object):
 	
 		
 	def getCartItems(self,responseFields = None):
-		"""
-			Retrieves a list of cart items including the total number of items in the cart.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				CartItemCollection 
+		""" Retrieves a list of cart items including the total number of items in the cart.
+		
+		Args:
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CartItemCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current/items?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -52,13 +62,18 @@ class CartItem(object):
 	
 		
 	def addItemToCart(self,cartItem, responseFields = None):
-		"""
-			Adds a product to the current shopper's cart.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				cartItem Properties of an item added to an active shopping cart.
-			Response
-				CartItem 
+		""" Adds a product to the current shopper's cart.
+		
+		Args:
+			| cartItem(cartItem) - Properties of an item added to an active shopping cart.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CartItem 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current/items?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -69,14 +84,19 @@ class CartItem(object):
 	
 		
 	def updateCartItemQuantity(self,cartItemId, quantity, responseFields = None):
-		"""
-			Update the quantity of an individual cart item in the cart of the current shopper.
-			Request Params
-				string cartItemId Identifier of the cart item to delete.
-				int quantity The number of cart items in the shopper's active cart.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				CartItem 
+		""" Update the quantity of an individual cart item in the cart of the current shopper.
+		
+		Args:
+			| cartItemId (string) - Identifier of the cart item to delete.
+			| quantity (int) - The number of cart items in the shopper's active cart.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CartItem 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current/items/{cartItemId}/{quantity}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -89,14 +109,19 @@ class CartItem(object):
 	
 		
 	def updateCartItem(self,cartItem, cartItemId, responseFields = None):
-		"""
-			Update the product or product quantity of an item in the current shopper's cart.
-			Request Params
-				string cartItemId Identifier of the cart item to delete.
-				string responseFields Use this field to include those fields which are not included by default.
-				cartItem Properties of an item added to an active shopping cart.
-			Response
-				CartItem 
+		""" Update the product or product quantity of an item in the current shopper's cart.
+		
+		Args:
+			| cartItem(cartItem) - Properties of an item added to an active shopping cart.
+			| cartItemId (string) - Identifier of the cart item to delete.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CartItem 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current/items/{cartItemId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -108,9 +133,14 @@ class CartItem(object):
 	
 		
 	def removeAllCartItems(self,):
-		"""
-			Removes all items in the current shopper's active cart.
-				Cart 
+		""" Removes all items in the current shopper's active cart.
+		
+		Returns:
+			| Cart 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current/items", "DELETE", UrlLocation.TenantPod, False);
@@ -120,11 +150,14 @@ class CartItem(object):
 	
 		
 	def deleteCartItem(self,cartItemId):
-		"""
-			Deletes a specific cart item by providing the cart item ID.
-			Request Params
-				string cartItemId Identifier of the cart item to delete.
-			Response
+		""" Deletes a specific cart item by providing the cart item ID.
+		
+		Args:
+			| cartItemId (string) - Identifier of the cart item to delete.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current/items/{cartItemId}", "DELETE", UrlLocation.TenantPod, False);

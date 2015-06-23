@@ -18,13 +18,18 @@ class Pickup(object):
 		client.withApiContext(apiContext);
 	
 	def getAvailablePickupFulfillmentActions(self,orderId, pickupId):
-		"""
-			Retrieves a list of the actions available to perform for the pickup specified in the request.
-			Request Params
-				string orderId Unique identifier of the order.
-				string pickupId Unique identifier of the pickup to remove.
-			Response
-				array|string 
+		""" Retrieves a list of the actions available to perform for the pickup specified in the request.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| pickupId (string) - Unique identifier of the pickup to remove.
+		
+		Returns:
+			| array of string 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/pickups/{pickupId}/actions", "GET", UrlLocation.TenantPod, False);
@@ -36,14 +41,19 @@ class Pickup(object):
 	
 		
 	def getPickup(self,orderId, pickupId, responseFields = None):
-		"""
-			Retrieves the details of the in-store pickup specified in the request.
-			Request Params
-				string orderId Unique identifier of the order.
-				string pickupId Unique identifier of the pickup to remove.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				Pickup 
+		""" Retrieves the details of the in-store pickup specified in the request.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| pickupId (string) - Unique identifier of the pickup to remove.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Pickup 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/pickups/{pickupId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -56,14 +66,19 @@ class Pickup(object):
 	
 		
 	def createPickup(self,pickup, orderId, responseFields = None):
-		"""
-			Create a new pickup for the order specified in the request for in-store fufillment.
-			Request Params
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-				pickup Properties of an in-store pickup defined to fulfill items in an order.
-			Response
-				Pickup 
+		""" Create a new pickup for the order specified in the request for in-store fufillment.
+		
+		Args:
+			| pickup(pickup) - Properties of an in-store pickup defined to fulfill items in an order.
+			| orderId (string) - Unique identifier of the order.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Pickup 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/pickups?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -75,15 +90,20 @@ class Pickup(object):
 	
 		
 	def updatePickup(self,pickup, orderId, pickupId, responseFields = None):
-		"""
-			Updates one or more details of a defined in-store pickup.
-			Request Params
-				string orderId Unique identifier of the order.
-				string pickupId Unique identifier of the pickup to remove.
-				string responseFields Use this field to include those fields which are not included by default.
-				pickup Properties of an in-store pickup defined to fulfill items in an order.
-			Response
-				Pickup 
+		""" Updates one or more details of a defined in-store pickup.
+		
+		Args:
+			| pickup(pickup) - Properties of an in-store pickup defined to fulfill items in an order.
+			| orderId (string) - Unique identifier of the order.
+			| pickupId (string) - Unique identifier of the pickup to remove.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Pickup 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/pickups/{pickupId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -96,12 +116,15 @@ class Pickup(object):
 	
 		
 	def deletePickup(self,orderId, pickupId):
-		"""
-			Removes a pickup previously defined for order item in-store pickup fulfillment.
-			Request Params
-				string orderId Unique identifier of the order.
-				string pickupId Unique identifier of the pickup to remove.
-			Response
+		""" Removes a pickup previously defined for order item in-store pickup fulfillment.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| pickupId (string) - Unique identifier of the pickup to remove.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/pickups/{pickupId}", "DELETE", UrlLocation.TenantPod, False);

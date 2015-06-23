@@ -24,36 +24,19 @@ class UserAuthenticator(object):
 	
 
 	def authenticate(self):
-		#appAuth = default_auth();
 		data = {"emailAddress" : self.username, "password" : self.password};
-		#resourceUrl = None;
 		if (self.scope is AuthenticationScope.Tenant):
 			self.auth = TenantAdminUserAuthTicket().createUserAuthTicket(data, self.id);
-			#resourceUrl = self.baseAuthUrl + "/api/platform/adminuser/authtickets/tenants?tenantId="+str(self.id);
 		else:
 			self.auth = DeveloperAdminUserAuthTicket().createDeveloperUserAuthTicket(data, self.id);
-			#resourceUrl = self.baseAuthUrl + "/api/platform/developer/authtickets/?developerAccountId="+str(self.id);
-		#headers = {};
-		#headers[Headers.X_VOL_APP_CLAIMS] = appAuth.getAccessToken();
-		
-		#response = util.http_call(resourceUrl, "POST", data=data, headers=headers, verify=False);
-		#self.auth = response.json();
 
 	def refreshAuth(self):
 		appAuth = default_auth();
 		data = {"refreshToken" : self.auth["refreshToken"]};
-		#resourceUrl = None;
 		if (self.scope is AuthenticationScope.Tenant):
 			self.auth = TenantAdminUserAuthTicket().refreshAuthTicket(data, self.id);
-			#resourceUrl = self.baseAuthUrl + "/api/platform/adminuser/authtickets/tenants?tenantId="+str(self.id);
 		else:
 			self.auth = DeveloperAdminUserAuthTicket().refreshDeveloperAuthTicket(data, self.id);
-			#resourceUrl = self.baseAuthUrl + "/api/platform/developer/authtickets/?developerAccountId="+str(self.id);
-		#headers = {};
-		#headers[Headers.X_VOL_APP_CLAIMS] = appAuth.getAccessToken();
-		#data = {"refreshToken" : self.auth["refreshToken"]};
-		#response = util.http_call(resourceUrl, "PUT", data=data, headers=headers, verify=False);
-		#self.auth = response.json();
 
 	def getAccessToken(self):
 		accessTokenExpiry =  datetime.datetime.strptime(self.auth["accessTokenExpiration"],'%Y-%m-%dT%H:%M:%S.%fZ');

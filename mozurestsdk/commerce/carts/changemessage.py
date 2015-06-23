@@ -18,12 +18,17 @@ class ChangeMessage(object):
 		client.withApiContext(apiContext);
 	
 	def getMessages(self,responseFields = None):
-		"""
-			Retrieves the messages associated with the current shopper's cart.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				CartChangeMessageCollection 
+		""" Retrieves the messages associated with the current shopper's cart.
+		
+		Args:
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| CartChangeMessageCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current/messages?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -34,8 +39,11 @@ class ChangeMessage(object):
 	
 		
 	def removeAllMessages(self,):
-		"""
-			Deletes all messages associated with the cart of the current shopper.
+		""" Deletes all messages associated with the cart of the current shopper.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current/messages", "DELETE", UrlLocation.TenantPod, False);
@@ -44,11 +52,14 @@ class ChangeMessage(object):
 	
 		
 	def removeMessage(self,messageId):
-		"""
-			Removes a single message associated with the cart of the current shopper.
-			Request Params
-				string messageId Identifier of the message to remove from the cart.
-			Response
+		""" Removes a single message associated with the cart of the current shopper.
+		
+		Args:
+			| messageId (string) - Identifier of the message to remove from the cart.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current/messages/{messageId}", "DELETE", UrlLocation.TenantPod, False);

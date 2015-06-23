@@ -18,12 +18,17 @@ class LocationUsage(object):
 		client.withApiContext(apiContext);
 	
 	def getLocationUsages(self,responseFields = None):
-		"""
-			Retrieves the configured site location usages for the location usage code specified in the request.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				LocationUsageCollection 
+		""" Retrieves the configured site location usages for the location usage code specified in the request.
+		
+		Args:
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| LocationUsageCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/settings/locationUsages/?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -34,13 +39,18 @@ class LocationUsage(object):
 	
 		
 	def getLocationUsage(self,code, responseFields = None):
-		"""
-			Retrieves the location usages for the site specified in the request header.
-			Request Params
-				string code User-defined code that uniqely identifies the channel group.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				LocationUsage 
+		""" Retrieves the location usages for the site specified in the request header.
+		
+		Args:
+			| code (string) - User-defined code that uniqely identifies the channel group.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| LocationUsage 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/settings/locationUsages/{code}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -52,14 +62,19 @@ class LocationUsage(object):
 	
 		
 	def updateLocationUsage(self,usage, code, responseFields = None):
-		"""
-			Updates the location usage for the site based on the location usage code specified in the request.
-			Request Params
-				string code User-defined code that uniqely identifies the channel group.
-				string responseFields Use this field to include those fields which are not included by default.
-				usage Configuration properties of a location usage type for a specified site. The direct ship location usage type consists of a single location that represents location that supports direct ship (DS) fulfillment. The in-store pickup location usage type consists of a list of location types that represent locations that support in-store pickup (SP) fulfillment. The store finder location usage type consists of a list of location codes, location types, or both.
-			Response
-				LocationUsage 
+		""" Updates the location usage for the site based on the location usage code specified in the request.
+		
+		Args:
+			| usage(usage) - Configuration properties of a location usage type for a specified site. The direct ship location usage type consists of a single location that represents location that supports direct ship (DS) fulfillment. The in-store pickup location usage type consists of a list of location types that represent locations that support in-store pickup (SP) fulfillment. The store finder location usage type consists of a list of location codes, location types, or both.
+			| code (string) - User-defined code that uniqely identifies the channel group.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| LocationUsage 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/settings/locationUsages/{code}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);

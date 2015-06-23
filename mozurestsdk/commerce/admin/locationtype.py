@@ -18,9 +18,14 @@ class LocationType(object):
 		client.withApiContext(apiContext);
 	
 	def getLocationTypes(self,):
-		"""
-			Retrieve a list of all location types defined for the tenant.
-				array|LocationType 
+		""" Retrieve a list of all location types defined for the tenant.
+		
+		Returns:
+			| array of LocationType 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/admin/locationtypes/", "GET", UrlLocation.TenantPod, False);
@@ -30,13 +35,18 @@ class LocationType(object):
 	
 		
 	def getLocationType(self,locationTypeCode, responseFields = None):
-		"""
-			Retrieves the details of the location type specified in the request.
-			Request Params
-				string locationTypeCode The user-defined code that identifies the location type.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				LocationType 
+		""" Retrieves the details of the location type specified in the request.
+		
+		Args:
+			| locationTypeCode (string) - The user-defined code that identifies the location type.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| LocationType 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/admin/locationtypes/{locationTypeCode}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -48,13 +58,18 @@ class LocationType(object):
 	
 		
 	def addLocationType(self,locationType, responseFields = None):
-		"""
-			Creates a new location type based on the information specified in the request.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				locationType Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.
-			Response
-				LocationType 
+		""" Creates a new location type based on the information specified in the request.
+		
+		Args:
+			| locationType(locationType) - Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| LocationType 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/admin/locationtypes/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -65,14 +80,19 @@ class LocationType(object):
 	
 		
 	def updateLocationType(self,locationType, locationTypeCode, responseFields = None):
-		"""
-			Updates the name of a defined location type.
-			Request Params
-				string locationTypeCode The user-defined code that identifies the location type.
-				string responseFields Use this field to include those fields which are not included by default.
-				locationType Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.
-			Response
-				LocationType 
+		""" Updates the name of a defined location type.
+		
+		Args:
+			| locationType(locationType) - Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.
+			| locationTypeCode (string) - The user-defined code that identifies the location type.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| LocationType 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/admin/locationtypes/{locationTypeCode}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -84,11 +104,14 @@ class LocationType(object):
 	
 		
 	def deleteLocationType(self,locationTypeCode):
-		"""
-			Deletes the location type specified in the request.
-			Request Params
-				string locationTypeCode The user-defined code that identifies the location type.
-			Response
+		""" Deletes the location type specified in the request.
+		
+		Args:
+			| locationTypeCode (string) - The user-defined code that identifies the location type.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/admin/locationtypes/{locationTypeCode}", "DELETE", UrlLocation.TenantPod, False);

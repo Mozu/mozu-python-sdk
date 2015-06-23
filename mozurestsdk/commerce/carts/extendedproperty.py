@@ -18,9 +18,14 @@ class ExtendedProperty(object):
 		client.withApiContext(apiContext);
 	
 	def getExtendedProperties(self,):
-		"""
-			carts-cartextendedproperties Get GetExtendedProperties description DOCUMENT_HERE 
-				array|ExtendedProperty 
+		""" carts-cartextendedproperties Get GetExtendedProperties description DOCUMENT_HERE 
+		
+		Returns:
+			| array of ExtendedProperty 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current/extendedproperties", "GET", UrlLocation.TenantPod, False);
@@ -30,12 +35,17 @@ class ExtendedProperty(object):
 	
 		
 	def addExtendedProperties(self,extendedProperties):
-		"""
-			carts-cartextendedproperties Post AddExtendedProperties description DOCUMENT_HERE 
-			Request Params
-				array|extendedProperties Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
-			Response
-				array|ExtendedProperty 
+		""" carts-cartextendedproperties Post AddExtendedProperties description DOCUMENT_HERE 
+		
+		Args:
+			| extendedProperties(array|extendedProperties) - Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
+		
+		Returns:
+			| array of ExtendedProperty 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current/extendedproperties", "POST", UrlLocation.TenantPod, False);
@@ -45,15 +55,20 @@ class ExtendedProperty(object):
 	
 		
 	def updateExtendedProperty(self,extendedProperty, key, upsert = False, responseFields = None):
-		"""
-			carts-cartextendedproperties Put UpdateExtendedProperty description DOCUMENT_HERE 
-			Request Params
-				string key 
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-				bool upsert 
-				extendedProperty Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
-			Response
-				ExtendedProperty 
+		""" carts-cartextendedproperties Put UpdateExtendedProperty description DOCUMENT_HERE 
+		
+		Args:
+			| extendedProperty(extendedProperty) - Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
+			| key (string) - 
+			| upsert (bool) - 
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| ExtendedProperty 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current/extendedproperties/{key}?upsert={upsert}&responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -66,13 +81,18 @@ class ExtendedProperty(object):
 	
 		
 	def updateExtendedProperties(self,extendedProperties, upsert = False):
-		"""
-			carts-cartextendedproperties Put UpdateExtendedProperties description DOCUMENT_HERE 
-			Request Params
-				bool upsert 
-				array|extendedProperties Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
-			Response
-				array|ExtendedProperty 
+		""" carts-cartextendedproperties Put UpdateExtendedProperties description DOCUMENT_HERE 
+		
+		Args:
+			| extendedProperties(array|extendedProperties) - Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
+			| upsert (bool) - 
+		
+		Returns:
+			| array of ExtendedProperty 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current/extendedproperties?upsert={upsert}", "PUT", UrlLocation.TenantPod, False);
@@ -83,11 +103,14 @@ class ExtendedProperty(object):
 	
 		
 	def deleteExtendedProperties(self,keys):
-		"""
-			carts-cartextendedproperties Delete DeleteExtendedProperties description DOCUMENT_HERE 
-			Request Params
-				array|keys 
-			Response
+		""" carts-cartextendedproperties Delete DeleteExtendedProperties description DOCUMENT_HERE 
+		
+		Args:
+			| keys(array|keys) - 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current/extendedproperties", "DELETE", UrlLocation.TenantPod, False);
@@ -96,11 +119,14 @@ class ExtendedProperty(object):
 	
 		
 	def deleteExtendedProperty(self,key):
-		"""
-			carts-cartextendedproperties Delete DeleteExtendedProperty description DOCUMENT_HERE 
-			Request Params
-				string key 
-			Response
+		""" carts-cartextendedproperties Delete DeleteExtendedProperty description DOCUMENT_HERE 
+		
+		Args:
+			| key (string) - 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/carts/current/extendedproperties/{key}", "DELETE", UrlLocation.TenantPod, False);

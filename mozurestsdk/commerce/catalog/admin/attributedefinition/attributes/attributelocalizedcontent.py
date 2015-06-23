@@ -18,12 +18,17 @@ class AttributeLocalizedContent(object):
 		client.withApiContext(apiContext);
 	
 	def getAttributeLocalizedContents(self,attributeFQN):
-		"""
-			Retrieves a collection of localized content for attributes based on a `localeCode`.
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-			Response
-				array|AttributeLocalizedContent 
+		""" Retrieves a collection of localized content for attributes based on a  localeCode .
+		
+		Args:
+			| attributeFQN (string) - Fully qualified name for an attribute.
+		
+		Returns:
+			| array of AttributeLocalizedContent 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/LocalizedContent", "GET", UrlLocation.TenantPod, False);
@@ -34,14 +39,19 @@ class AttributeLocalizedContent(object):
 	
 		
 	def getAttributeLocalizedContent(self,attributeFQN, localeCode, responseFields = None):
-		"""
-			Retrieves the localized content for an attribute  based on a `localeCode`. 
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string localeCode Language used for the entity. Currently, only "en-US" is supported.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				AttributeLocalizedContent 
+		""" Retrieves the localized content for an attribute  based on a  localeCode . 
+		
+		Args:
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| localeCode (string) - Language used for the entity. Currently, only "en-US" is supported.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| AttributeLocalizedContent 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/LocalizedContent/{localeCode}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -54,14 +64,19 @@ class AttributeLocalizedContent(object):
 	
 		
 	def addLocalizedContent(self,localizedContent, attributeFQN, responseFields = None):
-		"""
-			Adds new localized content for an attribute  based on a `localeCode`. 
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string responseFields Use this field to include those fields which are not included by default.
-				localizedContent The localized name and description of the attribute, displayed in the locale defined for the master catalog.
-			Response
-				AttributeLocalizedContent 
+		""" Adds new localized content for an attribute  based on a  localeCode . 
+		
+		Args:
+			| localizedContent(localizedContent) - The localized name and description of the attribute, displayed in the locale defined for the master catalog.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| AttributeLocalizedContent 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/LocalizedContent?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -73,13 +88,18 @@ class AttributeLocalizedContent(object):
 	
 		
 	def updateLocalizedContents(self,localizedContent, attributeFQN):
-		"""
-			Updates the localized content for a collection of existing attributes  based on a `localeCode`. 
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				array|localizedContent The localized name and description of the attribute, displayed in the locale defined for the master catalog.
-			Response
-				array|AttributeLocalizedContent 
+		""" Updates the localized content for a collection of existing attributes  based on a  localeCode . 
+		
+		Args:
+			| localizedContent(array|localizedContent) - The localized name and description of the attribute, displayed in the locale defined for the master catalog.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+		
+		Returns:
+			| array of AttributeLocalizedContent 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/LocalizedContent", "PUT", UrlLocation.TenantPod, False);
@@ -90,15 +110,20 @@ class AttributeLocalizedContent(object):
 	
 		
 	def updateLocalizedContent(self,localizedContent, attributeFQN, localeCode, responseFields = None):
-		"""
-			Updates the localized content for an existing attribute  based on a `localeCode`. 
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string localeCode Language used for the entity. Currently, only "en-US" is supported.
-				string responseFields Use this field to include those fields which are not included by default.
-				localizedContent The localized name and description of the attribute, displayed in the locale defined for the master catalog.
-			Response
-				AttributeLocalizedContent 
+		""" Updates the localized content for an existing attribute  based on a  localeCode . 
+		
+		Args:
+			| localizedContent(localizedContent) - The localized name and description of the attribute, displayed in the locale defined for the master catalog.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| localeCode (string) - Language used for the entity. Currently, only "en-US" is supported.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| AttributeLocalizedContent 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/LocalizedContent/{localeCode}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -111,12 +136,15 @@ class AttributeLocalizedContent(object):
 	
 		
 	def deleteLocalizedContent(self,attributeFQN, localeCode):
-		"""
-			Removes all localized content. Localized content is translated text information and data based on a `localeCode`. 
-			Request Params
-				string attributeFQN Fully qualified name for an attribute.
-				string localeCode Language used for the entity. Currently, only "en-US" is supported.
-			Response
+		""" Removes all localized content. Localized content is translated text information and data based on a  localeCode . 
+		
+		Args:
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| localeCode (string) - Language used for the entity. Currently, only "en-US" is supported.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/attributedefinition/attributes/{attributeFQN}/LocalizedContent/{localeCode}", "DELETE", UrlLocation.TenantPod, False);

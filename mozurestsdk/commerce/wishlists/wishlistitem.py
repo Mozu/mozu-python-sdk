@@ -18,14 +18,19 @@ class WishlistItem(object):
 		client.withApiContext(apiContext);
 	
 	def getWishlistItem(self,wishlistId, wishlistItemId, responseFields = None):
-		"""
-			Retrieves the details of an item in a shopper wish list.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				string wishlistId Unique identifier of the wish list.
-				string wishlistItemId Unique identifier of the item to remove from the shopper wish list.
-			Response
-				WishlistItem 
+		""" Retrieves the details of an item in a shopper wish list.
+		
+		Args:
+			| wishlistId (string) - Unique identifier of the wish list.
+			| wishlistItemId (string) - Unique identifier of the item to remove from the shopper wish list.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| WishlistItem 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/wishlists/{wishlistId}/items/{wishlistItemId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -38,17 +43,22 @@ class WishlistItem(object):
 	
 		
 	def getWishlistItems(self,wishlistId, startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		"""
-			Retrieves a list of items in a shopper wish list according to any specified filter and sort criteria.
-			Request Params
-				string filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-				int pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-				string responseFields Use this field to include those fields which are not included by default.
-				string sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
-				int startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
-				string wishlistId Unique identifier of the wish list.
-			Response
-				WishlistItemCollection 
+		""" Retrieves a list of items in a shopper wish list according to any specified filter and sort criteria.
+		
+		Args:
+			| wishlistId (string) - Unique identifier of the wish list.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
+			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+			| sortBy (string) - The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
+			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| WishlistItemCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/wishlists/{wishlistId}/items?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -64,18 +74,23 @@ class WishlistItem(object):
 	
 		
 	def getWishlistItemsByWishlistName(self,customerAccountId, wishlistName, startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		"""
-			Retrieve a list of items in a customer wish list by supplying the wish list name.
-			Request Params
-				int customerAccountId The unique identifier of the customer account for which to retrieve wish lists.
-				string filter A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-				int pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-				string responseFields Use this field to include those fields which are not included by default.
-				string sortBy The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
-				int startIndex When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
-				string wishlistName The name of the wish list to retrieve.
-			Response
-				WishlistItemCollection 
+		""" Retrieve a list of items in a customer wish list by supplying the wish list name.
+		
+		Args:
+			| customerAccountId (int) - The unique identifier of the customer account for which to retrieve wish lists.
+			| wishlistName (string) - The name of the wish list to retrieve.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
+			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+			| sortBy (string) - The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
+			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| WishlistItemCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/wishlists/customers/{customerAccountId}/{wishlistName}/items?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -92,14 +107,19 @@ class WishlistItem(object):
 	
 		
 	def addItemToWishlist(self,wishlistItem, wishlistId, responseFields = None):
-		"""
-			Adds a product in a site's catalog as an item in a shopper wish list.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				string wishlistId Unique identifier of the wish list.
-				wishlistItem Properties of an item in a shopper wish list.
-			Response
-				WishlistItem 
+		""" Adds a product in a site's catalog as an item in a shopper wish list.
+		
+		Args:
+			| wishlistItem(wishlistItem) - Properties of an item in a shopper wish list.
+			| wishlistId (string) - Unique identifier of the wish list.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| WishlistItem 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/wishlists/{wishlistId}/items?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -111,15 +131,20 @@ class WishlistItem(object):
 	
 		
 	def updateWishlistItemQuantity(self,wishlistId, wishlistItemId, quantity, responseFields = None):
-		"""
-			Updates the quantity of an item in a shopper wish list.
-			Request Params
-				int quantity The number of cart items in the shopper's active cart.
-				string responseFields Use this field to include those fields which are not included by default.
-				string wishlistId Unique identifier of the wish list.
-				string wishlistItemId Unique identifier of the item to remove from the shopper wish list.
-			Response
-				WishlistItem 
+		""" Updates the quantity of an item in a shopper wish list.
+		
+		Args:
+			| wishlistId (string) - Unique identifier of the wish list.
+			| wishlistItemId (string) - Unique identifier of the item to remove from the shopper wish list.
+			| quantity (int) - The number of cart items in the shopper's active cart.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| WishlistItem 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/wishlists/{wishlistId}/items/{wishlistItemId}/{quantity}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -133,15 +158,20 @@ class WishlistItem(object):
 	
 		
 	def updateWishlistItem(self,wishlistItem, wishlistId, wishlistItemId, responseFields = None):
-		"""
-			Updates the details of an item in a shopper wish list.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				string wishlistId Unique identifier of the wish list.
-				string wishlistItemId Unique identifier of the item to remove from the shopper wish list.
-				wishlistItem Properties of an item in a shopper wish list.
-			Response
-				WishlistItem 
+		""" Updates the details of an item in a shopper wish list.
+		
+		Args:
+			| wishlistItem(wishlistItem) - Properties of an item in a shopper wish list.
+			| wishlistId (string) - Unique identifier of the wish list.
+			| wishlistItemId (string) - Unique identifier of the item to remove from the shopper wish list.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| WishlistItem 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/wishlists/{wishlistId}/items/{wishlistItemId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -154,12 +184,17 @@ class WishlistItem(object):
 	
 		
 	def removeAllWishlistItems(self,wishlistId):
-		"""
-			Removes all items associated with a shopper wish list.
-			Request Params
-				string wishlistId Unique identifier of the wish list.
-			Response
-				Wishlist 
+		""" Removes all items associated with a shopper wish list.
+		
+		Args:
+			| wishlistId (string) - Unique identifier of the wish list.
+		
+		Returns:
+			| Wishlist 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/wishlists/{wishlistId}/items", "DELETE", UrlLocation.TenantPod, False);
@@ -170,12 +205,15 @@ class WishlistItem(object):
 	
 		
 	def deleteWishlistItem(self,wishlistId, wishlistItemId):
-		"""
-			Removes an item from the wish list specified in the request.
-			Request Params
-				string wishlistId Unique identifier of the wish list.
-				string wishlistItemId Unique identifier of the item to remove from the shopper wish list.
-			Response
+		""" Removes an item from the wish list specified in the request.
+		
+		Args:
+			| wishlistId (string) - Unique identifier of the wish list.
+			| wishlistItemId (string) - Unique identifier of the item to remove from the shopper wish list.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/wishlists/{wishlistId}/items/{wishlistItemId}", "DELETE", UrlLocation.TenantPod, False);

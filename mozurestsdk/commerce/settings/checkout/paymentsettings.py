@@ -18,9 +18,14 @@ class PaymentSettings(object):
 		client.withApiContext(apiContext);
 	
 	def getThirdPartyPaymentWorkflows(self,):
-		"""
-			Retrieves the details of the third-party payment service workflows configured for the site.
-				array|ExternalPaymentWorkflowDefinition 
+		""" Retrieves the details of the third-party payment service workflows configured for the site.
+		
+		Returns:
+			| array of ExternalPaymentWorkflowDefinition 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/settings/checkout/paymentsettings/thirdpartyworkflows", "GET", UrlLocation.TenantPod, False);

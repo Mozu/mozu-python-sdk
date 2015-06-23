@@ -18,12 +18,17 @@ class Search(object):
 		client.withApiContext(apiContext);
 	
 	def getSettings(self,responseFields = None):
-		"""
-			Get site search settings
-			Request Params
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-			Response
-				SearchSettings 
+		""" Get site search settings
+		
+		Args:
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| SearchSettings 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/search/settings?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -34,13 +39,18 @@ class Search(object):
 	
 		
 	def updateSettings(self,settings, responseFields = None):
-		"""
-			Adds or Updates (Upsert) the Search Settings for a specific site
-			Request Params
-				string responseFields A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
-				settings The settings to control product search and indexing behavior.
-			Response
-				SearchSettings 
+		""" Adds or Updates (Upsert) the Search Settings for a specific site
+		
+		Args:
+			| settings(settings) - The settings to control product search and indexing behavior.
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| SearchSettings 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/search/settings?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);

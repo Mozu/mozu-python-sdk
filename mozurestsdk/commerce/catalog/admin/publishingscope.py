@@ -20,11 +20,14 @@ class PublishingScope(object):
 		self.client.withApiContext(apiContext);
 	
 	def discardDrafts(self,publishScope):
-		"""
-			Deletes the draft version of product changes for each product code specified in the request.
-			Request Params
-				publishScope Describes the scope of the product publishing update, which can include individual product codes or all pending changes.
-			Response
+		""" Deletes the draft version of product changes for each product code specified in the request.
+		
+		Args:
+			| publishScope(publishScope) - Describes the scope of the product publishing update, which can include individual product codes or all pending changes.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/publishing/discarddrafts", "POST", UrlLocation.TenantPod, False);
@@ -33,11 +36,14 @@ class PublishingScope(object):
 	
 		
 	def publishDrafts(self,publishScope):
-		"""
-			Publishes the draft version of product changes for each product code specified in the request, and changes the product publish state to "live".
-			Request Params
-				publishScope Describes the scope of the product publishing update, which can include individual product codes or all pending changes.
-			Response
+		""" Publishes the draft version of product changes for each product code specified in the request, and changes the product publish state to "live".
+		
+		Args:
+			| publishScope(publishScope) - Describes the scope of the product publishing update, which can include individual product codes or all pending changes.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/publishing/publishdrafts", "POST", UrlLocation.TenantPod, False);

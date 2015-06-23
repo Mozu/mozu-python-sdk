@@ -18,18 +18,23 @@ class Order(object):
 		client.withApiContext(apiContext);
 	
 	def getOrders(self,startIndex = None, pageSize = None, sortBy = None, filter = None, q = None, qLimit = None, responseFields = None):
-		"""
-			Retrieves a list of orders according to any specified filter criteria and sort options.
-			Request Params
-				string filter A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
-				int pageSize The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-				string q A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.
-				int qLimit The maximum number of search results to return in the response. You can limit any range between 1-100.
-				string responseFields Use this field to include those fields which are not included by default.
-				string sortBy 
-				int startIndex 
-			Response
-				OrderCollection 
+		""" Retrieves a list of orders according to any specified filter criteria and sort options.
+		
+		Args:
+			| startIndex (int) - 
+			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+			| sortBy (string) - 
+			| filter (string) - A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
+			| q (string) - A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.
+			| qLimit (int) - The maximum number of search results to return in the response. You can limit any range between 1-100.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| OrderCollection 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&q={q}&qLimit={qLimit}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -46,12 +51,17 @@ class Order(object):
 	
 		
 	def getAvailableActions(self,orderId):
-		"""
-			Retrieves the actions available to perform for an order based on its current status.
-			Request Params
-				string orderId Unique identifier of the order.
-			Response
-				array|string 
+		""" Retrieves the actions available to perform for an order based on its current status.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+		
+		Returns:
+			| array of string 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/actions", "GET", UrlLocation.TenantPod, False);
@@ -62,12 +72,17 @@ class Order(object):
 	
 		
 	def getTaxableOrders(self,orderId):
-		"""
-			Retrieves an order for the purpose of splitting it into multiple taxable orders in order to fulfill the order in multiple locations.
-			Request Params
-				string orderId Unique identifier of the order.
-			Response
-				array|TaxableOrder 
+		""" Retrieves an order for the purpose of splitting it into multiple taxable orders in order to fulfill the order in multiple locations.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+		
+		Returns:
+			| array of TaxableOrder 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/taxableorders", "GET", UrlLocation.TenantPod, False);
@@ -78,14 +93,19 @@ class Order(object):
 	
 		
 	def getOrder(self,orderId, draft = False, responseFields = None):
-		"""
-			Retrieves the details of an order specified by the order ID.
-			Request Params
-				bool draft If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				Order 
+		""" Retrieves the details of an order specified by the order ID.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}?draft={draft}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
@@ -98,13 +118,18 @@ class Order(object):
 	
 		
 	def createOrderFromCart(self,cartId, responseFields = None):
-		"""
-			Creates a new order from an existing cart when the customer chooses to proceed to checkout.
-			Request Params
-				string cartId Identifier of the cart to delete.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				Order 
+		""" Creates a new order from an existing cart when the customer chooses to proceed to checkout.
+		
+		Args:
+			| cartId (string) - Identifier of the cart to delete.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/?cartId={cartId}&responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -116,13 +141,18 @@ class Order(object):
 	
 		
 	def createOrder(self,order, responseFields = None):
-		"""
-			Creates a new order for no-cart quick-ordering scenarios.
-			Request Params
-				string responseFields Use this field to include those fields which are not included by default.
-				order Properties of an order, including its components.
-			Response
-				Order 
+		""" Creates a new order for no-cart quick-ordering scenarios.
+		
+		Args:
+			| order(order) - Properties of an order, including its components.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -133,14 +163,19 @@ class Order(object):
 	
 		
 	def performOrderAction(self,action, orderId, responseFields = None):
-		"""
-			Perform the specified action for an order. The actions you can perform depend on the current status of the order.
-			Request Params
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-				action The action to perform for the order.
-			Response
-				Order 
+		""" Perform the specified action for an order. The actions you can perform depend on the current status of the order.
+		
+		Args:
+			| action(action) - The action to perform for the order.
+			| orderId (string) - Unique identifier of the order.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/actions?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
@@ -152,17 +187,22 @@ class Order(object):
 	
 		
 	def updateOrderDiscount(self,discount, orderId, discountId, updateMode = None, version = None, responseFields = None):
-		"""
-			Update the properties of a discount applied to an order.
-			Request Params
-				int discountId Unique identifier of the discount. System-supplied and read only.
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-				string updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-				string version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
-				discount Properties of all applied discounts for an associated cart, order, or product. 
-			Response
-				Order 
+		""" Update the properties of a discount applied to an order.
+		
+		Args:
+			| discount(discount) - Properties of all applied discounts for an associated cart, order, or product. 
+			| orderId (string) - Unique identifier of the order.
+			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/discounts/{discountId}?updatemode={updateMode}&version={version}&responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -177,12 +217,15 @@ class Order(object):
 	
 		
 	def deleteOrderDraft(self,orderId, version = None):
-		"""
-			Deletes the current draft version of the order, which also deletes any uncommitted changes made to the order in draft mode.
-			Request Params
-				string orderId Unique identifier of the order.
-				string version Determines whether or not to check versioning of items for concurrency purposes.
-			Response
+		""" Deletes the current draft version of the order, which also deletes any uncommitted changes made to the order in draft mode.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/draft?version={version}", "PUT", UrlLocation.TenantPod, False);
@@ -193,12 +236,15 @@ class Order(object):
 	
 		
 	def resendOrderConfirmationEmail(self,action, orderId):
-		"""
-			commerce-orders Put ResendOrderConfirmationEmail description DOCUMENT_HERE 
-			Request Params
-				string orderId Unique identifier of the order.
-				action The action to perform for the order.
-			Response
+		""" commerce-orders Put ResendOrderConfirmationEmail description DOCUMENT_HERE 
+		
+		Args:
+			| action(action) - The action to perform for the order.
+			| orderId (string) - Unique identifier of the order.
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/email/resend", "PUT", UrlLocation.TenantPod, False);
@@ -208,13 +254,18 @@ class Order(object):
 	
 		
 	def changeOrderUserId(self,orderId, responseFields = None):
-		"""
-			Updates the user ID of the shopper who placed the order to the current user.
-			Request Params
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-			Response
-				Order 
+		""" Updates the user ID of the shopper who placed the order to the current user.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}/users?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
@@ -226,16 +277,21 @@ class Order(object):
 	
 		
 	def updateOrder(self,order, orderId, updateMode = None, version = None, responseFields = None):
-		"""
-			Updates the specified order when additional order information, such as shipping or billing information, is modified during the checkout process.
-			Request Params
-				string orderId Unique identifier of the order.
-				string responseFields Use this field to include those fields which are not included by default.
-				string updateMode Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-				string version System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
-				order Properties of an order, including its components.
-			Response
-				Order 
+		""" Updates the specified order when additional order information, such as shipping or billing information, is modified during the checkout process.
+		
+		Args:
+			| order(order) - Properties of an order, including its components.
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
+			| responseFields (string) - Use this field to include those fields which are not included by default.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
 		"""
 
 		url = MozuUrl("/api/commerce/orders/{orderId}?updatemode={updateMode}&version={version}&responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
