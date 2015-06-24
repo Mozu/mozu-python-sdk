@@ -56,7 +56,7 @@ TestResults/*
 
 # PyBuilder
 target/
-
+MANIFEST
 **/__pycache__
 
 mozu-python-sdk.v12.suo
