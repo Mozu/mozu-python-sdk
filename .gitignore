@@ -52,9 +52,11 @@ TestResults/*
 *.log
 
 # Sphinx documentation
-docs/_build/
+#docs/_build/
 
 # PyBuilder
 target/
 
 **/__pycache__
+
+mozu-python-sdk.v12.suo
