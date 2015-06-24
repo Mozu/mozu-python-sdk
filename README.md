@@ -5,7 +5,7 @@ Python SDK for the full v1.17 Mozu Api
 
 ## Usage:
 
-### intall using Pip
+### Install using Pip
 ```
 	pip install mozurestsdk
 
