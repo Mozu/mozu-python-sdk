@@ -5,6 +5,14 @@ Python SDK for the full v1.17 Mozu Api
 
 ## Usage:
 
+### intall using Pip
+```
+	pip install mozurestsdk
+
+	#update
+	pip install mozurestsdk --update
+```
+
 ### initialize client from using config file
 ```
 from mozurestsdk import mozuclient
