@@ -1,5 +1,5 @@
-from distutils.core import setup
-
+#from distutils.core import setup
+from setuptools import setup, find_packages
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'mozurestsdk'))
 from config import __version__
@@ -14,7 +14,7 @@ setup(
   version= __version__,
   author='Mozu',
   author_email='integrations@mozu.com',
-  packages=['mozurestsdk'],
+  packages=find_packages(),
   scripts=[],
   url="https://github.com/mozu/mozu-python-sdk",
   license='Apache License',

@@ -11,7 +11,7 @@ class Product_Test(unittest.TestCase):
 		
 	def test_getProductNotFound(self):
 		apiContext = ApiContext(catalogId=1,masterCatalogId=1);
-		product = Product(apiContext);
+		product = Product();
 		p = product.getProduct("test");
 		self.assertIsNone(p);
 			

@@ -21,11 +21,50 @@
     <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="docs\source\index.rst" />
+    <Content Include="docs\source\modules.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.admin.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.carts.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.catalog.admin.attributedefinition.attributes.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.catalog.admin.attributedefinition.producttypes.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.catalog.admin.attributedefinition.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.catalog.admin.discounts.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.catalog.admin.products.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.catalog.admin.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.catalog.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.catalog.storefront.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.customer.accounts.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.customer.attributedefinition.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.customer.credits.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.customer.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.orders.attributedefinition.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.orders.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.payments.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.returns.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.settings.checkout.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.settings.general.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.settings.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.settings.shipping.rst" />
+    <Content Include="docs\source\mozurestsdk.commerce.wishlists.rst" />
+    <Content Include="docs\source\mozurestsdk.content.documentlists.rst" />
+    <Content Include="docs\source\mozurestsdk.content.rst" />
+    <Content Include="docs\source\mozurestsdk.event.push.rst" />
+    <Content Include="docs\source\mozurestsdk.event.push.subscriptions.rst" />
+    <Content Include="docs\source\mozurestsdk.event.rst" />
+    <Content Include="docs\source\mozurestsdk.platform.adminuser.rst" />
+    <Content Include="docs\source\mozurestsdk.platform.applications.rst" />
+    <Content Include="docs\source\mozurestsdk.platform.developer.rst" />
+    <Content Include="docs\source\mozurestsdk.platform.entitylists.rst" />
+    <Content Include="docs\source\mozurestsdk.platform.rst" />
+    <Content Include="docs\source\mozurestsdk.rst" />
+    <Content Include="docs\source\mozurestsdk.security.rst" />
     <Content Include="LICENSE" />
     <Content Include="README.md" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="docs\source\conf.py" />
     <Compile Include="mozurestsdk\apicontext.py">
       <SubType>Code</SubType>
     </Compile>
@@ -229,6 +268,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="docs\" />
+    <Folder Include="docs\source\" />
+    <Folder Include="docs\source\_static\" />
+    <Folder Include="docs\source\_templates\" />
     <Folder Include="mozurestsdk" />
     <Folder Include="mozurestsdk\commerce\" />
     <Folder Include="mozurestsdk\commerce\admin\" />
