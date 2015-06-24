@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{360165f6-9789-48d4-98e5-84078a922d1f}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile />
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId>{2af0f10d-7135-4994-9156-5d01c9c11b7e}</InterpreterId>
+    <InterpreterVersion>3.4</InterpreterVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="LICENSE" />
+    <Content Include="README.md" />
+    <Content Include="requirements.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="mozurestsdk\apicontext.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="mozurestsdk\apiexception.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="mozurestsdk\commerce\admin\location.py" />
+    <Compile Include="mozurestsdk\commerce\admin\locationtype.py" />
+    <Compile Include="mozurestsdk\commerce\admin\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\cart.py" />
+    <Compile Include="mozurestsdk\commerce\carts\applieddiscount.py" />
+    <Compile Include="mozurestsdk\commerce\carts\cartitem.py" />
+    <Compile Include="mozurestsdk\commerce\carts\changemessage.py" />
+    <Compile Include="mozurestsdk\commerce\carts\extendedproperty.py" />
+    <Compile Include="mozurestsdk\commerce\carts\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\attributedefinition\attribute.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\attributedefinition\attributes\attributelocalizedcontent.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\attributedefinition\attributes\attributetyperule.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\attributedefinition\attributes\attributevocabularyvalue.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\attributedefinition\attributes\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\attributedefinition\producttype.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\attributedefinition\producttypes\producttypeextra.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\attributedefinition\producttypes\producttypeoption.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\attributedefinition\producttypes\producttypeproperty.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\attributedefinition\producttypes\producttypevariation.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\attributedefinition\producttypes\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\attributedefinition\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\category.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\discount.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\discounts\discounttarget.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\discounts\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\facet.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\locationinventory.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\mastercatalog.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\product.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\productreservation.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\products\locationinventory.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\products\productextra.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\products\productoption.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\products\productproperty.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\products\productvariation.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\products\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\publishingscope.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\search.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\softallocation.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\admin\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\storefront\category.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\storefront\product.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\storefront\productsearchresult.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\storefront\shipping.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\storefront\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\catalog\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\channel.py" />
+    <Compile Include="mozurestsdk\commerce\channelgroup.py" />
+    <Compile Include="mozurestsdk\commerce\customer\accounts\card.py" />
+    <Compile Include="mozurestsdk\commerce\customer\accounts\customerattribute.py" />
+    <Compile Include="mozurestsdk\commerce\customer\accounts\customercontact.py" />
+    <Compile Include="mozurestsdk\commerce\customer\accounts\customernote.py" />
+    <Compile Include="mozurestsdk\commerce\customer\accounts\customersegment.py" />
+    <Compile Include="mozurestsdk\commerce\customer\accounts\transaction.py" />
+    <Compile Include="mozurestsdk\commerce\customer\accounts\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\customer\addressvalidationrequest.py" />
+    <Compile Include="mozurestsdk\commerce\customer\attributedefinition\attribute.py" />
+    <Compile Include="mozurestsdk\commerce\customer\attributedefinition\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\customer\credit.py" />
+    <Compile Include="mozurestsdk\commerce\customer\credits\creditauditentry.py" />
+    <Compile Include="mozurestsdk\commerce\customer\credits\credittransaction.py" />
+    <Compile Include="mozurestsdk\commerce\customer\credits\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\customer\customeraccount.py" />
+    <Compile Include="mozurestsdk\commerce\customer\customerauthticket.py" />
+    <Compile Include="mozurestsdk\commerce\customer\customersegment.py" />
+    <Compile Include="mozurestsdk\commerce\customer\visit.py" />
+    <Compile Include="mozurestsdk\commerce\customer\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\instocknotificationsubscription.py" />
+    <Compile Include="mozurestsdk\commerce\location.py" />
+    <Compile Include="mozurestsdk\commerce\order.py" />
+    <Compile Include="mozurestsdk\commerce\orders\adjustment.py" />
+    <Compile Include="mozurestsdk\commerce\orders\applieddiscount.py" />
+    <Compile Include="mozurestsdk\commerce\orders\attributedefinition\attribute.py" />
+    <Compile Include="mozurestsdk\commerce\orders\attributedefinition\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\orders\billinginfo.py" />
+    <Compile Include="mozurestsdk\commerce\orders\digitalpackage.py" />
+    <Compile Include="mozurestsdk\commerce\orders\extendedproperty.py" />
+    <Compile Include="mozurestsdk\commerce\orders\fulfillmentaction.py" />
+    <Compile Include="mozurestsdk\commerce\orders\fulfillmentinfo.py" />
+    <Compile Include="mozurestsdk\commerce\orders\orderattribute.py" />
+    <Compile Include="mozurestsdk\commerce\orders\orderitem.py" />
+    <Compile Include="mozurestsdk\commerce\orders\ordernote.py" />
+    <Compile Include="mozurestsdk\commerce\orders\ordervalidationresult.py" />
+    <Compile Include="mozurestsdk\commerce\orders\package.py" />
+    <Compile Include="mozurestsdk\commerce\orders\payment.py" />
+    <Compile Include="mozurestsdk\commerce\orders\pickup.py" />
+    <Compile Include="mozurestsdk\commerce\orders\refund.py" />
+    <Compile Include="mozurestsdk\commerce\orders\shipment.py" />
+    <Compile Include="mozurestsdk\commerce\orders\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\payments\publiccard.py" />
+    <Compile Include="mozurestsdk\commerce\payments\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\return.py" />
+    <Compile Include="mozurestsdk\commerce\returns\package.py" />
+    <Compile Include="mozurestsdk\commerce\returns\shipment.py" />
+    <Compile Include="mozurestsdk\commerce\returns\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\settings\application.py" />
+    <Compile Include="mozurestsdk\commerce\settings\checkoutsettings.py" />
+    <Compile Include="mozurestsdk\commerce\settings\checkout\customercheckoutsettings.py" />
+    <Compile Include="mozurestsdk\commerce\settings\checkout\paymentsettings.py" />
+    <Compile Include="mozurestsdk\commerce\settings\checkout\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\settings\generalsettings.py" />
+    <Compile Include="mozurestsdk\commerce\settings\general\taxableterritory.py" />
+    <Compile Include="mozurestsdk\commerce\settings\general\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\settings\locationusage.py" />
+    <Compile Include="mozurestsdk\commerce\settings\shipping\siteshippinghandlingfee.py" />
+    <Compile Include="mozurestsdk\commerce\settings\shipping\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\settings\siteshippingsettings.py" />
+    <Compile Include="mozurestsdk\commerce\settings\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\wishlist.py" />
+    <Compile Include="mozurestsdk\commerce\wishlists\wishlistitem.py" />
+    <Compile Include="mozurestsdk\commerce\wishlists\__init__.py" />
+    <Compile Include="mozurestsdk\commerce\__init__.py" />
+    <Compile Include="mozurestsdk\config.py" />
+    <Compile Include="mozurestsdk\content\documentdraftsummary.py" />
+    <Compile Include="mozurestsdk\content\documentlist.py" />
+    <Compile Include="mozurestsdk\content\documentlists\document.py" />
+    <Compile Include="mozurestsdk\content\documentlists\documenttree.py" />
+    <Compile Include="mozurestsdk\content\documentlists\facet.py" />
+    <Compile Include="mozurestsdk\content\documentlists\view.py" />
+    <Compile Include="mozurestsdk\content\documentlists\__init__.py" />
+    <Compile Include="mozurestsdk\content\documentlisttype.py" />
+    <Compile Include="mozurestsdk\content\documenttype.py" />
+    <Compile Include="mozurestsdk\content\propertytype.py" />
+    <Compile Include="mozurestsdk\content\__init__.py" />
+    <Compile Include="mozurestsdk\event\eventnotification.py" />
+    <Compile Include="mozurestsdk\event\push\subscription.py" />
+    <Compile Include="mozurestsdk\event\push\subscriptions\eventdeliverysummary.py" />
+    <Compile Include="mozurestsdk\event\push\subscriptions\__init__.py" />
+    <Compile Include="mozurestsdk\event\push\__init__.py" />
+    <Compile Include="mozurestsdk\event\__init__.py" />
+    <Compile Include="mozurestsdk\headers.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="mozurestsdk\mozuclient.py" />
+    <Compile Include="mozurestsdk\mozuurl.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="mozurestsdk\platform\adminuser\adminuser.py" />
+    <Compile Include="mozurestsdk\platform\adminuser\tenantadminuserauthticket.py" />
+    <Compile Include="mozurestsdk\platform\adminuser\__init__.py" />
+    <Compile Include="mozurestsdk\platform\application.py" />
+    <Compile Include="mozurestsdk\platform\applications\authticket.py" />
+    <Compile Include="mozurestsdk\platform\applications\__init__.py" />
+    <Compile Include="mozurestsdk\platform\developer\developeradminuserauthticket.py" />
+    <Compile Include="mozurestsdk\platform\developer\__init__.py" />
+    <Compile Include="mozurestsdk\platform\entitylist.py" />
+    <Compile Include="mozurestsdk\platform\entitylists\entity.py" />
+    <Compile Include="mozurestsdk\platform\entitylists\entitycontainer.py" />
+    <Compile Include="mozurestsdk\platform\entitylists\listview.py" />
+    <Compile Include="mozurestsdk\platform\entitylists\__init__.py" />
+    <Compile Include="mozurestsdk\platform\referencedata.py" />
+    <Compile Include="mozurestsdk\platform\sitedata.py" />
+    <Compile Include="mozurestsdk\platform\tenant.py" />
+    <Compile Include="mozurestsdk\platform\tenantdata.py" />
+    <Compile Include="mozurestsdk\platform\tenantextensions.py" />
+    <Compile Include="mozurestsdk\platform\userdata.py" />
+    <Compile Include="mozurestsdk\platform\__init__.py" />
+    <Compile Include="mozurestsdk\security\appauthenticator.py" />
+    <Compile Include="mozurestsdk\security\authenticationscope.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="mozurestsdk\security\sha256generator.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="mozurestsdk\security\userauthenticator.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="mozurestsdk\security\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="mozurestsdk\urllocation.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="mozurestsdk\util.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="mozurestsdk\version.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="mozurestsdk\__init__.py" />
+    <Compile Include="setup.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="test\functional_test\commerce\catalog\admin\product_test.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="test\functional_test\platform_test\tenant_test.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="test\functional_test\security_test\appauthenticator_test.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="test\functional_test\security_test\userauthenticator_test.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="mozurestsdk" />
+    <Folder Include="mozurestsdk\commerce\" />
+    <Folder Include="mozurestsdk\commerce\admin\" />
+    <Folder Include="mozurestsdk\commerce\carts\" />
+    <Folder Include="mozurestsdk\commerce\catalog\" />
+    <Folder Include="mozurestsdk\commerce\catalog\admin\" />
+    <Folder Include="mozurestsdk\commerce\catalog\admin\attributedefinition\" />
+    <Folder Include="mozurestsdk\commerce\catalog\admin\attributedefinition\attributes\" />
+    <Folder Include="mozurestsdk\commerce\catalog\admin\attributedefinition\producttypes\" />
+    <Folder Include="mozurestsdk\commerce\catalog\admin\discounts\" />
+    <Folder Include="mozurestsdk\commerce\catalog\admin\products\" />
+    <Folder Include="mozurestsdk\commerce\catalog\storefront\" />
+    <Folder Include="mozurestsdk\commerce\customer\" />
+    <Folder Include="mozurestsdk\commerce\customer\accounts\" />
+    <Folder Include="mozurestsdk\commerce\customer\attributedefinition\" />
+    <Folder Include="mozurestsdk\commerce\customer\credits\" />
+    <Folder Include="mozurestsdk\commerce\orders\" />
+    <Folder Include="mozurestsdk\commerce\orders\attributedefinition\" />
+    <Folder Include="mozurestsdk\commerce\payments\" />
+    <Folder Include="mozurestsdk\commerce\returns\" />
+    <Folder Include="mozurestsdk\commerce\settings\" />
+    <Folder Include="mozurestsdk\commerce\settings\checkout\" />
+    <Folder Include="mozurestsdk\commerce\settings\general\" />
+    <Folder Include="mozurestsdk\commerce\settings\shipping\" />
+    <Folder Include="mozurestsdk\commerce\wishlists\" />
+    <Folder Include="mozurestsdk\content\" />
+    <Folder Include="mozurestsdk\content\documentlists\" />
+    <Folder Include="mozurestsdk\event\" />
+    <Folder Include="mozurestsdk\event\push\" />
+    <Folder Include="mozurestsdk\event\push\subscriptions\" />
+    <Folder Include="mozurestsdk\platform\" />
+    <Folder Include="mozurestsdk\platform\adminuser\" />
+    <Folder Include="mozurestsdk\platform\applications\" />
+    <Folder Include="mozurestsdk\platform\developer\" />
+    <Folder Include="mozurestsdk\platform\entitylists\" />
+    <Folder Include="mozurestsdk\security" />
+    <Folder Include="test\" />
+    <Folder Include="test\functional_test\" />
+    <Folder Include="test\functional_test\commerce\" />
+    <Folder Include="test\functional_test\commerce\catalog\" />
+    <Folder Include="test\functional_test\commerce\catalog\admin\" />
+    <Folder Include="test\functional_test\platform_test\" />
+    <Folder Include="test\functional_test\security_test\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="{2af0f10d-7135-4994-9156-5d01c9c11b7e}\3.4" />
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>
