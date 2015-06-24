@@ -14,8 +14,10 @@ from mozurestsdk.apicontext import ApiContext;
 
 class ProductVariation(object):
 	def __init__(self, apiContext: ApiContext = None, dataViewMode="Live", mozuClient = None):
-		if (apiContext.dataViewMode is None):
+		if (apiContext is not None and apiContext.dataViewMode is None):
 			apiContext.dataViewMode = dataViewMode;
+		else:
+			apiContext = ApiContext(dataViewMode = dataViewMode);
 		self.client = mozuClient or default_client();
 		self.client.withApiContext(apiContext);
 	

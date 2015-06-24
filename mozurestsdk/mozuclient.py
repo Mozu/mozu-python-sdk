@@ -39,14 +39,15 @@ class MozuClient(object):
 			
 
 		self.verifySSLCert = args.get("verifySSLCert", None);
-		if (self.verifySSLCert is not None):
+		if ( self.verifySSLCert is not None):
 			self.verifySSLCert = self.verifySSLCert == "True";
-		
+		#else:
+		#	self.verifySSLCert = True;
 
 		self.baseAuthUrl = args.get("baseAuthUrl", __baseUrl__);
 		authScheme = urlparse(self.baseAuthUrl).scheme;
 		if (not authScheme):
-			self.__scheme = urlparse(self.baseAuthUrl).scheme;
+			self.__scheme = authScheme;
 		self.basePCIUrl = args.get("basePCIUrl", __basePciUrl__);
 		
 		self.appAuth = appauthenticator.configure(**args);
@@ -147,9 +148,8 @@ class MozuClient(object):
 				self.__baseAddress =  self.getTenantUrl(self.apicontext.tenantId);
 			else:
 				self.__baseAddress = self.apicontext.tenantUrl;
-
+			logging.info("Using base address: %s" % self.__baseAddress);
 			scheme = urlparse(self.__baseAddress).scheme;
-
 			if (not scheme):
 				self.__baseAddress = self.__scheme+"://"+self.__baseAddress;
 		logging.info("Base URi address set to %s " % self.__baseAddress);
@@ -164,7 +164,7 @@ class MozuClient(object):
 	def getTenantUrl(self, tenantId: int):
 		tenant = self.getTenant(tenantId);
 		scheme = urlparse(self.__baseAddress).scheme;
-		self.__baseAddress = self.__scheme+"://"+tenant["domain"];
+		return self.__scheme+"://"+tenant["domain"];
 
 __mozuclient__ = None
 

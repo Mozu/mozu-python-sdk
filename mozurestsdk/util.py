@@ -70,6 +70,8 @@ def http_call(url, method, **args):
 	args["headers"]["User-Agent"] = getUserAgent();	
 	args["headers"][Headers.X_VOL_VERSION] = __apiversion__;
 	args["stream"] = False;
+	if (args["verify"]):
+		del args["verify"];
 	response = requests.request(method, url, **args)
 
 	duration = datetime.datetime.now() - start_time
