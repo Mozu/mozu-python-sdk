@@ -31,7 +31,7 @@ tenantId=[tenantId]
 tenantUrl=[tenantUrl]
 ```
 
-###Get Tenant Information using Async operation
+###Get Tenant Information
 ```
 from mozurestsdk.platform.tenant import Tenant
 from mozurestsdk.apiexception import ApiException;
