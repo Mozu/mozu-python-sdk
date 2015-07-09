@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class ListView(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getViewEntity(self,entityListFullName, viewName, entityId, responseFields = None):
 		""" Retrieves a view for associated entities. A view provides display context levels (site, tenant, catalog, master catalog) and settings.

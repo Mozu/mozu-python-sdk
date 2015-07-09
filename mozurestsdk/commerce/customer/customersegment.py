@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class CustomerSegment(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getSegments(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
 		""" Retrieves a list of defined customer segments according to any filter and sort criteria.

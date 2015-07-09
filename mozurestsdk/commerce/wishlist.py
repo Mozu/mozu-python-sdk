@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class Wishlist(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getWishlists(self,startIndex = None, pageSize = None, sortBy = None, filter = None, q = None, qLimit = None, responseFields = None):
 		""" Retrieves a list of shopper wish lists according to any filter and sort criteria.

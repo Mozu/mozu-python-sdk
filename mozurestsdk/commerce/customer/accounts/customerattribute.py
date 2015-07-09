@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class CustomerAttribute(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getAccountAttribute(self,accountId, attributeFQN, responseFields = None):
 		""" Retrieves the contents of an attribute associated with the specified customer account.

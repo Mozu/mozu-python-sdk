@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class Application(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def thirdPartyGetApplication(self,responseFields = None):
 		""" Retrieve the settings of a third-party application.

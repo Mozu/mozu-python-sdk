@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class Entity(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getEntity(self,entityListFullName, id, responseFields = None):
 		""" Retrieves an entity with an associated entity list and context level at tenant, master catalog, catalog, or site. 

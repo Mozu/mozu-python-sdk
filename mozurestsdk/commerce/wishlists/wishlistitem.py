@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class WishlistItem(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getWishlistItem(self,wishlistId, wishlistItemId, responseFields = None):
 		""" Retrieves the details of an item in a shopper wish list.

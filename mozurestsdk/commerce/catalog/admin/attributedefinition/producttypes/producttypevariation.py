@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class ProductTypeVariation(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def generateProductVariations(self,productOptionsIn, productTypeId, productCode = None, startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
 		""" Generates the variations possible for a product associated with the product type based on the option values supplied in the request.

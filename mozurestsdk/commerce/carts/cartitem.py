@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class CartItem(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getCartItem(self,cartItemId, responseFields = None):
 		""" Retrieves a particular cart item by providing the cart item ID.

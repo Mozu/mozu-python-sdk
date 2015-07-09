@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class Adjustment(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def applyShippingAdjustment(self,adjustment, orderId, updateMode = None, version = None, responseFields = None):
 		""" Applies a shipping adjustment to the specified order.

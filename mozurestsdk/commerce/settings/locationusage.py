@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class LocationUsage(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getLocationUsages(self,responseFields = None):
 		""" Retrieves the configured site location usages for the location usage code specified in the request.

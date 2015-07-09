@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class Package(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getPackageLabel(self,returnId, packageId):
 		""" Retrieves the package label image supplied by the carrier for a return replacement.

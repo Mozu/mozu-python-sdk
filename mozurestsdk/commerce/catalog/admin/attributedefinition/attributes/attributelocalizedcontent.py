@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class AttributeLocalizedContent(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getAttributeLocalizedContents(self,attributeFQN):
 		""" Retrieves a collection of localized content for attributes based on a  localeCode .

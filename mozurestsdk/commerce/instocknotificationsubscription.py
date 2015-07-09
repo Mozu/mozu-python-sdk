@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class InStockNotificationSubscription(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getInStockNotificationSubscriptions(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
 		""" Retrieves a list of in-stock notification subscriptions.

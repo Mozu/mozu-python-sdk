@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class SiteData(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getDBValue(self,dbEntryQuery, responseFields = None):
 		""" Retrieves the value of a record in the Mozu database.

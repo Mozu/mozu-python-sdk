@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class AttributeVocabularyValue(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getAttributeVocabularyValues(self,attributeFQN):
 		""" Retrieves a list of vocabulary values defined for the attribute specified in the request.

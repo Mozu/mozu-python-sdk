@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class Shipment(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getShipment(self,returnId, shipmentId, responseFields = None):
 		""" Retrieves the details of the specified return replacement shipment.

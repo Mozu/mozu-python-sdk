@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class Attribute(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getAttributes(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
 		""" Retrieves a paged list of attributes according to any specified filter criteria and sort options.

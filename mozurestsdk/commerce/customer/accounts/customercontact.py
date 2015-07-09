@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class CustomerContact(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getAccountContact(self,accountId, contactId, responseFields = None):
 		""" Retrieves the specified contact for a customer account such as a billing or shipping contact.

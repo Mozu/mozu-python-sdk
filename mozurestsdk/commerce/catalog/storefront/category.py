@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class Category(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getCategories(self,filter = None, startIndex = None, pageSize = None, sortBy = None, responseFields = None):
 		""" Retrieves a list of categories according to any specified filter criteria and sort options.

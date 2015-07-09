@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class Facet(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getFacets(self,documentListName, propertyName):
 		""" Retrieves the properties of facets that aid in indexing and searching.

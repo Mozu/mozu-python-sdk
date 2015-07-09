@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class GeneralSettings(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getGeneralSettings(self,responseFields = None):
 		""" Retrieve a site's general global settings.
