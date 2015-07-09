@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class ProductSearchResult(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def search(self,query = None, filter = None, facetTemplate = None, facetTemplateSubset = None, facet = None, facetFieldRangeQuery = None, facetHierPrefix = None, facetHierValue = None, facetHierDepth = None, facetStartIndex = None, facetPageSize = None, facetSettings = None, facetValueFilter = None, sortBy = None, pageSize = None, startIndex = None, searchSettings = None, responseFields = None):
 		""" Searches the categories displayed on the web storefront for products or product options that the shopper types in a search query.

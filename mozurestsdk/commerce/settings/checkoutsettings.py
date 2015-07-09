@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class CheckoutSettings(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getCheckoutSettings(self,responseFields = None):
 		""" Retrieves all checkout settings defined for the site including payment settings (payment gateway ID and credentials), shopper checkout settings (login requirement or guest mode and custom attributes), and order processing settings (when payment is authorized and captured plus any custom attributes).

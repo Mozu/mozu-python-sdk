@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class FulfillmentAction(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def performFulfillmentAction(self,action, orderId, responseFields = None):
 		""" Sets the fulfillment action to "Ship" or "PickUp". To ship an order or prepare it for in-store pickup, the order must have a customer name, the "Open" or "OpenAndProcessing" status. To ship the order, it must also have the full shipping address and shipping method. Shipping all packages or picking up all pickups for an order will complete a paid order.

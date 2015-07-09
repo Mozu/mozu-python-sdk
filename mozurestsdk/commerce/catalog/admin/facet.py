@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class Facet(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getFacet(self,facetId, validate = False, responseFields = None):
 		""" Retrieves a facet specified by its unique identifier and displays its properties.

@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class DigitalPackage(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getAvailableDigitalPackageFulfillmentActions(self,orderId, digitalPackageId):
 		""" Retrieves a collection of fulfillment options for digital packages. Options may include emailed files/links or provided links. 

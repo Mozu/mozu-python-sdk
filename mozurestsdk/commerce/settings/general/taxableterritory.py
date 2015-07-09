@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class TaxableTerritory(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getTaxableTerritories(self,):
 		""" Retrieves a list of the taxable territories configured for the site.

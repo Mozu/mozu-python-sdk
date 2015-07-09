@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class AppliedDiscount(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def applyCoupon(self,orderId, couponCode, updateMode = None, version = None, responseFields = None):
 		""" Apply a coupon to the order.

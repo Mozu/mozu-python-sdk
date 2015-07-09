@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class SiteShippingHandlingFee(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getOrderHandlingFee(self,responseFields = None):
 		""" Retrieves the details of the order handling fee configured for the site.

@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class Location(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getLocations(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
 		""" Retrieves a list of all locations associated with a tenant, according to any filter and sort criteria specified in the request.

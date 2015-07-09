@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class OrderAttribute(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getOrderAttributes(self,orderId):
 		""" Retrieves a list of the attributes defined for the order specified in the request.

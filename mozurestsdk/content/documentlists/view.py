@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class View(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getViewDocuments(self,documentListName, viewName, filter = None, sortBy = None, pageSize = None, startIndex = None, responseFields = None):
 		""" Retrieves a collection of documents associated with a view.

@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class EntityList(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getEntityLists(self,pageSize = None, startIndex = None, filter = None, sortBy = None, responseFields = None):
 		""" Get a filtered list of EntityLists for a specific tenant.

@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class BillingInfo(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getBillingInfo(self,orderId, draft = False, responseFields = None):
 		""" Retrieves the billing information associated with an order.

@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class FulfillmentInfo(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getFulfillmentInfo(self,orderId, draft = False, responseFields = None):
 		""" Retrieves a list of the fulfillment information for the specified order.

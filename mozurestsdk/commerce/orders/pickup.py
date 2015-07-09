@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class Pickup(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getAvailablePickupFulfillmentActions(self,orderId, pickupId):
 		""" Retrieves a list of the actions available to perform for the pickup specified in the request.

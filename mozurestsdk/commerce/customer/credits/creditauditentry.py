@@ -15,7 +15,10 @@ from mozurestsdk.apicontext import ApiContext;
 class CreditAuditEntry(object):
 	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
 		self.client = mozuClient or default_client();
-		client.withApiContext(apiContext);
+		if (apiContext is not None):
+			self.client.withApiContext(apiContext);
+		else:
+			self.client.withApiContext(ApiContext());
 	
 	def getAuditEntries(self,code, startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
 		""" Retrieves the list of audit entries for the credit, according to any filter or sort criteria specified in the request.
