@@ -20,7 +20,7 @@ class ProductSearchResult(object):
 		else:
 			self.client.withApiContext(ApiContext());
 	
-	def search(self,query = None, filter = None, facetTemplate = None, facetTemplateSubset = None, facet = None, facetFieldRangeQuery = None, facetHierPrefix = None, facetHierValue = None, facetHierDepth = None, facetStartIndex = None, facetPageSize = None, facetSettings = None, facetValueFilter = None, sortBy = None, pageSize = None, startIndex = None, searchSettings = None, responseFields = None):
+	def search(self,query = None, filter = None, facetTemplate = None, facetTemplateSubset = None, facet = None, facetFieldRangeQuery = None, facetHierPrefix = None, facetHierValue = None, facetHierDepth = None, facetStartIndex = None, facetPageSize = None, facetSettings = None, facetValueFilter = None, sortBy = None, pageSize = None, startIndex = None, searchSettings = None, enableSearchTuningRules = False, searchTuningRuleContext = None, searchTuningRuleCode = None, facetTemplateExclude = None, responseFields = None):
 		""" Searches the categories displayed on the web storefront for products or product options that the shopper types in a search query.
 		
 		Args:
@@ -41,6 +41,10 @@ class ProductSearchResult(object):
 			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 			| startIndex (int) - 
 			| searchSettings (string) - 
+			| enableSearchTuningRules (bool) - 
+			| searchTuningRuleContext (string) - 
+			| searchTuningRuleCode (string) - 
+			| facetTemplateExclude (string) - 
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -51,7 +55,8 @@ class ProductSearchResult(object):
 		
 		"""
 
-		url = MozuUrl("/api/commerce/catalog/storefront/productsearch/search/?query={query}&filter={filter}&facetTemplate={facetTemplate}&facetTemplateSubset={facetTemplateSubset}&facet={facet}&facetFieldRangeQuery={facetFieldRangeQuery}&facetHierPrefix={facetHierPrefix}&facetHierValue={facetHierValue}&facetHierDepth={facetHierDepth}&facetStartIndex={facetStartIndex}&facetPageSize={facetPageSize}&facetSettings={facetSettings}&facetValueFilter={facetValueFilter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/commerce/catalog/storefront/productsearch/search/?query={query}&filter={filter}&facetTemplate={facetTemplate}&facetTemplateSubset={facetTemplateSubset}&facet={facet}&facetFieldRangeQuery={facetFieldRangeQuery}&facetHierPrefix={facetHierPrefix}&facetHierValue={facetHierValue}&facetHierDepth={facetHierDepth}&facetStartIndex={facetStartIndex}&facetPageSize={facetPageSize}&facetSettings={facetSettings}&facetValueFilter={facetValueFilter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}&searchSettings={searchSettings}&enableSearchTuningRules={enableSearchTuningRules}&searchTuningRuleContext={searchTuningRuleContext}&searchTuningRuleCode={searchTuningRuleCode}&facetTemplateExclude={facetTemplateExclude}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("enableSearchTuningRules", enableSearchTuningRules);
 		url.formatUrl("facet", facet);
 		url.formatUrl("facetFieldRangeQuery", facetFieldRangeQuery);
 		url.formatUrl("facetHierDepth", facetHierDepth);
@@ -61,6 +66,7 @@ class ProductSearchResult(object):
 		url.formatUrl("facetSettings", facetSettings);
 		url.formatUrl("facetStartIndex", facetStartIndex);
 		url.formatUrl("facetTemplate", facetTemplate);
+		url.formatUrl("facetTemplateExclude", facetTemplateExclude);
 		url.formatUrl("facetTemplateSubset", facetTemplateSubset);
 		url.formatUrl("facetValueFilter", facetValueFilter);
 		url.formatUrl("filter", filter);
@@ -68,6 +74,8 @@ class ProductSearchResult(object):
 		url.formatUrl("query", query);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("searchSettings", searchSettings);
+		url.formatUrl("searchTuningRuleCode", searchTuningRuleCode);
+		url.formatUrl("searchTuningRuleContext", searchTuningRuleContext);
 		url.formatUrl("sortBy", sortBy);
 		url.formatUrl("startIndex", startIndex);
 		self.client.withResourceUrl(url).execute();

@@ -21,7 +21,7 @@ class OrderItem(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getOrderItemViaLineId(self,orderId, lineId, draft = False, responseFields = None):
-		""" orders-orderitems Get GetOrderItemViaLineId description DOCUMENT_HERE 
+		""" Retrieves an order item with the order line ID.
 		
 		Args:
 			| orderId (string) - Unique identifier of the order.
@@ -162,12 +162,13 @@ class OrderItem(object):
 	
 		
 	def updateItemDuty(self,orderId, orderItemId, dutyAmount, updateMode = None, version = None, responseFields = None):
-		""" orders-orderitems Put UpdateItemDuty description DOCUMENT_HERE 
+		""" Update the duty fee information for an order item.
 		
 		Args:
 			| orderId (string) - Unique identifier of the order.
 			| orderItemId (string) - Unique identifier of the item to remove from the order.
-			| dutyAmount (decimal) - 
+			| dutyAmount (decimal) - The amount added to the order item for duty fees.
+        
 			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
 			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
 			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.

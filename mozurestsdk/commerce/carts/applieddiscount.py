@@ -46,7 +46,7 @@ class AppliedDiscount(object):
 	
 		
 	def removeCoupons(self,cartId):
-		""" Removes one or more applied coupons from the cart specified in the request.
+		""" Removes all coupons from the cart specified in the request.
 		
 		Args:
 			| cartId (string) - Identifier of the cart to delete.

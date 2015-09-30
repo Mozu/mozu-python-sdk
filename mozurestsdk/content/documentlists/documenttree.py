@@ -44,12 +44,50 @@ class DocumentTree(object):
 
 	
 		
-	def getTreeDocument(self,documentListName, documentName, responseFields = None):
+	def transformTreeDocumentContent(self,documentListName, documentName, width = None, height = None, max = None, maxWidth = None, maxHeight = None, crop = None, quality = None):
+		""" documentlists-documentTree Get TransformTreeDocumentContent description DOCUMENT_HERE 
+		
+		Args:
+			| documentListName (string) - Name of content documentListName to delete
+			| documentName (string) - The name of the document in the site.
+			| width (int) - 
+			| height (int) - 
+			| max (int) - 
+			| maxWidth (int) - 
+			| maxHeight (int) - 
+			| crop (string) - 
+			| quality (int) - 
+		
+		Returns:
+			| Stream 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/content/documentlists/{documentListName}/documentTree/{documentName}/transform?width={width}&height={height}&maxWidth={maxWidth}&maxHeight={maxHeight}&crop={crop}&quality={quality}", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("crop", crop);
+		url.formatUrl("documentListName", documentListName);
+		url.formatUrl("documentName", documentName);
+		url.formatUrl("height", height);
+		url.formatUrl("max", max);
+		url.formatUrl("maxHeight", maxHeight);
+		url.formatUrl("maxWidth", maxWidth);
+		url.formatUrl("quality", quality);
+		url.formatUrl("width", width);
+		self.client.withResourceUrl(url).execute();
+		return self.client.result();
+
+	
+		
+	def getTreeDocument(self,documentListName, documentName, includeInactive = False, responseFields = None):
 		""" Retrieves a document based on its document list and folder path in the document hierarchy.
 		
 		Args:
 			| documentListName (string) - Name of content documentListName to delete
 			| documentName (string) - The name of the document in the site.
+			| includeInactive (bool) - 
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -60,9 +98,10 @@ class DocumentTree(object):
 		
 		"""
 
-		url = MozuUrl("/api/content/documentlists/{documentListName}/documentTree/{documentName}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/content/documentlists/{documentListName}/documentTree/{documentName}?includeInactive={includeInactive}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
 		url.formatUrl("documentListName", documentListName);
 		url.formatUrl("documentName", documentName);
+		url.formatUrl("includeInactive", includeInactive);
 		url.formatUrl("responseFields", responseFields);
 		self.client.withResourceUrl(url).execute();
 		return self.client.result();

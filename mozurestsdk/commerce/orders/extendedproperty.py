@@ -21,7 +21,7 @@ class ExtendedProperty(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getExtendedProperties(self,orderId, draft = False):
-		""" orders-extendedproperties Get GetExtendedProperties description DOCUMENT_HERE 
+		""" Retrieves the extended property string associated with the order. 
 		
 		Args:
 			| orderId (string) - Unique identifier of the order.
@@ -44,7 +44,7 @@ class ExtendedProperty(object):
 	
 		
 	def addExtendedProperties(self,extendedProperties, orderId, updateMode = None, version = None):
-		""" orders-extendedproperties Post AddExtendedProperties description DOCUMENT_HERE 
+		""" Create an extended property for the order.
 		
 		Args:
 			| extendedProperties(array|extendedProperties) - Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
@@ -70,7 +70,7 @@ class ExtendedProperty(object):
 	
 		
 	def updateExtendedProperty(self,extendedProperty, orderId, key, updateMode = None, version = None, upsert = False, responseFields = None):
-		""" orders-extendedproperties Put UpdateExtendedProperty description DOCUMENT_HERE 
+		""" Updates one ore more extended properties.
 		
 		Args:
 			| extendedProperty(extendedProperty) - Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
@@ -78,7 +78,8 @@ class ExtendedProperty(object):
 			| key (string) - 
 			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
 			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
-			| upsert (bool) - 
+			| upsert (bool) - Inserts and updates an extended property.
+        
 			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
 		
 		Returns:
@@ -102,14 +103,15 @@ class ExtendedProperty(object):
 	
 		
 	def updateExtendedProperties(self,extendedProperties, orderId, updateMode = None, version = None, upsert = False):
-		""" orders-extendedproperties Put UpdateExtendedProperties description DOCUMENT_HERE 
+		""" Updates one or more extended properties.
 		
 		Args:
 			| extendedProperties(array|extendedProperties) - Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
 			| orderId (string) - Unique identifier of the order.
 			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
 			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
-			| upsert (bool) - 
+			| upsert (bool) - Inserts and updates the extended property.
+        
 		
 		Returns:
 			| array of ExtendedProperty 
@@ -130,7 +132,7 @@ class ExtendedProperty(object):
 	
 		
 	def deleteExtendedProperty(self,orderId, key, updateMode = None, version = None):
-		""" orders-extendedproperties Delete DeleteExtendedProperty description DOCUMENT_HERE 
+		""" Deletes one or more extended properties.
 		
 		Args:
 			| orderId (string) - Unique identifier of the order.
@@ -153,7 +155,7 @@ class ExtendedProperty(object):
 	
 		
 	def deleteExtendedProperties(self,keys, orderId, updateMode = None, version = None):
-		""" orders-extendedproperties Delete DeleteExtendedProperties description DOCUMENT_HERE 
+		""" Deletes the extended property associated with the order. 
 		
 		Args:
 			| keys(array|keys) - 

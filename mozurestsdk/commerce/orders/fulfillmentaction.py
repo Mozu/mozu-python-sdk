@@ -45,7 +45,7 @@ class FulfillmentAction(object):
 	
 		
 	def resendPackageFulfillmentEmail(self,action, orderId, responseFields = None):
-		""" orders-fulfillment Post ResendPackageFulfillmentEmail description DOCUMENT_HERE 
+		""" Resends an email with details about the package fulfillment to the shopper. 
 		
 		Args:
 			| action(action) - Properties of an action to perform when fulfilling an item in an order, whether through in-store pickup or direct shipping.

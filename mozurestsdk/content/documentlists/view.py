@@ -20,7 +20,7 @@ class View(object):
 		else:
 			self.client.withApiContext(ApiContext());
 	
-	def getViewDocuments(self,documentListName, viewName, filter = None, sortBy = None, pageSize = None, startIndex = None, responseFields = None):
+	def getViewDocuments(self,documentListName, viewName, filter = None, sortBy = None, pageSize = None, startIndex = None, includeInactive = False, responseFields = None):
 		""" Retrieves a collection of documents associated with a view.
 		
 		Args:
@@ -30,6 +30,7 @@ class View(object):
 			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.
 			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the  pageCount  amount of pages. The default is 20 and maximum value is 200 per page.
 			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a  pageSize  of 25, to get the 51st through the 75th items, use  startIndex=3 .
+			| includeInactive (bool) - 
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -40,9 +41,10 @@ class View(object):
 		
 		"""
 
-		url = MozuUrl("/api/content/documentlists/{documentListName}/views/{viewName}/documents?filter={filter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/content/documentlists/{documentListName}/views/{viewName}/documents?filter={filter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}&includeInactive={includeInactive}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
 		url.formatUrl("documentListName", documentListName);
 		url.formatUrl("filter", filter);
+		url.formatUrl("includeInactive", includeInactive);
 		url.formatUrl("pageSize", pageSize);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("sortBy", sortBy);

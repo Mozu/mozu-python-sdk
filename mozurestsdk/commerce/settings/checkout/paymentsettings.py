@@ -20,6 +20,29 @@ class PaymentSettings(object):
 		else:
 			self.client.withApiContext(ApiContext());
 	
+	def getThirdPartyPaymentWorkflowWithValues(self,fullyQualifiedName, responseFields = None):
+		""" checkout-paymentsettings Get GetThirdPartyPaymentWorkflowWithValues description DOCUMENT_HERE 
+		
+		Args:
+			| fullyQualifiedName (string) - 
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| ExternalPaymentWorkflowDefinition 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/settings/checkout/paymentsettings/thirdpartyworkflow/{fullyQualifiedName}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("fullyQualifiedName", fullyQualifiedName);
+		url.formatUrl("responseFields", responseFields);
+		self.client.withResourceUrl(url).execute();
+		return self.client.result();
+
+	
+		
 	def getThirdPartyPaymentWorkflows(self,):
 		""" Retrieves the details of the third-party payment service workflows configured for the site.
 		
@@ -34,6 +57,39 @@ class PaymentSettings(object):
 		url = MozuUrl("/api/commerce/settings/checkout/paymentsettings/thirdpartyworkflows", "GET", UrlLocation.TenantPod, False);
 		self.client.withResourceUrl(url).execute();
 		return self.client.result();
+
+	
+		
+	def addThirdPartyPaymentWorkflow(self,definition):
+		""" checkout-paymentsettings Put AddThirdPartyPaymentWorkflow description DOCUMENT_HERE 
+		
+		Args:
+			| definition(definition) - Properties of an external payment processing workflow defined for the site. At this time, only PayPal Express is supported.
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/settings/checkout/paymentsettings/thirdpartyworkflows", "PUT", UrlLocation.TenantPod, False);
+		self.client.withResourceUrl(url).withBody(definition).execute();
+
+	
+		
+	def deleteThirdPartyPaymentWorkflow(self,fullyQualifiedName):
+		""" checkout-paymentsettings Delete DeleteThirdPartyPaymentWorkflow description DOCUMENT_HERE 
+		
+		Args:
+			| fullyQualifiedName (string) - 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/settings/checkout/paymentsettings/thirdpartyworkflows/{fullyQualifiedName}", "DELETE", UrlLocation.TenantPod, False);
+		url.formatUrl("fullyQualifiedName", fullyQualifiedName);
+		self.client.withResourceUrl(url).execute();
 
 	
 	
