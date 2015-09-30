@@ -21,6 +21,50 @@ class PublishingScope(object):
 		self.client = mozuClient or default_client();
 		self.client.withApiContext(apiContext);
 	
+	def getPublishSet(self,publishSetCode, responseFields = None):
+		""" Retrieves the details of a single PublishSet.
+		
+		Args:
+			| publishSetCode (string) - 
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| PublishSet 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/catalog/admin/publishing/publishsets/{publishSetCode}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("publishSetCode", publishSetCode);
+		url.formatUrl("responseFields", responseFields);
+		self.client.withResourceUrl(url).execute();
+		return self.client.result();
+
+	
+		
+	def getPublishSets(self,responseFields = None):
+		""" Retrieves a list of PublishSets including the product counts.
+		
+		Args:
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| PublishSetCollection 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/catalog/admin/publishing/publishsets?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("responseFields", responseFields);
+		self.client.withResourceUrl(url).execute();
+		return self.client.result();
+
+	
+		
 	def discardDrafts(self,publishScope):
 		""" Deletes the draft version of product changes for each product code specified in the request.
 		
@@ -50,6 +94,47 @@ class PublishingScope(object):
 
 		url = MozuUrl("/api/commerce/catalog/admin/publishing/publishdrafts", "POST", UrlLocation.TenantPod, False);
 		self.client.withResourceUrl(url).withBody(publishScope).execute();
+
+	
+		
+	def assignProductsToPublishSet(self,publishSet, responseFields = None):
+		""" admin-publishing Post AssignProductsToPublishSet description DOCUMENT_HERE 
+		
+		Args:
+			| publishSet(publishSet) - Mozu.ProductAdmin.Contracts.PublishSet ApiType DOCUMENT_HERE 
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| PublishSet 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/catalog/admin/publishing/publishsets?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
+		url.formatUrl("responseFields", responseFields);
+		self.client.withResourceUrl(url).withBody(publishSet).execute();
+		return self.client.result();
+
+	
+		
+	def deletePublishSet(self,publishSetCode, discardDrafts = False):
+		""" Removes all details about a PublishSet from the product service. If the discardDrafts param is true, it also deletes the product drafts.
+		
+		Args:
+			| publishSetCode (string) - 
+			| discardDrafts (bool) - 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/catalog/admin/publishing/publishsets/{publishSetCode}?discardDrafts={discardDrafts}", "DELETE", UrlLocation.TenantPod, False);
+		url.formatUrl("discardDrafts", discardDrafts);
+		url.formatUrl("publishSetCode", publishSetCode);
+		self.client.withResourceUrl(url).execute();
 
 	
 	

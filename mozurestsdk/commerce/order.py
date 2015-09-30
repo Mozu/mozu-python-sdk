@@ -189,6 +189,32 @@ class Order(object):
 
 	
 		
+	def processDigitalWallet(self,digitalWallet, orderId, digitalWalletType, responseFields = None):
+		""" commerce-orders Put ProcessDigitalWallet description DOCUMENT_HERE 
+		
+		Args:
+			| digitalWallet(digitalWallet) - Mozu.CommerceRuntime.Contracts.Orders.DigitalWallet ApiType DOCUMENT_HERE 
+			| orderId (string) - Unique identifier of the order.
+			| digitalWalletType (string) - 
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/orders/{orderId}/digitalWallet/{digitalWalletType}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
+		url.formatUrl("digitalWalletType", digitalWalletType);
+		url.formatUrl("orderId", orderId);
+		url.formatUrl("responseFields", responseFields);
+		self.client.withResourceUrl(url).withBody(digitalWallet).execute();
+		return self.client.result();
+
+	
+		
 	def updateOrderDiscount(self,discount, orderId, discountId, updateMode = None, version = None, responseFields = None):
 		""" Update the properties of a discount applied to an order.
 		

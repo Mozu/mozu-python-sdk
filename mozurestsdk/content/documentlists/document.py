@@ -44,12 +44,50 @@ class Document(object):
 
 	
 		
-	def getDocument(self,documentListName, documentId, responseFields = None):
+	def transformDocumentContent(self,documentListName, documentId, width = None, height = None, max = None, maxWidth = None, maxHeight = None, crop = None, quality = None):
+		""" documentlists-documents Get TransformDocumentContent description DOCUMENT_HERE 
+		
+		Args:
+			| documentListName (string) - Name of content documentListName to delete
+			| documentId (string) - Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.
+			| width (int) - 
+			| height (int) - 
+			| max (int) - 
+			| maxWidth (int) - 
+			| maxHeight (int) - 
+			| crop (string) - 
+			| quality (int) - 
+		
+		Returns:
+			| Stream 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/content/documentlists/{documentListName}/documents/{documentId}/transform?width={width}&height={height}&maxWidth={maxWidth}&maxHeight={maxHeight}&crop={crop}&quality={quality}", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("crop", crop);
+		url.formatUrl("documentId", documentId);
+		url.formatUrl("documentListName", documentListName);
+		url.formatUrl("height", height);
+		url.formatUrl("max", max);
+		url.formatUrl("maxHeight", maxHeight);
+		url.formatUrl("maxWidth", maxWidth);
+		url.formatUrl("quality", quality);
+		url.formatUrl("width", width);
+		self.client.withResourceUrl(url).execute();
+		return self.client.result();
+
+	
+		
+	def getDocument(self,documentListName, documentId, includeInactive = False, responseFields = None):
 		""" Retrieves a document within the specified document list.
 		
 		Args:
 			| documentListName (string) - Name of content documentListName to delete
 			| documentId (string) - Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.
+			| includeInactive (bool) - 
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -60,16 +98,17 @@ class Document(object):
 		
 		"""
 
-		url = MozuUrl("/api/content/documentlists/{documentListName}/documents/{documentId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/content/documentlists/{documentListName}/documents/{documentId}?includeInactive={includeInactive}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
 		url.formatUrl("documentId", documentId);
 		url.formatUrl("documentListName", documentListName);
+		url.formatUrl("includeInactive", includeInactive);
 		url.formatUrl("responseFields", responseFields);
 		self.client.withResourceUrl(url).execute();
 		return self.client.result();
 
 	
 		
-	def getDocuments(self,documentListName, filter = None, sortBy = None, pageSize = None, startIndex = None, responseFields = None):
+	def getDocuments(self,documentListName, filter = None, sortBy = None, pageSize = None, startIndex = None, includeInactive = False, responseFields = None):
 		""" Retrieves a collection of documents according to any filter and sort criteria.
 		
 		Args:
@@ -78,6 +117,7 @@ class Document(object):
 			| sortBy (string) - The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
+			| includeInactive (bool) - 
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -88,9 +128,10 @@ class Document(object):
 		
 		"""
 
-		url = MozuUrl("/api/content/documentlists/{documentListName}/documents?filter={filter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/content/documentlists/{documentListName}/documents?filter={filter}&sortBy={sortBy}&pageSize={pageSize}&startIndex={startIndex}&includeInactive={includeInactive}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
 		url.formatUrl("documentListName", documentListName);
 		url.formatUrl("filter", filter);
+		url.formatUrl("includeInactive", includeInactive);
 		url.formatUrl("pageSize", pageSize);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("sortBy", sortBy);

@@ -21,7 +21,7 @@ class ExtendedProperty(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getExtendedProperties(self,):
-		""" carts-cartextendedproperties Get GetExtendedProperties description DOCUMENT_HERE 
+		""" Retrieves a list of cart extended properties specified in the request.
 		
 		Returns:
 			| array of ExtendedProperty 
@@ -38,7 +38,7 @@ class ExtendedProperty(object):
 	
 		
 	def addExtendedProperties(self,extendedProperties):
-		""" carts-cartextendedproperties Post AddExtendedProperties description DOCUMENT_HERE 
+		""" Adds one or more specified extended properties to the carts extended properties collection.
 		
 		Args:
 			| extendedProperties(array|extendedProperties) - Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
@@ -58,7 +58,7 @@ class ExtendedProperty(object):
 	
 		
 	def updateExtendedProperty(self,extendedProperty, key, upsert = False, responseFields = None):
-		""" carts-cartextendedproperties Put UpdateExtendedProperty description DOCUMENT_HERE 
+		""" Updates one or more details of the extended property  specified in the request.
 		
 		Args:
 			| extendedProperty(extendedProperty) - Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
@@ -84,11 +84,11 @@ class ExtendedProperty(object):
 	
 		
 	def updateExtendedProperties(self,extendedProperties, upsert = False):
-		""" carts-cartextendedproperties Put UpdateExtendedProperties description DOCUMENT_HERE 
+		""" Updates one or more details of the extended properties specified in the request.
 		
 		Args:
 			| extendedProperties(array|extendedProperties) - Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
-			| upsert (bool) - 
+			| upsert (bool) - Any set of key value pairs to be stored in the extended properties of a cart.
 		
 		Returns:
 			| array of ExtendedProperty 
@@ -106,7 +106,7 @@ class ExtendedProperty(object):
 	
 		
 	def deleteExtendedProperties(self,keys):
-		""" carts-cartextendedproperties Delete DeleteExtendedProperties description DOCUMENT_HERE 
+		""" Deletes the extended properties  cart extended properties collection.
 		
 		Args:
 			| keys(array|keys) - 
@@ -122,7 +122,7 @@ class ExtendedProperty(object):
 	
 		
 	def deleteExtendedProperty(self,key):
-		""" carts-cartextendedproperties Delete DeleteExtendedProperty description DOCUMENT_HERE 
+		""" Deletes a specific extended property from the cart extended property collection.
 		
 		Args:
 			| key (string) - 

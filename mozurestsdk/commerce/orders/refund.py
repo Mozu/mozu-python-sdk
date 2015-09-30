@@ -21,7 +21,7 @@ class Refund(object):
 			self.client.withApiContext(ApiContext());
 	
 	def createRefund(self,refund, orderId, responseFields = None):
-		""" orders-orderrefunds Post CreateRefund description DOCUMENT_HERE 
+		""" Creates a refund based on the information supplied in the request.  
 		
 		Args:
 			| refund(refund) - Mozu.CommerceRuntime.Contracts.Refunds.Refund ApiType DOCUMENT_HERE 
@@ -45,11 +45,12 @@ class Refund(object):
 	
 		
 	def resendRefundEmail(self,orderId, refundId):
-		""" orders-orderrefunds Put ResendRefundEmail description DOCUMENT_HERE 
+		""" Resends the order refund email previously sent to the shopper. 
 		
 		Args:
 			| orderId (string) - Unique identifier of the order.
-			| refundId (string) - 
+			| refundId (string) - Unique ID of the refund.
+        
 		
 		Raises:
 			| ApiException

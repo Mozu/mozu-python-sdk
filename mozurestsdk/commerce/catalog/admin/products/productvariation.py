@@ -178,7 +178,7 @@ class ProductVariation(object):
 	
 		
 	def updateProductVariationLocalizedDeltaPrice(self,localizedDeltaPrice, productCode, variationKey, currencyCode, responseFields = None):
-		""" Updatesthe localized delta price value for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		""" Updates the localized delta price value for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
 		
 		Args:
 			| localizedDeltaPrice(localizedDeltaPrice) - The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".

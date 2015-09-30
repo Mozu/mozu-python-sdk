@@ -212,6 +212,27 @@ class Return(object):
 
 	
 		
+	def getReasons(self,responseFields = None):
+		""" commerce-returns Get GetReasons description DOCUMENT_HERE 
+		
+		Args:
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| ReasonCollection 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/returns/reasons?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("responseFields", responseFields);
+		self.client.withResourceUrl(url).execute();
+		return self.client.result();
+
+	
+		
 	def createReturn(self,ret, responseFields = None):
 		""" Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.
 		

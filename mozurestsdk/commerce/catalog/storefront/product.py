@@ -106,6 +106,29 @@ class Product(object):
 
 	
 		
+	def getProductForIndexing(self,productCode, responseFields = None):
+		""" Retrieves information about a single product given its product code for Mozu to index in the search engine
+		
+		Args:
+			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+		
+		Returns:
+			| Product 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/catalog/storefront/products/indexing/{productCode}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("productCode", productCode);
+		url.formatUrl("responseFields", responseFields);
+		self.client.withResourceUrl(url).execute();
+		return self.client.result();
+
+	
+		
 	def configuredProduct(self,productOptionSelections, productCode, includeOptionDetails = False, skipInventoryCheck = False, responseFields = None):
 		""" Creates a new product configuration each time a shopper selects a product option value. After the shopper defines values for all required product options, the shopper can add the product configuration to a cart.
 		

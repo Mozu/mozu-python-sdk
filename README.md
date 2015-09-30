@@ -1,6 +1,6 @@
 # Mozu Python SDK
 
-Python SDK for the full v1.17 Mozu Api
+Python SDK for the full v1.18 Mozu Api
 
 
 ## Usage:
