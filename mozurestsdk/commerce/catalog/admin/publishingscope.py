@@ -22,11 +22,11 @@ class PublishingScope(object):
 		self.client.withApiContext(apiContext);
 	
 	def getPublishSet(self,publishSetCode, responseFields = None):
-		""" Retrieves the details of a single PublishSet.
+		""" Retrieves the details of the specified product publish set.
 		
 		Args:
-			| publishSetCode (string) - 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| publishSetCode (string) - The unique identifier of the publish set.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| PublishSet 
@@ -45,10 +45,10 @@ class PublishingScope(object):
 	
 		
 	def getPublishSets(self,responseFields = None):
-		""" Retrieves a list of PublishSets including the product counts.
+		""" Retrieves a list of product publish sets and their properties, including the amount of pending product changes that are included in each one.
 		
 		Args:
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| PublishSetCollection 
@@ -66,7 +66,7 @@ class PublishingScope(object):
 	
 		
 	def discardDrafts(self,publishScope):
-		""" Deletes the draft version of product changes for each product code specified in the request.
+		""" Deletes the draft version of product changes (pending product changes) for each product code specified in the request.
 		
 		Args:
 			| publishScope(publishScope) - Describes the scope of the product publishing update, which can include individual product codes or all pending changes.
@@ -82,7 +82,7 @@ class PublishingScope(object):
 	
 		
 	def publishDrafts(self,publishScope):
-		""" Publishes the draft version of product changes for each product code specified in the request, and changes the product publish state to "live".
+		""" Publishes the draft version of product changes (pending product changes) for each product code specified in the request, and changes the product publish state to "live".
 		
 		Args:
 			| publishScope(publishScope) - Describes the scope of the product publishing update, which can include individual product codes or all pending changes.
@@ -98,11 +98,11 @@ class PublishingScope(object):
 	
 		
 	def assignProductsToPublishSet(self,publishSet, responseFields = None):
-		""" admin-publishing Post AssignProductsToPublishSet description DOCUMENT_HERE 
+		""" Assigns pending product changes to a specified product publish set. Use the code field to specify the product publish set.
 		
 		Args:
-			| publishSet(publishSet) - Mozu.ProductAdmin.Contracts.PublishSet ApiType DOCUMENT_HERE 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| publishSet(publishSet) - The details of the publish to which you want to assign products.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| PublishSet 
@@ -120,11 +120,11 @@ class PublishingScope(object):
 	
 		
 	def deletePublishSet(self,publishSetCode, discardDrafts = False):
-		""" Removes all details about a PublishSet from the product service. If the discardDrafts param is true, it also deletes the product drafts.
+		""" Deletes the specified product publish set. If you set the discardDrafts parameter to true, this operation also deletes the product drafts assigned to the publish set.
 		
 		Args:
-			| publishSetCode (string) - 
-			| discardDrafts (bool) - 
+			| publishSetCode (string) - The unique identifier of the publish set.
+			| discardDrafts (bool) - Specifies whether to discard all the drafts assigned to the publish set when the publish set is deleted.
 		
 		Raises:
 			| ApiException

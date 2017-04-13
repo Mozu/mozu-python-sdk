@@ -41,7 +41,7 @@ class ExtendedProperty(object):
 		""" Adds one or more specified extended properties to the carts extended properties collection.
 		
 		Args:
-			| extendedProperties(array|extendedProperties) - Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
+			| extendedProperties(array|extendedProperties) - The details of the new extended property.
 		
 		Returns:
 			| array of ExtendedProperty 
@@ -58,13 +58,13 @@ class ExtendedProperty(object):
 	
 		
 	def updateExtendedProperty(self,extendedProperty, key, upsert = False, responseFields = None):
-		""" Updates one or more details of the extended property  specified in the request.
+		""" Updates one or more details of the extended property specified in the request.
 		
 		Args:
-			| extendedProperty(extendedProperty) - Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
-			| key (string) - 
-			| upsert (bool) - 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| extendedProperty(extendedProperty) - The details of the updated extended property.
+			| key (string) - Key used for metadata defined for objects, including extensible attributes, custom attributes associated with a shipping provider, and search synonyms definitions. This content may be user-defined depending on the object and usage.
+			| upsert (bool) - Any set of key value pairs to be stored in the extended properties of a cart.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ExtendedProperty 
@@ -87,7 +87,7 @@ class ExtendedProperty(object):
 		""" Updates one or more details of the extended properties specified in the request.
 		
 		Args:
-			| extendedProperties(array|extendedProperties) - Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
+			| extendedProperties(array|extendedProperties) - The details of the updated extended properties.
 			| upsert (bool) - Any set of key value pairs to be stored in the extended properties of a cart.
 		
 		Returns:
@@ -106,7 +106,7 @@ class ExtendedProperty(object):
 	
 		
 	def deleteExtendedProperties(self,keys):
-		""" Deletes the extended properties  cart extended properties collection.
+		""" Deletes the extended properties cart extended properties collection.
 		
 		Args:
 			| keys(array|keys) - 

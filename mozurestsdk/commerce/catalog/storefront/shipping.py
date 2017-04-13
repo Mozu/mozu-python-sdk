@@ -20,11 +20,12 @@ class Shipping(object):
 		else:
 			self.client.withApiContext(ApiContext());
 	
-	def getRates(self,rateRequest, responseFields = None):
+	def getRates(self,rateRequest, includeRawResponse = False, responseFields = None):
 		""" Retrieves the shipping rates applicable for the site.
 		
 		Args:
 			| rateRequest(rateRequest) - Properties required to request a shipping rate calculation.
+			| includeRawResponse (bool) - Set this parameter to  to retrieve the full raw JSON response from a shipping carrier (instead of just the shipping rate).
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -36,6 +37,7 @@ class Shipping(object):
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/storefront/shipping/request-rates?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
+		url.formatUrl("includeRawResponse", includeRawResponse);
 		url.formatUrl("responseFields", responseFields);
 		self.client.withResourceUrl(url).withBody(rateRequest).execute();
 		return self.client.result();

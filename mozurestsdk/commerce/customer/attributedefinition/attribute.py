@@ -21,7 +21,7 @@ class Attribute(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getAttributes(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		""" Retrieves a list of customer attributes according to any filter and sort criteria specified in the request.
+		""" Retrieves a paged list of attributes according to any specified filter criteria and sort options.
 		
 		Args:
 			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
@@ -71,7 +71,7 @@ class Attribute(object):
 	
 		
 	def getAttribute(self,attributeFQN, responseFields = None):
-		""" Retrieve a customer attribute definition by supplying its fully qualified name.
+		""" Retrieves the details of the specified product attribute.
 		
 		Args:
 			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.

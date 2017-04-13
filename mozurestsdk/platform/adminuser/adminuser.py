@@ -16,7 +16,7 @@ class AdminUser(object):
 		self.client = mozuClient or default_client();
 	
 	def getTenantScopesForUser(self,userId, responseFields = None):
-		""" Retrieves a list of the Mozu tenants or development stores for which the specified user has an assigned role.
+		""" Retrieves a list of the  tenants or development stores for which the specified user has an assigned role.
 		
 		Args:
 			| userId (string) - Unique identifier of the user whose tenant scopes you want to retrieve.

@@ -25,7 +25,7 @@ class ProductProperty(object):
 		""" Retrieves a list of the property attributes configured for the product specified in the request.
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 		
 		Returns:
 			| array of ProductProperty 
@@ -46,7 +46,7 @@ class ProductProperty(object):
 		""" Retrieves a collection of property values for localized content. This content is set by the locale code. 
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| attributeFQN (string) - Fully qualified name for an attribute.
 			| value (string) - The value string to create.
 		
@@ -71,7 +71,7 @@ class ProductProperty(object):
 		""" Retrieves the property value for localized content. This content is set by the locale code. 
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| attributeFQN (string) - Fully qualified name for an attribute.
 			| value (string) - The value string to create.
 			| localeCode (string) - Language used for the entity. Currently, only "en-US" is supported.
@@ -126,7 +126,7 @@ class ProductProperty(object):
 		
 		Args:
 			| localizedContent(localizedContent) - Use this field to include those fields which are not included by default.
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| attributeFQN (string) - Fully qualified name for an attribute.
 			| value (string) - The value string to create.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
@@ -154,7 +154,7 @@ class ProductProperty(object):
 		
 		Args:
 			| productProperty(productProperty) - Details of a property defined for a product.
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -178,7 +178,7 @@ class ProductProperty(object):
 		
 		Args:
 			| localizedContent(array|localizedContent) - Content of the product property value in the language defined for the locale code.
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| attributeFQN (string) - Fully qualified name for an attribute.
 			| value (string) - The value string to create.
 		
@@ -204,7 +204,7 @@ class ProductProperty(object):
 		
 		Args:
 			| localizedContent(localizedContent) - Content of the product property value in the language defined for the locale code.
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| attributeFQN (string) - Fully qualified name for an attribute.
 			| value (string) - The value string to create.
 			| localeCode (string) - Language used for the entity. Currently, only "en-US" is supported.
@@ -234,7 +234,7 @@ class ProductProperty(object):
 		
 		Args:
 			| productProperty(productProperty) - Details of a property defined for a product.
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
@@ -259,7 +259,7 @@ class ProductProperty(object):
 		""" Deletes the configuration of a property attribute for the product specified in the request.
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
 		
 		Raises:
@@ -278,7 +278,7 @@ class ProductProperty(object):
 		""" Deletes the property value for localized content. This content is set by the locale code. 
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| attributeFQN (string) - Fully qualified name for an attribute.
 			| value (string) - The value string to create.
 			| localeCode (string) - Language used for the entity. Currently, only "en-US" is supported.

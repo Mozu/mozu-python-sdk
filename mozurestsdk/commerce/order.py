@@ -27,7 +27,7 @@ class Order(object):
 			| startIndex (int) - 
 			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 			| sortBy (string) - 
-			| filter (string) - A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
 			| q (string) - A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.
 			| qLimit (int) - The maximum number of search results to return in the response. You can limit any range between 1-100.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
@@ -190,13 +190,13 @@ class Order(object):
 	
 		
 	def processDigitalWallet(self,digitalWallet, orderId, digitalWalletType, responseFields = None):
-		""" commerce-orders Put ProcessDigitalWallet description DOCUMENT_HERE 
+		""" Processes a digital wallet (used to hold 3rd party payment and shipping information).
 		
 		Args:
-			| digitalWallet(digitalWallet) - Mozu.CommerceRuntime.Contracts.Orders.DigitalWallet ApiType DOCUMENT_HERE 
+			| digitalWallet(digitalWallet) - The details of the digitial wallet.
 			| orderId (string) - Unique identifier of the order.
-			| digitalWalletType (string) - 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| digitalWalletType (string) - The type of digital wallet to be processed.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -221,7 +221,7 @@ class Order(object):
 		Args:
 			| discount(discount) - Properties of all applied discounts for an associated cart, order, or product. 
 			| orderId (string) - Unique identifier of the order.
-			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
+			| discountId (int) - discountId parameter description DOCUMENT_HERE 
 			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
 			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
@@ -265,7 +265,7 @@ class Order(object):
 	
 		
 	def resendOrderConfirmationEmail(self,action, orderId):
-		""" commerce-orders Put ResendOrderConfirmationEmail description DOCUMENT_HERE 
+		""" Triggers an order confirmation email to be resent.
 		
 		Args:
 			| action(action) - The action to perform for the order.
@@ -279,6 +279,34 @@ class Order(object):
 		url = MozuUrl("/api/commerce/orders/{orderId}/email/resend", "PUT", UrlLocation.TenantPod, False);
 		url.formatUrl("orderId", orderId);
 		self.client.withResourceUrl(url).withBody(action).execute();
+
+	
+		
+	def changeOrderPriceList(self,priceListCode, orderId, updateMode = None, version = None, responseFields = None):
+		""" Changes the price list associated with an order. The desired price list code should be specified in the ApiContext.
+		
+		Args:
+			| priceListCode(priceListCode) - The unique price list code.
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/orders/{orderId}/priceList?updatemode={updateMode}&version={version}&responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
+		url.formatUrl("orderId", orderId);
+		url.formatUrl("responseFields", responseFields);
+		url.formatUrl("updateMode", updateMode);
+		url.formatUrl("version", version);
+		self.client.withResourceUrl(url).withBody(priceListCode).execute();
+		return self.client.result();
 
 	
 		

@@ -16,11 +16,11 @@ class Application(object):
 		self.client = mozuClient or default_client();
 	
 	def getAppPackageNames(self,applicationKey, responseFields = None):
-		""" platform-developer Get GetAppPackageNames description DOCUMENT_HERE 
+		""" Returns a collection of package names for the application specified in the request.
 		
 		Args:
-			| applicationKey (string) - 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| applicationKey (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| PackageNamesCollection 
@@ -39,11 +39,11 @@ class Application(object):
 	
 		
 	def getAppVersions(self,nsAndAppId, responseFields = None):
-		""" platform-developer Get GetAppVersions description DOCUMENT_HERE 
+		""" Retrieves the available versions for the application specified in the request.
 		
 		Args:
-			| nsAndAppId (string) - 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| nsAndAppId (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ApplicationVersionsCollection 
@@ -62,12 +62,12 @@ class Application(object):
 	
 		
 	def getPackageFileMetadata(self,applicationKey, filepath, responseFields = None):
-		""" platform-developer Get GetPackageFileMetadata description DOCUMENT_HERE 
+		""" Retrieves the metadata for a file in an application package.
 		
 		Args:
-			| applicationKey (string) - 
-			| filepath (string) - 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| applicationKey (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
+			| filepath (string) - Represents the file name and location.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| FileMetadata 
@@ -77,7 +77,7 @@ class Application(object):
 		
 		"""
 
-		url = MozuUrl("/api/platform/developer/packages/{applicationKey}/filemetadata/{filepath}?responseFields={responseFields}", "GET", UrlLocation.HomePod, False);
+		url = MozuUrl("/api/platform/developer/packages/{applicationKey}/filemetadata/{*filepath}?responseFields={responseFields}", "GET", UrlLocation.HomePod, False);
 		url.formatUrl("applicationKey", applicationKey);
 		url.formatUrl("filepath", filepath);
 		url.formatUrl("responseFields", responseFields);
@@ -87,11 +87,11 @@ class Application(object):
 	
 		
 	def getPackageMetadata(self,applicationKey, responseFields = None):
-		""" platform-developer Get GetPackageMetadata description DOCUMENT_HERE 
+		""" Retrieves the metadata for a folder in an application package.
 		
 		Args:
-			| applicationKey (string) - 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| applicationKey (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| FolderMetadata 
@@ -110,14 +110,14 @@ class Application(object):
 	
 		
 	def upsertPackageFile(self,stream, applicationKey, filepath, lastModifiedTime = None, responseFields = None, contentType = None):
-		""" platform-developer Post UpsertPackageFile description DOCUMENT_HERE 
+		""" Insert or update the specified file into the specified application package.
 		
 		Args:
 			| stream(stream) - Data stream that delivers information. Used to input and output data.
-			| applicationKey (string) - 
-			| filepath (string) - 
-			| lastModifiedTime (string) - 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| applicationKey (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
+			| filepath (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
+			| lastModifiedTime (string) - The date and time of the last file insert or update. This parameter is optional.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 			| contentType (string) - set content type of the data uploaded|
 		
 		Returns:
@@ -128,7 +128,7 @@ class Application(object):
 		
 		"""
 
-		url = MozuUrl("/api/platform/developer/packages/{applicationKey}/files/{filepath}?lastModifiedTime={lastModifiedTime}&responseFields={responseFields}", "POST", UrlLocation.HomePod, False);
+		url = MozuUrl("/api/platform/developer/packages/{applicationKey}/files/{*filepath}?lastModifiedTime={lastModifiedTime}&responseFields={responseFields}", "POST", UrlLocation.HomePod, False);
 		url.formatUrl("applicationKey", applicationKey);
 		url.formatUrl("filepath", filepath);
 		url.formatUrl("lastModifiedTime", lastModifiedTime);
@@ -139,12 +139,12 @@ class Application(object):
 	
 		
 	def renamePackageFile(self,renameInfo, applicationKey, responseFields = None):
-		""" platform-developer Post RenamePackageFile description DOCUMENT_HERE 
+		""" Renames a file in an application package.
 		
 		Args:
 			| renameInfo(renameInfo) - Information required to update the name of a file in a package, which consists of the original name and the new name.
-			| applicationKey (string) - 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| applicationKey (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| FileMetadata 
@@ -163,18 +163,18 @@ class Application(object):
 	
 		
 	def deletePackageFile(self,applicationKey, filepath):
-		""" platform-developer Delete DeletePackageFile description DOCUMENT_HERE 
+		""" Deletes the specified file from the specified application package.
 		
 		Args:
-			| applicationKey (string) - 
-			| filepath (string) - 
+			| applicationKey (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
+			| filepath (string) - Represents the file name and location.
 		
 		Raises:
 			| ApiException
 		
 		"""
 
-		url = MozuUrl("/api/platform/developer/packages/{applicationKey}/files/{filepath}", "DELETE", UrlLocation.HomePod, False);
+		url = MozuUrl("/api/platform/developer/packages/{applicationKey}/files/{*filepath}", "DELETE", UrlLocation.HomePod, False);
 		url.formatUrl("applicationKey", applicationKey);
 		url.formatUrl("filepath", filepath);
 		self.client.withResourceUrl(url).execute();

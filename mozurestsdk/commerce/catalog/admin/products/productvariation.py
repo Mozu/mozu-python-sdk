@@ -25,7 +25,7 @@ class ProductVariation(object):
 		""" Retrieves a collection of the localized delta price values for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
 		
 		Returns:
@@ -48,7 +48,7 @@ class ProductVariation(object):
 		""" Retrieves the localized delta price value for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
 			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
@@ -62,6 +62,56 @@ class ProductVariation(object):
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedDeltaPrice/{currencyCode}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("currencyCode", currencyCode);
+		url.formatUrl("productCode", productCode);
+		url.formatUrl("responseFields", responseFields);
+		url.formatUrl("variationKey", variationKey);
+		self.client.withResourceUrl(url).execute();
+		return self.client.result();
+
+	
+		
+	def getProductVariationLocalizedPrices(self,productCode, variationKey):
+		""" Retrieves a list of details of the localized price values for a product variation.
+		
+		Args:
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
+		
+		Returns:
+			| array of ProductVariationFixedPrice 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedPrice", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("productCode", productCode);
+		url.formatUrl("variationKey", variationKey);
+		self.client.withResourceUrl(url).execute();
+		return self.client.result();
+
+	
+		
+	def getProductVariationLocalizedPrice(self,productCode, variationKey, currencyCode, responseFields = None):
+		""" Retrieves the details of the localized price value for a product variation and a specific localized currency.
+		
+		Args:
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
+			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+		
+		Returns:
+			| ProductVariationFixedPrice 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedPrice/{currencyCode}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
 		url.formatUrl("currencyCode", currencyCode);
 		url.formatUrl("productCode", productCode);
 		url.formatUrl("responseFields", responseFields);
@@ -132,7 +182,7 @@ class ProductVariation(object):
 		
 		Args:
 			| localizedDeltaPrice(localizedDeltaPrice) - The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
@@ -153,12 +203,38 @@ class ProductVariation(object):
 
 	
 		
+	def addProductVariationLocalizedPrice(self,localizedPrice, productCode, variationKey, responseFields = None):
+		""" Adds the localized price value for a product variation and a specific localized currency.
+		
+		Args:
+			| localizedPrice(localizedPrice) - The details of the product variation localized price.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+		
+		Returns:
+			| ProductVariationFixedPrice 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedPrice?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
+		url.formatUrl("productCode", productCode);
+		url.formatUrl("responseFields", responseFields);
+		url.formatUrl("variationKey", variationKey);
+		self.client.withResourceUrl(url).withBody(localizedPrice).execute();
+		return self.client.result();
+
+	
+		
 	def updateProductVariationLocalizedDeltaPrices(self,localizedDeltaPrice, productCode, variationKey):
 		""" Updates all localized delta price values for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
 		
 		Args:
 			| localizedDeltaPrice(array|localizedDeltaPrice) - The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
 		
 		Returns:
@@ -182,7 +258,7 @@ class ProductVariation(object):
 		
 		Args:
 			| localizedDeltaPrice(localizedDeltaPrice) - The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
 			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
@@ -201,6 +277,58 @@ class ProductVariation(object):
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("variationKey", variationKey);
 		self.client.withResourceUrl(url).withBody(localizedDeltaPrice).execute();
+		return self.client.result();
+
+	
+		
+	def updateProductVariationLocalizedPrices(self,localizedPrice, productCode, variationKey):
+		""" Updates a list of localized price values for a product variation.
+		
+		Args:
+			| localizedPrice(array|localizedPrice) - The details of the product variation localized price.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
+		
+		Returns:
+			| array of ProductVariationFixedPrice 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedPrice", "PUT", UrlLocation.TenantPod, False);
+		url.formatUrl("productCode", productCode);
+		url.formatUrl("variationKey", variationKey);
+		self.client.withResourceUrl(url).withBody(localizedPrice).execute();
+		return self.client.result();
+
+	
+		
+	def updateProductVariationLocalizedPrice(self,localizedPrice, productCode, variationKey, currencyCode, responseFields = None):
+		""" Updates the localized price value for a product variation and a specific localized currency.
+		
+		Args:
+			| localizedPrice(localizedPrice) - The details of the product variation localized price.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
+			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+		
+		Returns:
+			| ProductVariationFixedPrice 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedPrice/{currencyCode}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
+		url.formatUrl("currencyCode", currencyCode);
+		url.formatUrl("productCode", productCode);
+		url.formatUrl("responseFields", responseFields);
+		url.formatUrl("variationKey", variationKey);
+		self.client.withResourceUrl(url).withBody(localizedPrice).execute();
 		return self.client.result();
 
 	
@@ -237,7 +365,7 @@ class ProductVariation(object):
 		Args:
 			| productVariations(productVariations) - Collection of variations configured for a product.
 			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductVariationCollection 
@@ -278,7 +406,7 @@ class ProductVariation(object):
 		""" Deletes the localized delta price value for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
 			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.
 		
@@ -288,6 +416,27 @@ class ProductVariation(object):
 		"""
 
 		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedDeltaPrice/{currencyCode}", "DELETE", UrlLocation.TenantPod, False);
+		url.formatUrl("currencyCode", currencyCode);
+		url.formatUrl("productCode", productCode);
+		url.formatUrl("variationKey", variationKey);
+		self.client.withResourceUrl(url).execute();
+
+	
+		
+	def deleteProductVariationLocalizedPrice(self,productCode, variationKey, currencyCode):
+		""" Deletes the localized price value for a product variation and a specific localized currency.
+		
+		Args:
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
+			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/catalog/admin/products/{productCode}/variations/{variationKey}/localizedPrice/{currencyCode}", "DELETE", UrlLocation.TenantPod, False);
 		url.formatUrl("currencyCode", currencyCode);
 		url.formatUrl("productCode", productCode);
 		url.formatUrl("variationKey", variationKey);

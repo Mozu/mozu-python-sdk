@@ -263,7 +263,7 @@ class Product(object):
 		""" Deletes the specified product from a master catalog.
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 		
 		Raises:
 			| ApiException

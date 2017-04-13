@@ -21,11 +21,11 @@ class Search(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getSearchTuningRule(self,searchTuningRuleCode, responseFields = None):
-		""" admin-search Get GetSearchTuningRule description DOCUMENT_HERE 
+		""" Retrieves the details of the specified search tuning rule.
 		
 		Args:
-			| searchTuningRuleCode (string) - 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| searchTuningRuleCode (string) - The unique identifier of the search tuning rule.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| SearchTuningRule 
@@ -44,14 +44,14 @@ class Search(object):
 	
 		
 	def getSearchTuningRules(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		""" admin-search Get GetSearchTuningRules description DOCUMENT_HERE 
+		""" Retrieves a list of search tuning rules and their properties.
 		
 		Args:
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a  pageSize  of 25, to get the 51st through the 75th items, use  startIndex=3 .
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the  pageCount  amount of pages. The default is 20 and maximum value is 200 per page.
-			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.
-			| filter (string) - A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| SearchTuningRuleCollection 
@@ -72,28 +72,32 @@ class Search(object):
 
 	
 		
-	def getSearchTuningRuleSortFields(self,):
-		""" 
+	def getSearchTuningRuleSortFields(self,responseFields = None):
+		""" Retrieves the details of the specified search tuning rule sort fields. Sort fields allow you to control the product relevance whenver shoppers sort products on a page. For more information about sort relevance, refer to [Search Tuning Rules and Sorting](../../../developer/api-guides/search-tuning-rules.htm#search_tuning_rules_and_sorting).
+		
+		Args:
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
-			| Stream 
+			| SearchTuningRuleSortFields 
 		
 		Raises:
 			| ApiException
 		
 		"""
 
-		url = MozuUrl("/api/commerce/catalog/admin/search/searchtuningrulesortfields", "GET", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/commerce/catalog/admin/search/searchtuningrulesortfields?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("responseFields", responseFields);
 		self.client.withResourceUrl(url).execute();
 		return self.client.result();
 
 	
 		
 	def getSettings(self,responseFields = None):
-		""" Get site search settings
+		""" Retrieves the search settings for the specified site.Refer to [Search Settings API Overview](../../../../developer/api-guides/search-settings.htm) for more information about 's search settings.
 		
 		Args:
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| SearchSettings 
@@ -110,12 +114,87 @@ class Search(object):
 
 	
 		
-	def addSearchTuningRule(self,searchTuningRuleIn, responseFields = None):
-		""" admin-search Post AddSearchTuningRule description DOCUMENT_HERE 
+	def getSynonymDefinitionCollection(self,localeCode, responseFields = None):
+		""" Retrieves a collection of synonyms definitions for product searches.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
 		
 		Args:
-			| searchTuningRuleIn(searchTuningRuleIn) - Mozu.ProductAdmin.Contracts.Search.SearchTuningRule ApiType DOCUMENT_HERE 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| localeCode (string) - The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+		
+		Returns:
+			| SynonymDefinitionCollection 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/catalog/admin/search/synonym-definitions/{localeCode}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("localeCode", localeCode);
+		url.formatUrl("responseFields", responseFields);
+		self.client.withResourceUrl(url).execute();
+		return self.client.result();
+
+	
+		
+	def getSynonymDefinitions(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
+		""" Retrieves a list of synonym definitions according to any specified filter criteria and sort options.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		
+		Args:
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+		
+		Returns:
+			| SynonymDefinitionPagedCollection 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/catalog/admin/search/synonyms/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("filter", filter);
+		url.formatUrl("pageSize", pageSize);
+		url.formatUrl("responseFields", responseFields);
+		url.formatUrl("sortBy", sortBy);
+		url.formatUrl("startIndex", startIndex);
+		self.client.withResourceUrl(url).execute();
+		return self.client.result();
+
+	
+		
+	def getSynonymDefinition(self,synonymId, responseFields = None):
+		""" Retrieves the details of the specified synonym defintion.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		
+		Args:
+			| synonymId (int) - The unique identifier of the synonym definition.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+		
+		Returns:
+			| SynonymDefinition 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/catalog/admin/search/synonyms/{synonymId}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("responseFields", responseFields);
+		url.formatUrl("synonymId", synonymId);
+		self.client.withResourceUrl(url).execute();
+		return self.client.result();
+
+	
+		
+	def addSearchTuningRule(self,searchTuningRuleIn, responseFields = None):
+		""" Creates a search tuning rule for your site. You can use search tuning rules to fine tune the product search results that appear when a shopper searches for a specific keyword, or navigates to a category page.For more information on search tuning rules, refer to [Search Tuning Rules](../../../../developer/api-guides/search-tuning-rules.htm).
+		
+		Args:
+			| searchTuningRuleIn(searchTuningRuleIn) - The details of the new search tuning rule.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| SearchTuningRule 
@@ -132,29 +211,81 @@ class Search(object):
 
 	
 		
-	def updateSearchTuningRuleSortFields(self,searchTuningRuleSortFieldsIn):
-		""" 
+	def updateSearchTuningRuleSortFields(self,searchTuningRuleSortFieldsIn, responseFields = None):
+		""" Updates the details of the search tuning rule sort fields.
 		
 		Args:
-			| searchTuningRuleSortFieldsIn(searchTuningRuleSortFieldsIn) - 
+			| searchTuningRuleSortFieldsIn(searchTuningRuleSortFieldsIn) - The details of the updated search tuning rule sort fields.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+		
+		Returns:
+			| SearchTuningRuleSortFields 
 		
 		Raises:
 			| ApiException
 		
 		"""
 
-		url = MozuUrl("/api/commerce/catalog/admin/search/searchtuningrulesortfields", "POST", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/commerce/catalog/admin/search/searchtuningrulesortfields?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
+		url.formatUrl("responseFields", responseFields);
 		self.client.withResourceUrl(url).withBody(searchTuningRuleSortFieldsIn).execute();
+		return self.client.result();
+
+	
+		
+	def updateSynonymDefinitionCollection(self,collection, localeCode, responseFields = None):
+		""" Updates a collection of synonym definitions.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		
+		Args:
+			| collection(collection) - The updated details of the synonym definition collection.
+			| localeCode (string) - The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+		
+		Returns:
+			| SynonymDefinitionCollection 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/catalog/admin/search/synonym-definitions/{localeCode}?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
+		url.formatUrl("localeCode", localeCode);
+		url.formatUrl("responseFields", responseFields);
+		self.client.withResourceUrl(url).withBody(collection).execute();
+		return self.client.result();
+
+	
+		
+	def addSynonymDefinition(self,synonymDefinition, responseFields = None):
+		""" Creates a new synonym definition.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		
+		Args:
+			| synonymDefinition(synonymDefinition) - The details of the new synonym definition.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+		
+		Returns:
+			| SynonymDefinition 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/catalog/admin/search/synonyms?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
+		url.formatUrl("responseFields", responseFields);
+		self.client.withResourceUrl(url).withBody(synonymDefinition).execute();
+		return self.client.result();
 
 	
 		
 	def updateSearchTuningRule(self,searchTuningRuleIn, searchTuningRuleCode, responseFields = None):
-		""" admin-search Put UpdateSearchTuningRule description DOCUMENT_HERE 
+		""" Updates the details of the specified search tuning rule.
 		
 		Args:
-			| searchTuningRuleIn(searchTuningRuleIn) - Mozu.ProductAdmin.Contracts.Search.SearchTuningRule ApiType DOCUMENT_HERE 
-			| searchTuningRuleCode (string) - 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| searchTuningRuleIn(searchTuningRuleIn) - The details of the updated search tuning rule.
+			| searchTuningRuleCode (string) - The unique identifier of the search tuning rule.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| SearchTuningRule 
@@ -173,11 +304,11 @@ class Search(object):
 	
 		
 	def updateSettings(self,settings, responseFields = None):
-		""" Adds or Updates (Upsert) the Search Settings for a specific site
+		""" Updates the search setting properties for a specific site.Refer to [Search Settings API Overview](../../../../developer/api-guides/search-settings.htm) for more information about 's search settings.
 		
 		Args:
-			| settings(settings) - The settings to control product search and indexing behavior.
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| settings(settings) - The search settings to update.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| SearchSettings 
@@ -194,11 +325,35 @@ class Search(object):
 
 	
 		
-	def deleteSearchTuningRule(self,searchTuningRuleCode):
-		""" admin-search Delete DeleteSearchTuningRule description DOCUMENT_HERE 
+	def updateSynonymDefinition(self,synonymDefinition, synonymId, responseFields = None):
+		""" Updates the details of a synonym definition.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
 		
 		Args:
-			| searchTuningRuleCode (string) - 
+			| synonymDefinition(synonymDefinition) - The updated synonym definition details.
+			| synonymId (int) - The unique identifier of the synonym definition.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+		
+		Returns:
+			| SynonymDefinition 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/catalog/admin/search/synonyms/{synonymId}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
+		url.formatUrl("responseFields", responseFields);
+		url.formatUrl("synonymId", synonymId);
+		self.client.withResourceUrl(url).withBody(synonymDefinition).execute();
+		return self.client.result();
+
+	
+		
+	def deleteSearchTuningRule(self,searchTuningRuleCode):
+		""" Deletes the specified search tuning rule from the site.
+		
+		Args:
+			| searchTuningRuleCode (string) - The unique identifier of the search tuning rule.
 		
 		Raises:
 			| ApiException
@@ -207,6 +362,23 @@ class Search(object):
 
 		url = MozuUrl("/api/commerce/catalog/admin/search/searchtuningrules/{searchTuningRuleCode}", "DELETE", UrlLocation.TenantPod, False);
 		url.formatUrl("searchTuningRuleCode", searchTuningRuleCode);
+		self.client.withResourceUrl(url).execute();
+
+	
+		
+	def deleteSynonymDefinition(self,synonymId):
+		""" Deletes the specified synonym definition.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		
+		Args:
+			| synonymId (int) - The unique identifier of the synonym definition.
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/catalog/admin/search/synonyms/{synonymId}", "DELETE", UrlLocation.TenantPod, False);
+		url.formatUrl("synonymId", synonymId);
 		self.client.withResourceUrl(url).execute();
 
 	

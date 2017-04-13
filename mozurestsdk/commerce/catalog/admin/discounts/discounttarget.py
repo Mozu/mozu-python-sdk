@@ -25,7 +25,7 @@ class DiscountTarget(object):
 		""" Retrieves the discount target, that is which products, categories, or shipping methods are eligible for the discount.
 		
 		Args:
-			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
+			| discountId (int) - discountId parameter description DOCUMENT_HERE 
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -49,7 +49,7 @@ class DiscountTarget(object):
 		
 		Args:
 			| discountTarget(discountTarget) - Properties of the target to which the discount applies, such as the type of discount and which products, categories, or shipping methods are eligible for the discount and the properties of this discount target.
-			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
+			| discountId (int) - discountId parameter description DOCUMENT_HERE 
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:

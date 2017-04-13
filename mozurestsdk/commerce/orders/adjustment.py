@@ -20,6 +20,34 @@ class Adjustment(object):
 		else:
 			self.client.withApiContext(ApiContext());
 	
+	def applyHandlingAdjustment(self,adjustment, orderId, updateMode = None, version = None, responseFields = None):
+		""" Updates the order handling adjustment.
+		
+		Args:
+			| adjustment(adjustment) - 
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/orders/{orderId}/adjustment/handling?updatemode={updateMode}&version={version}&responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
+		url.formatUrl("orderId", orderId);
+		url.formatUrl("responseFields", responseFields);
+		url.formatUrl("updateMode", updateMode);
+		url.formatUrl("version", version);
+		self.client.withResourceUrl(url).withBody(adjustment).execute();
+		return self.client.result();
+
+	
+		
 	def applyShippingAdjustment(self,adjustment, orderId, updateMode = None, version = None, responseFields = None):
 		""" Applies a shipping adjustment to the specified order.
 		
@@ -72,6 +100,31 @@ class Adjustment(object):
 		url.formatUrl("updateMode", updateMode);
 		url.formatUrl("version", version);
 		self.client.withResourceUrl(url).withBody(adjustment).execute();
+		return self.client.result();
+
+	
+		
+	def removeHandlingAdjustment(self,orderId, updateMode = None, version = None):
+		""" Removes an adjustment to the order handling fee.
+		
+		Args:
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/orders/{orderId}/adjustment/handling?updatemode={updateMode}&version={version}", "DELETE", UrlLocation.TenantPod, False);
+		url.formatUrl("orderId", orderId);
+		url.formatUrl("updateMode", updateMode);
+		url.formatUrl("version", version);
+		self.client.withResourceUrl(url).execute();
 		return self.client.result();
 
 	

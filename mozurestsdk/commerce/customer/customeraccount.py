@@ -126,12 +126,12 @@ class CustomerAccount(object):
 	
 		
 	def changePassword(self,passwordInfo, accountId, unlockAccount = False):
-		""" Modify the password associated with a customer account.
+		""" Modifies the password associated with a customer account.
 		
 		Args:
 			| passwordInfo(passwordInfo) - The information required to modify a shopper account password.
 			| accountId (int) - Unique identifier of the customer account.
-			| unlockAccount (bool) - 
+			| unlockAccount (bool) - Specifies whether to unlock the specified customer account.
 		
 		Raises:
 			| ApiException
@@ -267,11 +267,11 @@ class CustomerAccount(object):
 	
 		
 	def changePasswords(self,accountPasswordInfos, responseFields = None):
-		""" Changes a collection of shopper passwords
+		""" Changes a collection of customer account passwords.
 		
 		Args:
-			| accountPasswordInfos(accountPasswordInfos) - Mozu.Customer.Contracts.AccountPasswordInfoCollection ApiType DOCUMENT_HERE 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| accountPasswordInfos(accountPasswordInfos) - The details of the changed customer account passwords.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ChangePasswordResultCollection 
@@ -288,11 +288,12 @@ class CustomerAccount(object):
 
 	
 		
-	def getLoginStateByEmailAddress(self,emailAddress, responseFields = None):
+	def getLoginStateByEmailAddress(self,emailAddress, customerSetCode = None, responseFields = None):
 		""" Retrieves the current login state of a customer account by providing the customer's email address.
 		
 		Args:
 			| emailAddress (string) - The email address associated with the customer account.
+			| customerSetCode (string) - The unique idenfitier of the customer set.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -304,6 +305,7 @@ class CustomerAccount(object):
 		"""
 
 		url = MozuUrl("/api/commerce/customer/accounts/loginstatebyemailaddress?emailAddress={emailAddress}&responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
+		url.formatUrl("customerSetCode", customerSetCode);
 		url.formatUrl("emailAddress", emailAddress);
 		url.formatUrl("responseFields", responseFields);
 		self.client.withResourceUrl(url).execute();
@@ -311,11 +313,12 @@ class CustomerAccount(object):
 
 	
 		
-	def getLoginStateByUserName(self,userName, responseFields = None):
+	def getLoginStateByUserName(self,userName, customerSetCode = None, responseFields = None):
 		""" Retrieves the current login state of a customer account by providing the user name associated with the customer account.
 		
 		Args:
 			| userName (string) - The user name associated with the customer account.
+			| customerSetCode (string) - The unique idenfitier of the customer set.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -326,9 +329,37 @@ class CustomerAccount(object):
 		
 		"""
 
-		url = MozuUrl("/api/commerce/customer/accounts/loginstatebyusername?userName={userName}&responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/commerce/customer/accounts/loginstatebyusername?userName={userName}&customerSetCode={customerSetCode}&responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
+		url.formatUrl("customerSetCode", customerSetCode);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("userName", userName);
+		self.client.withResourceUrl(url).execute();
+		return self.client.result();
+
+	
+		
+	def getCustomersPurchaseOrderAccounts(self,startIndex = None, pageSize = None, sortBy = None, responseFields = None):
+		""" Retrieves a list of customer purchase order accounts according to according to any specified sort options.
+		
+		Args:
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+		
+		Returns:
+			| CustomerPurchaseOrderAccountCollection 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/customer/accounts/purchaseOrderAccounts?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
+		url.formatUrl("pageSize", pageSize);
+		url.formatUrl("responseFields", responseFields);
+		url.formatUrl("sortBy", sortBy);
+		url.formatUrl("startIndex", startIndex);
 		self.client.withResourceUrl(url).execute();
 		return self.client.result();
 

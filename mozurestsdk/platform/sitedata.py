@@ -21,7 +21,7 @@ class SiteData(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getDBValue(self,dbEntryQuery, responseFields = None):
-		""" Retrieves the value of a record in the Mozu database.
+		""" Retrieves the value of a record in the  database.
 		
 		Args:
 			| dbEntryQuery (string) - The database entry string to create.
@@ -44,7 +44,7 @@ class SiteData(object):
 	
 		
 	def createDBValue(self,value, dbEntryQuery):
-		""" Creates a new record in the Mozu database based on the information supplied in the request.
+		""" Creates a new record in the  database based on the information supplied in the request.
 		
 		Args:
 			| value(value) - The value string to create.
@@ -62,7 +62,7 @@ class SiteData(object):
 	
 		
 	def updateDBValue(self,value, dbEntryQuery):
-		""" Updates a record in the Mozu database based on the information supplied in the request.
+		""" Updates a record in the  database based on the information supplied in the request.
 		
 		Args:
 			| value(value) - The value string to create.
@@ -80,7 +80,7 @@ class SiteData(object):
 	
 		
 	def deleteDBValue(self,dbEntryQuery):
-		""" Removes a previously defined record in the Mozu database.
+		""" Removes a previously defined record in the  database.
 		
 		Args:
 			| dbEntryQuery (string) - The database entry string to create.

@@ -46,7 +46,7 @@ class ProductExtra(object):
 		""" Retrieves a collection of all localized delta price values for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| attributeFQN (string) - Fully qualified name for an attribute.
 			| value (string) - The value string to create.
 		
@@ -71,7 +71,7 @@ class ProductExtra(object):
 		""" Retrieves the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| attributeFQN (string) - Fully qualified name for an attribute.
 			| value (string) - The value string to create.
 			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.
@@ -126,7 +126,7 @@ class ProductExtra(object):
 		
 		Args:
 			| localizedDeltaPrice(localizedDeltaPrice) - The properties of the price difference between the product extra and the base product.
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| attributeFQN (string) - Fully qualified name for an attribute.
 			| value (string) - The value string to create.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
@@ -178,7 +178,7 @@ class ProductExtra(object):
 		
 		Args:
 			| localizedDeltaPrice(array|localizedDeltaPrice) - The properties of the price difference between the product extra and the base product.
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| attributeFQN (string) - Fully qualified name for an attribute.
 			| value (string) - The value string to create.
 		
@@ -204,7 +204,7 @@ class ProductExtra(object):
 		
 		Args:
 			| localizedDeltaPrice(localizedDeltaPrice) - The properties of the price difference between the product extra and the base product.
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| attributeFQN (string) - Fully qualified name for an attribute.
 			| value (string) - The value string to create.
 			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.
@@ -278,7 +278,7 @@ class ProductExtra(object):
 		""" Deletes the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| attributeFQN (string) - Fully qualified name for an attribute.
 			| value (string) - Use this field to include those fields which are not included by default.
 			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.

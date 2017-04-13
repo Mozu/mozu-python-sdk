@@ -21,15 +21,15 @@ class CouponSet(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getCouponSets(self,startIndex = None, pageSize = None, sortBy = None, filter = None, includeCounts = False, responseFields = None):
-		""" Returns a paged collection of CouponSets
+		""" Retrieves a list of coupon sets in the catalog according to any specified filter criteria and sort options.
 		
 		Args:
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a  pageSize  of 25, to get the 51st through the 75th items, use  startIndex=3 .
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the  pageCount  amount of pages. The default is 20 and maximum value is 200 per page.
-			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.
-			| filter (string) - A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
-			| includeCounts (bool) - 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| includeCounts (bool) - Specifies whether to include the number of redeemed coupons, existing coupon codes, and assigned discounts in the response body.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CouponSetCollection 
@@ -52,12 +52,12 @@ class CouponSet(object):
 	
 		
 	def getCouponSet(self,couponSetCode, includeCounts = False, responseFields = None):
-		""" 
+		""" Retrieves the details of a single coupon set. Use the couponSetCode parameter to specify the coupon set. Use the includeCounts parameter to specify whether to include the number of redeemed coupons, existing coupon codes, and assigned discounts.
 		
 		Args:
-			| couponSetCode (string) - 
-			| includeCounts (bool) - 
-			| responseFields (string) - 
+			| couponSetCode (string) - The unique identifier of the coupon set.
+			| includeCounts (bool) - Specifies whether to include the number of redeemed coupons, existing coupon codes, and assigned discounts in the response body.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CouponSet 
@@ -77,10 +77,10 @@ class CouponSet(object):
 	
 		
 	def getUniqueCouponSetCode(self,responseFields = None):
-		""" Returns a random 4 character code that is unique as a coupon set code.
+		""" Returns a unique, random four character code to use for the couponSetCode.
 		
 		Args:
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| string 
@@ -98,11 +98,11 @@ class CouponSet(object):
 	
 		
 	def addCouponSet(self,couponSet, responseFields = None):
-		""" Adds a single
+		""" Adds a single coupon set to the catalog.
 		
 		Args:
-			| couponSet(couponSet) - Mozu.ProductAdmin.Contracts.CouponSet ApiType DOCUMENT_HERE 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| couponSet(couponSet) - The details of the new coupon set.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CouponSet 
@@ -120,7 +120,7 @@ class CouponSet(object):
 	
 		
 	def validateUniqueCouponSetCode(self,code):
-		""" Tests code for uniqueness and validity
+		""" Validates the couponSetCode and tests it for uniqueness.
 		
 		Args:
 			| code (string) - User-defined code that uniqely identifies the channel group.
@@ -137,12 +137,12 @@ class CouponSet(object):
 	
 		
 	def updateCouponSet(self,couponSet, couponSetCode, responseFields = None):
-		""" 
+		""" Updates one or more properties of a coupon set in the catalog.
 		
 		Args:
-			| couponSet(couponSet) - 
-			| couponSetCode (string) - 
-			| responseFields (string) - 
+			| couponSet(couponSet) - The details of the updated coupon set.
+			| couponSetCode (string) - The unique identifier of the coupon set.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CouponSet 
@@ -161,10 +161,10 @@ class CouponSet(object):
 	
 		
 	def deleteCouponSet(self,couponSetCode):
-		""" 
+		""" Deletes a specified coupon set from the catalog. Use the couponSetCode parameter to specify the coupon set to delete.
 		
 		Args:
-			| couponSetCode (string) - 
+			| couponSetCode (string) - The unique identifier of the coupon set.
 		
 		Raises:
 			| ApiException

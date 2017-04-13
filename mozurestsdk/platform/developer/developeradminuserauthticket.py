@@ -43,7 +43,7 @@ class DeveloperAdminUserAuthTicket(object):
 		""" Generates a new developer account authentication ticket for the specified tenant by supplying the defined refresh token information.
 		
 		Args:
-			| existingAuthTicket(existingAuthTicket) - Properties of the authentication ticket to be used in developer account claims with the Mozu API.
+			| existingAuthTicket(existingAuthTicket) - Properties of the authentication ticket to be used in developer account claims with the  API.
 			| developerAccountId (int) - Unique identifier of the developer account.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		

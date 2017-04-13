@@ -106,7 +106,7 @@ class LocationInventory(object):
 		
 		Args:
 			| locationInventoryAdjustments(array|locationInventoryAdjustments) - Properties of an adjustment to the active product inventory of a specific location.
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 		
 		Returns:
 			| array of LocationInventory 
@@ -127,7 +127,7 @@ class LocationInventory(object):
 		""" Deletes the location inventory definition for the product code specified in the request.
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| locationCode (string) - The unique, user-defined code that identifies a location. 
 		
 		Raises:

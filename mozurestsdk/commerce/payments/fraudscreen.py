@@ -20,11 +20,12 @@ class FraudScreen(object):
 		else:
 			self.client.withApiContext(ApiContext());
 	
-	def screen(self,request):
+	def screen(self,request, responseFields = None):
 		""" payments-fraudscreen Post Screen description DOCUMENT_HERE 
 		
 		Args:
 			| request(request) - Mozu.PaymentService.Contracts.Request.FraudScreenRequest ApiType DOCUMENT_HERE 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| FraudScreen 
@@ -34,7 +35,8 @@ class FraudScreen(object):
 		
 		"""
 
-		url = MozuUrl("/payment/commerce/payments/fraudscreen/screen", "POST", UrlLocation.PCIPod, False);
+		url = MozuUrl("/payment/commerce/payments/fraudscreen/screen?responseFields={responseFields}", "POST", UrlLocation.PCIPod, False);
+		url.formatUrl("responseFields", responseFields);
 		self.client.withResourceUrl(url).withBody(request).execute();
 		return self.client.result();
 

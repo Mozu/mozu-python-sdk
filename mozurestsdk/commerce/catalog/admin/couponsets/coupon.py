@@ -21,13 +21,13 @@ class Coupon(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getCoupon(self,couponSetCode, couponCode, includeCounts = False, responseFields = None):
-		""" couponsets-coupons Get GetCoupon description DOCUMENT_HERE 
+		""" Retrieves the details of the specified coupon. Use the couponSetCode and the couponCode parameter to specify the coupon within a coupon set. Use the includeCounts paramter to specify whether to return the redemptionCount property in the response body object.
 		
 		Args:
-			| couponSetCode (string) - 
+			| couponSetCode (string) - The unique identifier of the coupon set that the coupon belongs to.
 			| couponCode (string) - Code associated with the coupon to remove from the cart.
-			| includeCounts (bool) - 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| includeCounts (bool) - Specifies whether to return the redemptionCount property in the response body object.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Coupon 
@@ -48,16 +48,16 @@ class Coupon(object):
 	
 		
 	def getCoupons(self,couponSetCode, startIndex = None, pageSize = None, sortBy = None, filter = None, includeCounts = False, responseFields = None):
-		""" couponsets-coupons Get GetCoupons description DOCUMENT_HERE 
+		""" Retrieves a list of coupons in a specified coupon set according to any specified filter criteria and sort options.
 		
 		Args:
-			| couponSetCode (string) - 
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a  pageSize  of 25, to get the 51st through the 75th items, use  startIndex=3 .
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the  pageCount  amount of pages. The default is 20 and maximum value is 200 per page.
-			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.
-			| filter (string) - A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
-			| includeCounts (bool) - 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| couponSetCode (string) - The unique identifier of the coupon set that the coupons belongs to.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| includeCounts (bool) - Specifies whether to include the redemptionCount property in the response body object.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CouponCollection 
@@ -81,11 +81,11 @@ class Coupon(object):
 	
 		
 	def addCoupons(self,coupons, couponSetCode):
-		""" couponsets-coupons Post AddCoupons description DOCUMENT_HERE 
+		""" Adds coupons  to a specified manual coupon set. Use the couponSetCode parameter to specify the manual coupon set.
 		
 		Args:
-			| coupons(array|coupons) - Mozu.ProductAdmin.Contracts.Coupon ApiType DOCUMENT_HERE 
-			| couponSetCode (string) - 
+			| coupons(array|coupons) - The details necessary to assign the discount to a coupon set, including .
+			| couponSetCode (string) - The unique identifier of the coupon set.
 		
 		Raises:
 			| ApiException
@@ -99,11 +99,11 @@ class Coupon(object):
 	
 		
 	def deleteCoupons(self,couponCodes, couponSetCode):
-		""" couponsets-coupons Post DeleteCoupons description DOCUMENT_HERE 
+		""" Deletes the specified coupons and removes them from the coupon set. You can only delete a coupon if it has not been redeemed. Use the canBeDeleted property to determine whether a coupon can be deleted.
 		
 		Args:
-			| couponCodes(array|couponCodes) - 
-			| couponSetCode (string) - 
+			| couponCodes(array|couponCodes) - The unique identifiers of the coupons to delete.
+			| couponSetCode (string) - The unique identifier of the coupon set that the coupon belongs to.
 		
 		Raises:
 			| ApiException
@@ -117,10 +117,10 @@ class Coupon(object):
 	
 		
 	def deleteCoupon(self,couponSetCode, couponCode):
-		""" couponsets-coupons Delete DeleteCoupon description DOCUMENT_HERE 
+		""" Deletes the specified coupon and remove it from the coupon set. You can only delete a coupon if it has not been redeemed. Use the canBeDeleted property to determine whether a coupon can be deleted.
 		
 		Args:
-			| couponSetCode (string) - 
+			| couponSetCode (string) - The unique identifier of the coupon set that the coupon belongs to.
 			| couponCode (string) - Code associated with the coupon to remove from the cart.
 		
 		Raises:

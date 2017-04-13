@@ -46,7 +46,7 @@ class LocationInventory(object):
 
 	
 		
-	def getLocationInventories(self,locationCode, startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
+	def getLocationInventories(self,locationCode, startIndex = None, pageSize = None, sortBy = None, filter = None, filterFunctions = None, responseFields = None):
 		""" Retrieves a list of all product inventory definitions for the location code specified in the request.
 		
 		Args:
@@ -55,6 +55,7 @@ class LocationInventory(object):
 			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 			| sortBy (string) - The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+			| filterFunctions (string) - Functions that optimize commonly used filters for efficiency.For the  operation, you have access to the  filter function. For example, use  to filter only for product inventory that is currently active.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -65,8 +66,9 @@ class LocationInventory(object):
 		
 		"""
 
-		url = MozuUrl("/api/commerce/catalog/admin/locationinventory/{locationCode}?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/commerce/catalog/admin/locationinventory/{locationCode}?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&filterFunctions={filterFunctions}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
 		url.formatUrl("filter", filter);
+		url.formatUrl("filterFunctions", filterFunctions);
 		url.formatUrl("locationCode", locationCode);
 		url.formatUrl("pageSize", pageSize);
 		url.formatUrl("responseFields", responseFields);

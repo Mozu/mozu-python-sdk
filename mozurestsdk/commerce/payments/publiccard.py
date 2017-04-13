@@ -15,11 +15,12 @@ class PublicCard(object):
 	def __init__(self, mozuClient = None):
 		self.client = mozuClient or default_client();
 	
-	def create(self,request):
+	def create(self,request, responseFields = None):
 		""" payments-cards Post Create description DOCUMENT_HERE 
 		
 		Args:
 			| request(request) - Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| SyncResponse 
@@ -29,18 +30,20 @@ class PublicCard(object):
 		
 		"""
 
-		url = MozuUrl("/payment/commerce/payments/cards/", "POST", UrlLocation.PCIPod, False);
+		url = MozuUrl("/payment/commerce/payments/cards/?responseFields={responseFields}", "POST", UrlLocation.PCIPod, False);
+		url.formatUrl("responseFields", responseFields);
 		self.client.withResourceUrl(url).withBody(request).execute();
 		return self.client.result();
 
 	
 		
-	def update(self,request, cardId):
+	def update(self,request, cardId, responseFields = None):
 		""" payments-cards Put Update description DOCUMENT_HERE 
 		
 		Args:
 			| request(request) - Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE 
 			| cardId (string) - Unique identifier of the card associated with the customer account billing contact.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| SyncResponse 
@@ -50,8 +53,9 @@ class PublicCard(object):
 		
 		"""
 
-		url = MozuUrl("/payment/commerce/payments/cards/{cardId}", "PUT", UrlLocation.PCIPod, False);
+		url = MozuUrl("/payment/commerce/payments/cards/{cardId}?responseFields={responseFields}", "PUT", UrlLocation.PCIPod, False);
 		url.formatUrl("cardId", cardId);
+		url.formatUrl("responseFields", responseFields);
 		self.client.withResourceUrl(url).withBody(request).execute();
 		return self.client.result();
 

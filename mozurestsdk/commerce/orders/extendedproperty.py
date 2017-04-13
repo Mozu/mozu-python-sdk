@@ -44,10 +44,10 @@ class ExtendedProperty(object):
 	
 		
 	def addExtendedProperties(self,extendedProperties, orderId, updateMode = None, version = None):
-		""" Create an extended property for the order.
+		""" Creates an extended property for the order.
 		
 		Args:
-			| extendedProperties(array|extendedProperties) - Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
+			| extendedProperties(array|extendedProperties) - The details of the extended property.
 			| orderId (string) - Unique identifier of the order.
 			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
 			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
@@ -73,14 +73,14 @@ class ExtendedProperty(object):
 		""" Updates one ore more extended properties.
 		
 		Args:
-			| extendedProperty(extendedProperty) - Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
+			| extendedProperty(extendedProperty) - The details of the updated extended property.
 			| orderId (string) - Unique identifier of the order.
-			| key (string) - 
+			| key (string) - The extended property key.
 			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
 			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
 			| upsert (bool) - Inserts and updates an extended property.
         
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ExtendedProperty 
@@ -106,7 +106,7 @@ class ExtendedProperty(object):
 		""" Updates one or more extended properties.
 		
 		Args:
-			| extendedProperties(array|extendedProperties) - Mozu.CommerceRuntime.Contracts.Commerce.ExtendedProperty ApiType DOCUMENT_HERE 
+			| extendedProperties(array|extendedProperties) - The details of the updated extended properties.
 			| orderId (string) - Unique identifier of the order.
 			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
 			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
@@ -136,7 +136,7 @@ class ExtendedProperty(object):
 		
 		Args:
 			| orderId (string) - Unique identifier of the order.
-			| key (string) - 
+			| key (string) - The extended property key.
 			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
 			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
 		
@@ -158,7 +158,7 @@ class ExtendedProperty(object):
 		""" Deletes the extended property associated with the order. 
 		
 		Args:
-			| keys(array|keys) - 
+			| keys(array|keys) - The extended property keys.
 			| orderId (string) - Unique identifier of the order.
 			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
 			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.

@@ -20,7 +20,7 @@ class Return(object):
 		else:
 			self.client.withApiContext(ApiContext());
 	
-	def getReturns(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
+	def getReturns(self,startIndex = None, pageSize = None, sortBy = None, filter = None, q = None, responseFields = None):
 		""" Retrieves a list of all returns according to any filter and sort criteria.
 		
 		Args:
@@ -28,6 +28,7 @@ class Return(object):
 			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 			| sortBy (string) - The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
 			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+			| q (string) - A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -38,9 +39,10 @@ class Return(object):
 		
 		"""
 
-		url = MozuUrl("/api/commerce/returns/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/commerce/returns/?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&q={q}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
 		url.formatUrl("filter", filter);
 		url.formatUrl("pageSize", pageSize);
+		url.formatUrl("q", q);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("sortBy", sortBy);
 		url.formatUrl("startIndex", startIndex);
@@ -213,10 +215,10 @@ class Return(object):
 	
 		
 	def getReasons(self,responseFields = None):
-		""" commerce-returns Get GetReasons description DOCUMENT_HERE 
+		""" Returns a list of reasons for a return.
 		
 		Args:
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ReasonCollection 
@@ -234,7 +236,31 @@ class Return(object):
 	
 		
 	def createReturn(self,ret, responseFields = None):
-		""" Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.
+		""" Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.When you create a return, you must specify the following fields:
+* 
+
+* 
+* 
+
+*  (Optional, but recommended)
+
+* 
+* 
+
+* 
+
+
+*  (required for bundle items or product extras, but null for parent product or bundles)
+* 
+
+* 
+
+
+*  (required for product extras, but otherwise null)
+
+*  (set to  to target parent products or bundles without extras)
+
+
 		
 		Args:
 			| ret(ret) - Properties of a return of one or more previously fulfilled items.
@@ -329,6 +355,30 @@ class Return(object):
 
 	
 		
+	def createReturnShippingOrder(self,itemQuantities, returnId, responseFields = None):
+		""" Creates a replacement order for the return.
+		
+		Args:
+			| itemQuantities(array|itemQuantities) - 
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+		
+		Returns:
+			| Order 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/returns/{returnId}/ship?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
+		url.formatUrl("responseFields", responseFields);
+		url.formatUrl("returnId", returnId);
+		self.client.withResourceUrl(url).withBody(itemQuantities).execute();
+		return self.client.result();
+
+	
+		
 	def performReturnActions(self,action, responseFields = None):
 		""" Updates the return by performing the action specified in the request.
 		
@@ -376,7 +426,7 @@ class Return(object):
 	
 		
 	def resendReturnEmail(self,action):
-		""" commerce-returns Put ResendReturnEmail description DOCUMENT_HERE 
+		""" Resend the email notification to a shopper that a return has been created.
 		
 		Args:
 			| action(action) - Properties of an action a user can perform for a return.

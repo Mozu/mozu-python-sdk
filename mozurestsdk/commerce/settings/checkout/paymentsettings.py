@@ -21,11 +21,11 @@ class PaymentSettings(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getThirdPartyPaymentWorkflowWithValues(self,fullyQualifiedName, responseFields = None):
-		""" checkout-paymentsettings Get GetThirdPartyPaymentWorkflowWithValues description DOCUMENT_HERE 
+		""" Retrieves the schema and definition along with the actual instance values of the third-party payment service workflow configured for the corresponding fully qualified name.
 		
 		Args:
-			| fullyQualifiedName (string) - 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| fullyQualifiedName (string) - Fully qualified name of the attribute for the third-party payment workflow.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ExternalPaymentWorkflowDefinition 
@@ -44,7 +44,7 @@ class PaymentSettings(object):
 	
 		
 	def getThirdPartyPaymentWorkflows(self,):
-		""" Retrieves the details of the third-party payment service workflows configured for the site.
+		""" Retrieves the schema and definition of all third-party payment service workflows configured for the site.
 		
 		Returns:
 			| array of ExternalPaymentWorkflowDefinition 
@@ -61,7 +61,7 @@ class PaymentSettings(object):
 	
 		
 	def addThirdPartyPaymentWorkflow(self,definition):
-		""" checkout-paymentsettings Put AddThirdPartyPaymentWorkflow description DOCUMENT_HERE 
+		""" Adds a third-party payment workflow to the site. A third-party payment workflow is a definition of a process by which a third-party payment provider (such as Amazon Payments or PayPal Express) interacts with the  platform.
 		
 		Args:
 			| definition(definition) - Properties of an external payment processing workflow defined for the site. At this time, only PayPal Express is supported.
@@ -77,10 +77,10 @@ class PaymentSettings(object):
 	
 		
 	def deleteThirdPartyPaymentWorkflow(self,fullyQualifiedName):
-		""" checkout-paymentsettings Delete DeleteThirdPartyPaymentWorkflow description DOCUMENT_HERE 
+		""" Deletes a third-party payment workflow. A third-party payment workflow is a definition of a process by which a third-party payment provider (such as Amazon Payments or PayPal Express) interacts with the  platform. 
 		
 		Args:
-			| fullyQualifiedName (string) - 
+			| fullyQualifiedName (string) - Fully qualified name of the attribute for the third-party payment workflow.
 		
 		Raises:
 			| ApiException

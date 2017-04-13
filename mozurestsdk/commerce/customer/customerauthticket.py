@@ -20,18 +20,22 @@ class CustomerAuthTicket(object):
 		else:
 			self.client.withApiContext(ApiContext());
 	
-	def createAnonymousShopperAuthTicket(self,):
+	def createAnonymousShopperAuthTicket(self,responseFields = None):
 		""" Creates an authentication ticket for an anonymous shopper user.
 		
+		Args:
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+		
 		Returns:
-			| Stream 
+			| CustomerAuthTicket 
 		
 		Raises:
 			| ApiException
 		
 		"""
 
-		url = MozuUrl("/api/commerce/customer/authtickets/anonymousshopper", "GET", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/commerce/customer/authtickets/anonymousshopper?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("responseFields", responseFields);
 		self.client.withResourceUrl(url).execute();
 		return self.client.result();
 

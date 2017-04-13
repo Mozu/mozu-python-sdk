@@ -21,7 +21,7 @@ class Attribute(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getAttributes(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		""" Retrieves a list of order attributes according to any filter criteria or sort options.
+		""" Retrieves a paged list of attributes according to any specified filter criteria and sort options.
 		
 		Args:
 			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
@@ -50,7 +50,7 @@ class Attribute(object):
 	
 		
 	def getAttributeVocabularyValues(self,attributeFQN):
-		""" Returns the list of vocabulary values defined for the order attribute specified in the request.
+		""" Retrieve a list of the vocabulary values defined for the customer attribute specified in the request.
 		
 		Args:
 			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
@@ -71,7 +71,7 @@ class Attribute(object):
 	
 		
 	def getAttribute(self,attributeFQN, responseFields = None):
-		""" Retrieves the details of the order attribute specified in the request.
+		""" Retrieves the details of the specified product attribute.
 		
 		Args:
 			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
@@ -89,6 +89,52 @@ class Attribute(object):
 		url.formatUrl("attributeFQN", attributeFQN);
 		url.formatUrl("responseFields", responseFields);
 		self.client.withResourceUrl(url).execute();
+		return self.client.result();
+
+	
+		
+	def createAttribute(self,attribute, responseFields = None):
+		""" Create and save a new attribute. These attributes are used in products and product options.
+		
+		Args:
+			| attribute(attribute) - Properties of an attribute used to describe customers or orders.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+		
+		Returns:
+			| Attribute 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/orders/attributedefinition/attributes/?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
+		url.formatUrl("responseFields", responseFields);
+		self.client.withResourceUrl(url).withBody(attribute).execute();
+		return self.client.result();
+
+	
+		
+	def updateAttribute(self,attribute, attributeFQN, responseFields = None):
+		""" Updates an existing attribute with attribute properties to set.
+		
+		Args:
+			| attribute(attribute) - Properties of an attribute used to describe customers or orders.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+		
+		Returns:
+			| Attribute 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/orders/attributedefinition/attributes/{attributeFQN}?responseFields={responseFields}", "PUT", UrlLocation.TenantPod, False);
+		url.formatUrl("attributeFQN", attributeFQN);
+		url.formatUrl("responseFields", responseFields);
+		self.client.withResourceUrl(url).withBody(attribute).execute();
 		return self.client.result();
 
 	

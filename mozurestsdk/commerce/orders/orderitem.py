@@ -25,9 +25,9 @@ class OrderItem(object):
 		
 		Args:
 			| orderId (string) - Unique identifier of the order.
-			| lineId (int) - 
+			| lineId (int) - The specific line id that's associated with the order item.
 			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| OrderItem 
@@ -136,7 +136,7 @@ class OrderItem(object):
 			| discount(discount) - Properties of all applied discounts for an associated cart, order, or product. 
 			| orderId (string) - Unique identifier of the order.
 			| orderItemId (string) - Unique identifier of the item to remove from the order.
-			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
+			| discountId (int) - discountId parameter description DOCUMENT_HERE 
 			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
 			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
@@ -171,7 +171,7 @@ class OrderItem(object):
         
 			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
 			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 

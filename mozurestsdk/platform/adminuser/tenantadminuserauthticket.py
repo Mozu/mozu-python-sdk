@@ -43,7 +43,7 @@ class TenantAdminUserAuthTicket(object):
 		""" Generates a new user authentication ticket for the specified tenant by supplying the user's existing refresh token information.
 		
 		Args:
-			| existingAuthTicket(existingAuthTicket) - Properties of the authentication ticket to be used in user claims with the Mozu API.
+			| existingAuthTicket(existingAuthTicket) - Properties of the authentication ticket to be used in user claims with the  API.
 			| tenantId (int) - 
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		

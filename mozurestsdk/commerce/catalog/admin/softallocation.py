@@ -24,11 +24,11 @@ class SoftAllocation(object):
 		""" Retrieves a list of sof allocations according to any specified filter criteria and sort options.
 		
 		Args:
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a  pageSize  of 25, to get the 51st through the 75th items, use  startIndex=3 .
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the  pageCount  amount of pages. The default is 20 and maximum value is 200 per page.
-			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional.
-			| filter (string) - A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| SoftAllocationCollection 
@@ -53,8 +53,8 @@ class SoftAllocation(object):
 		""" Retrieves the details of a soft allocation.
 		
 		Args:
-			| softAllocationId (int) - 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| softAllocationId (int) - The unique identifier of the soft allocation.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| SoftAllocation 
@@ -73,10 +73,10 @@ class SoftAllocation(object):
 	
 		
 	def addSoftAllocations(self,softAllocationsIn):
-		""" Creates a new product reservation for a product. This places a hold on the product inventory for the quantity specified during the ordering process.
+		""" Creates a new soft allocation for a product. This places a hold on the product inventory for the quantity specified during the ordering process.
 		
 		Args:
-			| softAllocationsIn(array|softAllocationsIn) - Mozu.ProductAdmin.Contracts.SoftAllocation ApiType DOCUMENT_HERE 
+			| softAllocationsIn(array|softAllocationsIn) - The details of the new soft allocation.
 		
 		Returns:
 			| array of SoftAllocation 
@@ -93,10 +93,10 @@ class SoftAllocation(object):
 	
 		
 	def convertToProductReservation(self,softAllocations):
-		""" Converts a set of existing softAllocations into productReservations
+		""" Converts a set of existing soft product allocations into product reservations.
 		
 		Args:
-			| softAllocations(array|softAllocations) - Mozu.ProductAdmin.Contracts.SoftAllocation ApiType DOCUMENT_HERE 
+			| softAllocations(array|softAllocations) - The details of the soft allocation which you want to convert into product reservations.
 		
 		Returns:
 			| array of ProductReservation 
@@ -113,10 +113,10 @@ class SoftAllocation(object):
 	
 		
 	def renewSoftAllocations(self,softAllocationRenew):
-		""" Updates a set of softAllocations expiration time in a non trassactional batch
+		""" Updates the expiration time for a set of soft allocations in a non-transactional batch.
 		
 		Args:
-			| softAllocationRenew(softAllocationRenew) - Mozu.ProductAdmin.Contracts.SoftAllocationRenew ApiType DOCUMENT_HERE 
+			| softAllocationRenew(softAllocationRenew) - The details of the soft allocation that you want to renew.
 		
 		Returns:
 			| array of SoftAllocation 
@@ -133,10 +133,10 @@ class SoftAllocation(object):
 	
 		
 	def updateSoftAllocations(self,softAllocations):
-		""" Updates a soft allocationt. This updates a hold on the product inventory for the quantity specified during the ordering process.
+		""" Updates a soft allocation. This updates a hold on the product inventory for the quantity specified during the ordering process.
 		
 		Args:
-			| softAllocations(array|softAllocations) - Mozu.ProductAdmin.Contracts.SoftAllocation ApiType DOCUMENT_HERE 
+			| softAllocations(array|softAllocations) - The details of the updated soft allocations.
 		
 		Returns:
 			| array of SoftAllocation 
@@ -153,10 +153,10 @@ class SoftAllocation(object):
 	
 		
 	def deleteSoftAllocation(self,softAllocationId):
-		""" Deletes a soft allocation. You might delete a allocation when an order or cart is not processed to return the product quantity back to inventory.
+		""" Deletes a soft allocation. You might delete a soft allocation when an order or cart is not processed in order to return the product quantity back to inventory.
 		
 		Args:
-			| softAllocationId (int) - 
+			| softAllocationId (int) - The unique identifier of the soft allocation.
 		
 		Raises:
 			| ApiException

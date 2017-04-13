@@ -20,12 +20,13 @@ class Package(object):
 		else:
 			self.client.withApiContext(ApiContext());
 	
-	def getPackageLabel(self,returnId, packageId):
+	def getPackageLabel(self,returnId, packageId, returnAsBase64Png = False):
 		""" Retrieves the package label image supplied by the carrier for a return replacement.
 		
 		Args:
 			| returnId (string) - Unique identifier of the return whose items you want to get.
 			| packageId (string) - Unique identifier of the package for which to retrieve the label.
+			| returnAsBase64Png (bool) - Specifies whether to return the RMA label image as Base64-encoded PNG image instead of as a byte array encoded in the original image format. The default is .
 		
 		Returns:
 			| Stream 
@@ -35,8 +36,9 @@ class Package(object):
 		
 		"""
 
-		url = MozuUrl("/api/commerce/returns/{returnId}/packages/{packageId}/label", "GET", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/commerce/returns/{returnId}/packages/{packageId}/label?returnAsBase64Png={returnAsBase64Png}", "GET", UrlLocation.TenantPod, False);
 		url.formatUrl("packageId", packageId);
+		url.formatUrl("returnAsBase64Png", returnAsBase64Png);
 		url.formatUrl("returnId", returnId);
 		self.client.withResourceUrl(url).execute();
 		return self.client.result();

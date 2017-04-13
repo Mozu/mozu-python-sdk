@@ -42,7 +42,7 @@ class AttributeLocalizedContent(object):
 	
 		
 	def getAttributeLocalizedContent(self,attributeFQN, localeCode, responseFields = None):
-		""" Retrieves the localized content for an attribute  based on a  localeCode . 
+		""" Retrieves the localized content for an attribute based on a  localeCode .
 		
 		Args:
 			| attributeFQN (string) - Fully qualified name for an attribute.
@@ -67,7 +67,7 @@ class AttributeLocalizedContent(object):
 	
 		
 	def addLocalizedContent(self,localizedContent, attributeFQN, responseFields = None):
-		""" Adds new localized content for an attribute  based on a  localeCode . 
+		""" Adds new localized content for an attribute based on a  localeCode .
 		
 		Args:
 			| localizedContent(localizedContent) - The localized name and description of the attribute, displayed in the locale defined for the master catalog.
@@ -91,7 +91,7 @@ class AttributeLocalizedContent(object):
 	
 		
 	def updateLocalizedContents(self,localizedContent, attributeFQN):
-		""" Updates the localized content for a collection of existing attributes  based on a  localeCode . 
+		""" Updates the localized content for a collection of existing attributes based on a  localeCode .
 		
 		Args:
 			| localizedContent(array|localizedContent) - The localized name and description of the attribute, displayed in the locale defined for the master catalog.
@@ -113,7 +113,7 @@ class AttributeLocalizedContent(object):
 	
 		
 	def updateLocalizedContent(self,localizedContent, attributeFQN, localeCode, responseFields = None):
-		""" Updates the localized content for an existing attribute  based on a  localeCode . 
+		""" Updates the localized content for an existing attribute based on a  localeCode .
 		
 		Args:
 			| localizedContent(localizedContent) - The localized name and description of the attribute, displayed in the locale defined for the master catalog.

@@ -21,10 +21,10 @@ class TenantExtensions(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getExtensions(self,responseFields = None):
-		""" platform-extensions Get GetExtensions description DOCUMENT_HERE 
+		""" Retrieves the Arc.js configuration settings for a site.
 		
 		Args:
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| TenantExtensions 
@@ -42,11 +42,11 @@ class TenantExtensions(object):
 	
 		
 	def updateExtensions(self,extensions, responseFields = None):
-		""" platform-extensions Put UpdateExtensions description DOCUMENT_HERE 
+		""" Updates the Arc.js configuration settings for a site.
 		
 		Args:
-			| extensions(extensions) - Mozu.InstalledApplications.Contracts.TenantExtensions ApiType DOCUMENT_HERE 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| extensions(extensions) - The updated details of the Arc.js configuration settings.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| TenantExtensions 

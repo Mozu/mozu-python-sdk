@@ -13,12 +13,13 @@ from mozurestsdk.urllocation import UrlLocation
 from mozurestsdk.apicontext import ApiContext;
 
 class Category(object):
-	def __init__(self, apiContext: ApiContext = None, mozuClient = None):
-		self.client = mozuClient or default_client();
-		if (apiContext is not None):
-			self.client.withApiContext(apiContext);
+	def __init__(self, apiContext: ApiContext = None, dataViewMode="Live", mozuClient = None):
+		if (apiContext is not None and apiContext.dataViewMode is None):
+			apiContext.dataViewMode = dataViewMode;
 		else:
-			self.client.withApiContext(ApiContext());
+			apiContext = ApiContext(dataViewMode = dataViewMode);
+		self.client = mozuClient or default_client();
+		self.client.withApiContext(apiContext);
 	
 	def getCategories(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
 		""" Retrieves a list of categories according to any specified filter criteria and sort options.
@@ -27,7 +28,7 @@ class Category(object):
 			| startIndex (int) - 
 			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 			| sortBy (string) - 
-			| filter (string) - A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -95,12 +96,13 @@ class Category(object):
 
 	
 		
-	def addCategory(self,category, incrementSequence = False, responseFields = None):
-		""" Adds a new category to the site's category hierarchy. Specify a ParentCategoryID to determine where to place the category in the hierarchy. If no ParentCategoryID is specified, the new category is a top-level category.
+	def addCategory(self,category, incrementSequence = False, useProvidedId = False, responseFields = None):
+		""" Adds a new category to the site's category hierarchy.Specify a  to determine where to place the category in the hierarchy. If no  is specified, the new category is a top-level category.
 		
 		Args:
 			| category(category) - A descriptive container that groups products. A category is merchant defined with associated products and discounts as configured. GThe storefront displays products in a hierarchy of categories. As such, categories can include a nesting of sub-categories to organize products and product options per set guidelines such as color, brand, material, and size.
 			| incrementSequence (bool) - If true, when adding a new product category, set the sequence number of the new category to an increment of one integer greater than the maximum available sequence number across all product categories. If false, set the sequence number to zero.
+			| useProvidedId (bool) - Optional. If ,  uses the  you specify in the request as the category's id. If ,  generates an  for the category regardless if you specify an id in the request.If you specify an id already in use and set this parameter to ,  returns an error.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -111,20 +113,21 @@ class Category(object):
 		
 		"""
 
-		url = MozuUrl("/api/commerce/catalog/admin/categories/?incrementSequence={incrementSequence}&responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/commerce/catalog/admin/categories/?incrementSequence={incrementSequence}&useProvidedId={useProvidedId}&responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("incrementSequence", incrementSequence);
 		url.formatUrl("responseFields", responseFields);
+		url.formatUrl("useProvidedId", useProvidedId);
 		self.client.withResourceUrl(url).withBody(category).execute();
 		return self.client.result();
 
 	
 		
 	def validateDynamicExpression(self,dynamicExpressionIn, responseFields = None):
-		""" admin-categories Post ValidateDynamicExpression description DOCUMENT_HERE 
+		""" Validate the precomputed dynamic category expression for correctness.
 		
 		Args:
-			| dynamicExpressionIn(dynamicExpressionIn) - Mozu.ProductAdmin.Contracts.DynamicExpression ApiType DOCUMENT_HERE 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| dynamicExpressionIn(dynamicExpressionIn) - The details of the dynamic expression that you want to validate.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| DynamicExpression 
@@ -142,11 +145,11 @@ class Category(object):
 	
 		
 	def validateRealTimeDynamicExpression(self,dynamicExpressionIn, responseFields = None):
-		""" admin-categories Post ValidateRealTimeDynamicExpression description DOCUMENT_HERE 
+		""" Validates the readltime dynamic category expression for correctness.
 		
 		Args:
-			| dynamicExpressionIn(dynamicExpressionIn) - Mozu.ProductAdmin.Contracts.DynamicExpression ApiType DOCUMENT_HERE 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| dynamicExpressionIn(dynamicExpressionIn) - The details of the dynamic expression that you want to validate.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| DynamicExpression 
@@ -190,13 +193,13 @@ class Category(object):
 	
 		
 	def deleteCategoryById(self,categoryId, cascadeDelete = False, forceDelete = False, reassignToParent = False):
-		""" Deletes the category specified by its category ID.
+		""" Deletes the specified category. Use the categoryId parameter to specify the category.
 		
 		Args:
 			| categoryId (int) - Unique identifier of the category to modify.
-			| cascadeDelete (bool) - If true, also delete all subcategories associated with the specified category.
-			| forceDelete (bool) - 
-			| reassignToParent (bool) - 
+			| cascadeDelete (bool) - Specifies whether to also delete all subcategories associated with the specified category.If you set this value is false, only the specified category is deleted.The default value is false.
+			| forceDelete (bool) - Specifies whether the category, and any associated subcategories, are deleted even if there are products that reference them. The default value is false.
+			| reassignToParent (bool) - Specifies whether any subcategories of the specified category are reassigned to the parent of the specified category.This field only applies if the cascadeDelete parameter is false.The default value is false.
 		
 		Raises:
 			| ApiException

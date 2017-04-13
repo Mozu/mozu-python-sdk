@@ -118,7 +118,7 @@ class Credit(object):
 	
 		
 	def resendCreditCreatedEmail(self,code):
-		""" customer-credits Put ResendCreditCreatedEmail description DOCUMENT_HERE 
+		""" Resend the notification email that informs a shopper that a credit has been created.
 		
 		Args:
 			| code (string) - User-defined code that uniqely identifies the channel group.

@@ -28,7 +28,7 @@ class ProductType(object):
 			| startIndex (int) - 
 			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 			| sortBy (string) - 
-			| filter (string) - A set of filter expressions representing the search parameters for a query: eq=equals, ne=not equals, gt=greater than, lt = less than or equals, gt = greater than or equals, lt = less than or equals, sw = starts with, or cont = contains. Optional.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:

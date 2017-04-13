@@ -25,8 +25,8 @@ class ListView(object):
 		
 		Args:
 			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
-			| viewName (string) - The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
-			| entityId (string) - Unique identifier for an entity, which defines the schema, rules, and formats for JSON entities within the MZDB (Mozu Mongo DB).
+			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
+			| entityId (string) - Unique identifier for an entity, which defines the schema, rules, and formats for JSON entities within the MZDB ( Mongo DB).
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -52,9 +52,9 @@ class ListView(object):
 		
 		Args:
 			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
-			| viewName (string) - The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the  pageCount  amount of pages. The default is 20 and maximum value is 200 per page.
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a  pageSize  of 25, to get the 51st through the 75th items, use  startIndex=3 .
+			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
 			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
@@ -83,8 +83,8 @@ class ListView(object):
 		
 		Args:
 			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
-			| viewName (string) - The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
-			| entityId (string) - Unique identifier for an entity, which defines the schema, rules, and formats for JSON entities within the MZDB (Mozu Mongo DB).
+			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
+			| entityId (string) - Unique identifier for an entity, which defines the schema, rules, and formats for JSON entities within the MZDB ( Mongo DB).
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -110,9 +110,9 @@ class ListView(object):
 		
 		Args:
 			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
-			| viewName (string) - The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the  pageCount  amount of pages. The default is 20 and maximum value is 200 per page.
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a  pageSize  of 25, to get the 51st through the 75th items, use  startIndex=3 .
+			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
 			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
@@ -141,7 +141,7 @@ class ListView(object):
 		
 		Args:
 			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
-			| viewName (string) - The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
+			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -214,7 +214,7 @@ class ListView(object):
 		Args:
 			| listView(listView) - Properties for the list view that specifies what fields and content display per page load. All associated fields in the list view correspond with object data.
 			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
-			| viewName (string) - The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
+			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -239,7 +239,7 @@ class ListView(object):
 		
 		Args:
 			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
-			| viewName (string) - The name for a view. Views are used to render data in Mozu, such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
+			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
 		
 		Raises:
 			| ApiException

@@ -21,7 +21,7 @@ class Product(object):
 		self.client = mozuClient or default_client();
 		self.client.withApiContext(apiContext);
 	
-	def getProducts(self,filter = None, startIndex = None, pageSize = None, sortBy = None, responseFields = None):
+	def getProducts(self,filter = None, startIndex = None, pageSize = None, sortBy = None, responseOptions = None, cursorMark = None, responseFields = None):
 		""" Retrieves a list of products that appear on the web storefront according to any specified filter criteria and sort options.
 		
 		Args:
@@ -29,7 +29,9 @@ class Product(object):
 			| startIndex (int) - 
 			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
 			| sortBy (string) - 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| responseOptions (string) - Options you can specify for the response. This parameter is null by default.You can primarily use this parameter to return volume price band information in product details, which you can then display on category pages and search results depanding on your theme configuration. To return volume price band information, set this parameter to .
+			| cursorMark (string) - In your first deep paged request, set this parameter to . Then, in all subsequent requests, set this parameter to the subsequent values of  that's returned in each response to continue paging through the results. Continue this pattern until  is null, which signifies the end of the paged results.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductCollection 
@@ -39,10 +41,12 @@ class Product(object):
 		
 		"""
 
-		url = MozuUrl("/api/commerce/catalog/storefront/products/?filter={filter}&startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/commerce/catalog/storefront/products/?filter={filter}&startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&responseOptions={responseOptions}&cursorMark={cursorMark}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("cursorMark", cursorMark);
 		url.formatUrl("filter", filter);
 		url.formatUrl("pageSize", pageSize);
 		url.formatUrl("responseFields", responseFields);
+		url.formatUrl("responseOptions", responseOptions);
 		url.formatUrl("sortBy", sortBy);
 		url.formatUrl("startIndex", startIndex);
 		self.client.withResourceUrl(url).execute();
@@ -56,7 +60,7 @@ class Product(object):
 		Args:
 			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 			| locationCodes (string) - Array of location codes for which to retrieve product inventory information.
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| LocationInventoryCollection 
@@ -75,7 +79,7 @@ class Product(object):
 
 	
 		
-	def getProduct(self,productCode, variationProductCode = None, allowInactive = False, skipInventoryCheck = False, supressOutOfStock404 = False, responseFields = None):
+	def getProduct(self,productCode, variationProductCode = None, allowInactive = False, skipInventoryCheck = False, supressOutOfStock404 = False, quantity = None, acceptVariantProductCode = False, responseFields = None):
 		""" Retrieves information about a single product given its product code.
 		
 		Args:
@@ -83,8 +87,10 @@ class Product(object):
 			| variationProductCode (string) - Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
 			| allowInactive (bool) - If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.
 			| skipInventoryCheck (bool) - If true, skip the process to validate inventory when creating this product reservation.
-			| supressOutOfStock404 (bool) - 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| supressOutOfStock404 (bool) - Specifies whether to supress the 404 error when the product is out of stock.
+			| quantity (int) - The number of cart items in the shopper's active cart.
+			| acceptVariantProductCode (bool) - Specifies whether to accept a product variant's code as the .When you set this parameter to , you can pass in a product variant's code in the GetProduct call to retrieve the product variant details that are associated with the base product.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Product 
@@ -94,9 +100,11 @@ class Product(object):
 		
 		"""
 
-		url = MozuUrl("/api/commerce/catalog/storefront/products/{productCode}?variationProductCode={variationProductCode}&allowInactive={allowInactive}&skipInventoryCheck={skipInventoryCheck}&supressOutOfStock404={supressOutOfStock404}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/commerce/catalog/storefront/products/{productCode}?variationProductCode={variationProductCode}&allowInactive={allowInactive}&skipInventoryCheck={skipInventoryCheck}&supressOutOfStock404={supressOutOfStock404}&quantity={quantity}&acceptVariantProductCode={acceptVariantProductCode}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("acceptVariantProductCode", acceptVariantProductCode);
 		url.formatUrl("allowInactive", allowInactive);
 		url.formatUrl("productCode", productCode);
+		url.formatUrl("quantity", quantity);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("skipInventoryCheck", skipInventoryCheck);
 		url.formatUrl("supressOutOfStock404", supressOutOfStock404);
@@ -106,12 +114,14 @@ class Product(object):
 
 	
 		
-	def getProductForIndexing(self,productCode, responseFields = None):
-		""" Retrieves information about a single product given its product code for Mozu to index in the search engine
+	def getProductForIndexing(self,productCode, productVersion = None, lastModifiedDate = None, responseFields = None):
+		""" Retrieves information about a single product given its product code for  to index in the search engine
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout Mozu to reference and associate to a product.
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| productVersion (long) - The product version.
+			| lastModifiedDate (DateTime) - The date when the product was last updated.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Product 
@@ -121,15 +131,17 @@ class Product(object):
 		
 		"""
 
-		url = MozuUrl("/api/commerce/catalog/storefront/products/indexing/{productCode}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/commerce/catalog/storefront/products/indexing/{productCode}&productVersion={productVersion}&lastModifiedDate={lastModifiedDate}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("lastModifiedDate", lastModifiedDate);
 		url.formatUrl("productCode", productCode);
+		url.formatUrl("productVersion", productVersion);
 		url.formatUrl("responseFields", responseFields);
 		self.client.withResourceUrl(url).execute();
 		return self.client.result();
 
 	
 		
-	def configuredProduct(self,productOptionSelections, productCode, includeOptionDetails = False, skipInventoryCheck = False, responseFields = None):
+	def configuredProduct(self,productOptionSelections, productCode, includeOptionDetails = False, skipInventoryCheck = False, quantity = None, responseFields = None):
 		""" Creates a new product configuration each time a shopper selects a product option value. After the shopper defines values for all required product options, the shopper can add the product configuration to a cart.
 		
 		Args:
@@ -137,7 +149,8 @@ class Product(object):
 			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 			| includeOptionDetails (bool) - If true, the response returns details about the product. If false, returns a product summary such as the product name, price, and sale price.
 			| skipInventoryCheck (bool) - If true, skip the process to validate inventory when creating this product reservation.
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| quantity (int) - The number of cart items in the shopper's active cart.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ConfiguredProduct 
@@ -147,9 +160,10 @@ class Product(object):
 		
 		"""
 
-		url = MozuUrl("/api/commerce/catalog/storefront/products/{productCode}/configure?includeOptionDetails={includeOptionDetails}&skipInventoryCheck={skipInventoryCheck}&responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/commerce/catalog/storefront/products/{productCode}/configure?includeOptionDetails={includeOptionDetails}&skipInventoryCheck={skipInventoryCheck}&quantity={quantity}&responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("includeOptionDetails", includeOptionDetails);
 		url.formatUrl("productCode", productCode);
+		url.formatUrl("quantity", quantity);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("skipInventoryCheck", skipInventoryCheck);
 		self.client.withResourceUrl(url).withBody(productOptionSelections).execute();
@@ -157,13 +171,15 @@ class Product(object):
 
 	
 		
-	def validateProduct(self,productOptionSelections, productCode, skipInventoryCheck = False, responseFields = None):
+	def validateProduct(self,productOptionSelections, productCode, skipInventoryCheck = False, quantity = None, skipDefaults = False, responseFields = None):
 		""" Validate the final state of shopper-selected options.
 		
 		Args:
 			| productOptionSelections(productOptionSelections) - For a product with shopper-configurable options, the properties of the product options selected by the shopper.
 			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
 			| skipInventoryCheck (bool) - If true, skip the process to validate inventory when creating this product reservation.
+			| quantity (int) - The number of cart items in the shopper's active cart.
+			| skipDefaults (bool) - Normally, product validation applies default extras to products that do not have options specified. If , product validation does not apply default extras to products.
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -174,9 +190,11 @@ class Product(object):
 		
 		"""
 
-		url = MozuUrl("/api/commerce/catalog/storefront/products/{productCode}/validate?skipInventoryCheck={skipInventoryCheck}&responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/commerce/catalog/storefront/products/{productCode}/validate?skipInventoryCheck={skipInventoryCheck}&quantity={quantity}&skipDefaults={skipDefaults}&responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
 		url.formatUrl("productCode", productCode);
+		url.formatUrl("quantity", quantity);
 		url.formatUrl("responseFields", responseFields);
+		url.formatUrl("skipDefaults", skipDefaults);
 		url.formatUrl("skipInventoryCheck", skipInventoryCheck);
 		self.client.withResourceUrl(url).withBody(productOptionSelections).execute();
 		return self.client.result();
@@ -193,7 +211,7 @@ class Product(object):
 			| customerAccountId (int) - The unique identifier of the customer account for which to retrieve wish lists.
 			| allowInactive (bool) - If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.
 			| skipInventoryCheck (bool) - If true, skip the process to validate inventory when creating this product reservation.
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| DiscountValidationSummary 
@@ -215,12 +233,34 @@ class Product(object):
 
 	
 		
+	def getProductCosts(self,query, responseFields = None):
+		""" Retrieves the product cost based on a list of product codes. The product cost is the amount the merchant pays for the product—it is not the price that the shopper sees on the storefront (which is usually higher).
+		
+		Args:
+			| query(query) - Properties for the product location inventory provided for queries to locate products by their location.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+		
+		Returns:
+			| ProductCostCollection 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/catalog/storefront/products/costs?responseFields={responseFields}", "POST", UrlLocation.TenantPod, False);
+		url.formatUrl("responseFields", responseFields);
+		self.client.withResourceUrl(url).withBody(query).execute();
+		return self.client.result();
+
+	
+		
 	def getProductInventories(self,query, responseFields = None):
 		""" Retrieves product inventories for the storefront displayed products.
 		
 		Args:
 			| query(query) - Properties for the product location inventory provided for queries to locate products by their location.
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| LocationInventoryCollection 

@@ -21,12 +21,12 @@ class PublishSetSummary(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getPublishSets(self,pageSize = None, startIndex = None, responseFields = None):
-		""" Returns a List of current Publishing sets with counts of drafts in each
+		""" Returns a list of content publish sets.
 		
 		Args:
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the  pageCount  amount of pages. The default is 20 and maximum value is 200 per page.
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a  pageSize  of 25, to get the 51st through the 75th items, use  startIndex=3 .
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| PublishSetSummaryPagedCollection 
@@ -45,14 +45,16 @@ class PublishSetSummary(object):
 
 	
 		
-	def getPublishSetItems(self,code, pageSize = None, startIndex = None, responseFields = None):
-		""" Retrieve a paged collection of publish set Items.
+	def getPublishSetItems(self,code, pageSize = None, startIndex = None, sortBy = None, filter = None, responseFields = None):
+		""" Retrieves a list of content publish sets and their properties.
 		
 		Args:
 			| code (string) - User-defined code that uniqely identifies the channel group.
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The amount is divided and displayed on the  pageCount  amount of pages. The default is 20 and maximum value is 200 per page.
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a  pageSize  of 25, to get the 51st through the 75th items, use  startIndex=3 .
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| DocumentDraftSummaryPagedCollection 
@@ -62,10 +64,12 @@ class PublishSetSummary(object):
 		
 		"""
 
-		url = MozuUrl("/api/content/publishsets/{code}/items?pageSize={pageSize}&startIndex={startIndex}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/content/publishsets/{code}/items?pageSize={pageSize}&startIndex={startIndex}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
 		url.formatUrl("code", code);
+		url.formatUrl("filter", filter);
 		url.formatUrl("pageSize", pageSize);
 		url.formatUrl("responseFields", responseFields);
+		url.formatUrl("sortBy", sortBy);
 		url.formatUrl("startIndex", startIndex);
 		self.client.withResourceUrl(url).execute();
 		return self.client.result();
@@ -73,12 +77,12 @@ class PublishSetSummary(object):
 	
 		
 	def deletePublishSet(self,code, shouldDiscard = False, responseFields = None):
-		""" Adds a set of documents by id to a publish set
+		""" Deletes the specified content publish set. You can use the shouldDiscard parameter to specify whether to discard the content drafts assigned to the content publish set.
 		
 		Args:
 			| code (string) - User-defined code that uniqely identifies the channel group.
-			| shouldDiscard (bool) - 
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| shouldDiscard (bool) - Specifies whether to discard the pending content changes assigned to the content publish set when the publish set is deleted.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| object 
@@ -98,12 +102,12 @@ class PublishSetSummary(object):
 	
 		
 	def addPublishSetItems(self,itemsToPublish, code, responseFields = None):
-		""" Adds a set of documents by id to a publish set
+		""" Adds a set of documents by id to a specified publish set.
 		
 		Args:
-			| itemsToPublish(array|itemsToPublish) - Mozu.Content.Contracts.AddOrDeletePublishItem ApiType DOCUMENT_HERE 
+			| itemsToPublish(array|itemsToPublish) - The details of the items that you want to add to a specified publish set.
 			| code (string) - User-defined code that uniqely identifies the channel group.
-			| responseFields (string) - A list or array of fields returned for a call. These fields may be customized and may be used for various types of data calls in Mozu. For example, responseFields are returned for retrieving or updating attributes, carts, and messages in Mozu.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| object 

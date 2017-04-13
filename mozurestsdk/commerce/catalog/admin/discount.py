@@ -54,7 +54,7 @@ class Discount(object):
 		""" Retrieves the localized content specified for the specified discount.
 		
 		Args:
-			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
+			| discountId (int) - discountId parameter description DOCUMENT_HERE 
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -77,7 +77,7 @@ class Discount(object):
 		""" Retrieves the details of a single discount.
 		
 		Args:
-			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
+			| discountId (int) - discountId parameter description DOCUMENT_HERE 
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -140,11 +140,11 @@ class Discount(object):
 	
 		
 	def updateDiscountContent(self,content, discountId, responseFields = None):
-		""" Updates the localizable content for the specified discount or rename the discount without modifying its other properties.
+		""" Updates the localizable content for the specified discount or renames the discount without modifying its other properties.
 		
 		Args:
 			| content(content) - The container for the language-specific name of the discount. A container exists for each supported language (LocaleCode). This parameter enables you to display the discount name in multiple languages yet manage it as a single discount internally.
-			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
+			| discountId (int) - discountId parameter description DOCUMENT_HERE 
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -164,11 +164,11 @@ class Discount(object):
 	
 		
 	def updateDiscount(self,discount, discountId, responseFields = None):
-		""" Updates one or more properties of a defined discount.
+		""" Updates one or more properties of the specified discount.
 		
 		Args:
 			| discount(discount) - Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
-			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
+			| discountId (int) - discountId parameter description DOCUMENT_HERE 
 			| responseFields (string) - Use this field to include those fields which are not included by default.
 		
 		Returns:
@@ -191,7 +191,7 @@ class Discount(object):
 		""" Deletes a discount specified by its discount ID.
 		
 		Args:
-			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
+			| discountId (int) - discountId parameter description DOCUMENT_HERE 
 		
 		Raises:
 			| ApiException
