@@ -24,7 +24,7 @@ class DigitalPackage(object):
 		""" 
 		
 		Args:
-			| orderId (string) - This parameter provides the unique identifier of the order on which to get a list of available actions.
+			| orderId (string) - Unique identifier of the order.
 			| digitalPackageId (string) - This parameter supplies package ID to get fulfillment actions for the digital package.
 		
 		Returns:
@@ -47,9 +47,9 @@ class DigitalPackage(object):
 		""" 
 		
 		Args:
-			| orderId (string) - This parameter provides the unique identifier of the order with which to associate the digital package.
-			| digitalPackageId (string) - This parameter provides the digital package Id.
-			| responseFields (string) - 
+			| orderId (string) - Unique identifier of the order.
+			| digitalPackageId (string) - This parameter supplies package ID to get fulfillment actions for the digital package.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| DigitalPackage 
@@ -72,9 +72,9 @@ class DigitalPackage(object):
 		""" 
 		
 		Args:
-			| digitalPackage(digitalPackage) - The digitalPackage parameter is a required parameter for the CreateDigitalPackages operation. The digitalPackage is the digital package to create and add to the order.
-			| orderId (string) - The orderID is a required paramter for the digitalpackages operation. The orderId is a unique identifier of the order with which to associate the digital package.
-			| responseFields (string) - 
+			| digitalPackage(digitalPackage) - Lets you manage an order's digital packages, by applying a digital package to the order.
+			| orderId (string) - Unique identifier of the order.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| DigitalPackage 
@@ -96,10 +96,10 @@ class DigitalPackage(object):
 		""" 
 		
 		Args:
-			| digitalPackage(digitalPackage) - This parameter provides the package content to update in the order.
-			| orderId (string) - This parameter provides the unique identifier of the order with which to associate the digital package.
-			| digitalPackageId (string) - This parameter specifies the digital package to update in the order.
-			| responseFields (string) - 
+			| digitalPackage(digitalPackage) - Lets you manage an order's digital packages, by applying a digital package to the order.
+			| orderId (string) - Unique identifier of the order.
+			| digitalPackageId (string) - This parameter supplies package ID to get fulfillment actions for the digital package.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| DigitalPackage 
@@ -122,8 +122,8 @@ class DigitalPackage(object):
 		""" 
 		
 		Args:
-			| orderId (string) - The orderId is unique identifier of the order with which to associate the package.
-			| digitalPackageId (string) - The digitalPackage ID is unique package ID to update on the order.
+			| orderId (string) - Unique identifier of the order.
+			| digitalPackageId (string) - This parameter supplies package ID to get fulfillment actions for the digital package.
 		
 		Raises:
 			| ApiException

@@ -24,8 +24,8 @@ class UserData(object):
 		""" 
 		
 		Args:
-			| dbEntryQuery (string) - The database entry query string used to retrieve the record information.
-			| responseFields (string) - 
+			| dbEntryQuery (string) - The database entry string to create.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| string 
@@ -65,8 +65,8 @@ class UserData(object):
 		""" 
 		
 		Args:
-			| value(value) - The database value to update.
-			| dbEntryQuery (string) - The database entry query string used to update the record information.
+			| value(value) - The value string to create.
+			| dbEntryQuery (string) - The database entry string to create.
 		
 		Raises:
 			| ApiException
@@ -83,7 +83,7 @@ class UserData(object):
 		""" 
 		
 		Args:
-			| dbEntryQuery (string) - The database entry string to delete.
+			| dbEntryQuery (string) - The database entry string to create.
 		
 		Raises:
 			| ApiException

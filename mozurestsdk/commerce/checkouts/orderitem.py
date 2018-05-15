@@ -24,10 +24,10 @@ class OrderItem(object):
 		""" 
 		
 		Args:
-			| checkoutId (string) - 
-			| itemId (string) - 
-			| quantity (int) - 
-			| responseFields (string) - 
+			| checkoutId (string) - The unique identifier of the checkout.
+			| itemId (string) - The unique identifier of the item.
+			| quantity (int) - The number of cart items in the shopper's active cart.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Checkout 
@@ -51,9 +51,9 @@ class OrderItem(object):
 		""" 
 		
 		Args:
-			| itemsForDestination(array|itemsForDestination) - 
-			| checkoutId (string) - 
-			| responseFields (string) - 
+			| itemsForDestination(array|itemsForDestination) - A collection of items to be associated with a destination.
+			| checkoutId (string) - The unique identifier of the checkout.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Checkout 
@@ -75,10 +75,10 @@ class OrderItem(object):
 		""" 
 		
 		Args:
-			| checkoutId (string) - 
-			| itemId (string) - 
-			| destinationId (string) - 
-			| responseFields (string) - 
+			| checkoutId (string) - The unique identifier of the checkout.
+			| itemId (string) - The unique identifier of the item.
+			| destinationId (string) - The unique identifier of the destination.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Checkout 

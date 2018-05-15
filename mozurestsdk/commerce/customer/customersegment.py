@@ -24,11 +24,11 @@ class CustomerSegment(object):
 		""" 
 		
 		Args:
-			| startIndex (int) - 
-			| pageSize (int) - 
-			| sortBy (string) - 
-			| filter (string) - 
-			| responseFields (string) - 
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CustomerSegmentCollection 
@@ -54,7 +54,7 @@ class CustomerSegment(object):
 		
 		Args:
 			| id (int) - Unique identifier of the customer segment to retrieve.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CustomerSegment 
@@ -76,8 +76,8 @@ class CustomerSegment(object):
 		""" 
 		
 		Args:
-			| segment(segment) - Properties of the customer segment to add.
-			| responseFields (string) - 
+			| segment(segment) - The Customer Segment object includes properties of a defined customer segment used to group customer accounts.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CustomerSegment 
@@ -99,7 +99,7 @@ class CustomerSegment(object):
 		
 		Args:
 			| accountIds(array|accountIds) - List of customer account IDs to add to the customer segment specified in the request.
-			| id (int) - Unique identifier of the customer segment for which to add the associated customer accounts.
+			| id (int) - Unique identifier of the customer segment to retrieve.
 		
 		Raises:
 			| ApiException
@@ -116,9 +116,9 @@ class CustomerSegment(object):
 		""" 
 		
 		Args:
-			| segment(segment) - Properties of the customer segment to update.
-			| id (int) - Unique identifier of the customer segment.
-			| responseFields (string) - 
+			| segment(segment) - The Customer Segment object includes properties of a defined customer segment used to group customer accounts.
+			| id (int) - Unique identifier of the customer segment to retrieve.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CustomerSegment 
@@ -140,7 +140,7 @@ class CustomerSegment(object):
 		""" 
 		
 		Args:
-			| id (int) - Unique identifier of the customer segment to delete.
+			| id (int) - Unique identifier of the customer segment to retrieve.
 		
 		Raises:
 			| ApiException
@@ -157,8 +157,8 @@ class CustomerSegment(object):
 		""" 
 		
 		Args:
-			| id (int) - 
-			| accountId (int) - 
+			| id (int) - Unique identifier of the customer segment to retrieve.
+			| accountId (int) - Unique identifier of the customer account.
 		
 		Raises:
 			| ApiException

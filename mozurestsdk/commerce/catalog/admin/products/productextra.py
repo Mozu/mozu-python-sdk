@@ -25,7 +25,7 @@ class ProductExtra(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 		
 		Returns:
 			| array of ProductExtra 
@@ -46,9 +46,9 @@ class ProductExtra(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| attributeFQN (string) - 
-			| value (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
 		
 		Returns:
 			| array of ProductExtraValueDeltaPrice 
@@ -71,11 +71,11 @@ class ProductExtra(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| attributeFQN (string) - 
-			| value (string) - 
-			| currencyCode (string) - 
-			| responseFields (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| currencyCode (string) - The three character ISOÂ currency code, such as USDÂ for US Dollars.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductExtraValueDeltaPrice 
@@ -100,9 +100,9 @@ class ProductExtra(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| attributeFQN (string) - 
-			| responseFields (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductExtra 
@@ -125,11 +125,11 @@ class ProductExtra(object):
 		""" 
 		
 		Args:
-			| localizedDeltaPrice(localizedDeltaPrice) - 
-			| productCode (string) - 
-			| attributeFQN (string) - 
-			| value (string) - 
-			| responseFields (string) - 
+			| localizedDeltaPrice(localizedDeltaPrice) - The properties of the price difference between the product extra and the base product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductExtraValueDeltaPrice 
@@ -153,9 +153,9 @@ class ProductExtra(object):
 		""" 
 		
 		Args:
-			| productExtra(productExtra) - Properties of the product extra to configure for the specified product.
-			| productCode (string) - 
-			| responseFields (string) - 
+			| productExtra(productExtra) - Properties of an extra attribute to defined for a product that is associated with a product type that uses the extra. Setting up extras for a product enables shopper-entered information, such as initials for a monogram.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductExtra 
@@ -177,10 +177,10 @@ class ProductExtra(object):
 		""" 
 		
 		Args:
-			| localizedDeltaPrice(array|localizedDeltaPrice) - 
-			| productCode (string) - 
-			| attributeFQN (string) - 
-			| value (string) - 
+			| localizedDeltaPrice(array|localizedDeltaPrice) - The properties of the price difference between the product extra and the base product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
 		
 		Returns:
 			| array of ProductExtraValueDeltaPrice 
@@ -203,12 +203,12 @@ class ProductExtra(object):
 		""" 
 		
 		Args:
-			| localizedDeltaPrice(localizedDeltaPrice) - 
-			| productCode (string) - 
-			| attributeFQN (string) - 
-			| value (string) - 
-			| currencyCode (string) - 
-			| responseFields (string) - 
+			| localizedDeltaPrice(localizedDeltaPrice) - The properties of the price difference between the product extra and the base product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| currencyCode (string) - The three character ISOÂ currency code, such as USDÂ for US Dollars.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductExtraValueDeltaPrice 
@@ -233,10 +233,10 @@ class ProductExtra(object):
 		""" 
 		
 		Args:
-			| productExtra(productExtra) - Properties of the extra attribute to update for the specified product.
-			| productCode (string) - 
-			| attributeFQN (string) - 
-			| responseFields (string) - 
+			| productExtra(productExtra) - Properties of an extra attribute to defined for a product that is associated with a product type that uses the extra. Setting up extras for a product enables shopper-entered information, such as initials for a monogram.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductExtra 
@@ -259,8 +259,8 @@ class ProductExtra(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| attributeFQN (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
 		
 		Raises:
 			| ApiException
@@ -278,10 +278,10 @@ class ProductExtra(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| attributeFQN (string) - 
-			| value (string) - 
-			| currencyCode (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| currencyCode (string) - The three character ISOÂ currency code, such as USDÂ for US Dollars.
 		
 		Raises:
 			| ApiException

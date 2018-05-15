@@ -26,7 +26,7 @@ class Card(object):
 		Args:
 			| accountId (int) - Unique identifier of the customer account.
 			| cardId (string) - Unique identifier of the card associated with the customer account billing contact.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Card 
@@ -50,7 +50,7 @@ class Card(object):
 		
 		Args:
 			| accountId (int) - Unique identifier of the customer account.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CardCollection 
@@ -72,9 +72,9 @@ class Card(object):
 		""" 
 		
 		Args:
-			| card(card) - Properties of the customer credit card to add to the account.
+			| card(card) - Properties of a credit card used to submit payment for an order.
 			| accountId (int) - Unique identifier of the customer account.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Card 
@@ -96,10 +96,10 @@ class Card(object):
 		""" 
 		
 		Args:
-			| card(card) - Properties of the customer account credit card to update.
+			| card(card) - Properties of a credit card used to submit payment for an order.
 			| accountId (int) - Unique identifier of the customer account.
-			| cardId (string) - Unique identifier of the credit card.
-			| responseFields (string) - 
+			| cardId (string) - Unique identifier of the card associated with the customer account billing contact.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Card 
@@ -123,7 +123,7 @@ class Card(object):
 		
 		Args:
 			| accountId (int) - Unique identifier of the customer account.
-			| cardId (string) - Unique identifier of the credit card to delete.
+			| cardId (string) - Unique identifier of the card associated with the customer account billing contact.
 		
 		Raises:
 			| ApiException

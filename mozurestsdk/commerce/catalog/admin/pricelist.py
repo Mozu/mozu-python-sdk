@@ -24,11 +24,11 @@ class PriceList(object):
 		""" 
 		
 		Args:
-			| startIndex (int) - 
-			| pageSize (int) - 
-			| sortBy (string) - 
-			| filter (string) - 
-			| responseFields (string) - 
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| PriceListCollection 
@@ -53,8 +53,8 @@ class PriceList(object):
 		""" 
 		
 		Args:
-			| priceListCode (string) - 
-			| responseFields (string) - 
+			| priceListCode (string) - The unique, user-defined code of the price list.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| PriceList 
@@ -76,8 +76,8 @@ class PriceList(object):
 		""" 
 		
 		Args:
-			| priceList(priceList) - 
-			| responseFields (string) - 
+			| priceList(priceList) - The details of the new price list.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| PriceList 
@@ -99,8 +99,8 @@ class PriceList(object):
 		
 		Args:
 			| priceListEntriesIn(array|priceListEntriesIn) - 
-			| publishEvents (bool) - 
-			| invalidateCache (bool) - 
+			| publishEvents (bool) - Disable this property to prevent publishing the event related to adding price list entries to the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.
+			| invalidateCache (bool) - Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.
 		
 		Raises:
 			| ApiException
@@ -119,8 +119,8 @@ class PriceList(object):
 		
 		Args:
 			| priceListEntriesIn(array|priceListEntriesIn) - 
-			| publishEvents (bool) - 
-			| invalidateCache (bool) - 
+			| publishEvents (bool) - Disable this property to prevent publishing the event related to deleting price list entries from the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.
+			| invalidateCache (bool) - Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.
 		
 		Raises:
 			| ApiException
@@ -139,8 +139,8 @@ class PriceList(object):
 		
 		Args:
 			| priceListEntriesIn(array|priceListEntriesIn) - 
-			| publishEvents (bool) - 
-			| invalidateCache (bool) - 
+			| publishEvents (bool) - Disable this property to prevent publishing the event related to updating price list entries in the system. Disabling this property helps you prevent performance delays if you expect the event to trigger the re-indexing of a large number of products, or if you want to postpone the operations of other applications and services listening for the event.
+			| invalidateCache (bool) - Disable this property if you expect to encounter unacceptable performance hits related to clearing the cache for each product in the price list entries. Otherwise, leave this property enabled.
 		
 		Raises:
 			| ApiException
@@ -158,9 +158,9 @@ class PriceList(object):
 		""" 
 		
 		Args:
-			| priceList(priceList) - 
-			| priceListCode (string) - 
-			| responseFields (string) - 
+			| priceList(priceList) - The details of the updated price list.
+			| priceListCode (string) - The unique, user-defined code of the price list.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| PriceList 
@@ -182,8 +182,8 @@ class PriceList(object):
 		""" 
 		
 		Args:
-			| priceListCode (string) - 
-			| cascadeDeleteEntries (bool) - 
+			| priceListCode (string) - The unique, user-defined code of the price list.
+			| cascadeDeleteEntries (bool) - Specifies whether to deletes all price list entries associated with the price list.
 		
 		Raises:
 			| ApiException

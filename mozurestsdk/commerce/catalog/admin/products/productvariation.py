@@ -25,8 +25,8 @@ class ProductVariation(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| variationKey (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
 		
 		Returns:
 			| array of ProductVariationDeltaPrice 
@@ -48,10 +48,10 @@ class ProductVariation(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| variationKey (string) - 
-			| currencyCode (string) - 
-			| responseFields (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
+			| currencyCode (string) - The three character ISOÂ currency code, such as USDÂ for US Dollars.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductVariationDeltaPrice 
@@ -75,8 +75,8 @@ class ProductVariation(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| variationKey (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
 		
 		Returns:
 			| array of ProductVariationFixedPrice 
@@ -98,10 +98,10 @@ class ProductVariation(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| variationKey (string) - 
-			| currencyCode (string) - 
-			| responseFields (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
+			| currencyCode (string) - The three character ISOÂ currency code, such as USDÂ for US Dollars.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductVariationFixedPrice 
@@ -125,9 +125,9 @@ class ProductVariation(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductVariation 
@@ -150,12 +150,12 @@ class ProductVariation(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| startIndex (int) - 
-			| pageSize (int) - 
-			| sortBy (string) - 
-			| filter (string) - 
-			| responseFields (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductVariationPagedCollection 
@@ -181,10 +181,10 @@ class ProductVariation(object):
 		""" 
 		
 		Args:
-			| localizedDeltaPrice(localizedDeltaPrice) - 
-			| productCode (string) - 
-			| variationKey (string) - 
-			| responseFields (string) - 
+			| localizedDeltaPrice(localizedDeltaPrice) - The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductVariationDeltaPrice 
@@ -207,10 +207,10 @@ class ProductVariation(object):
 		""" 
 		
 		Args:
-			| localizedPrice(localizedPrice) - 
-			| productCode (string) - 
-			| variationKey (string) - 
-			| responseFields (string) - 
+			| localizedPrice(localizedPrice) - The details of the product variation localized price.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductVariationFixedPrice 
@@ -233,9 +233,9 @@ class ProductVariation(object):
 		""" 
 		
 		Args:
-			| localizedDeltaPrice(array|localizedDeltaPrice) - 
-			| productCode (string) - 
-			| variationKey (string) - 
+			| localizedDeltaPrice(array|localizedDeltaPrice) - The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
 		
 		Returns:
 			| array of ProductVariationDeltaPrice 
@@ -257,11 +257,11 @@ class ProductVariation(object):
 		""" 
 		
 		Args:
-			| localizedDeltaPrice(localizedDeltaPrice) - 
-			| productCode (string) - 
-			| variationKey (string) - 
-			| currencyCode (string) - 
-			| responseFields (string) - 
+			| localizedDeltaPrice(localizedDeltaPrice) - The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
+			| currencyCode (string) - The three character ISOÂ currency code, such as USDÂ for US Dollars.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductVariationDeltaPrice 
@@ -285,9 +285,9 @@ class ProductVariation(object):
 		""" 
 		
 		Args:
-			| localizedPrice(array|localizedPrice) - 
-			| productCode (string) - 
-			| variationKey (string) - 
+			| localizedPrice(array|localizedPrice) - The details of the product variation localized price.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
 		
 		Returns:
 			| array of ProductVariationFixedPrice 
@@ -309,11 +309,11 @@ class ProductVariation(object):
 		""" 
 		
 		Args:
-			| localizedPrice(localizedPrice) - 
-			| productCode (string) - 
-			| variationKey (string) - 
-			| currencyCode (string) - 
-			| responseFields (string) - 
+			| localizedPrice(localizedPrice) - The details of the product variation localized price.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
+			| currencyCode (string) - The three character ISOÂ currency code, such as USDÂ for US Dollars.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductVariationFixedPrice 
@@ -337,10 +337,10 @@ class ProductVariation(object):
 		""" 
 		
 		Args:
-			| productVariation(productVariation) - Wrapper for the properties of the specified product variation.
-			| productCode (string) - 
+			| productVariation(productVariation) - Properties of a specific product variation.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductVariation 
@@ -363,9 +363,9 @@ class ProductVariation(object):
 		""" 
 		
 		Args:
-			| productVariations(productVariations) - Wrapper for the collection of variations configured for the specified product code.
-			| productCode (string) - 
-			| responseFields (string) - 
+			| productVariations(productVariations) - Collection of variations configured for a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductVariationCollection 
@@ -387,7 +387,7 @@ class ProductVariation(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
 		
 		Raises:
@@ -406,9 +406,9 @@ class ProductVariation(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| variationKey (string) - 
-			| currencyCode (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
+			| currencyCode (string) - The three character ISOÂ currency code, such as USDÂ for US Dollars.
 		
 		Raises:
 			| ApiException
@@ -427,9 +427,9 @@ class ProductVariation(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| variationKey (string) - 
-			| currencyCode (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
+			| currencyCode (string) - The three character ISOÂ currency code, such as USDÂ for US Dollars.
 		
 		Raises:
 			| ApiException

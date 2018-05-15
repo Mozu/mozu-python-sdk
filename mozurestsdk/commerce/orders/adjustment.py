@@ -25,10 +25,10 @@ class Adjustment(object):
 		
 		Args:
 			| adjustment(adjustment) - 
-			| orderId (string) - 
-			| updateMode (string) - 
-			| version (string) - 
-			| responseFields (string) - 
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -52,11 +52,11 @@ class Adjustment(object):
 		""" 
 		
 		Args:
-			| adjustment(adjustment) - Properties of the shipping adjustment to apply to the order.
-			| orderId (string) - Unique identifier of the order associated with the shipping adjustment.
-			| updateMode (string) - Specifies whether to apply the shipping adjustment by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - 
-			| responseFields (string) - 
+			| adjustment(adjustment) - Properties of an ad-hoc price adjustment for an order.
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -80,11 +80,11 @@ class Adjustment(object):
 		""" 
 		
 		Args:
-			| adjustment(adjustment) - Properties of the price adjustment to apply to the order.
-			| orderId (string) - Unique identifier of the order for which to apply the adjustment.
-			| updateMode (string) - Specifies whether to apply the adjustment by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - 
-			| responseFields (string) - 
+			| adjustment(adjustment) - Properties of an ad-hoc price adjustment for an order.
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -108,9 +108,9 @@ class Adjustment(object):
 		""" 
 		
 		Args:
-			| orderId (string) - 
-			| updateMode (string) - 
-			| version (string) - 
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
 		
 		Returns:
 			| Order 
@@ -133,9 +133,9 @@ class Adjustment(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order with the applied shipping adjustment.
-			| updateMode (string) - Specifies whether to remove the shipping adjustment by updating the original order, updating the order in draft mode, or updating the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - 
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
 		
 		Returns:
 			| Order 
@@ -158,9 +158,9 @@ class Adjustment(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order for which to delete the adjustment.
-			| updateMode (string) - Specifies whether to remove the adjustment by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - 
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
 		
 		Returns:
 			| Order 

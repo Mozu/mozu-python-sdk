@@ -19,7 +19,7 @@ class Package(object):
 		""" 
 		
 		Args:
-			| applicationKey (string) - 
+			| applicationKey (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}. 
 			| fileName (string) - 
 		
 		Returns:

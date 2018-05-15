@@ -24,7 +24,7 @@ class Transaction(object):
 		""" 
 		
 		Args:
-			| accountId (int) - Unique identifier of the customer account for which to retrieve transactions.
+			| accountId (int) - Unique identifier of the customer account.
 		
 		Returns:
 			| array of Transaction 
@@ -45,9 +45,9 @@ class Transaction(object):
 		""" 
 		
 		Args:
-			| transaction(transaction) - Properties of the transaction to create for the customer account.
+			| transaction(transaction) - Properties of a transaction performed by a customer account. The system creates a transaction each time the customer submits an order, returns an item, picks up items for an order, or manages items on a wish list.
 			| accountId (int) - Unique identifier of the customer account.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Transaction 
@@ -69,7 +69,7 @@ class Transaction(object):
 		""" 
 		
 		Args:
-			| accountId (int) - Unique identifier of the customer account from which to delete the transaction.
+			| accountId (int) - Unique identifier of the customer account.
 			| transactionId (string) - Unique identifier of the transaction to delete.
 		
 		Raises:

@@ -25,8 +25,8 @@ class FulfillmentInfo(object):
 		
 		Args:
 			| orderId (string) - Unique identifier of the order.
-			| draft (bool) - If true, retrieve the draft version of the order's fulfillment information, which might include uncommitted changes.
-			| responseFields (string) - 
+			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| FulfillmentInfo 
@@ -49,11 +49,11 @@ class FulfillmentInfo(object):
 		""" 
 		
 		Args:
-			| fulfillmentInfo(fulfillmentInfo) - Array list of fulfillment information associated with an order.
+			| fulfillmentInfo(fulfillmentInfo) - Properties of the information needed to fulfill an order, whether via in-store pickup or direct shipping.
 			| orderId (string) - Unique identifier of the order.
-			| updateMode (string) - Specifies whether to set the fulfillment information by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - 
-			| responseFields (string) - 
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| FulfillmentInfo 

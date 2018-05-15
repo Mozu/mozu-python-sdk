@@ -24,7 +24,7 @@ class Destination(object):
 		""" 
 		
 		Args:
-			| checkoutId (string) - 
+			| checkoutId (string) - The unique identifier of the checkout.
 		
 		Returns:
 			| array of Destination 
@@ -45,9 +45,9 @@ class Destination(object):
 		""" 
 		
 		Args:
-			| checkoutId (string) - 
-			| destinationId (string) - 
-			| responseFields (string) - 
+			| checkoutId (string) - The unique identifier of the checkout.
+			| destinationId (string) - The unique identifier of the destination.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Destination 
@@ -70,9 +70,9 @@ class Destination(object):
 		""" 
 		
 		Args:
-			| destination(destination) - 
-			| checkoutId (string) - 
-			| responseFields (string) - 
+			| destination(destination) - The destination object.
+			| checkoutId (string) - The unique identifier of the checkout.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Destination 
@@ -94,10 +94,10 @@ class Destination(object):
 		""" 
 		
 		Args:
-			| destination(destination) - 
-			| checkoutId (string) - 
-			| destinationId (string) - 
-			| responseFields (string) - 
+			| destination(destination) - The destination object.
+			| checkoutId (string) - The unique identifier of the checkout.
+			| destinationId (string) - The unique identifier of the destination.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Destination 
@@ -120,8 +120,8 @@ class Destination(object):
 		""" 
 		
 		Args:
-			| checkoutId (string) - 
-			| destinationId (string) - 
+			| checkoutId (string) - The unique identifier of the checkout.
+			| destinationId (string) - The unique identifier of the destination.
 		
 		Raises:
 			| ApiException

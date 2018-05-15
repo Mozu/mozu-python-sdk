@@ -20,7 +20,7 @@ class AdminUser(object):
 		
 		Args:
 			| userId (string) - Unique identifier of the user whose tenant scopes you want to retrieve.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| TenantCollection 
@@ -42,8 +42,8 @@ class AdminUser(object):
 		""" 
 		
 		Args:
-			| userId (string) - Unique identifier of the administrator account to retrieve.
-			| responseFields (string) - 
+			| userId (string) - Unique identifier of the user whose tenant scopes you want to retrieve.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| User 

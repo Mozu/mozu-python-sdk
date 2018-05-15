@@ -24,8 +24,8 @@ class PaymentSettings(object):
 		""" 
 		
 		Args:
-			| fullyQualifiedName (string) - 
-			| responseFields (string) - 
+			| fullyQualifiedName (string) - Fully qualified name of the attribute for the third-party payment workflow.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ExternalPaymentWorkflowDefinition 
@@ -64,7 +64,7 @@ class PaymentSettings(object):
 		""" 
 		
 		Args:
-			| definition(definition) - 
+			| definition(definition) - Properties of an external payment processing workflow defined for the site. At this time, only PayPal Express is supported.
 		
 		Raises:
 			| ApiException
@@ -80,7 +80,7 @@ class PaymentSettings(object):
 		""" 
 		
 		Args:
-			| fullyQualifiedName (string) - 
+			| fullyQualifiedName (string) - Fully qualified name of the attribute for the third-party payment workflow.
 		
 		Raises:
 			| ApiException

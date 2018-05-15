@@ -25,7 +25,7 @@ class ProductOption(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 		
 		Returns:
 			| array of ProductOption 
@@ -46,9 +46,9 @@ class ProductOption(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| attributeFQN (string) - 
-			| responseFields (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductOption 
@@ -71,9 +71,9 @@ class ProductOption(object):
 		""" 
 		
 		Args:
-			| productOption(productOption) - Properties of the option attribute to define for the product.
-			| productCode (string) - 
-			| responseFields (string) - 
+			| productOption(productOption) - Properties of the product option to create such as attribute detail, fully qualified name, and list of product option values.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductOption 
@@ -95,10 +95,10 @@ class ProductOption(object):
 		""" 
 		
 		Args:
-			| productOption(productOption) - Properties of the product option attribute configuration to update.
-			| productCode (string) - 
-			| attributeFQN (string) - 
-			| responseFields (string) - 
+			| productOption(productOption) - Properties of the product option to create such as attribute detail, fully qualified name, and list of product option values.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductOption 
@@ -121,8 +121,8 @@ class ProductOption(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| attributeFQN (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
 		
 		Raises:
 			| ApiException

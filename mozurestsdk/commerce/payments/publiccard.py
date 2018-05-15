@@ -19,8 +19,8 @@ class PublicCard(object):
 		""" 
 		
 		Args:
-			| request(request) - 
-			| responseFields (string) - 
+			| request(request) - Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| SyncResponse 
@@ -41,9 +41,9 @@ class PublicCard(object):
 		""" 
 		
 		Args:
-			| request(request) - 
-			| cardId (string) - 
-			| responseFields (string) - 
+			| request(request) - Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE 
+			| cardId (string) - Unique identifier of the card associated with the customer account billing contact.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| SyncResponse 
@@ -65,7 +65,7 @@ class PublicCard(object):
 		""" 
 		
 		Args:
-			| cardId (string) - 
+			| cardId (string) - Unique identifier of the card associated with the customer account billing contact.
 		
 		Raises:
 			| ApiException

@@ -25,7 +25,7 @@ class ProductProperty(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 		
 		Returns:
 			| array of ProductProperty 
@@ -46,9 +46,9 @@ class ProductProperty(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| attributeFQN (string) - 
-			| value (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
 		
 		Returns:
 			| array of ProductPropertyValueLocalizedContent 
@@ -71,11 +71,11 @@ class ProductProperty(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| attributeFQN (string) - 
-			| value (string) - 
-			| localeCode (string) - 
-			| responseFields (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| localeCode (string) - The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductPropertyValueLocalizedContent 
@@ -100,9 +100,9 @@ class ProductProperty(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| attributeFQN (string) - 
-			| responseFields (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductProperty 
@@ -125,11 +125,11 @@ class ProductProperty(object):
 		""" 
 		
 		Args:
-			| localizedContent(localizedContent) - 
-			| productCode (string) - 
-			| attributeFQN (string) - 
-			| value (string) - 
-			| responseFields (string) - 
+			| localizedContent(localizedContent) - Content of the product property value in the language defined for the locale code.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductPropertyValueLocalizedContent 
@@ -153,9 +153,9 @@ class ProductProperty(object):
 		""" 
 		
 		Args:
-			| productProperty(productProperty) - Properties of the property attribute to configure for a product.
-			| productCode (string) - 
-			| responseFields (string) - 
+			| productProperty(productProperty) - Details of a property defined for a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductProperty 
@@ -177,10 +177,10 @@ class ProductProperty(object):
 		""" 
 		
 		Args:
-			| localizedContent(array|localizedContent) - 
-			| productCode (string) - 
-			| attributeFQN (string) - 
-			| value (string) - 
+			| localizedContent(array|localizedContent) - Content of the product property value in the language defined for the locale code.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
 		
 		Returns:
 			| array of ProductPropertyValueLocalizedContent 
@@ -203,12 +203,12 @@ class ProductProperty(object):
 		""" 
 		
 		Args:
-			| localizedContent(localizedContent) - 
-			| productCode (string) - 
-			| attributeFQN (string) - 
-			| value (string) - 
-			| localeCode (string) - 
-			| responseFields (string) - 
+			| localizedContent(localizedContent) - Content of the product property value in the language defined for the locale code.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| localeCode (string) - The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductPropertyValueLocalizedContent 
@@ -233,10 +233,10 @@ class ProductProperty(object):
 		""" 
 		
 		Args:
-			| productProperty(productProperty) - Details of the property attribute to update for the product configuration.
-			| productCode (string) - 
-			| attributeFQN (string) - 
-			| responseFields (string) - 
+			| productProperty(productProperty) - Details of a property defined for a product.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductProperty 
@@ -259,8 +259,8 @@ class ProductProperty(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| attributeFQN (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
 		
 		Raises:
 			| ApiException
@@ -278,10 +278,10 @@ class ProductProperty(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| attributeFQN (string) - 
-			| value (string) - 
-			| localeCode (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| localeCode (string) - The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.
 		
 		Raises:
 			| ApiException

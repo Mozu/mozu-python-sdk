@@ -26,7 +26,7 @@ class Facet(object):
 		Args:
 			| facetId (int) - Unique identifier of the facet to retrieve.
 			| validate (bool) - Validates that the product category associated with a facet is active. System-supplied and read only.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Facet 
@@ -49,10 +49,10 @@ class Facet(object):
 		""" 
 		
 		Args:
-			| categoryId (int) - Unique identifier of the category associated with the facets to retrieve.
+			| categoryId (int) - Unique identifier of the category to modify.
 			| includeAvailable (bool) - If true, returns a list of the attributes and categories associated with a product type that have not been defined as a facet for the category.
 			| validate (bool) - Validates that the product category associated with a facet is active. System-supplied and read only.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| FacetSet 
@@ -76,8 +76,8 @@ class Facet(object):
 		""" 
 		
 		Args:
-			| facet(facet) - Properties of the new facet to create. You must specify the source, type, and category.
-			| responseFields (string) - 
+			| facet(facet) - Properties of the facet used to retrieve documents.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Facet 
@@ -98,9 +98,9 @@ class Facet(object):
 		""" 
 		
 		Args:
-			| facet(facet) - Properties of the defined facet to modify.
-			| facetId (int) - Unique identifier of the facet to modify.
-			| responseFields (string) - 
+			| facet(facet) - Properties of the facet used to retrieve documents.
+			| facetId (int) - Unique identifier of the facet to retrieve.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Facet 
@@ -122,7 +122,7 @@ class Facet(object):
 		""" 
 		
 		Args:
-			| facetId (int) - Unique identifier of the facet to delete.
+			| facetId (int) - Unique identifier of the facet to retrieve.
 		
 		Raises:
 			| ApiException

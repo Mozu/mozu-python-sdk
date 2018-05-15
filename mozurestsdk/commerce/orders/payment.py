@@ -25,7 +25,7 @@ class Payment(object):
 		
 		Args:
 			| orderId (string) - Unique identifier of the order.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| PaymentCollection 
@@ -47,8 +47,8 @@ class Payment(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order associated with the payment.
-			| paymentId (string) - Unique identifer of the payment for which to retrieve available actions.
+			| orderId (string) - Unique identifier of the order.
+			| paymentId (string) - Unique identifier of the payment for which to perform the action.
 		
 		Returns:
 			| array of string 
@@ -70,9 +70,9 @@ class Payment(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order associated with the payment transaction.
-			| paymentId (string) - Unique identifier of the payment transaction submitted for the order.
-			| responseFields (string) - 
+			| orderId (string) - Unique identifier of the order.
+			| paymentId (string) - Unique identifier of the payment for which to perform the action.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Payment 
@@ -95,10 +95,10 @@ class Payment(object):
 		""" 
 		
 		Args:
-			| action(action) - The action to perform for the payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.
-			| orderId (string) - Unique identifier of the order associated with the payment.
-			| paymentId (string) - Unique identifer of the payment for which to perform the action.
-			| responseFields (string) - 
+			| action(action) - Properties of the payment action performed for an order.
+			| orderId (string) - Unique identifier of the order.
+			| paymentId (string) - Unique identifier of the payment for which to perform the action.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -121,9 +121,9 @@ class Payment(object):
 		""" 
 		
 		Args:
-			| action(action) - To action to perform for the newly created payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.
-			| orderId (string) - Unique identifier of the order for which to apply the payment.
-			| responseFields (string) - 
+			| action(action) - Properties of the payment action performed for an order.
+			| orderId (string) - Unique identifier of the order.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 

@@ -24,8 +24,8 @@ class Shipping(object):
 		""" 
 		
 		Args:
-			| rateRequestGroupList(array|rateRequestGroupList) - 
-			| includeRawResponse (bool) - 
+			| rateRequestGroupList(array|rateRequestGroupList) - The shipping rates available for the grouping.
+			| includeRawResponse (bool) - Set this parameter to  to retrieve the full raw JSON response from a shipping carrier (instead of just the shipping rate).
 		
 		Returns:
 			| array of RatesResponseGroup 
@@ -46,9 +46,9 @@ class Shipping(object):
 		""" 
 		
 		Args:
-			| rateRequest(rateRequest) - Properties of the shipping rate request sent on behalf of the storefront website.
-			| includeRawResponse (bool) - 
-			| responseFields (string) - 
+			| rateRequest(rateRequest) - Properties required to request a shipping rate calculation.
+			| includeRawResponse (bool) - Set this parameter to  to retrieve the full raw JSON response from a shipping carrier (instead of just the shipping rate).
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| RatesResponse 

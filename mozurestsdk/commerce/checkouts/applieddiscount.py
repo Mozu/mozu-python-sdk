@@ -24,9 +24,9 @@ class AppliedDiscount(object):
 		""" 
 		
 		Args:
-			| checkoutId (string) - 
-			| couponCode (string) - 
-			| responseFields (string) - 
+			| checkoutId (string) - The unique identifier of the checkout.
+			| couponCode (string) - Code associated with the coupon to remove from the cart.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Checkout 
@@ -49,7 +49,7 @@ class AppliedDiscount(object):
 		""" 
 		
 		Args:
-			| checkoutId (string) - 
+			| checkoutId (string) - The unique identifier of the checkout.
 		
 		Returns:
 			| Checkout 
@@ -70,8 +70,8 @@ class AppliedDiscount(object):
 		""" 
 		
 		Args:
-			| checkoutId (string) - 
-			| couponCode (string) - 
+			| checkoutId (string) - The unique identifier of the checkout.
+			| couponCode (string) - Code associated with the coupon to remove from the cart.
 		
 		Returns:
 			| Checkout 

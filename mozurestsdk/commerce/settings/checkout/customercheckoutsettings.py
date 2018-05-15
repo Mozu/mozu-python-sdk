@@ -24,7 +24,7 @@ class CustomerCheckoutSettings(object):
 		""" 
 		
 		Args:
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CustomerCheckoutSettings 
@@ -45,8 +45,8 @@ class CustomerCheckoutSettings(object):
 		""" 
 		
 		Args:
-			| customerCheckoutSettings(customerCheckoutSettings) - All the properties to update in the checkout settings.
-			| responseFields (string) - 
+			| customerCheckoutSettings(customerCheckoutSettings) - The properties of the customer checkout settings such as whether shoppers must be logged in.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CustomerCheckoutSettings 

@@ -24,11 +24,11 @@ class Visit(object):
 		""" 
 		
 		Args:
-			| startIndex (int) - 
-			| pageSize (int) - 
-			| sortBy (string) - 
-			| filter (string) - 
-			| responseFields (string) - 
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| VisitCollection 
@@ -53,8 +53,8 @@ class Visit(object):
 		""" 
 		
 		Args:
-			| visitId (string) - Unique identifier of the customer visit to retrieve.
-			| responseFields (string) - 
+			| visitId (string) - Unique identifier of the customer visit to update.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Visit 
@@ -76,8 +76,8 @@ class Visit(object):
 		""" 
 		
 		Args:
-			| visit(visit) - Properties of the visit to add to the customer account.
-			| responseFields (string) - 
+			| visit(visit) - Properties of a customer visit to one of a company's sites.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Visit 
@@ -98,9 +98,9 @@ class Visit(object):
 		""" 
 		
 		Args:
-			| visit(visit) - Properties of the customer visit to update.
+			| visit(visit) - Properties of a customer visit to one of a company's sites.
 			| visitId (string) - Unique identifier of the customer visit to update.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Visit 

@@ -24,8 +24,8 @@ class InstalledApplications(object):
 		""" 
 		
 		Args:
-			| appId (string) - The application ID that represents the application to retrieve.
-			| responseFields (string) - 
+			| appId (string) - appId parameter description DOCUMENT_HERE 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Application 
@@ -47,9 +47,9 @@ class InstalledApplications(object):
 		""" 
 		
 		Args:
-			| application(application) - Properties of the application to update.
-			| appId (string) - The application ID that represents the application to update.
-			| responseFields (string) - 
+			| application(application) - Properties of an app installed in a tenant.
+			| appId (string) - appId parameter description DOCUMENT_HERE 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Application 

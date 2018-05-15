@@ -25,8 +25,8 @@ class PublishingScope(object):
 		""" 
 		
 		Args:
-			| publishSetCode (string) - 
-			| responseFields (string) - 
+			| publishSetCode (string) - The unique identifier of the publish set.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| PublishSet 
@@ -48,7 +48,7 @@ class PublishingScope(object):
 		""" 
 		
 		Args:
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| PublishSetCollection 
@@ -69,7 +69,7 @@ class PublishingScope(object):
 		""" 
 		
 		Args:
-			| publishScope(publishScope) - Properties of the pending product changes to include in this operation.
+			| publishScope(publishScope) - Describes the scope of the product publishing update, which can include individual product codes or all pending changes.
 		
 		Raises:
 			| ApiException
@@ -85,7 +85,7 @@ class PublishingScope(object):
 		""" 
 		
 		Args:
-			| publishScope(publishScope) - Properties of the pending product changes to include in this operation.
+			| publishScope(publishScope) - Describes the scope of the product publishing update, which can include individual product codes or all pending changes.
 		
 		Raises:
 			| ApiException
@@ -101,8 +101,8 @@ class PublishingScope(object):
 		""" 
 		
 		Args:
-			| publishSet(publishSet) - 
-			| responseFields (string) - 
+			| publishSet(publishSet) - The details of the publish to which you want to assign products.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| PublishSet 
@@ -123,8 +123,8 @@ class PublishingScope(object):
 		""" 
 		
 		Args:
-			| publishSetCode (string) - 
-			| discardDrafts (bool) - 
+			| publishSetCode (string) - The unique identifier of the publish set.
+			| discardDrafts (bool) - Specifies whether to discard all the drafts assigned to the publish set when the publish set is deleted.
 		
 		Raises:
 			| ApiException

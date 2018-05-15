@@ -24,10 +24,10 @@ class Payment(object):
 		""" 
 		
 		Args:
-			| action(action) - 
-			| checkoutId (string) - 
-			| paymentId (string) - 
-			| responseFields (string) - 
+			| action(action) - The name of the action to perform.
+			| checkoutId (string) - The unique identifier of the checkout.
+			| paymentId (string) - Unique identifier of the payment for which to perform the action.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Checkout 
@@ -50,9 +50,9 @@ class Payment(object):
 		""" 
 		
 		Args:
-			| action(action) - 
-			| checkoutId (string) - 
-			| responseFields (string) - 
+			| action(action) - The name of the action to create.
+			| checkoutId (string) - The unique identifier of the checkout.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Checkout 

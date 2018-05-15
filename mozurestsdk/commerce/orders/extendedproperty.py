@@ -24,8 +24,8 @@ class ExtendedProperty(object):
 		""" 
 		
 		Args:
-			| orderId (string) - 
-			| draft (bool) - 
+			| orderId (string) - Unique identifier of the order.
+			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
 		
 		Returns:
 			| array of ExtendedProperty 
@@ -47,10 +47,10 @@ class ExtendedProperty(object):
 		""" 
 		
 		Args:
-			| extendedProperties(array|extendedProperties) - 
-			| orderId (string) - 
-			| updateMode (string) - 
-			| version (string) - 
+			| extendedProperties(array|extendedProperties) - The details of the extended property.
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
 		
 		Returns:
 			| array of ExtendedProperty 
@@ -73,13 +73,14 @@ class ExtendedProperty(object):
 		""" 
 		
 		Args:
-			| extendedProperty(extendedProperty) - 
-			| orderId (string) - 
-			| key (string) - 
-			| updateMode (string) - 
-			| version (string) - 
-			| upsert (bool) - 
-			| responseFields (string) - 
+			| extendedProperty(extendedProperty) - The details of the updated extended property.
+			| orderId (string) - Unique identifier of the order.
+			| key (string) - The extended property key.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| upsert (bool) - Inserts and updates an extended property.
+        
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ExtendedProperty 
@@ -105,11 +106,12 @@ class ExtendedProperty(object):
 		""" 
 		
 		Args:
-			| extendedProperties(array|extendedProperties) - 
-			| orderId (string) - 
-			| updateMode (string) - 
-			| version (string) - 
-			| upsert (bool) - 
+			| extendedProperties(array|extendedProperties) - The details of the updated extended properties.
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| upsert (bool) - Inserts and updates the extended property.
+        
 		
 		Returns:
 			| array of ExtendedProperty 
@@ -133,10 +135,10 @@ class ExtendedProperty(object):
 		""" 
 		
 		Args:
-			| orderId (string) - 
-			| key (string) - 
-			| updateMode (string) - 
-			| version (string) - 
+			| orderId (string) - Unique identifier of the order.
+			| key (string) - The extended property key.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
 		
 		Raises:
 			| ApiException
@@ -156,10 +158,10 @@ class ExtendedProperty(object):
 		""" 
 		
 		Args:
-			| keys(array|keys) - 
-			| orderId (string) - 
-			| updateMode (string) - 
-			| version (string) - 
+			| keys(array|keys) - The extended property keys.
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
 		
 		Raises:
 			| ApiException

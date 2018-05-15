@@ -24,11 +24,11 @@ class SoftAllocation(object):
 		""" 
 		
 		Args:
-			| startIndex (int) - 
-			| pageSize (int) - 
-			| sortBy (string) - 
-			| filter (string) - 
-			| responseFields (string) - 
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| SoftAllocationCollection 
@@ -53,8 +53,8 @@ class SoftAllocation(object):
 		""" 
 		
 		Args:
-			| softAllocationId (int) - 
-			| responseFields (string) - 
+			| softAllocationId (int) - The unique identifier of the soft allocation.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| SoftAllocation 
@@ -76,7 +76,7 @@ class SoftAllocation(object):
 		""" 
 		
 		Args:
-			| softAllocationsIn(array|softAllocationsIn) - 
+			| softAllocationsIn(array|softAllocationsIn) - The details of the new soft allocation.
 		
 		Returns:
 			| array of SoftAllocation 
@@ -96,7 +96,7 @@ class SoftAllocation(object):
 		""" 
 		
 		Args:
-			| softAllocations(array|softAllocations) - 
+			| softAllocations(array|softAllocations) - The details of the soft allocation which you want to convert into product reservations.
 		
 		Returns:
 			| array of ProductReservation 
@@ -116,7 +116,7 @@ class SoftAllocation(object):
 		""" 
 		
 		Args:
-			| softAllocationRenew(softAllocationRenew) - 
+			| softAllocationRenew(softAllocationRenew) - The details of the soft allocation that you want to renew.
 		
 		Returns:
 			| array of SoftAllocation 
@@ -136,7 +136,7 @@ class SoftAllocation(object):
 		""" 
 		
 		Args:
-			| softAllocations(array|softAllocations) - 
+			| softAllocations(array|softAllocations) - The details of the updated soft allocations.
 		
 		Returns:
 			| array of SoftAllocation 
@@ -156,7 +156,7 @@ class SoftAllocation(object):
 		""" 
 		
 		Args:
-			| softAllocationId (int) - 
+			| softAllocationId (int) - The unique identifier of the soft allocation.
 		
 		Raises:
 			| ApiException

@@ -25,9 +25,9 @@ class ProductHandlingFeeRules(object):
 		""" 
 		
 		Args:
-			| profilecode (string) - 
-			| id (string) - 
-			| responseFields (string) - 
+			| profilecode (string) - The unique, user-defined code of the profile with which the product handling fee rule is associated.
+			| id (string) - Unique identifier of the customer segment to retrieve.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| HandlingFeeRule 
@@ -50,8 +50,8 @@ class ProductHandlingFeeRules(object):
 		""" 
 		
 		Args:
-			| profilecode (string) - 
-			| responseFields (string) - 
+			| profilecode (string) - The unique, user-defined code of the profile with which the product handling fee rule is associated.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| HandlingFeeRuleCollection 
@@ -73,9 +73,9 @@ class ProductHandlingFeeRules(object):
 		""" 
 		
 		Args:
-			| rule(rule) - 
-			| profilecode (string) - 
-			| responseFields (string) - 
+			| rule(rule) - The details of the new product handling fee rule.
+			| profilecode (string) - The unique, user-defined code of the profile with which the product handling fee rule is associated.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| HandlingFeeRule 
@@ -97,10 +97,10 @@ class ProductHandlingFeeRules(object):
 		""" 
 		
 		Args:
-			| rule(rule) - 
-			| profilecode (string) - 
-			| id (string) - 
-			| responseFields (string) - 
+			| rule(rule) - The updated details of the product handling fee rule.
+			| profilecode (string) - The unique, user-defined code of the profile with which the product handling fee rule is associated.
+			| id (string) - Unique identifier of the customer segment to retrieve.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| HandlingFeeRule 
@@ -123,8 +123,8 @@ class ProductHandlingFeeRules(object):
 		""" 
 		
 		Args:
-			| profilecode (string) - 
-			| id (string) - 
+			| profilecode (string) - The unique, user-defined code of the profile with which the product handling fee rule is associated.
+			| id (string) - Unique identifier of the customer segment to retrieve.
 		
 		Raises:
 			| ApiException

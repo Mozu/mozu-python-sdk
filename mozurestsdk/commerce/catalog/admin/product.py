@@ -25,14 +25,14 @@ class Product(object):
 		""" 
 		
 		Args:
-			| startIndex (int) - 
-			| pageSize (int) - 
-			| sortBy (string) - 
-			| filter (string) - 
-			| q (string) - A list of product search terms to use in the query when searching across product code and product name. Separate multiple search terms with a space character.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| q (string) - A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.
 			| qLimit (int) - The maximum number of search results to return in the response. You can limit any range between 1-100.
 			| noCount (bool) - If true, the operation does not return the TotalCount number of results.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductCollection 
@@ -60,7 +60,7 @@ class Product(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 		
 		Returns:
 			| array of ProductInCatalogInfo 
@@ -81,9 +81,9 @@ class Product(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| catalogId (int) - 
-			| responseFields (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| catalogId (int) - Unique identifier for a catalog.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductInCatalogInfo 
@@ -106,8 +106,8 @@ class Product(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| responseFields (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Product 
@@ -129,8 +129,8 @@ class Product(object):
 		""" 
 		
 		Args:
-			| product(product) - Properties of the new product. You must supply values for the product code, product name, and price.
-			| responseFields (string) - 
+			| product(product) - The properties of a product, referenced and used by carts, orders, wish lists, and returns.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Product 
@@ -151,9 +151,9 @@ class Product(object):
 		""" 
 		
 		Args:
-			| productInCatalogInfoIn(productInCatalogInfoIn) - Properties of the product to define for the specific catalog association.
-			| productCode (string) - 
-			| responseFields (string) - 
+			| productInCatalogInfoIn(productInCatalogInfoIn) - Properties of a product associated with a specific catalog.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductInCatalogInfo 
@@ -175,7 +175,7 @@ class Product(object):
 		""" 
 		
 		Args:
-			| productCodeRenames(array|productCodeRenames) - 
+			| productCodeRenames(array|productCodeRenames) - Properties for a product code current and changed content.
 		
 		Raises:
 			| ApiException
@@ -191,8 +191,8 @@ class Product(object):
 		""" 
 		
 		Args:
-			| productInCatalogsIn(array|productInCatalogsIn) - Properties of the product to update for each associated catalog.
-			| productCode (string) - 
+			| productInCatalogsIn(array|productInCatalogsIn) - Properties of a product associated with a specific catalog.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 		
 		Returns:
 			| array of ProductInCatalogInfo 
@@ -213,10 +213,10 @@ class Product(object):
 		""" 
 		
 		Args:
-			| productInCatalogInfoIn(productInCatalogInfoIn) - Properties of the product associated with the catalog specified in the request.
-			| productCode (string) - 
-			| catalogId (int) - 
-			| responseFields (string) - 
+			| productInCatalogInfoIn(productInCatalogInfoIn) - Properties of a product associated with a specific catalog.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| catalogId (int) - Unique identifier for a catalog.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductInCatalogInfo 
@@ -239,9 +239,9 @@ class Product(object):
 		""" 
 		
 		Args:
-			| product(product) - Properties of the product definition to update in the master catalog.
-			| productCode (string) - 
-			| responseFields (string) - 
+			| product(product) - The properties of a product, referenced and used by carts, orders, wish lists, and returns.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Product 
@@ -263,7 +263,7 @@ class Product(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 		
 		Raises:
 			| ApiException
@@ -280,8 +280,8 @@ class Product(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| catalogId (int) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| catalogId (int) - Unique identifier for a catalog.
 		
 		Raises:
 			| ApiException

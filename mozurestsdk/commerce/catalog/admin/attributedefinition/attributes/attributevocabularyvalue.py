@@ -24,7 +24,7 @@ class AttributeVocabularyValue(object):
 		""" 
 		
 		Args:
-			| attributeFQN (string) - 
+			| attributeFQN (string) - Fully qualified name for an attribute.
 		
 		Returns:
 			| array of AttributeVocabularyValue 
@@ -45,8 +45,8 @@ class AttributeVocabularyValue(object):
 		""" 
 		
 		Args:
-			| attributeFQN (string) - 
-			| value (string) - 
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
 		
 		Returns:
 			| array of AttributeVocabularyValueLocalizedContent 
@@ -68,10 +68,10 @@ class AttributeVocabularyValue(object):
 		""" 
 		
 		Args:
-			| attributeFQN (string) - 
-			| value (string) - 
-			| localeCode (string) - 
-			| responseFields (string) - 
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| localeCode (string) - The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| AttributeVocabularyValueLocalizedContent 
@@ -95,9 +95,9 @@ class AttributeVocabularyValue(object):
 		""" 
 		
 		Args:
-			| attributeFQN (string) - 
-			| value (string) - The actual unique value of the attribute vocabulary to retrieve. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
-			| responseFields (string) - 
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| AttributeVocabularyValue 
@@ -120,10 +120,10 @@ class AttributeVocabularyValue(object):
 		""" 
 		
 		Args:
-			| localizedContent(localizedContent) - 
-			| attributeFQN (string) - 
-			| value (string) - 
-			| responseFields (string) - 
+			| localizedContent(localizedContent) - The localized text for the string value of a product attribute.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| AttributeVocabularyValueLocalizedContent 
@@ -146,9 +146,9 @@ class AttributeVocabularyValue(object):
 		""" 
 		
 		Args:
-			| attributeVocabularyValue(attributeVocabularyValue) - The predefined vocabulary value to add to the attribute content.
-			| attributeFQN (string) - 
-			| responseFields (string) - 
+			| attributeVocabularyValue(attributeVocabularyValue) - Properties of a vocabulary value defined for an extensible attribute.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| AttributeVocabularyValue 
@@ -170,8 +170,8 @@ class AttributeVocabularyValue(object):
 		""" 
 		
 		Args:
-			| vocabularyValues(array|vocabularyValues) - The actual vocabulary values for the attribute being updated.
-			| attributeFQN (string) - 
+			| vocabularyValues(array|vocabularyValues) - Properties of a vocabulary value defined for an extensible attribute.
+			| attributeFQN (string) - Fully qualified name for an attribute.
 		
 		Returns:
 			| array of AttributeVocabularyValue 
@@ -192,9 +192,9 @@ class AttributeVocabularyValue(object):
 		""" 
 		
 		Args:
-			| localizedContent(array|localizedContent) - 
-			| attributeFQN (string) - 
-			| value (string) - 
+			| localizedContent(array|localizedContent) - The localized text for the string value of a product attribute.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
 		
 		Returns:
 			| array of AttributeVocabularyValueLocalizedContent 
@@ -216,11 +216,11 @@ class AttributeVocabularyValue(object):
 		""" 
 		
 		Args:
-			| localizedContent(localizedContent) - 
-			| attributeFQN (string) - 
-			| value (string) - 
-			| localeCode (string) - 
-			| responseFields (string) - 
+			| localizedContent(localizedContent) - The localized text for the string value of a product attribute.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| localeCode (string) - The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| AttributeVocabularyValueLocalizedContent 
@@ -244,10 +244,10 @@ class AttributeVocabularyValue(object):
 		""" 
 		
 		Args:
-			| attributeVocabularyValue(attributeVocabularyValue) - The predefined vocabulary value to add to the attribute content to update.
-			| attributeFQN (string) - 
-			| value (string) - The actual unique value of the attribute vocabulary value to update. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
-			| responseFields (string) - 
+			| attributeVocabularyValue(attributeVocabularyValue) - Properties of a vocabulary value defined for an extensible attribute.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| AttributeVocabularyValue 
@@ -270,8 +270,8 @@ class AttributeVocabularyValue(object):
 		""" 
 		
 		Args:
-			| attributeFQN (string) - 
-			| value (string) - The actual unique value of the attribute vocabulary to delete. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
 		
 		Raises:
 			| ApiException
@@ -289,9 +289,9 @@ class AttributeVocabularyValue(object):
 		""" 
 		
 		Args:
-			| attributeFQN (string) - 
-			| value (string) - 
-			| localeCode (string) - 
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| value (string) - The value string to create.
+			| localeCode (string) - The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.
 		
 		Raises:
 			| ApiException

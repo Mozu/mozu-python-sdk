@@ -24,7 +24,7 @@ class ShippingStates(object):
 		""" 
 		
 		Args:
-			| profileCode (string) - 
+			| profileCode (string) - The unique, user-defined code of the profile with which the shipping state is associated.
 		
 		Returns:
 			| array of ShippingStates 
@@ -45,8 +45,8 @@ class ShippingStates(object):
 		""" 
 		
 		Args:
-			| states(array|states) - 
-			| profilecode (string) - 
+			| states(array|states) - The updated details of the shipping states associated with the specified profilecode.
+			| profilecode (string) - The unique, user-defined code of the profile with which the shipping state is associated.
 		
 		Returns:
 			| array of ShippingStates 

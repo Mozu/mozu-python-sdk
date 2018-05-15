@@ -24,9 +24,9 @@ class AppliedDiscount(object):
 		""" 
 		
 		Args:
-			| cartId (string) - Unique identifier of the cart to which to apply the coupon.
-			| couponCode (string) - Code associated with the coupon to apply to the cart.
-			| responseFields (string) - 
+			| cartId (string) - Identifier of the cart to delete.
+			| couponCode (string) - Code associated with the coupon to remove from the cart.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Cart 
@@ -49,7 +49,7 @@ class AppliedDiscount(object):
 		""" 
 		
 		Args:
-			| cartId (string) - Unique identifier of the cart.
+			| cartId (string) - Identifier of the cart to delete.
 		
 		Returns:
 			| Cart 
@@ -70,7 +70,7 @@ class AppliedDiscount(object):
 		""" 
 		
 		Args:
-			| cartId (string) - Unique identifier of the cart.
+			| cartId (string) - Identifier of the cart to delete.
 			| couponCode (string) - Code associated with the coupon to remove from the cart.
 		
 		Returns:

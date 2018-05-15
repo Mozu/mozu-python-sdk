@@ -24,9 +24,9 @@ class Entity(object):
 		""" 
 		
 		Args:
-			| entityListFullName (string) - 
-			| id (string) - 
-			| responseFields (string) - 
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| id (string) - Unique identifier of the customer segment to retrieve.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| JObject 
@@ -49,12 +49,12 @@ class Entity(object):
 		""" 
 		
 		Args:
-			| entityListFullName (string) - 
-			| pageSize (int) - 
-			| startIndex (int) - 
-			| filter (string) - 
-			| sortBy (string) - 
-			| responseFields (string) - 
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| EntityCollection 
@@ -80,9 +80,9 @@ class Entity(object):
 		""" 
 		
 		Args:
-			| item(item) - 
-			| entityListFullName (string) - 
-			| responseFields (string) - 
+			| item(item) - JSON code for objects.
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| JObject 
@@ -104,10 +104,10 @@ class Entity(object):
 		""" 
 		
 		Args:
-			| item(item) - 
-			| entityListFullName (string) - 
-			| id (string) - 
-			| responseFields (string) - 
+			| item(item) - JSON code for objects.
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| id (string) - Unique identifier of the customer segment to retrieve.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| JObject 
@@ -130,8 +130,8 @@ class Entity(object):
 		""" 
 		
 		Args:
-			| entityListFullName (string) - 
-			| id (string) - 
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| id (string) - Unique identifier of the customer segment to retrieve.
 		
 		Raises:
 			| ApiException

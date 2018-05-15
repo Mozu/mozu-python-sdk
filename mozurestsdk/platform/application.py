@@ -19,8 +19,8 @@ class Application(object):
 		""" 
 		
 		Args:
-			| applicationKey (string) - 
-			| responseFields (string) - 
+			| applicationKey (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| PackageNamesCollection 
@@ -42,8 +42,8 @@ class Application(object):
 		""" 
 		
 		Args:
-			| nsAndAppId (string) - 
-			| responseFields (string) - 
+			| nsAndAppId (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ApplicationVersionsCollection 
@@ -65,9 +65,9 @@ class Application(object):
 		""" 
 		
 		Args:
-			| applicationKey (string) - 
-			| filepath (string) - 
-			| responseFields (string) - 
+			| applicationKey (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
+			| filepath (string) - Represents the file name and location.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| FileMetadata 
@@ -90,8 +90,8 @@ class Application(object):
 		""" 
 		
 		Args:
-			| applicationKey (string) - 
-			| responseFields (string) - 
+			| applicationKey (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| FolderMetadata 
@@ -113,11 +113,11 @@ class Application(object):
 		""" 
 		
 		Args:
-			| stream(stream) - 
-			| applicationKey (string) - 
-			| filepath (string) - 
-			| lastModifiedTime (string) - 
-			| responseFields (string) - 
+			| stream(stream) - Data stream that delivers information. Used to input and output data.
+			| applicationKey (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
+			| filepath (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
+			| lastModifiedTime (string) - The date and time of the last file insert or update. This parameter is optional.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 			| contentType (string) - set content type of the data uploaded|
 		
 		Returns:
@@ -142,9 +142,9 @@ class Application(object):
 		""" 
 		
 		Args:
-			| renameInfo(renameInfo) - 
-			| applicationKey (string) - 
-			| responseFields (string) - 
+			| renameInfo(renameInfo) - Information required to update the name of a file in a package, which consists of the original name and the new name.
+			| applicationKey (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| FileMetadata 
@@ -166,8 +166,8 @@ class Application(object):
 		""" 
 		
 		Args:
-			| applicationKey (string) - 
-			| filepath (string) - 
+			| applicationKey (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
+			| filepath (string) - Represents the file name and location.
 		
 		Raises:
 			| ApiException

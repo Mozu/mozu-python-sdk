@@ -24,8 +24,8 @@ class Pickup(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order associated with the pickup.
-			| pickupId (string) - Unique identifier of the pickup for which to retrieve available actions.
+			| orderId (string) - Unique identifier of the order.
+			| pickupId (string) - Unique identifier of the pickup to remove.
 		
 		Returns:
 			| array of string 
@@ -47,9 +47,9 @@ class Pickup(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order associated with the pickup.
-			| pickupId (string) - Unique identifier of the pickup to retrieve.
-			| responseFields (string) - 
+			| orderId (string) - Unique identifier of the order.
+			| pickupId (string) - Unique identifier of the pickup to remove.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Pickup 
@@ -72,9 +72,9 @@ class Pickup(object):
 		""" 
 		
 		Args:
-			| pickup(pickup) - Properties of the in-store pickup to create.
+			| pickup(pickup) - Properties of an in-store pickup defined to fulfill items in an order.
 			| orderId (string) - Unique identifier of the order.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Pickup 
@@ -96,10 +96,10 @@ class Pickup(object):
 		""" 
 		
 		Args:
-			| pickup(pickup) - Properties of the in-store pickup to update.
-			| orderId (string) - Unique identifier of the order associated with the in-store pickup.
-			| pickupId (string) - Unique identifier of the pickup to update.
-			| responseFields (string) - 
+			| pickup(pickup) - Properties of an in-store pickup defined to fulfill items in an order.
+			| orderId (string) - Unique identifier of the order.
+			| pickupId (string) - Unique identifier of the pickup to remove.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Pickup 
@@ -122,7 +122,7 @@ class Pickup(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order associated with the pickup.
+			| orderId (string) - Unique identifier of the order.
 			| pickupId (string) - Unique identifier of the pickup to remove.
 		
 		Raises:

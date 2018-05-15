@@ -24,10 +24,10 @@ class ListView(object):
 		""" 
 		
 		Args:
-			| entityListFullName (string) - 
-			| viewName (string) - 
-			| entityId (string) - 
-			| responseFields (string) - 
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
+			| entityId (string) - Unique identifier for an entity, which defines the schema, rules, and formats for JSON entities within the MZDB ( Mongo DB).
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| JObject 
@@ -51,12 +51,12 @@ class ListView(object):
 		""" 
 		
 		Args:
-			| entityListFullName (string) - 
-			| viewName (string) - 
-			| pageSize (int) - 
-			| startIndex (int) - 
-			| filter (string) - 
-			| responseFields (string) - 
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| EntityCollection 
@@ -82,10 +82,10 @@ class ListView(object):
 		""" 
 		
 		Args:
-			| entityListFullName (string) - 
-			| viewName (string) - 
-			| entityId (string) - 
-			| responseFields (string) - 
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
+			| entityId (string) - Unique identifier for an entity, which defines the schema, rules, and formats for JSON entities within the MZDB ( Mongo DB).
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| EntityContainer 
@@ -109,12 +109,12 @@ class ListView(object):
 		""" 
 		
 		Args:
-			| entityListFullName (string) - 
-			| viewName (string) - 
-			| pageSize (int) - 
-			| startIndex (int) - 
-			| filter (string) - 
-			| responseFields (string) - 
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| EntityContainerCollection 
@@ -140,9 +140,9 @@ class ListView(object):
 		""" 
 		
 		Args:
-			| entityListFullName (string) - 
-			| viewName (string) - 
-			| responseFields (string) - 
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ListView 
@@ -165,8 +165,8 @@ class ListView(object):
 		""" 
 		
 		Args:
-			| entityListFullName (string) - 
-			| responseFields (string) - 
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ListViewCollection 
@@ -188,9 +188,9 @@ class ListView(object):
 		""" 
 		
 		Args:
-			| listView(listView) - 
-			| entityListFullName (string) - 
-			| responseFields (string) - 
+			| listView(listView) - Properties for the list view that specifies what fields and content display per page load. All associated fields in the list view correspond with object data.
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ListView 
@@ -212,10 +212,10 @@ class ListView(object):
 		""" 
 		
 		Args:
-			| listView(listView) - 
-			| entityListFullName (string) - 
-			| viewName (string) - 
-			| responseFields (string) - 
+			| listView(listView) - Properties for the list view that specifies what fields and content display per page load. All associated fields in the list view correspond with object data.
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ListView 
@@ -238,8 +238,8 @@ class ListView(object):
 		""" 
 		
 		Args:
-			| entityListFullName (string) - 
-			| viewName (string) - 
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
 		
 		Raises:
 			| ApiException

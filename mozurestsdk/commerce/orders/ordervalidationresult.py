@@ -45,9 +45,9 @@ class OrderValidationResult(object):
 		""" 
 		
 		Args:
-			| validationResult(validationResult) - Properties of the validation result to add for the order.
+			| validationResult(validationResult) - Properties of the resulting order validation performed by an order validation capability.
 			| orderId (string) - Unique identifier of the order.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| OrderValidationResult 

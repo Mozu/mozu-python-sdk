@@ -24,8 +24,8 @@ class PriceList(object):
 		""" 
 		
 		Args:
-			| priceListCode (string) - 
-			| responseFields (string) - 
+			| priceListCode (string) - The unique code of the price list for which you want to retrieve the details.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| PriceList 
@@ -47,8 +47,8 @@ class PriceList(object):
 		""" 
 		
 		Args:
-			| customerAccountId (int) - 
-			| responseFields (string) - 
+			| customerAccountId (int) - The unique identifier of the customer account for which to retrieve wish lists.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ResolvedPriceList 

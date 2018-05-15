@@ -24,7 +24,7 @@ class OrderNote(object):
 		""" 
 		
 		Args:
-			| returnId (string) - 
+			| returnId (string) - Unique identifier of the return whose items you want to get.
 		
 		Returns:
 			| array of OrderNote 
@@ -45,9 +45,9 @@ class OrderNote(object):
 		""" 
 		
 		Args:
-			| returnId (string) - 
-			| noteId (string) - 
-			| responseFields (string) - 
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| noteId (string) - Unique identifier of a particular note to retrieve.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| OrderNote 
@@ -71,8 +71,8 @@ class OrderNote(object):
 		
 		Args:
 			| returnNote(returnNote) - 
-			| returnId (string) - 
-			| responseFields (string) - 
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| OrderNote 
@@ -95,9 +95,9 @@ class OrderNote(object):
 		
 		Args:
 			| returnNote(returnNote) - 
-			| returnId (string) - 
-			| noteId (string) - 
-			| responseFields (string) - 
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| noteId (string) - Unique identifier of a particular note to retrieve.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| OrderNote 
@@ -120,8 +120,8 @@ class OrderNote(object):
 		""" 
 		
 		Args:
-			| returnId (string) - 
-			| noteId (string) - 
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| noteId (string) - Unique identifier of a particular note to retrieve.
 		
 		Raises:
 			| ApiException

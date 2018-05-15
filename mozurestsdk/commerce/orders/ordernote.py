@@ -45,9 +45,9 @@ class OrderNote(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order associated with the note.
-			| noteId (string) - Unique identifier of the order note to retrieve.
-			| responseFields (string) - 
+			| orderId (string) - Unique identifier of the order.
+			| noteId (string) - Unique identifier of a particular note to retrieve.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| OrderNote 
@@ -70,9 +70,9 @@ class OrderNote(object):
 		""" 
 		
 		Args:
-			| orderNote(orderNote) - The alphanumeric text contained in the note. The maximum length is 256 characters.
-			| orderId (string) - Unique identifier of the order for which to add a note.
-			| responseFields (string) - 
+			| orderNote(orderNote) - Properties of an order note for a merchant, which is internal only for administrative purposes and not available to the shopper.
+			| orderId (string) - Unique identifier of the order.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| OrderNote 
@@ -94,10 +94,10 @@ class OrderNote(object):
 		""" 
 		
 		Args:
-			| orderNote(orderNote) - The content of the order note. The maximum length is 256 characters.
+			| orderNote(orderNote) - Properties of an order note for a merchant, which is internal only for administrative purposes and not available to the shopper.
 			| orderId (string) - Unique identifier of the order.
-			| noteId (string) - Unique identifier of the order note.
-			| responseFields (string) - 
+			| noteId (string) - Unique identifier of a particular note to retrieve.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| OrderNote 
@@ -120,8 +120,8 @@ class OrderNote(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order associated with the note.
-			| noteId (string) - Unique identifier of the order note to delete.
+			| orderId (string) - Unique identifier of the order.
+			| noteId (string) - Unique identifier of a particular note to retrieve.
 		
 		Raises:
 			| ApiException

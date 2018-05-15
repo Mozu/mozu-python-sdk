@@ -24,11 +24,11 @@ class EntityList(object):
 		""" 
 		
 		Args:
-			| pageSize (int) - 
-			| startIndex (int) - 
-			| filter (string) - 
-			| sortBy (string) - 
-			| responseFields (string) - 
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| EntityListCollection 
@@ -53,8 +53,8 @@ class EntityList(object):
 		""" 
 		
 		Args:
-			| entityListFullName (string) - 
-			| responseFields (string) - 
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| EntityList 
@@ -76,8 +76,8 @@ class EntityList(object):
 		""" 
 		
 		Args:
-			| entityList(entityList) - 
-			| responseFields (string) - 
+			| entityList(entityList) - The definition of an MZDB EntityList which describes the characteristics of the EntityList on a per tenant basis. EntityLists are created at the tenant level, but instances of the EntityLists are implicitly created at the appropriate context level as entities are added or removed from the EntityList.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| EntityList 
@@ -98,9 +98,9 @@ class EntityList(object):
 		""" 
 		
 		Args:
-			| entityList(entityList) - 
-			| entityListFullName (string) - 
-			| responseFields (string) - 
+			| entityList(entityList) - The definition of an MZDB EntityList which describes the characteristics of the EntityList on a per tenant basis. EntityLists are created at the tenant level, but instances of the EntityLists are implicitly created at the appropriate context level as entities are added or removed from the EntityList.
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| EntityList 
@@ -122,7 +122,7 @@ class EntityList(object):
 		""" 
 		
 		Args:
-			| entityListFullName (string) - 
+			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
 		
 		Raises:
 			| ApiException

@@ -19,8 +19,8 @@ class AuthTicket(object):
 		""" 
 		
 		Args:
-			| appAuthInfo(appAuthInfo) - Authentication information required to generate an authentication ticket includes the application id and the shared secret.
-			| responseFields (string) - 
+			| appAuthInfo(appAuthInfo) - The information required to authenticate third party applications against the  API.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| AuthTicket 
@@ -41,8 +41,8 @@ class AuthTicket(object):
 		""" 
 		
 		Args:
-			| authTicketRequest(authTicketRequest) - The refresh token string required to update the application authentication ticket.
-			| responseFields (string) - 
+			| authTicketRequest(authTicketRequest) - Properties of the authentication ticket refresh requests, which includes the refresh token string.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| AuthTicket 
@@ -63,7 +63,7 @@ class AuthTicket(object):
 		""" 
 		
 		Args:
-			| refreshToken (string) - The refresh token string from the application's authentication ticket.
+			| refreshToken (string) - Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.
 		
 		Raises:
 			| ApiException

@@ -24,7 +24,7 @@ class AttributeLocalizedContent(object):
 		""" 
 		
 		Args:
-			| attributeFQN (string) - 
+			| attributeFQN (string) - Fully qualified name for an attribute.
 		
 		Returns:
 			| array of AttributeLocalizedContent 
@@ -45,9 +45,9 @@ class AttributeLocalizedContent(object):
 		""" 
 		
 		Args:
-			| attributeFQN (string) - 
-			| localeCode (string) - 
-			| responseFields (string) - 
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| localeCode (string) - The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| AttributeLocalizedContent 
@@ -70,9 +70,9 @@ class AttributeLocalizedContent(object):
 		""" 
 		
 		Args:
-			| localizedContent(localizedContent) - 
-			| attributeFQN (string) - 
-			| responseFields (string) - 
+			| localizedContent(localizedContent) - The localized name and description of the attribute, displayed in the locale defined for the master catalog.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| AttributeLocalizedContent 
@@ -94,8 +94,8 @@ class AttributeLocalizedContent(object):
 		""" 
 		
 		Args:
-			| localizedContent(array|localizedContent) - 
-			| attributeFQN (string) - 
+			| localizedContent(array|localizedContent) - The localized name and description of the attribute, displayed in the locale defined for the master catalog.
+			| attributeFQN (string) - Fully qualified name for an attribute.
 		
 		Returns:
 			| array of AttributeLocalizedContent 
@@ -116,10 +116,10 @@ class AttributeLocalizedContent(object):
 		""" 
 		
 		Args:
-			| localizedContent(localizedContent) - 
-			| attributeFQN (string) - 
-			| localeCode (string) - 
-			| responseFields (string) - 
+			| localizedContent(localizedContent) - The localized name and description of the attribute, displayed in the locale defined for the master catalog.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| localeCode (string) - The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| AttributeLocalizedContent 
@@ -142,8 +142,8 @@ class AttributeLocalizedContent(object):
 		""" 
 		
 		Args:
-			| attributeFQN (string) - 
-			| localeCode (string) - 
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| localeCode (string) - The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.
 		
 		Raises:
 			| ApiException

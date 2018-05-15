@@ -25,7 +25,7 @@ class ProductTypeOption(object):
 		""" 
 		
 		Args:
-			| productTypeId (int) - Identifier of the product type to retrieve.
+			| productTypeId (int) - Identifier of the product type.
 		
 		Returns:
 			| array of AttributeInProductType 
@@ -46,9 +46,9 @@ class ProductTypeOption(object):
 		""" 
 		
 		Args:
-			| productTypeId (int) - The identifier of the product type.
-			| attributeFQN (string) - 
-			| responseFields (string) - 
+			| productTypeId (int) - Identifier of the product type.
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| AttributeInProductType 
@@ -71,9 +71,9 @@ class ProductTypeOption(object):
 		""" 
 		
 		Args:
-			| attributeInProductType(attributeInProductType) - Properties of the option attribute to define for the specified product type.
+			| attributeInProductType(attributeInProductType) - Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.
 			| productTypeId (int) - Identifier of the product type.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| AttributeInProductType 
@@ -95,10 +95,10 @@ class ProductTypeOption(object):
 		""" 
 		
 		Args:
-			| attributeInProductType(attributeInProductType) - Properties of the option product attribute to define for the specified product type.
+			| attributeInProductType(attributeInProductType) - Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.
 			| productTypeId (int) - Identifier of the product type.
-			| attributeFQN (string) - 
-			| responseFields (string) - 
+			| attributeFQN (string) - Fully qualified name for an attribute.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| AttributeInProductType 
@@ -122,7 +122,7 @@ class ProductTypeOption(object):
 		
 		Args:
 			| productTypeId (int) - Identifier of the product type.
-			| attributeFQN (string) - 
+			| attributeFQN (string) - Fully qualified name for an attribute.
 		
 		Raises:
 			| ApiException

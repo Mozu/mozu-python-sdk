@@ -24,7 +24,7 @@ class CustomerAuthTicket(object):
 		""" 
 		
 		Args:
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CustomerAuthTicket 
@@ -45,8 +45,8 @@ class CustomerAuthTicket(object):
 		""" 
 		
 		Args:
-			| userAuthInfo(userAuthInfo) - The authentication information required to generate an authetication ticket for a user, which consists of a user name and password.
-			| responseFields (string) - 
+			| userAuthInfo(userAuthInfo) - The authentication information required to generate an authentication ticket for a customer account.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CustomerAuthTicket 
@@ -67,8 +67,8 @@ class CustomerAuthTicket(object):
 		""" 
 		
 		Args:
-			| refreshToken (string) - The refresh token string required to refresh a user's authentication ticket.
-			| responseFields (string) - 
+			| refreshToken (string) - Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CustomerAuthTicket 

@@ -24,10 +24,10 @@ class OrderItem(object):
 		""" 
 		
 		Args:
-			| orderId (string) - 
-			| lineId (int) - 
-			| draft (bool) - 
-			| responseFields (string) - 
+			| orderId (string) - Unique identifier of the order.
+			| lineId (int) - The specific line id that's associated with the order item.
+			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| OrderItem 
@@ -51,10 +51,10 @@ class OrderItem(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order item to retrieve.
-			| orderItemId (string) - Unique identifier of the order item details to retrieve.
-			| draft (bool) - If true, retrieve the draft version of this order item, which might include uncommitted changes to the order item, the order, or other order components.
-			| responseFields (string) - 
+			| orderId (string) - Unique identifier of the order.
+			| orderItemId (string) - Unique identifier of the item to remove from the order.
+			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| OrderItem 
@@ -78,9 +78,9 @@ class OrderItem(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order items to retrieve.
-			| draft (bool) - If true, retrieve the draft version of the order's items, which might include uncommitted changes to one or more order items, the order itself, or other order components.
-			| responseFields (string) - 
+			| orderId (string) - Unique identifier of the order.
+			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| OrderItemCollection 
@@ -103,12 +103,12 @@ class OrderItem(object):
 		""" 
 		
 		Args:
-			| orderItem(orderItem) - The properties of the item to create in the existing order.
-			| orderId (string) - Unique identifier of the order for which to add the item.
-			| updateMode (string) - Specifies whether to add the item by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - 
-			| skipInventoryCheck (bool) - If true, do not validate the product inventory when adding this item to the order.
-			| responseFields (string) - 
+			| orderItem(orderItem) - The details associated with a specific item in an order.
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| skipInventoryCheck (bool) - If true, skip the process to validate inventory when creating this product reservation.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -133,13 +133,13 @@ class OrderItem(object):
 		""" 
 		
 		Args:
-			| discount(discount) - Properties of the discount to modify for the order item.
-			| orderId (string) - Unique identifier of the order associated with the item discount.
-			| orderItemId (string) - Unique identifier of the item in the order.
-			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
-			| updateMode (string) - Specifies whether to change the item discount by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - 
-			| responseFields (string) - 
+			| discount(discount) - Properties of all applied discounts for an associated cart, order, or product. 
+			| orderId (string) - Unique identifier of the order.
+			| orderItemId (string) - Unique identifier of the item to remove from the order.
+			| discountId (int) - discountId parameter description DOCUMENT_HERE 
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -165,12 +165,13 @@ class OrderItem(object):
 		""" 
 		
 		Args:
-			| orderId (string) - 
-			| orderItemId (string) - 
-			| dutyAmount (decimal) - 
-			| updateMode (string) - 
-			| version (string) - 
-			| responseFields (string) - 
+			| orderId (string) - Unique identifier of the order.
+			| orderItemId (string) - Unique identifier of the item to remove from the order.
+			| dutyAmount (decimal) - The amount added to the order item for duty fees.
+        
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -196,12 +197,12 @@ class OrderItem(object):
 		""" 
 		
 		Args:
-			| orderItem(orderItem) - Properties of the order item to update for fulfillment.
+			| orderItem(orderItem) - The details associated with a specific item in an order.
 			| orderId (string) - Unique identifier of the order.
-			| orderItemId (string) - Unique identifier of the item in the order.
-			| updateMode (string) - Specifies whether to apply the coupon by updating the original order, updating the order in draft mode, or updating the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - 
-			| responseFields (string) - 
+			| orderItemId (string) - Unique identifier of the item to remove from the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -226,12 +227,12 @@ class OrderItem(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order containing the item to price override.
-			| orderItemId (string) - Unique identifier of the item in the order to price override.
+			| orderId (string) - Unique identifier of the order.
+			| orderItemId (string) - Unique identifier of the item to remove from the order.
 			| price (decimal) - The override price to specify for this item in the specified order.
-			| updateMode (string) - Specifies whether to change the product price by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - 
-			| responseFields (string) - 
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -257,12 +258,12 @@ class OrderItem(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order containing the item to update quantity.
-			| orderItemId (string) - Unique identifier of the item in the order to update quantity.
-			| quantity (int) - The quantity of the item in the order to update.
-			| updateMode (string) - Specifies whether to change the item quantity by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - 
-			| responseFields (string) - 
+			| orderId (string) - Unique identifier of the order.
+			| orderItemId (string) - Unique identifier of the item to remove from the order.
+			| quantity (int) - The number of cart items in the shopper's active cart.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -288,10 +289,10 @@ class OrderItem(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order with the item to remove.
+			| orderId (string) - Unique identifier of the order.
 			| orderItemId (string) - Unique identifier of the item to remove from the order.
-			| updateMode (string) - Specifies whether to remove the item by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - 
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
 		
 		Returns:
 			| Order 

@@ -25,13 +25,13 @@ class Product(object):
 		""" 
 		
 		Args:
-			| filter (string) - 
-			| startIndex (int) - 
-			| pageSize (int) - Used to page results from a query. Indicates the maximum number of entities to return from a single query. Default value: 20. Maximum value: 200.
-			| sortBy (string) - 
-			| responseOptions (string) - 
-			| cursorMark (string) - 
-			| responseFields (string) - 
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| responseOptions (string) - Options you can specify for the response. This parameter is null by default.You can primarily use this parameter to return volume price band information in product details, which you can then display on category pages and search results depanding on your theme configuration. To return volume price band information, set this parameter to .
+			| cursorMark (string) - In your first deep paged request, set this parameter to . Then, in all subsequent requests, set this parameter to the subsequent values of  that's returned in each response to continue paging through the results. Continue this pattern until  is null, which signifies the end of the paged results.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductCollection 
@@ -58,9 +58,9 @@ class Product(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| locationCodes (string) - Array of location codes for which to retrieve product inventory information.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| LocationInventoryCollection 
@@ -83,15 +83,15 @@ class Product(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| variationProductCode (string) - Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
-			| allowInactive (bool) - If true, returns an inactive product as part of the query.
-			| skipInventoryCheck (bool) - If true, skip the inventory validation process for the specified product.
-			| supressOutOfStock404 (bool) - 
-			| quantity (int) - 
-			| acceptVariantProductCode (bool) - 
-			| purchaseLocation (string) - 
-			| responseFields (string) - 
+			| allowInactive (bool) - If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.
+			| skipInventoryCheck (bool) - If true, skip the process to validate inventory when creating this product reservation.
+			| supressOutOfStock404 (bool) - Specifies whether to supress the 404 error when the product is out of stock.
+			| quantity (int) - The number of cart items in the shopper's active cart.
+			| acceptVariantProductCode (bool) - Specifies whether to accept a product variant's code as the .When you set this parameter to , you can pass in a product variant's code in the GetProduct call to retrieve the product variant details that are associated with the base product.
+			| purchaseLocation (string) - The location where the order item(s) was purchased.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Product 
@@ -120,10 +120,10 @@ class Product(object):
 		""" 
 		
 		Args:
-			| productCode (string) - 
-			| productVersion (long) - 
-			| lastModifiedDate (DateTime) - 
-			| responseFields (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| productVersion (long) - The product version.
+			| lastModifiedDate (DateTime) - The date when the product was last updated.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Product 
@@ -148,12 +148,12 @@ class Product(object):
 		
 		Args:
 			| productOptionSelections(productOptionSelections) - For a product with shopper-configurable options, the properties of the product options selected by the shopper.
-			| productCode (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| includeOptionDetails (bool) - If true, the response returns details about the product. If false, returns a product summary such as the product name, price, and sale price.
-			| skipInventoryCheck (bool) - If true, skip the inventory validation process for the specified product.
-			| quantity (int) - 
-			| purchaseLocation (string) - 
-			| responseFields (string) - 
+			| skipInventoryCheck (bool) - If true, skip the process to validate inventory when creating this product reservation.
+			| quantity (int) - The number of cart items in the shopper's active cart.
+			| purchaseLocation (string) - The location where the order item(s) was purchased.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ConfiguredProduct 
@@ -180,12 +180,12 @@ class Product(object):
 		
 		Args:
 			| productOptionSelections(productOptionSelections) - For a product with shopper-configurable options, the properties of the product options selected by the shopper.
-			| productCode (string) - 
-			| skipInventoryCheck (bool) - If true, skip the inventory validation process for the specified product.
-			| quantity (int) - 
-			| skipDefaults (bool) - 
-			| purchaseLocation (string) - 
-			| responseFields (string) - 
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| skipInventoryCheck (bool) - If true, skip the process to validate inventory when creating this product reservation.
+			| quantity (int) - The number of cart items in the shopper's active cart.
+			| skipDefaults (bool) - Normally, product validation applies default extras to products that do not have options specified. If , product validation does not apply default extras to products.
+			| purchaseLocation (string) - The location where the order item(s) was purchased.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductValidationSummary 
@@ -211,13 +211,13 @@ class Product(object):
 		""" 
 		
 		Args:
-			| discountSelections(discountSelections) - List of discount IDs to evaluate for the specified product.
-			| productCode (string) - 
+			| discountSelections(discountSelections) - The discounts to evaluate for a specified product code at the time of purchase.
+			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
 			| variationProductCode (string) - Merchant-created code associated with a specific product variation. Variation product codes maintain an association with the base product code.
-			| customerAccountId (int) - Unique ID of the customer account associated with the shopper requesting the discount.
-			| allowInactive (bool) - If true, this operation returns inactive product discounts as part of the POST.
-			| skipInventoryCheck (bool) - If true, do not validate the product inventory when evaluating the list of discounts.
-			| responseFields (string) - 
+			| customerAccountId (int) - The unique identifier of the customer account for which to retrieve wish lists.
+			| allowInactive (bool) - If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.
+			| skipInventoryCheck (bool) - If true, skip the process to validate inventory when creating this product reservation.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| DiscountValidationSummary 
@@ -243,8 +243,8 @@ class Product(object):
 		""" 
 		
 		Args:
-			| query(query) - 
-			| responseFields (string) - 
+			| query(query) - Properties for the product location inventory provided for queries to locate products by their location.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ProductCostCollection 
@@ -265,8 +265,8 @@ class Product(object):
 		""" 
 		
 		Args:
-			| query(query) - 
-			| responseFields (string) - 
+			| query(query) - Properties for the product location inventory provided for queries to locate products by their location.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| LocationInventoryCollection 

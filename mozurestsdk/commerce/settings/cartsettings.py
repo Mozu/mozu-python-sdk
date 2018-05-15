@@ -24,7 +24,7 @@ class CartSettings(object):
 		""" 
 		
 		Args:
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CartSettings 
@@ -46,7 +46,7 @@ class CartSettings(object):
 		
 		Args:
 			| cartSettings(cartSettings) - 
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CartSettings 
@@ -68,7 +68,7 @@ class CartSettings(object):
 		
 		Args:
 			| cartSettings(cartSettings) - 
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CartSettings 

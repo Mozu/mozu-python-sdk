@@ -24,15 +24,15 @@ class CustomerAccount(object):
 		""" 
 		
 		Args:
-			| startIndex (int) - 
-			| pageSize (int) - 
-			| sortBy (string) - 
-			| filter (string) - 
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
 			| fields (string) - The fields to include in the response.
-			| q (string) - A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.
+			| q (string) - A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.
 			| qLimit (int) - The maximum number of search results to return in the response. You can limit any range between 1-100.
 			| isAnonymous (bool) - If true, retrieve anonymous shopper accounts in the response.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CustomerAccountCollection 
@@ -62,7 +62,7 @@ class CustomerAccount(object):
 		
 		Args:
 			| accountId (int) - Unique identifier of the customer account.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| LoginState 
@@ -84,8 +84,8 @@ class CustomerAccount(object):
 		""" 
 		
 		Args:
-			| accountId (int) - Unique identifier of the customer account to retrieve.
-			| responseFields (string) - 
+			| accountId (int) - Unique identifier of the customer account.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CustomerAccount 
@@ -107,8 +107,8 @@ class CustomerAccount(object):
 		""" 
 		
 		Args:
-			| account(account) - Properties of the customer account to update.
-			| responseFields (string) - 
+			| account(account) - Properties of the customer account.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CustomerAccount 
@@ -129,9 +129,9 @@ class CustomerAccount(object):
 		""" 
 		
 		Args:
-			| passwordInfo(passwordInfo) - The password information required to change the user password.
-			| accountId (int) - The customer account information required to change the userpassword.
-			| unlockAccount (bool) - 
+			| passwordInfo(passwordInfo) - The information required to modify a shopper account password.
+			| accountId (int) - Unique identifier of the customer account.
+			| unlockAccount (bool) - Specifies whether to unlock the specified customer account.
 		
 		Raises:
 			| ApiException
@@ -149,9 +149,9 @@ class CustomerAccount(object):
 		""" 
 		
 		Args:
-			| customerAuthInfo(customerAuthInfo) - The authentication information for the customer account.
+			| customerAuthInfo(customerAuthInfo) - The login information for a customer account.
 			| accountId (int) - Unique identifier of the customer account.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CustomerAuthTicket 
@@ -173,7 +173,7 @@ class CustomerAccount(object):
 		""" 
 		
 		Args:
-			| accountId (int) - The unique identifier of the customer account for which to calculate customer lifetime value.
+			| accountId (int) - Unique identifier of the customer account.
 		
 		Raises:
 			| ApiException
@@ -191,7 +191,7 @@ class CustomerAccount(object):
 		
 		Args:
 			| isLocked(isLocked) - If true, the customer account is locked from logging in.
-			| accountId (int) - The unique identifier of the customer account.
+			| accountId (int) - Unique identifier of the customer account.
 		
 		Raises:
 			| ApiException
@@ -226,8 +226,8 @@ class CustomerAccount(object):
 		""" 
 		
 		Args:
-			| accountAndAuthInfo(accountAndAuthInfo) - Properties of the customer account to create, including the user authentication information.
-			| responseFields (string) - 
+			| accountAndAuthInfo(accountAndAuthInfo) - The authentication information associated with a customer account.Â The data includes the account properties such as the name, username, authorization access, and email address, the required password to match, and indicates if the account was imported from a third party resource. 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CustomerAuthTicket 
@@ -248,8 +248,8 @@ class CustomerAccount(object):
 		""" 
 		
 		Args:
-			| customers(array|customers) - Properties of the customer accounts to create.
-			| responseFields (string) - 
+			| customers(array|customers) - The authentication information associated with a customer account.Â The data includes the account properties such as the name, username, authorization access, and email address, the required password to match, and indicates if the account was imported from a third party resource. 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CustomerAccountCollection 
@@ -270,8 +270,8 @@ class CustomerAccount(object):
 		""" 
 		
 		Args:
-			| accountPasswordInfos(accountPasswordInfos) - 
-			| responseFields (string) - 
+			| accountPasswordInfos(accountPasswordInfos) - The details of the changed customer account passwords.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ChangePasswordResultCollection 
@@ -293,8 +293,8 @@ class CustomerAccount(object):
 		
 		Args:
 			| emailAddress (string) - The email address associated with the customer account.
-			| customerSetCode (string) - 
-			| responseFields (string) - 
+			| customerSetCode (string) - The unique idenfitier of the customer set.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| LoginState 
@@ -318,8 +318,8 @@ class CustomerAccount(object):
 		
 		Args:
 			| userName (string) - The user name associated with the customer account.
-			| customerSetCode (string) - 
-			| responseFields (string) - 
+			| customerSetCode (string) - The unique idenfitier of the customer set.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| LoginState 
@@ -342,10 +342,10 @@ class CustomerAccount(object):
 		""" 
 		
 		Args:
-			| startIndex (int) - 
-			| pageSize (int) - 
-			| sortBy (string) - 
-			| responseFields (string) - 
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CustomerPurchaseOrderAccountCollection 
@@ -385,9 +385,9 @@ class CustomerAccount(object):
 		""" 
 		
 		Args:
-			| account(account) - Properties of the customer account to update.
+			| account(account) - Properties of the customer account.
 			| accountId (int) - Unique identifier of the customer account.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CustomerAccount 
@@ -409,7 +409,7 @@ class CustomerAccount(object):
 		""" 
 		
 		Args:
-			| accountId (int) - Unique identifier of the customer account to delete.
+			| accountId (int) - Unique identifier of the customer account.
 		
 		Raises:
 			| ApiException

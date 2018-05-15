@@ -19,9 +19,9 @@ class DeveloperAdminUserAuthTicket(object):
 		""" 
 		
 		Args:
-			| userAuthInfo(userAuthInfo) - The user authentication information required to generate the developer account user authentication ticket, which consists of a user name and password.
+			| userAuthInfo(userAuthInfo) - Information required to authenticate a user.
 			| developerAccountId (int) - Unique identifier of the developer account.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| DeveloperAdminUserAuthTicket 
@@ -43,9 +43,9 @@ class DeveloperAdminUserAuthTicket(object):
 		""" 
 		
 		Args:
-			| existingAuthTicket(existingAuthTicket) - Properties of the authentication ticket to refresh. The refresh token is required to complete this request.
+			| existingAuthTicket(existingAuthTicket) - Properties of the authentication ticket to be used in developer account claims with the  API.
 			| developerAccountId (int) - Unique identifier of the developer account.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| DeveloperAdminUserAuthTicket 
@@ -67,7 +67,7 @@ class DeveloperAdminUserAuthTicket(object):
 		""" 
 		
 		Args:
-			| refreshToken (string) - Refresh token string associated with the developer account authentication ticket.
+			| refreshToken (string) - Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.
 		
 		Raises:
 			| ApiException

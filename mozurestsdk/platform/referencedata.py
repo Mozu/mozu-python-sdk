@@ -20,7 +20,7 @@ class ReferenceData(object):
 		
 		Args:
 			| countryCode (string) - The 2-letter country code used to retrieve a specified address schema.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| AddressSchema 
@@ -42,7 +42,7 @@ class ReferenceData(object):
 		""" 
 		
 		Args:
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| AddressSchemaCollection 
@@ -64,7 +64,7 @@ class ReferenceData(object):
 		
 		Args:
 			| behaviorId (int) - Unique identifier of the behavior.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Behavior 
@@ -86,8 +86,8 @@ class ReferenceData(object):
 		""" 
 		
 		Args:
-			| categoryId (int) - Unique identifier of the behavior category.
-			| responseFields (string) - 
+			| categoryId (int) - Unique identifier of the category to modify.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| BehaviorCategory 
@@ -109,7 +109,7 @@ class ReferenceData(object):
 		""" 
 		
 		Args:
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| BehaviorCategoryCollection 
@@ -131,7 +131,7 @@ class ReferenceData(object):
 		
 		Args:
 			| userType (string) - The user type associated with the behaviors to retrieve.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| BehaviorCollection 
@@ -153,7 +153,7 @@ class ReferenceData(object):
 		""" 
 		
 		Args:
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ContentLocaleCollection 
@@ -174,7 +174,7 @@ class ReferenceData(object):
 		""" 
 		
 		Args:
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CountryCollection 
@@ -195,7 +195,7 @@ class ReferenceData(object):
 		""" 
 		
 		Args:
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CountryWithStatesCollection 
@@ -216,7 +216,7 @@ class ReferenceData(object):
 		""" 
 		
 		Args:
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CurrencyCollection 
@@ -237,7 +237,7 @@ class ReferenceData(object):
 		""" 
 		
 		Args:
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| TimeZoneCollection 
@@ -258,7 +258,7 @@ class ReferenceData(object):
 		""" 
 		
 		Args:
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| TopLevelDomainCollection 
@@ -279,8 +279,8 @@ class ReferenceData(object):
 		""" 
 		
 		Args:
-			| filter (string) - 
-			| responseFields (string) - 
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| UnitOfMeasureCollection 

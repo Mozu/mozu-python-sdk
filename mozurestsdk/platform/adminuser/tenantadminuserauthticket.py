@@ -19,9 +19,9 @@ class TenantAdminUserAuthTicket(object):
 		""" 
 		
 		Args:
-			| userAuthInfo(userAuthInfo) - The user authentication information required to generate the user authentication ticket, which consists of a user name and password.
+			| userAuthInfo(userAuthInfo) - Information required to authenticate a user.
 			| tenantId (int) - Unique identifier of the development or production tenant for which to generate the user authentication ticket.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| TenantAdminUserAuthTicket 
@@ -43,9 +43,9 @@ class TenantAdminUserAuthTicket(object):
 		""" 
 		
 		Args:
-			| existingAuthTicket(existingAuthTicket) - Properties of the authentication ticket to refresh. The refresh token is required to complete this request.
-			| tenantId (int) - 
-			| responseFields (string) - 
+			| existingAuthTicket(existingAuthTicket) - Properties of the authentication ticket to be used in user claims with the  API.
+			| tenantId (int) - Unique identifier of the development or production tenant for which to generate the user authentication ticket.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| TenantAdminUserAuthTicket 
@@ -67,7 +67,7 @@ class TenantAdminUserAuthTicket(object):
 		""" 
 		
 		Args:
-			| refreshToken (string) - Refresh token string associated with the user authentication ticket.
+			| refreshToken (string) - Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.
 		
 		Raises:
 			| ApiException

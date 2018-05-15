@@ -24,8 +24,8 @@ class AddressValidationRequest(object):
 		""" 
 		
 		Args:
-			| addressValidationRequest(addressValidationRequest) - Properties of the address to validate.
-			| responseFields (string) - 
+			| addressValidationRequest(addressValidationRequest) - Properties of the address used for validation of the account's full address. This content may include multiple lines of an address, city, state/province, zip/postal code, and country.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| AddressValidationResponse 

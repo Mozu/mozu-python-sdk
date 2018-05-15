@@ -24,10 +24,10 @@ class Coupon(object):
 		""" 
 		
 		Args:
-			| couponSetCode (string) - 
-			| couponCode (string) - 
-			| includeCounts (bool) - 
-			| responseFields (string) - 
+			| couponSetCode (string) - The unique identifier of the coupon set that the coupon belongs to.
+			| couponCode (string) - Code associated with the coupon to remove from the cart.
+			| includeCounts (bool) - Specifies whether to return the redemptionCount property in the response body object.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Coupon 
@@ -51,13 +51,13 @@ class Coupon(object):
 		""" 
 		
 		Args:
-			| couponSetCode (string) - 
-			| startIndex (int) - 
-			| pageSize (int) - 
-			| sortBy (string) - 
-			| filter (string) - 
-			| includeCounts (bool) - 
-			| responseFields (string) - 
+			| couponSetCode (string) - The unique identifier of the coupon set that the coupons belongs to.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| includeCounts (bool) - Specifies whether to include the redemptionCount property in the response body object.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CouponCollection 
@@ -84,8 +84,8 @@ class Coupon(object):
 		""" 
 		
 		Args:
-			| coupons(array|coupons) - 
-			| couponSetCode (string) - 
+			| coupons(array|coupons) - The details necessary to assign the discount to a coupon set, including .
+			| couponSetCode (string) - The unique identifier of the coupon set.
 		
 		Raises:
 			| ApiException
@@ -102,8 +102,8 @@ class Coupon(object):
 		""" 
 		
 		Args:
-			| couponCodes(array|couponCodes) - 
-			| couponSetCode (string) - 
+			| couponCodes(array|couponCodes) - The unique identifiers of the coupons to delete.
+			| couponSetCode (string) - The unique identifier of the coupon set that the coupon belongs to.
 		
 		Raises:
 			| ApiException
@@ -120,8 +120,8 @@ class Coupon(object):
 		""" 
 		
 		Args:
-			| couponSetCode (string) - 
-			| couponCode (string) - 
+			| couponSetCode (string) - The unique identifier of the coupon set that the coupon belongs to.
+			| couponCode (string) - Code associated with the coupon to remove from the cart.
 		
 		Raises:
 			| ApiException

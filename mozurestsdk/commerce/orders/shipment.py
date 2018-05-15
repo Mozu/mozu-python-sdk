@@ -24,9 +24,9 @@ class Shipment(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order associated with the shipment to retrieve.
+			| orderId (string) - Unique identifier of the order.
 			| shipmentId (string) - Unique identifier of the shipment to retrieve.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Shipment 
@@ -49,8 +49,8 @@ class Shipment(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order for the available shipment methods being retrieved.
-			| draft (bool) - 
+			| orderId (string) - Unique identifier of the order.
+			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
 		
 		Returns:
 			| array of ShippingRate 
@@ -73,7 +73,7 @@ class Shipment(object):
 		
 		Args:
 			| packageIds(array|packageIds) - List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.
-			| orderId (string) - Unique identifier of the order for this shipment.
+			| orderId (string) - Unique identifier of the order.
 		
 		Returns:
 			| array of Package 
@@ -94,8 +94,8 @@ class Shipment(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order to cancel shipment.
-			| shipmentId (string) - Unique identifier of the shipment to cancel.
+			| orderId (string) - Unique identifier of the order.
+			| shipmentId (string) - Unique identifier of the shipment to retrieve.
 		
 		Raises:
 			| ApiException

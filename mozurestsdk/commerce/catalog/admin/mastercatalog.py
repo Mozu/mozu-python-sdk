@@ -24,7 +24,7 @@ class MasterCatalog(object):
 		""" 
 		
 		Args:
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| MasterCatalogCollection 
@@ -45,8 +45,8 @@ class MasterCatalog(object):
 		""" 
 		
 		Args:
-			| masterCatalogId (int) - 
-			| responseFields (string) - 
+			| masterCatalogId (int) - Unique identifier for the master catalog. The master catalog contains all products accessible per catalogs and the site/tenant.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| MasterCatalog 
@@ -68,9 +68,9 @@ class MasterCatalog(object):
 		""" 
 		
 		Args:
-			| masterCatalog(masterCatalog) - Properties of the master catalog to update, which consists of the product publishing mode. Possible values are "Pending" which saves product updates in draft mode until they are published, and "Live" which publishes all product changes immediately.
-			| masterCatalogId (int) - 
-			| responseFields (string) - 
+			| masterCatalog(masterCatalog) - Properties of a master product catalog defined for a tenant. All catalogs and sites associated with a master catalog share product definitions.
+			| masterCatalogId (int) - Unique identifier for the master catalog. The master catalog contains all products accessible per catalogs and the site/tenant.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| MasterCatalog 

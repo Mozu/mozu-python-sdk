@@ -24,9 +24,9 @@ class FulfillmentAction(object):
 		""" 
 		
 		Args:
-			| action(action) - The action to perform for the order fulfillment.
-			| orderId (string) - Unique identifier of the order for which to perform the fulfillment action.
-			| responseFields (string) - Updated order with a new fulfillment status resulting from the action supplied in the request.
+			| action(action) - Properties of an action to perform when fulfilling an item in an order, whether through in-store pickup or direct shipping.
+			| orderId (string) - Unique identifier of the order.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -48,9 +48,9 @@ class FulfillmentAction(object):
 		""" 
 		
 		Args:
-			| action(action) - 
-			| orderId (string) - 
-			| responseFields (string) - 
+			| action(action) - Properties of an action to perform when fulfilling an item in an order, whether through in-store pickup or direct shipping.
+			| orderId (string) - Unique identifier of the order.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 

@@ -24,7 +24,7 @@ class SiteShippingHandlingFee(object):
 		""" 
 		
 		Args:
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| SiteShippingHandlingFee 
@@ -45,8 +45,8 @@ class SiteShippingHandlingFee(object):
 		""" 
 		
 		Args:
-			| orderHandlingFee(orderHandlingFee) - Properties of the order handling fee to assess for order shipment.
-			| responseFields (string) - 
+			| orderHandlingFee(orderHandlingFee) - Properties of the handling fee to apply to order shipments for the site.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| SiteShippingHandlingFee 
@@ -67,8 +67,8 @@ class SiteShippingHandlingFee(object):
 		""" 
 		
 		Args:
-			| orderHandlingFee(orderHandlingFee) - The combined price for all items in the order, including all selected options but excluding any discounts.
-			| responseFields (string) - 
+			| orderHandlingFee(orderHandlingFee) - Properties of the handling fee to apply to order shipments for the site.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| SiteShippingHandlingFee 

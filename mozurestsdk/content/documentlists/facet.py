@@ -24,7 +24,7 @@ class Facet(object):
 		""" 
 		
 		Args:
-			| documentListName (string) - The document list associated with the facets to retrieve.
+			| documentListName (string) - Name of content documentListName to delete
 			| propertyName (string) - The property name associated with the facets to retrieve.
 		
 		Returns:

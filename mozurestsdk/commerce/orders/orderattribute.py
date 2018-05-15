@@ -24,7 +24,7 @@ class OrderAttribute(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order for which to retrieve a list of defined attributes.
+			| orderId (string) - Unique identifier of the order.
 		
 		Returns:
 			| array of OrderAttribute 
@@ -45,8 +45,8 @@ class OrderAttribute(object):
 		""" 
 		
 		Args:
-			| orderAttributes(array|orderAttributes) - The list of attributes to associate with the order, and the properties of each attribute to define for the order.
-			| orderId (string) - Unique identifier of the order for which to assign the attributes.
+			| orderAttributes(array|orderAttributes) - Properties of an attribute applied to an order.
+			| orderId (string) - Unique identifier of the order.
 		
 		Returns:
 			| array of OrderAttribute 
@@ -67,8 +67,8 @@ class OrderAttribute(object):
 		""" 
 		
 		Args:
-			| orderAttributes(array|orderAttributes) - List of order attributes to update, including the properties of each defined attribute in the list.
-			| orderId (string) - Identifier of the order for which to update attributes.
+			| orderAttributes(array|orderAttributes) - Properties of an attribute applied to an order.
+			| orderId (string) - Unique identifier of the order.
 			| removeMissing (bool) - If true, the operation removes missing properties so that the updated order attributes will not show properties with a null value.
 		
 		Returns:

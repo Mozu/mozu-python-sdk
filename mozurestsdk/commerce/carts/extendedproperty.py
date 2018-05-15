@@ -41,7 +41,7 @@ class ExtendedProperty(object):
 		""" 
 		
 		Args:
-			| extendedProperties(array|extendedProperties) - 
+			| extendedProperties(array|extendedProperties) - The details of the new extended property.
 		
 		Returns:
 			| array of ExtendedProperty 
@@ -61,10 +61,10 @@ class ExtendedProperty(object):
 		""" 
 		
 		Args:
-			| extendedProperty(extendedProperty) - 
-			| key (string) - 
-			| upsert (bool) - 
-			| responseFields (string) - 
+			| extendedProperty(extendedProperty) - The details of the updated extended property.
+			| key (string) - Key used for metadata defined for objects, including extensible attributes, custom attributes associated with a shipping provider, and search synonyms definitions. This content may be user-defined depending on the object and usage.
+			| upsert (bool) - Any set of key value pairs to be stored in the extended properties of a cart.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ExtendedProperty 
@@ -87,8 +87,8 @@ class ExtendedProperty(object):
 		""" 
 		
 		Args:
-			| extendedProperties(array|extendedProperties) - 
-			| upsert (bool) - 
+			| extendedProperties(array|extendedProperties) - The details of the updated extended properties.
+			| upsert (bool) - Any set of key value pairs to be stored in the extended properties of a cart.
 		
 		Returns:
 			| array of ExtendedProperty 

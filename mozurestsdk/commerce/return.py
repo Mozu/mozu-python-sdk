@@ -24,12 +24,12 @@ class Return(object):
 		""" 
 		
 		Args:
-			| startIndex (int) - 
-			| pageSize (int) - 
-			| sortBy (string) - 
-			| filter (string) - 
-			| q (string) - 
-			| responseFields (string) - 
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| q (string) - A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ReturnCollection 
@@ -55,7 +55,7 @@ class Return(object):
 		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return for which to retrieve available actions.
+			| returnId (string) - Unique identifier of the return whose items you want to get.
 		
 		Returns:
 			| array of string 
@@ -76,9 +76,9 @@ class Return(object):
 		""" 
 		
 		Args:
-			| returnId (string) - 
-			| returnItemId (string) - 
-			| responseFields (string) - 
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| returnItemId (string) - Unique identifier of the return item whose details you want to get.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ReturnItem 
@@ -101,8 +101,8 @@ class Return(object):
 		""" 
 		
 		Args:
-			| returnId (string) - 
-			| responseFields (string) - 
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ReturnItemCollection 
@@ -124,7 +124,7 @@ class Return(object):
 		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return associated with the payment.
+			| returnId (string) - Unique identifier of the return whose items you want to get.
 			| paymentId (string) - Unique identifier of the payment for which to perform the action.
 		
 		Returns:
@@ -147,9 +147,9 @@ class Return(object):
 		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return associated with the payment.
-			| paymentId (string) - Unique identifier of the return payment to retrieve.
-			| responseFields (string) - 
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| paymentId (string) - Unique identifier of the payment for which to perform the action.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Payment 
@@ -172,8 +172,8 @@ class Return(object):
 		""" 
 		
 		Args:
-			| returnId (string) - Returns the details of the refund payment associated with the return specified in the request.
-			| responseFields (string) - 
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| PaymentCollection 
@@ -195,8 +195,8 @@ class Return(object):
 		""" 
 		
 		Args:
-			| returnId (string) - Returns the properties of the return specified in the request as well as system-supplied information.
-			| responseFields (string) - 
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Return 
@@ -218,7 +218,7 @@ class Return(object):
 		""" 
 		
 		Args:
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ReasonCollection 
@@ -239,8 +239,8 @@ class Return(object):
 		""" 
 		
 		Args:
-			| ret(ret) - Wrapper for the properties of the return to create.
-			| responseFields (string) - 
+			| ret(ret) - Properties of a return of one or more previously fulfilled items.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Return 
@@ -261,9 +261,9 @@ class Return(object):
 		""" 
 		
 		Args:
-			| returnItem(returnItem) - 
-			| returnId (string) - 
-			| responseFields (string) - 
+			| returnItem(returnItem) - Properties of a previously fulfilled item associated with a return.
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Return 
@@ -285,10 +285,10 @@ class Return(object):
 		""" 
 		
 		Args:
-			| action(action) - The payment action to perform for the refund payment.
-			| returnId (string) - Unique identifier of the return associated with the refund payment.
-			| paymentId (string) - Unique identifier of the return payment to update.
-			| responseFields (string) - 
+			| action(action) - Properties of the payment action performed for an order.
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| paymentId (string) - Unique identifier of the payment for which to perform the action.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Return 
@@ -311,9 +311,9 @@ class Return(object):
 		""" 
 		
 		Args:
-			| action(action) - The payment action to perform for the customer return.
-			| returnId (string) - Unique identifier of the return associated with the payment action.
-			| responseFields (string) - 
+			| action(action) - Properties of the payment action performed for an order.
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Return 
@@ -336,8 +336,8 @@ class Return(object):
 		
 		Args:
 			| itemQuantities(array|itemQuantities) - 
-			| returnId (string) - 
-			| responseFields (string) - 
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -359,8 +359,8 @@ class Return(object):
 		""" 
 		
 		Args:
-			| action(action) - The name of the return action to perform, such as "Reject" or "Authorize".
-			| responseFields (string) - 
+			| action(action) - Properties of an action a user can perform for a return.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| ReturnCollection 
@@ -381,9 +381,9 @@ class Return(object):
 		""" 
 		
 		Args:
-			| ret(ret) - Wrapper for the array of properties to update for the return.
-			| returnId (string) - Unique identifier of the return.
-			| responseFields (string) - 
+			| ret(ret) - Properties of a return of one or more previously fulfilled items.
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Return 
@@ -405,7 +405,7 @@ class Return(object):
 		""" 
 		
 		Args:
-			| action(action) - 
+			| action(action) - Properties of an action a user can perform for a return.
 		
 		Raises:
 			| ApiException
@@ -421,8 +421,8 @@ class Return(object):
 		""" 
 		
 		Args:
-			| returnId (string) - 
-			| returnItemId (string) - 
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| returnItemId (string) - Unique identifier of the return item whose details you want to get.
 		
 		Returns:
 			| Return 
@@ -444,7 +444,7 @@ class Return(object):
 		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return to delete.
+			| returnId (string) - Unique identifier of the return whose items you want to get.
 		
 		Raises:
 			| ApiException

@@ -24,14 +24,14 @@ class Order(object):
 		""" 
 		
 		Args:
-			| startIndex (int) - 
-			| pageSize (int) - Used to page results from a query. Indicates the maximum number of entities to return from a query. Default value: 20. Max value: 200.
-			| sortBy (string) - The element to sort the results by and the order in which the results appear. Either ascending order (a-z) which accepts 'asc' or 'asc' or descending order (z-a) which accepts 'desc' or 'desc'. The sortBy parameter follows an available property. For examp
-			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter an order's search results by any of its properties, including status, contact information, or total. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Status+eq+Submitted"
-			| q (string) - A list of order search terms to use in the query when searching across order number and the name or email of the billing contact. Separate multiple search terms with a space character.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| q (string) - A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.
 			| qLimit (int) - The maximum number of search results to return in the response. You can limit any range between 1-100.
 			| includeBin (bool) - 
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| OrderCollection 
@@ -59,7 +59,7 @@ class Order(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the available order actions to get.
+			| orderId (string) - Unique identifier of the order.
 		
 		Returns:
 			| array of string 
@@ -80,7 +80,7 @@ class Order(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order to retrieve.
+			| orderId (string) - Unique identifier of the order.
 		
 		Returns:
 			| array of TaxableOrder 
@@ -101,10 +101,10 @@ class Order(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order details to get.
+			| orderId (string) - Unique identifier of the order.
 			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
 			| includeBin (bool) - 
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -128,8 +128,8 @@ class Order(object):
 		""" 
 		
 		Args:
-			| cartId (string) - Unique identifier of the cart. This is the original cart ID expressed as a GUID.
-			| responseFields (string) - 
+			| cartId (string) - Identifier of the cart to delete.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -151,8 +151,8 @@ class Order(object):
 		""" 
 		
 		Args:
-			| order(order) - Properties of the order to create and submit.
-			| responseFields (string) - 
+			| order(order) - Properties of an order, including its components.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -175,7 +175,7 @@ class Order(object):
 		Args:
 			| action(action) - The action to perform for the order.
 			| orderId (string) - Unique identifier of the order.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -200,7 +200,7 @@ class Order(object):
 			| order(order) - 
 			| refreshShipping (bool) - 
 			| couponCodeToApply (string) - 
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -223,10 +223,10 @@ class Order(object):
 		""" 
 		
 		Args:
-			| digitalWallet(digitalWallet) - 
-			| orderId (string) - 
-			| digitalWalletType (string) - 
-			| responseFields (string) - 
+			| digitalWallet(digitalWallet) - The details of the digitial wallet.
+			| orderId (string) - Unique identifier of the order.
+			| digitalWalletType (string) - The type of digital wallet to be processed.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -249,12 +249,12 @@ class Order(object):
 		""" 
 		
 		Args:
-			| discount(discount) - Properties of the order discount to update.
-			| orderId (string) - Unique identifier of the order discount. System-supplied and read only.
-			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
-			| updateMode (string) - Specifies whether to modify the discount by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - 
-			| responseFields (string) - 
+			| discount(discount) - Properties of all applied discounts for an associated cart, order, or product. 
+			| orderId (string) - Unique identifier of the order.
+			| discountId (int) - discountId parameter description DOCUMENT_HERE 
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -279,8 +279,8 @@ class Order(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order associated with the draft to delete.
-			| version (string) - If applicable, the version of the order draft to delete.
+			| orderId (string) - Unique identifier of the order.
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
 		
 		Raises:
 			| ApiException
@@ -298,8 +298,8 @@ class Order(object):
 		""" 
 		
 		Args:
-			| action(action) - 
-			| orderId (string) - 
+			| action(action) - The action to perform for the order.
+			| orderId (string) - Unique identifier of the order.
 		
 		Raises:
 			| ApiException
@@ -316,11 +316,11 @@ class Order(object):
 		""" 
 		
 		Args:
-			| priceListCode(priceListCode) - 
-			| orderId (string) - 
-			| updateMode (string) - 
-			| version (string) - 
-			| responseFields (string) - 
+			| priceListCode(priceListCode) - The unique price list code.
+			| orderId (string) - Unique identifier of the order.
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -345,7 +345,7 @@ class Order(object):
 		
 		Args:
 			| orderId (string) - Unique identifier of the order.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 
@@ -367,11 +367,11 @@ class Order(object):
 		""" 
 		
 		Args:
-			| order(order) - The properties of the order to update.
-			| orderId (string) - Unique identifier of the order to update.
+			| order(order) - Properties of an order, including its components.
+			| orderId (string) - Unique identifier of the order.
 			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - 
-			| responseFields (string) - 
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Order 

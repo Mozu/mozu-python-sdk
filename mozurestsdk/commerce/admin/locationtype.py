@@ -42,7 +42,7 @@ class LocationType(object):
 		
 		Args:
 			| locationTypeCode (string) - The user-defined code that identifies the location type.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| LocationType 
@@ -64,8 +64,8 @@ class LocationType(object):
 		""" 
 		
 		Args:
-			| locationType(locationType) - Properties of the location type to create.
-			| responseFields (string) - 
+			| locationType(locationType) - Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| LocationType 
@@ -86,9 +86,9 @@ class LocationType(object):
 		""" 
 		
 		Args:
-			| locationType(locationType) - Properties of the location type to update.
+			| locationType(locationType) - Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.
 			| locationTypeCode (string) - The user-defined code that identifies the location type.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| LocationType 
@@ -110,7 +110,7 @@ class LocationType(object):
 		""" 
 		
 		Args:
-			| locationTypeCode (string) - User-defined code used to identify the location type.
+			| locationTypeCode (string) - The user-defined code that identifies the location type.
 		
 		Raises:
 			| ApiException

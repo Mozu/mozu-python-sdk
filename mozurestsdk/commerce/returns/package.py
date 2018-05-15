@@ -24,9 +24,9 @@ class Package(object):
 		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return associated with the replacement package label to retrieve.
-			| packageId (string) - Unique identifier of the return replacement package for which to retrieve the label.
-			| returnAsBase64Png (bool) - 
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| packageId (string) - Unique identifier of the package for which to retrieve the label.
+			| returnAsBase64Png (bool) - Specifies whether to return the RMA label image as Base64-encoded PNG image instead of as a byte array encoded in the original image format. The default is .
 		
 		Returns:
 			| Stream 
@@ -49,9 +49,9 @@ class Package(object):
 		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return associated with the replacement package to retrieve.
-			| packageId (string) - Unique identifier of the return replacement package to retrieve.
-			| responseFields (string) - 
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| packageId (string) - Unique identifier of the package for which to retrieve the label.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Package 
@@ -74,9 +74,9 @@ class Package(object):
 		""" 
 		
 		Args:
-			| package(package) - Properties of the physical package for a return replacement.
-			| returnId (string) - Unique identifier of the return for which to create a replacement package.
-			| responseFields (string) - 
+			| package(package) - Properties of a physical package shipped for an order.
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Package 
@@ -98,10 +98,10 @@ class Package(object):
 		""" 
 		
 		Args:
-			| package(package) - Properties of the return replacement package to update.
-			| returnId (string) - Unique identifier of the return associated with the replacement package to update.
-			| packageId (string) - Unique identifier of the return replacement package to update.
-			| responseFields (string) - 
+			| package(package) - Properties of a physical package shipped for an order.
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| packageId (string) - Unique identifier of the package for which to retrieve the label.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Package 
@@ -124,8 +124,8 @@ class Package(object):
 		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return associated with the replacement package to delete.
-			| packageId (string) - Unique identifier of the return replacement package to delete.
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| packageId (string) - Unique identifier of the package for which to retrieve the label.
 		
 		Raises:
 			| ApiException

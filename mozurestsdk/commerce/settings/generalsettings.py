@@ -24,7 +24,7 @@ class GeneralSettings(object):
 		""" 
 		
 		Args:
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| GeneralSettings 
@@ -45,8 +45,8 @@ class GeneralSettings(object):
 		""" 
 		
 		Args:
-			| generalSettings(generalSettings) - The properties of the site's general settings to update.
-			| responseFields (string) - 
+			| generalSettings(generalSettings) - General settings used on the storefront site.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| GeneralSettings 

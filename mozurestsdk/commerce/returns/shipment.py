@@ -24,9 +24,9 @@ class Shipment(object):
 		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return associated with the replacement shipment to retrieve.
-			| shipmentId (string) - Unique identifier of the return replacement shipment to retrieve.
-			| responseFields (string) - 
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| shipmentId (string) - Unique identifier of the shipment to retrieve.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Shipment 
@@ -49,8 +49,8 @@ class Shipment(object):
 		""" 
 		
 		Args:
-			| packageIds(array|packageIds) - List of packages in the return replacement shipment.
-			| returnId (string) - Unique identifier of the return for which to create replacement package shipments.
+			| packageIds(array|packageIds) - List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.
+			| returnId (string) - Unique identifier of the return whose items you want to get.
 		
 		Returns:
 			| array of Package 
@@ -71,8 +71,8 @@ class Shipment(object):
 		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return associated with the replacement shipment to delete.
-			| shipmentId (string) - Unique identifier of the return replacement shipment to delete.
+			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| shipmentId (string) - Unique identifier of the shipment to retrieve.
 		
 		Raises:
 			| ApiException

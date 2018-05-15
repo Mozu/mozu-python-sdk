@@ -24,12 +24,12 @@ class CouponSet(object):
 		""" 
 		
 		Args:
-			| startIndex (int) - 
-			| pageSize (int) - 
-			| sortBy (string) - 
-			| filter (string) - 
-			| includeCounts (bool) - 
-			| responseFields (string) - 
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| includeCounts (bool) - Specifies whether to include the number of redeemed coupons, existing coupon codes, and assigned discounts in the response body.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CouponSetCollection 
@@ -55,9 +55,9 @@ class CouponSet(object):
 		""" 
 		
 		Args:
-			| couponSetCode (string) - 
-			| includeCounts (bool) - 
-			| responseFields (string) - 
+			| couponSetCode (string) - The unique identifier of the coupon set.
+			| includeCounts (bool) - Specifies whether to include the number of redeemed coupons, existing coupon codes, and assigned discounts in the response body.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CouponSet 
@@ -80,7 +80,7 @@ class CouponSet(object):
 		""" 
 		
 		Args:
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| string 
@@ -101,8 +101,8 @@ class CouponSet(object):
 		""" 
 		
 		Args:
-			| couponSet(couponSet) - 
-			| responseFields (string) - 
+			| couponSet(couponSet) - The details of the new coupon set.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CouponSet 
@@ -123,7 +123,7 @@ class CouponSet(object):
 		""" 
 		
 		Args:
-			| code (string) - 
+			| code (string) - User-defined code that uniqely identifies the channel group.
 		
 		Raises:
 			| ApiException
@@ -140,9 +140,9 @@ class CouponSet(object):
 		""" 
 		
 		Args:
-			| couponSet(couponSet) - 
-			| couponSetCode (string) - 
-			| responseFields (string) - 
+			| couponSet(couponSet) - The details of the updated coupon set.
+			| couponSetCode (string) - The unique identifier of the coupon set.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CouponSet 
@@ -164,7 +164,7 @@ class CouponSet(object):
 		""" 
 		
 		Args:
-			| couponSetCode (string) - 
+			| couponSetCode (string) - The unique identifier of the coupon set.
 		
 		Raises:
 			| ApiException

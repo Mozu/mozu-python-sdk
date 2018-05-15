@@ -25,8 +25,8 @@ class DiscountSettings(object):
 		""" 
 		
 		Args:
-			| catalogId (int) - 
-			| responseFields (string) - 
+			| catalogId (int) - Unique identifier for a catalog.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| DiscountSettings 
@@ -49,8 +49,8 @@ class DiscountSettings(object):
 		
 		Args:
 			| discountSettings(discountSettings) - 
-			| catalogId (int) - 
-			| responseFields (string) - 
+			| catalogId (int) - Unique identifier for a catalog.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| DiscountSettings 

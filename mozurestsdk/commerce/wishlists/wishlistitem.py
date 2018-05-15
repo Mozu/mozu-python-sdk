@@ -24,9 +24,9 @@ class WishlistItem(object):
 		""" 
 		
 		Args:
-			| wishlistId (string) - Unique identifier of the wish list item to retrieve.
-			| wishlistItemId (string) - Unique identifier of the wish list associated with the item to retrieve.
-			| responseFields (string) - 
+			| wishlistId (string) - Unique identifier of the wish list.
+			| wishlistItemId (string) - Unique identifier of the item to remove from the shopper wish list.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| WishlistItem 
@@ -49,12 +49,12 @@ class WishlistItem(object):
 		""" 
 		
 		Args:
-			| wishlistId (string) - Unique identifier of the wish list associated with the items to retrieve.
-			| startIndex (int) - 
-			| pageSize (int) - 
-			| sortBy (string) - 
-			| filter (string) - 
-			| responseFields (string) - 
+			| wishlistId (string) - Unique identifier of the wish list.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| WishlistItemCollection 
@@ -80,13 +80,13 @@ class WishlistItem(object):
 		""" 
 		
 		Args:
-			| customerAccountId (int) - The unique identifier of the customer account associated with the wish list.
-			| wishlistName (string) - The name of the wish list that contains the items to retrieve.
-			| startIndex (int) - 
-			| pageSize (int) - 
-			| sortBy (string) - 
-			| filter (string) - 
-			| responseFields (string) - 
+			| customerAccountId (int) - The unique identifier of the customer account for which to retrieve wish lists.
+			| wishlistName (string) - The name of the wish list to retrieve.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| WishlistItemCollection 
@@ -113,9 +113,9 @@ class WishlistItem(object):
 		""" 
 		
 		Args:
-			| wishlistItem(wishlistItem) - Properties of the item to add to the wish list.
-			| wishlistId (string) - Unique identifier of the wish list associated with the item to add.
-			| responseFields (string) - 
+			| wishlistItem(wishlistItem) - Properties of an item in a shopper wish list.
+			| wishlistId (string) - Unique identifier of the wish list.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| WishlistItem 
@@ -137,10 +137,10 @@ class WishlistItem(object):
 		""" 
 		
 		Args:
-			| wishlistId (string) - Unique identifier of the wish list associated with the item quantity to update.
-			| wishlistItemId (string) - Unique identifier of the item in the wish list to update quantity.
-			| quantity (int) - The quantity of the item in the wish list.
-			| responseFields (string) - 
+			| wishlistId (string) - Unique identifier of the wish list.
+			| wishlistItemId (string) - Unique identifier of the item to remove from the shopper wish list.
+			| quantity (int) - The number of cart items in the shopper's active cart.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| WishlistItem 
@@ -164,10 +164,10 @@ class WishlistItem(object):
 		""" 
 		
 		Args:
-			| wishlistItem(wishlistItem) - Properties of the shopper wish list item to update.
-			| wishlistId (string) - Unique identifier of the wish list associated with the item to update.
-			| wishlistItemId (string) - Unique identifier of the item in the shopper wish list to update.
-			| responseFields (string) - 
+			| wishlistItem(wishlistItem) - Properties of an item in a shopper wish list.
+			| wishlistId (string) - Unique identifier of the wish list.
+			| wishlistItemId (string) - Unique identifier of the item to remove from the shopper wish list.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| WishlistItem 
@@ -190,7 +190,7 @@ class WishlistItem(object):
 		""" 
 		
 		Args:
-			| wishlistId (string) - Unique identifier of the wish list associated with the items to remove.
+			| wishlistId (string) - Unique identifier of the wish list.
 		
 		Returns:
 			| Wishlist 
@@ -211,7 +211,7 @@ class WishlistItem(object):
 		""" 
 		
 		Args:
-			| wishlistId (string) - Unique identifier of the wish list associated with the item to remove.
+			| wishlistId (string) - Unique identifier of the wish list.
 			| wishlistItemId (string) - Unique identifier of the item to remove from the shopper wish list.
 		
 		Raises:

@@ -24,7 +24,7 @@ class OrderAttribute(object):
 		""" 
 		
 		Args:
-			| checkoutId (string) - 
+			| checkoutId (string) - The unique identifier of the checkout.
 		
 		Returns:
 			| array of OrderAttribute 
@@ -45,8 +45,8 @@ class OrderAttribute(object):
 		""" 
 		
 		Args:
-			| checkoutAttributes(array|checkoutAttributes) - 
-			| checkoutId (string) - 
+			| checkoutAttributes(array|checkoutAttributes) - The custom attribute definition.
+			| checkoutId (string) - The unique identifier of the checkout.
 		
 		Returns:
 			| array of OrderAttribute 
@@ -67,9 +67,9 @@ class OrderAttribute(object):
 		""" 
 		
 		Args:
-			| checkoutAttributes(array|checkoutAttributes) - 
-			| checkoutId (string) - 
-			| removeMissing (bool) - 
+			| checkoutAttributes(array|checkoutAttributes) - The custom attribute definition.
+			| checkoutId (string) - The unique identifier of the checkout.
+			| removeMissing (bool) - If true, the operation removes missing properties so that the updated checkout attributes will not show properties with a null value.
 		
 		Returns:
 			| array of OrderAttribute 

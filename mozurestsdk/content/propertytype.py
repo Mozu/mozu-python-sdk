@@ -25,9 +25,9 @@ class PropertyType(object):
 		""" 
 		
 		Args:
-			| pageSize (int) - 
-			| startIndex (int) - 
-			| responseFields (string) - 
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| PropertyTypeCollection 
@@ -50,8 +50,8 @@ class PropertyType(object):
 		""" 
 		
 		Args:
-			| propertyTypeName (string) - The name of the content property type.
-			| responseFields (string) - 
+			| propertyTypeName (string) - The name of the property type.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| PropertyType 
@@ -73,8 +73,8 @@ class PropertyType(object):
 		""" 
 		
 		Args:
-			| propertyType(propertyType) - 
-			| responseFields (string) - 
+			| propertyType(propertyType) - Property type available for content. Property types are like templates that can be reused.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| PropertyType 
@@ -95,9 +95,9 @@ class PropertyType(object):
 		""" 
 		
 		Args:
-			| propertyType(propertyType) - 
-			| propertyTypeName (string) - 
-			| responseFields (string) - 
+			| propertyType(propertyType) - Property type available for content. Property types are like templates that can be reused.
+			| propertyTypeName (string) - The name of the property type.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| PropertyType 
@@ -119,7 +119,7 @@ class PropertyType(object):
 		""" 
 		
 		Args:
-			| propertyTypeName (string) - 
+			| propertyTypeName (string) - The name of the property type.
 		
 		Raises:
 			| ApiException

@@ -24,13 +24,13 @@ class Checkout(object):
 		""" 
 		
 		Args:
-			| startIndex (int) - 
-			| pageSize (int) - 
-			| sortBy (string) - 
-			| filter (string) - 
-			| q (string) - 
-			| qLimit (int) - 
-			| responseFields (string) - 
+			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
+			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
+			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
+			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| q (string) - A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.
+			| qLimit (int) - The maximum number of search results to return in the response. You can limit any range between 1-100.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CheckoutCollection 
@@ -57,7 +57,7 @@ class Checkout(object):
 		""" 
 		
 		Args:
-			| checkoutId (string) - 
+			| checkoutId (string) - The unique identifier of the checkout.
 		
 		Returns:
 			| array of string 
@@ -78,7 +78,7 @@ class Checkout(object):
 		""" 
 		
 		Args:
-			| checkoutId (string) - 
+			| checkoutId (string) - The unique identifier of the checkout.
 		
 		Returns:
 			| array of CheckoutGroupRates 
@@ -99,8 +99,8 @@ class Checkout(object):
 		""" 
 		
 		Args:
-			| checkoutId (string) - 
-			| responseFields (string) - 
+			| checkoutId (string) - The unique identifier of the checkout.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Checkout 
@@ -122,8 +122,8 @@ class Checkout(object):
 		""" 
 		
 		Args:
-			| cartId (string) - 
-			| responseFields (string) - 
+			| cartId (string) - Identifier of the cart to delete.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Checkout 
@@ -145,9 +145,9 @@ class Checkout(object):
 		""" 
 		
 		Args:
-			| action(action) - 
-			| checkoutId (string) - 
-			| responseFields (string) - 
+			| action(action) - The name of the action to perform.
+			| checkoutId (string) - The unique identifier of the checkout.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Checkout 
@@ -169,7 +169,7 @@ class Checkout(object):
 		""" 
 		
 		Args:
-			| checkoutId (string) - 
+			| checkoutId (string) - The unique identifier of the checkout.
 		
 		Raises:
 			| ApiException
@@ -186,9 +186,9 @@ class Checkout(object):
 		""" 
 		
 		Args:
-			| groupShippingMethods(array|groupShippingMethods) - 
-			| checkoutId (string) - 
-			| responseFields (string) - 
+			| groupShippingMethods(array|groupShippingMethods) - The shipping methods for the grouping.
+			| checkoutId (string) - The unique identifier of the checkout.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Checkout 
@@ -210,9 +210,9 @@ class Checkout(object):
 		""" 
 		
 		Args:
-			| checkout(checkout) - 
-			| checkoutId (string) - 
-			| responseFields (string) - 
+			| checkout(checkout) - The checkout object.
+			| checkoutId (string) - The unique identifier of the checkout.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Checkout 
@@ -234,10 +234,10 @@ class Checkout(object):
 		""" 
 		
 		Args:
-			| digitalWallet(digitalWallet) - 
-			| checkoutId (string) - 
-			| digitalWalletType (string) - 
-			| responseFields (string) - 
+			| digitalWallet(digitalWallet) - The digital wallet object.
+			| checkoutId (string) - The unique identifier of the checkout.
+			| digitalWalletType (string) - The type of digital wallet.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Checkout 
@@ -260,9 +260,9 @@ class Checkout(object):
 		""" 
 		
 		Args:
-			| priceListCode(priceListCode) - 
-			| checkoutId (string) - 
-			| responseFields (string) - 
+			| priceListCode(priceListCode) - The unique identifier of the price list that applies to the checkout, if applicable.
+			| checkoutId (string) - The unique identifier of the checkout.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Checkout 

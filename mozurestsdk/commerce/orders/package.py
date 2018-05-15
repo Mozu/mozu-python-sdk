@@ -24,8 +24,8 @@ class Package(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order associated with the package fulfillment.
-			| packageId (string) - Unique identifier of the package associated with the fulfillment actions to retrieve.
+			| orderId (string) - Unique identifier of the order.
+			| packageId (string) - Unique identifier of the package for which to retrieve the label.
 		
 		Returns:
 			| array of string 
@@ -47,7 +47,7 @@ class Package(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order associated with the package label to retrieve.
+			| orderId (string) - Unique identifier of the order.
 			| packageId (string) - Unique identifier of the package for which to retrieve the label.
 		
 		Returns:
@@ -70,9 +70,9 @@ class Package(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order associated with the package to retrieve.
-			| packageId (string) - Unique identifier of the package to retrieve.
-			| responseFields (string) - 
+			| orderId (string) - Unique identifier of the order.
+			| packageId (string) - Unique identifier of the package for which to retrieve the label.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Package 
@@ -95,9 +95,9 @@ class Package(object):
 		""" 
 		
 		Args:
-			| package(package) - Properties of the physical package of order items.
-			| orderId (string) - Unique identifier of the order associated with this package.
-			| responseFields (string) - 
+			| package(package) - Properties of a physical package shipped for an order.
+			| orderId (string) - Unique identifier of the order.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Package 
@@ -119,10 +119,10 @@ class Package(object):
 		""" 
 		
 		Args:
-			| package(package) - Wrapper of properties for the package of order items to update.
-			| orderId (string) - Unique identifier of the order associated with the package to update.
-			| packageId (string) - Unique identifier of the package of order items to update.
-			| responseFields (string) - 
+			| package(package) - Properties of a physical package shipped for an order.
+			| orderId (string) - Unique identifier of the order.
+			| packageId (string) - Unique identifier of the package for which to retrieve the label.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Package 
@@ -145,8 +145,8 @@ class Package(object):
 		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order associated with the package to delete.
-			| packageId (string) - Unique identifier of the package to delete.
+			| orderId (string) - Unique identifier of the order.
+			| packageId (string) - Unique identifier of the package for which to retrieve the label.
 		
 		Raises:
 			| ApiException

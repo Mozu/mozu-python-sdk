@@ -25,8 +25,8 @@ class BillingInfo(object):
 		
 		Args:
 			| orderId (string) - Unique identifier of the order.
-			| draft (bool) - If true, retrieve the draft version of the order billing information, which might include uncommitted changes.
-			| responseFields (string) - 
+			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| BillingInfo 
@@ -49,11 +49,11 @@ class BillingInfo(object):
 		""" 
 		
 		Args:
-			| billingInfo(billingInfo) - The properties of the order billing information to update.
+			| billingInfo(billingInfo) - Properties of the billing information entered for an order during checkout.
 			| orderId (string) - Unique identifier of the order.
-			| updateMode (string) - Specifies whether to set the billing information by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - 
-			| responseFields (string) - 
+			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| BillingInfo 

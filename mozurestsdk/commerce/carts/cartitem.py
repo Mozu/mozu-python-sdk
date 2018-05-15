@@ -24,8 +24,8 @@ class CartItem(object):
 		""" 
 		
 		Args:
-			| cartItemId (string) - Identifier of the cart item to retrieve.
-			| responseFields (string) - 
+			| cartItemId (string) - Identifier of the cart item to delete.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CartItem 
@@ -47,7 +47,7 @@ class CartItem(object):
 		""" 
 		
 		Args:
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CartItemCollection 
@@ -68,8 +68,8 @@ class CartItem(object):
 		""" 
 		
 		Args:
-			| cartItem(cartItem) - All properties of the new cart item. The product code is required.
-			| responseFields (string) - 
+			| cartItem(cartItem) - Properties of an item added to an active shopping cart.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CartItem 
@@ -90,9 +90,9 @@ class CartItem(object):
 		""" 
 		
 		Args:
-			| cartItemId (string) - Identifier of the cart item to update quantity.
+			| cartItemId (string) - Identifier of the cart item to delete.
 			| quantity (int) - The number of cart items in the shopper's active cart.
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CartItem 
@@ -115,9 +115,9 @@ class CartItem(object):
 		""" 
 		
 		Args:
-			| cartItem(cartItem) - The properties of the cart item to update.
-			| cartItemId (string) - Identifier of the cart item to update.
-			| responseFields (string) - 
+			| cartItem(cartItem) - Properties of an item added to an active shopping cart.
+			| cartItemId (string) - Identifier of the cart item to delete.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CartItem 

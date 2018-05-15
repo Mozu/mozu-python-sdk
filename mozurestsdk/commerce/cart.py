@@ -24,8 +24,8 @@ class Cart(object):
 		""" 
 		
 		Args:
-			| cartId (string) - Identifier of the cart to retrieve.
-			| responseFields (string) - 
+			| cartId (string) - Identifier of the cart to delete.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Cart 
@@ -47,7 +47,7 @@ class Cart(object):
 		""" 
 		
 		Args:
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Cart 
@@ -68,7 +68,7 @@ class Cart(object):
 		""" 
 		
 		Args:
-			| responseFields (string) - 
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CartSummary 
@@ -89,8 +89,8 @@ class Cart(object):
 		""" 
 		
 		Args:
-			| userId (string) - Unique identifier of the user whose cart details you want to retrieve.
-			| responseFields (string) - 
+			| userId (string) - Unique identifier of the user whose tenant scopes you want to retrieve.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| CartSummary 
@@ -112,8 +112,8 @@ class Cart(object):
 		""" 
 		
 		Args:
-			| userId (string) - Unique identifier of the user whose cart you want to retrieve.
-			| responseFields (string) - 
+			| userId (string) - Unique identifier of the user whose tenant scopes you want to retrieve.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Cart 
@@ -135,8 +135,8 @@ class Cart(object):
 		""" 
 		
 		Args:
-			| cart(cart) - All of the properties of the cart to update. The product code is required.
-			| responseFields (string) - 
+			| cart(cart) - Properties of a shopping cart.
+			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
 		
 		Returns:
 			| Cart 

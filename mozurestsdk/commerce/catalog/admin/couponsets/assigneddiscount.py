@@ -24,7 +24,7 @@ class AssignedDiscount(object):
 		""" 
 		
 		Args:
-			| couponSetCode (string) - 
+			| couponSetCode (string) - The unique identifier of the coupon set.
 		
 		Returns:
 			| array of AssignedDiscount 
@@ -45,8 +45,8 @@ class AssignedDiscount(object):
 		""" 
 		
 		Args:
-			| assignedDiscount(assignedDiscount) - 
-			| couponSetCode (string) - 
+			| assignedDiscount(assignedDiscount) - The details of the discount assigned to the coupon set.
+			| couponSetCode (string) - The unique identifier of the coupon set.
 		
 		Raises:
 			| ApiException
@@ -63,8 +63,8 @@ class AssignedDiscount(object):
 		""" 
 		
 		Args:
-			| couponSetCode (string) - 
-			| discountId (int) - 
+			| couponSetCode (string) - The unique identifier of the coupon set.
+			| discountId (int) - discountId parameter description DOCUMENT_HERE 
 		
 		Raises:
 			| ApiException
