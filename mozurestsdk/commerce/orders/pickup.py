@@ -21,11 +21,11 @@ class Pickup(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getAvailablePickupFulfillmentActions(self,orderId, pickupId):
-		""" Retrieves a list of the actions available to perform for the pickup specified in the request.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| pickupId (string) - Unique identifier of the pickup to remove.
+			| orderId (string) - Unique identifier of the order associated with the pickup.
+			| pickupId (string) - Unique identifier of the pickup for which to retrieve available actions.
 		
 		Returns:
 			| array of string 
@@ -44,12 +44,12 @@ class Pickup(object):
 	
 		
 	def getPickup(self,orderId, pickupId, responseFields = None):
-		""" Retrieves the details of the in-store pickup specified in the request.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| pickupId (string) - Unique identifier of the pickup to remove.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| orderId (string) - Unique identifier of the order associated with the pickup.
+			| pickupId (string) - Unique identifier of the pickup to retrieve.
+			| responseFields (string) - 
 		
 		Returns:
 			| Pickup 
@@ -69,12 +69,12 @@ class Pickup(object):
 	
 		
 	def createPickup(self,pickup, orderId, responseFields = None):
-		""" Create a new pickup for the order specified in the request for in-store fufillment.
+		""" 
 		
 		Args:
-			| pickup(pickup) - Properties of an in-store pickup defined to fulfill items in an order.
+			| pickup(pickup) - Properties of the in-store pickup to create.
 			| orderId (string) - Unique identifier of the order.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| Pickup 
@@ -93,13 +93,13 @@ class Pickup(object):
 	
 		
 	def updatePickup(self,pickup, orderId, pickupId, responseFields = None):
-		""" Updates one or more details of a defined in-store pickup.
+		""" 
 		
 		Args:
-			| pickup(pickup) - Properties of an in-store pickup defined to fulfill items in an order.
-			| orderId (string) - Unique identifier of the order.
-			| pickupId (string) - Unique identifier of the pickup to remove.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| pickup(pickup) - Properties of the in-store pickup to update.
+			| orderId (string) - Unique identifier of the order associated with the in-store pickup.
+			| pickupId (string) - Unique identifier of the pickup to update.
+			| responseFields (string) - 
 		
 		Returns:
 			| Pickup 
@@ -119,10 +119,10 @@ class Pickup(object):
 	
 		
 	def deletePickup(self,orderId, pickupId):
-		""" Removes a pickup previously defined for order item in-store pickup fulfillment.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
+			| orderId (string) - Unique identifier of the order associated with the pickup.
 			| pickupId (string) - Unique identifier of the pickup to remove.
 		
 		Raises:

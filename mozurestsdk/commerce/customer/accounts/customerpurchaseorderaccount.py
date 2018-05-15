@@ -21,11 +21,11 @@ class CustomerPurchaseOrderAccount(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getCustomerPurchaseOrderAccount(self,accountId, responseFields = None):
-		""" Retrieves the details of the specified customer purchase order account.
+		""" 
 		
 		Args:
-			| accountId (int) - Unique identifier of the customer account.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| accountId (int) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerPurchaseOrderAccount 
@@ -44,15 +44,15 @@ class CustomerPurchaseOrderAccount(object):
 	
 		
 	def getCustomerPurchaseOrderTransactions(self,accountId, startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		""" Retrieves a list of purchase order transactions for the specified customer account according to any specified sort options.
+		""" 
 		
 		Args:
-			| accountId (int) - Unique identifier of the customer account.
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
-			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
-			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
-			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| accountId (int) - 
+			| startIndex (int) - 
+			| pageSize (int) - 
+			| sortBy (string) - 
+			| filter (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| PurchaseOrderTransactionCollection 
@@ -75,12 +75,12 @@ class CustomerPurchaseOrderAccount(object):
 	
 		
 	def createCustomerPurchaseOrderAccount(self,customerPurchaseOrderAccount, accountId, responseFields = None):
-		""" Adds a purchase order account to the specified customer account.This adds the ability for the specified customer account to use the purchase order payment method.
+		""" 
 		
 		Args:
-			| customerPurchaseOrderAccount(customerPurchaseOrderAccount) - Unique identifier of the customer purchase order account.
-			| accountId (int) - Unique identifier of the customer account.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| customerPurchaseOrderAccount(customerPurchaseOrderAccount) - 
+			| accountId (int) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerPurchaseOrderAccount 
@@ -99,12 +99,12 @@ class CustomerPurchaseOrderAccount(object):
 	
 		
 	def createPurchaseOrderTransaction(self,purchaseOrderTransaction, accountId, responseFields = None):
-		""" Creates a purchase order transaction on the specified customer purchase order account.
+		""" 
 		
 		Args:
-			| purchaseOrderTransaction(purchaseOrderTransaction) - The purchase order transaction type to add to the specified customer account.
-			| accountId (int) - Unique identifier of the customer account.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| purchaseOrderTransaction(purchaseOrderTransaction) - 
+			| accountId (int) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| PurchaseOrderTransaction 
@@ -123,12 +123,12 @@ class CustomerPurchaseOrderAccount(object):
 	
 		
 	def updateCustomerPurchaseOrderAccount(self,customerPurchaseOrderAccount, accountId, responseFields = None):
-		""" Updates the details of the purchase order account for the specified customer account.
+		""" 
 		
 		Args:
-			| customerPurchaseOrderAccount(customerPurchaseOrderAccount) - Unique identifier of the customer purchase order account.
-			| accountId (int) - Unique identifier of the customer account.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| customerPurchaseOrderAccount(customerPurchaseOrderAccount) - 
+			| accountId (int) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerPurchaseOrderAccount 
@@ -147,10 +147,10 @@ class CustomerPurchaseOrderAccount(object):
 	
 		
 	def deleteCustomerPurchaseOrderAccount(self,accountId):
-		""" Deletes the specified customer purchase order account.This removes the ability for the specified customer account to use the purchase order payment method.
+		""" 
 		
 		Args:
-			| accountId (int) - Unique identifier of the customer account.
+			| accountId (int) - 
 		
 		Raises:
 			| ApiException

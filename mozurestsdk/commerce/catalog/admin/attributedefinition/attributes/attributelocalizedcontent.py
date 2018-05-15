@@ -21,10 +21,10 @@ class AttributeLocalizedContent(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getAttributeLocalizedContents(self,attributeFQN):
-		""" Retrieves a collection of localized content for attributes based on a  localeCode .
+		""" 
 		
 		Args:
-			| attributeFQN (string) - Fully qualified name for an attribute.
+			| attributeFQN (string) - 
 		
 		Returns:
 			| array of AttributeLocalizedContent 
@@ -42,12 +42,12 @@ class AttributeLocalizedContent(object):
 	
 		
 	def getAttributeLocalizedContent(self,attributeFQN, localeCode, responseFields = None):
-		""" Retrieves the localized content for an attribute based on a  localeCode .
+		""" 
 		
 		Args:
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| localeCode (string) - Language used for the entity. Currently, only "en-US" is supported.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| attributeFQN (string) - 
+			| localeCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| AttributeLocalizedContent 
@@ -67,12 +67,12 @@ class AttributeLocalizedContent(object):
 	
 		
 	def addLocalizedContent(self,localizedContent, attributeFQN, responseFields = None):
-		""" Adds new localized content for an attribute based on a  localeCode .
+		""" 
 		
 		Args:
-			| localizedContent(localizedContent) - The localized name and description of the attribute, displayed in the locale defined for the master catalog.
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| localizedContent(localizedContent) - 
+			| attributeFQN (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| AttributeLocalizedContent 
@@ -91,11 +91,11 @@ class AttributeLocalizedContent(object):
 	
 		
 	def updateLocalizedContents(self,localizedContent, attributeFQN):
-		""" Updates the localized content for a collection of existing attributes based on a  localeCode .
+		""" 
 		
 		Args:
-			| localizedContent(array|localizedContent) - The localized name and description of the attribute, displayed in the locale defined for the master catalog.
-			| attributeFQN (string) - Fully qualified name for an attribute.
+			| localizedContent(array|localizedContent) - 
+			| attributeFQN (string) - 
 		
 		Returns:
 			| array of AttributeLocalizedContent 
@@ -113,13 +113,13 @@ class AttributeLocalizedContent(object):
 	
 		
 	def updateLocalizedContent(self,localizedContent, attributeFQN, localeCode, responseFields = None):
-		""" Updates the localized content for an existing attribute based on a  localeCode .
+		""" 
 		
 		Args:
-			| localizedContent(localizedContent) - The localized name and description of the attribute, displayed in the locale defined for the master catalog.
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| localeCode (string) - Language used for the entity. Currently, only "en-US" is supported.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| localizedContent(localizedContent) - 
+			| attributeFQN (string) - 
+			| localeCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| AttributeLocalizedContent 
@@ -139,11 +139,11 @@ class AttributeLocalizedContent(object):
 	
 		
 	def deleteLocalizedContent(self,attributeFQN, localeCode):
-		""" Removes all localized content. Localized content is translated text information and data based on a  localeCode . 
+		""" 
 		
 		Args:
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| localeCode (string) - Language used for the entity. Currently, only "en-US" is supported.
+			| attributeFQN (string) - 
+			| localeCode (string) - 
 		
 		Raises:
 			| ApiException

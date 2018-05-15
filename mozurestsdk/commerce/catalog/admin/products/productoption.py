@@ -22,10 +22,10 @@ class ProductOption(object):
 		self.client.withApiContext(apiContext);
 	
 	def getOptions(self,productCode):
-		""" Retrieves a list of all option attributes configured for the product specified in the request.
+		""" 
 		
 		Args:
-			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			| productCode (string) - 
 		
 		Returns:
 			| array of ProductOption 
@@ -43,12 +43,12 @@ class ProductOption(object):
 	
 		
 	def getOption(self,productCode, attributeFQN, responseFields = None):
-		""" Retrieves the details of an option attribute configuration for the specified product.
+		""" 
 		
 		Args:
-			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| productCode (string) - 
+			| attributeFQN (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductOption 
@@ -68,12 +68,12 @@ class ProductOption(object):
 	
 		
 	def addOption(self,productOption, productCode, responseFields = None):
-		""" Configures an option attribute for the product specified in the request.
+		""" 
 		
 		Args:
-			| productOption(productOption) - Properties of the product option to create such as attribute detail, fully qualified name, and list of product option values.
-			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| productOption(productOption) - Properties of the option attribute to define for the product.
+			| productCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductOption 
@@ -92,13 +92,13 @@ class ProductOption(object):
 	
 		
 	def updateOption(self,productOption, productCode, attributeFQN, responseFields = None):
-		""" Updates one or more properties of an option attribute configured for a product.
+		""" 
 		
 		Args:
-			| productOption(productOption) - Properties of the product option to create such as attribute detail, fully qualified name, and list of product option values.
-			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| productOption(productOption) - Properties of the product option attribute configuration to update.
+			| productCode (string) - 
+			| attributeFQN (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductOption 
@@ -118,11 +118,11 @@ class ProductOption(object):
 	
 		
 	def deleteOption(self,productCode, attributeFQN):
-		""" Deletes the configuration of an option attribute for the product specified in the request.
+		""" 
 		
 		Args:
-			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| productCode (string) - 
+			| attributeFQN (string) - 
 		
 		Raises:
 			| ApiException

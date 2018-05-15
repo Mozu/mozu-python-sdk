@@ -21,12 +21,12 @@ class CustomerNote(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getAccountNote(self,accountId, noteId, responseFields = None):
-		""" Retrieves the contents of a particular note attached to a specified customer account.
+		""" 
 		
 		Args:
-			| accountId (int) - Unique identifier of the customer account.
+			| accountId (int) - Unique identifier of the customer account that contains the note being retrieved.
 			| noteId (int) - Unique identifier of a particular note to retrieve.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerNote 
@@ -46,15 +46,15 @@ class CustomerNote(object):
 	
 		
 	def getAccountNotes(self,accountId, startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		""" Retrieves a list of notes added to a customer account according to any specified filter criteria and sort options.
+		""" 
 		
 		Args:
 			| accountId (int) - Unique identifier of the customer account.
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-			| sortBy (string) - The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
-			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| startIndex (int) - 
+			| pageSize (int) - 
+			| sortBy (string) - 
+			| filter (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerNoteCollection 
@@ -77,12 +77,12 @@ class CustomerNote(object):
 	
 		
 	def addAccountNote(self,note, accountId, responseFields = None):
-		""" Adds a new note to the specified customer account.
+		""" 
 		
 		Args:
-			| note(note) - Properties of a note configured for a customer account.
-			| accountId (int) - Unique identifier of the customer account.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| note(note) - Properties of the customer account note to create.
+			| accountId (int) - Unique identifier of the customer account for which to create the note.
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerNote 
@@ -101,13 +101,13 @@ class CustomerNote(object):
 	
 		
 	def updateAccountNote(self,note, accountId, noteId, responseFields = None):
-		""" Modifies an existing note for a customer account.
+		""" 
 		
 		Args:
-			| note(note) - Properties of a note configured for a customer account.
-			| accountId (int) - Unique identifier of the customer account.
-			| noteId (int) - Unique identifier of a particular note to retrieve.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| note(note) - The new content to replace the existing note.
+			| accountId (int) - Unique identifier of the customer account note to modify.
+			| noteId (int) - Unique identifier of the note to update.
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerNote 
@@ -127,11 +127,11 @@ class CustomerNote(object):
 	
 		
 	def deleteAccountNote(self,accountId, noteId):
-		""" Removes a note from the specified customer account.
+		""" 
 		
 		Args:
-			| accountId (int) - Unique identifier of the customer account.
-			| noteId (int) - Unique identifier of a particular note to retrieve.
+			| accountId (int) - Unique identifier of the customer account that contains the note being deleted.
+			| noteId (int) - Unique identifier of the customer account note being deleted.
 		
 		Raises:
 			| ApiException

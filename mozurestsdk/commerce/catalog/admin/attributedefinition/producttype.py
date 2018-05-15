@@ -22,14 +22,14 @@ class ProductType(object):
 		self.client.withApiContext(apiContext);
 	
 	def getProductTypes(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		""" Retrieves a list of product types according to any specified filter criteria and sort options.
+		""" 
 		
 		Args:
 			| startIndex (int) - 
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+			| pageSize (int) - 
 			| sortBy (string) - 
-			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product type search results by any of its properties. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+cont+shoes"
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductTypeCollection 
@@ -51,11 +51,11 @@ class ProductType(object):
 	
 		
 	def getProductType(self,productTypeId, responseFields = None):
-		""" Retrieves the details of the product type specified in the request.
+		""" 
 		
 		Args:
-			| productTypeId (int) - Identifier of the product type.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| productTypeId (int) - Identifier of the product type to retrieve.
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductType 
@@ -74,11 +74,11 @@ class ProductType(object):
 	
 		
 	def addProductType(self,productType, responseFields = None):
-		""" Creates a new product type based on the information supplied in the request.
+		""" 
 		
 		Args:
-			| productType(productType) - A product type is like a product template.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| productType(productType) - Properties of the product type to create.
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductType 
@@ -96,12 +96,12 @@ class ProductType(object):
 	
 		
 	def updateProductType(self,productType, productTypeId, responseFields = None):
-		""" Updates one or more properties of a product type.
+		""" 
 		
 		Args:
-			| productType(productType) - A product type is like a product template.
-			| productTypeId (int) - Identifier of the product type.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| productType(productType) - The details of the product type to update.
+			| productTypeId (int) - Identifier of the product type to update.
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductType 
@@ -120,10 +120,10 @@ class ProductType(object):
 	
 		
 	def deleteProductType(self,productTypeId):
-		""" Deletes the product type by providing the product type ID.
+		""" 
 		
 		Args:
-			| productTypeId (int) - Identifier of the product type.
+			| productTypeId (int) - Identifier of the product type to delete.
 		
 		Raises:
 			| ApiException

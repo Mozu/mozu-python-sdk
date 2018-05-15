@@ -21,12 +21,12 @@ class Shipment(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getShipment(self,returnId, shipmentId, responseFields = None):
-		""" Retrieves the details of the specified return replacement shipment.
+		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| shipmentId (string) - Unique identifier of the shipment to retrieve.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| returnId (string) - Unique identifier of the return associated with the replacement shipment to retrieve.
+			| shipmentId (string) - Unique identifier of the return replacement shipment to retrieve.
+			| responseFields (string) - 
 		
 		Returns:
 			| Shipment 
@@ -46,11 +46,11 @@ class Shipment(object):
 	
 		
 	def createPackageShipments(self,packageIds, returnId):
-		""" Creates a shipment from one or more packages associated with a return replacement.
+		""" 
 		
 		Args:
-			| packageIds(array|packageIds) - List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.
-			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| packageIds(array|packageIds) - List of packages in the return replacement shipment.
+			| returnId (string) - Unique identifier of the return for which to create replacement package shipments.
 		
 		Returns:
 			| array of Package 
@@ -68,11 +68,11 @@ class Shipment(object):
 	
 		
 	def deleteShipment(self,returnId, shipmentId):
-		""" Deletes a shipment for a return replacement.
+		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| shipmentId (string) - Unique identifier of the shipment to retrieve.
+			| returnId (string) - Unique identifier of the return associated with the replacement shipment to delete.
+			| shipmentId (string) - Unique identifier of the return replacement shipment to delete.
 		
 		Raises:
 			| ApiException

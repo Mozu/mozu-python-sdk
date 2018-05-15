@@ -16,11 +16,11 @@ class ReferenceData(object):
 		self.client = mozuClient or default_client();
 	
 	def getAddressSchema(self,countryCode = None, responseFields = None):
-		""" Retrieves a specific address schema based on the country code provided. This operation allows the creation of custom shipping and billing address fields.
+		""" 
 		
 		Args:
-			| countryCode (string) - The 2-letter geographic code representing the country for the physical or mailing address. Currently limited to the US.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| countryCode (string) - The 2-letter country code used to retrieve a specified address schema.
+			| responseFields (string) - 
 		
 		Returns:
 			| AddressSchema 
@@ -39,10 +39,10 @@ class ReferenceData(object):
 	
 		
 	def getAddressSchemas(self,responseFields = None):
-		""" Retrieves the entire list of address schemas that the system supports.
+		""" 
 		
 		Args:
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| AddressSchemaCollection 
@@ -60,11 +60,11 @@ class ReferenceData(object):
 	
 		
 	def getBehavior(self,behaviorId, responseFields = None):
-		""" Retrieves the details of a behavior based on the behavior ID specified in the request.
+		""" 
 		
 		Args:
 			| behaviorId (int) - Unique identifier of the behavior.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| Behavior 
@@ -83,11 +83,11 @@ class ReferenceData(object):
 	
 		
 	def getBehaviorCategory(self,categoryId, responseFields = None):
-		""" Retrieves the details of the behavior category specified in the request.
+		""" 
 		
 		Args:
-			| categoryId (int) - Unique identifier of the category to modify.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| categoryId (int) - Unique identifier of the behavior category.
+			| responseFields (string) - 
 		
 		Returns:
 			| BehaviorCategory 
@@ -106,10 +106,10 @@ class ReferenceData(object):
 	
 		
 	def getBehaviorCategories(self,responseFields = None):
-		""" Retrieves the list of behavior categories.
+		""" 
 		
 		Args:
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| BehaviorCategoryCollection 
@@ -127,11 +127,11 @@ class ReferenceData(object):
 	
 		
 	def getBehaviors(self,userType = None, responseFields = None):
-		""" Retrieves a list of application behaviors.
+		""" 
 		
 		Args:
 			| userType (string) - The user type associated with the behaviors to retrieve.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| BehaviorCollection 
@@ -150,10 +150,10 @@ class ReferenceData(object):
 	
 		
 	def getContentLocales(self,responseFields = None):
-		""" Retrieves the list of content locales the system supports. Content locales indicate the language used and the country where the language is used.
+		""" 
 		
 		Args:
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| ContentLocaleCollection 
@@ -171,10 +171,10 @@ class ReferenceData(object):
 	
 		
 	def getCountries(self,responseFields = None):
-		""" Retrieves the entire list of countries that the system supports.
+		""" 
 		
 		Args:
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| CountryCollection 
@@ -192,10 +192,10 @@ class ReferenceData(object):
 	
 		
 	def getCountriesWithStates(self,responseFields = None):
-		""" Retrieves the entire list of countries that the system supports.
+		""" 
 		
 		Args:
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| responseFields (string) - 
 		
 		Returns:
 			| CountryWithStatesCollection 
@@ -213,10 +213,10 @@ class ReferenceData(object):
 	
 		
 	def getCurrencies(self,responseFields = None):
-		""" Retrieves the entire list of currencies that the system supports.
+		""" 
 		
 		Args:
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| CurrencyCollection 
@@ -234,10 +234,10 @@ class ReferenceData(object):
 	
 		
 	def getTimeZones(self,responseFields = None):
-		""" Retrieves the entire list of time zones that the system supports.
+		""" 
 		
 		Args:
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| TimeZoneCollection 
@@ -255,10 +255,10 @@ class ReferenceData(object):
 	
 		
 	def getTopLevelDomains(self,responseFields = None):
-		""" Retrieves the entire list of top-level internet domains that the system supports.
+		""" 
 		
 		Args:
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| TopLevelDomainCollection 
@@ -276,11 +276,11 @@ class ReferenceData(object):
 	
 		
 	def getUnitsOfMeasure(self,filter = None, responseFields = None):
-		""" Retrieves an array list of all units of measure the system supports.
+		""" 
 		
 		Args:
-			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| filter (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| UnitOfMeasureCollection 

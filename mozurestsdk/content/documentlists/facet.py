@@ -21,10 +21,10 @@ class Facet(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getFacets(self,documentListName, propertyName):
-		""" Retrieves the properties of facets that aid in indexing and searching.
+		""" 
 		
 		Args:
-			| documentListName (string) - Name of content documentListName to delete
+			| documentListName (string) - The document list associated with the facets to retrieve.
 			| propertyName (string) - The property name associated with the facets to retrieve.
 		
 		Returns:

@@ -21,10 +21,10 @@ class CustomerCheckoutSettings(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getCustomerCheckoutSettings(self,responseFields = None):
-		""" Retrieves all checkout settings defined for the site: Payment settings, such as the payment gateway ID and credentials, supported credit cards, and more; Customer Checkout settings, such as whether login is required, and any custom attributes; and Order Processing settings, such as when payment is authorized and captured, and any custom attributes.
+		""" 
 		
 		Args:
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerCheckoutSettings 
@@ -42,11 +42,11 @@ class CustomerCheckoutSettings(object):
 	
 		
 	def updateCustomerCheckoutSettings(self,customerCheckoutSettings, responseFields = None):
-		""" Modifies existing site checkout settings. Modify Payment, Customer Checkout, and Order Processing settings in one PUT.
+		""" 
 		
 		Args:
-			| customerCheckoutSettings(customerCheckoutSettings) - The properties of the customer checkout settings such as whether shoppers must be logged in.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| customerCheckoutSettings(customerCheckoutSettings) - All the properties to update in the checkout settings.
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerCheckoutSettings 

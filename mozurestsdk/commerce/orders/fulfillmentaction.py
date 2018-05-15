@@ -21,12 +21,12 @@ class FulfillmentAction(object):
 			self.client.withApiContext(ApiContext());
 	
 	def performFulfillmentAction(self,action, orderId, responseFields = None):
-		""" Sets the fulfillment action to "Ship" or "PickUp". To ship an order or prepare it for in-store pickup, the order must have a customer name, the "Open" or "OpenAndProcessing" status. To ship the order, it must also have the full shipping address and shipping method. Shipping all packages or picking up all pickups for an order will complete a paid order.
+		""" 
 		
 		Args:
-			| action(action) - Properties of an action to perform when fulfilling an item in an order, whether through in-store pickup or direct shipping.
-			| orderId (string) - Unique identifier of the order.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| action(action) - The action to perform for the order fulfillment.
+			| orderId (string) - Unique identifier of the order for which to perform the fulfillment action.
+			| responseFields (string) - Updated order with a new fulfillment status resulting from the action supplied in the request.
 		
 		Returns:
 			| Order 
@@ -45,12 +45,12 @@ class FulfillmentAction(object):
 	
 		
 	def resendPackageFulfillmentEmail(self,action, orderId, responseFields = None):
-		""" Resends an email with details about the package fulfillment to the shopper. 
+		""" 
 		
 		Args:
-			| action(action) - Properties of an action to perform when fulfilling an item in an order, whether through in-store pickup or direct shipping.
-			| orderId (string) - Unique identifier of the order.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| action(action) - 
+			| orderId (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| Order 

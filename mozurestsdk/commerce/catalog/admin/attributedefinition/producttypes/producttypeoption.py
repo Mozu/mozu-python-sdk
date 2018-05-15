@@ -22,10 +22,10 @@ class ProductTypeOption(object):
 		self.client.withApiContext(apiContext);
 	
 	def getOptions(self,productTypeId):
-		""" Retrieves a list of option product attributes defined for the specified product type.
+		""" 
 		
 		Args:
-			| productTypeId (int) - Identifier of the product type.
+			| productTypeId (int) - Identifier of the product type to retrieve.
 		
 		Returns:
 			| array of AttributeInProductType 
@@ -43,12 +43,12 @@ class ProductTypeOption(object):
 	
 		
 	def getOption(self,productTypeId, attributeFQN, responseFields = None):
-		""" Retrieves the details of an option attribute defined for the specified product type.
+		""" 
 		
 		Args:
-			| productTypeId (int) - Identifier of the product type.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| productTypeId (int) - The identifier of the product type.
+			| attributeFQN (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| AttributeInProductType 
@@ -68,12 +68,12 @@ class ProductTypeOption(object):
 	
 		
 	def addOption(self,attributeInProductType, productTypeId, responseFields = None):
-		""" Assigns an option attribute to the product type based on the information supplied in the request.
+		""" 
 		
 		Args:
-			| attributeInProductType(attributeInProductType) - Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.
+			| attributeInProductType(attributeInProductType) - Properties of the option attribute to define for the specified product type.
 			| productTypeId (int) - Identifier of the product type.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| AttributeInProductType 
@@ -92,13 +92,13 @@ class ProductTypeOption(object):
 	
 		
 	def updateOption(self,attributeInProductType, productTypeId, attributeFQN, responseFields = None):
-		""" Updates an option attribute definition for the specified product type.
+		""" 
 		
 		Args:
-			| attributeInProductType(attributeInProductType) - Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.
+			| attributeInProductType(attributeInProductType) - Properties of the option product attribute to define for the specified product type.
 			| productTypeId (int) - Identifier of the product type.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| attributeFQN (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| AttributeInProductType 
@@ -118,11 +118,11 @@ class ProductTypeOption(object):
 	
 		
 	def deleteOption(self,productTypeId, attributeFQN):
-		""" Removes an option attribute definition for the specified product type.
+		""" 
 		
 		Args:
 			| productTypeId (int) - Identifier of the product type.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| attributeFQN (string) - 
 		
 		Raises:
 			| ApiException

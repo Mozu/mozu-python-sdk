@@ -22,10 +22,10 @@ class ProductExtra(object):
 		self.client.withApiContext(apiContext);
 	
 	def getExtras(self,productCode):
-		""" Retrieves a list of extras configured for the product according to any defined filter and sort criteria.
+		""" 
 		
 		Args:
-			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			| productCode (string) - 
 		
 		Returns:
 			| array of ProductExtra 
@@ -43,12 +43,12 @@ class ProductExtra(object):
 	
 		
 	def getExtraValueLocalizedDeltaPrices(self,productCode, attributeFQN, value):
-		""" Retrieves a collection of all localized delta price values for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		""" 
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| value (string) - The value string to create.
+			| productCode (string) - 
+			| attributeFQN (string) - 
+			| value (string) - 
 		
 		Returns:
 			| array of ProductExtraValueDeltaPrice 
@@ -68,14 +68,14 @@ class ProductExtra(object):
 	
 		
 	def getExtraValueLocalizedDeltaPrice(self,productCode, attributeFQN, value, currencyCode, responseFields = None):
-		""" Retrieves the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		""" 
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| value (string) - The value string to create.
-			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| productCode (string) - 
+			| attributeFQN (string) - 
+			| value (string) - 
+			| currencyCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductExtraValueDeltaPrice 
@@ -97,12 +97,12 @@ class ProductExtra(object):
 	
 		
 	def getExtra(self,productCode, attributeFQN, responseFields = None):
-		""" Retrieves the details of an extra attribute configuration for the product specified in the request.
+		""" 
 		
 		Args:
-			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| productCode (string) - 
+			| attributeFQN (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductExtra 
@@ -122,14 +122,14 @@ class ProductExtra(object):
 	
 		
 	def addExtraValueLocalizedDeltaPrice(self,localizedDeltaPrice, productCode, attributeFQN, value, responseFields = None):
-		""" Adds a localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		""" 
 		
 		Args:
-			| localizedDeltaPrice(localizedDeltaPrice) - The properties of the price difference between the product extra and the base product.
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| value (string) - The value string to create.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| localizedDeltaPrice(localizedDeltaPrice) - 
+			| productCode (string) - 
+			| attributeFQN (string) - 
+			| value (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductExtraValueDeltaPrice 
@@ -150,12 +150,12 @@ class ProductExtra(object):
 	
 		
 	def addExtra(self,productExtra, productCode, responseFields = None):
-		""" Configure an extra attribute for the product specified in the request.
+		""" 
 		
 		Args:
-			| productExtra(productExtra) - Properties of an extra attribute to defined for a product that is associated with a product type that uses the extra. Setting up extras for a product enables shopper-entered information, such as initials for a monogram.
-			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| productExtra(productExtra) - Properties of the product extra to configure for the specified product.
+			| productCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductExtra 
@@ -174,13 +174,13 @@ class ProductExtra(object):
 	
 		
 	def updateExtraValueLocalizedDeltaPrices(self,localizedDeltaPrice, productCode, attributeFQN, value):
-		""" Updates all localized delta price values for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		""" 
 		
 		Args:
-			| localizedDeltaPrice(array|localizedDeltaPrice) - The properties of the price difference between the product extra and the base product.
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| value (string) - The value string to create.
+			| localizedDeltaPrice(array|localizedDeltaPrice) - 
+			| productCode (string) - 
+			| attributeFQN (string) - 
+			| value (string) - 
 		
 		Returns:
 			| array of ProductExtraValueDeltaPrice 
@@ -200,15 +200,15 @@ class ProductExtra(object):
 	
 		
 	def updateExtraValueLocalizedDeltaPrice(self,localizedDeltaPrice, productCode, attributeFQN, value, currencyCode, responseFields = None):
-		""" Updates the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		""" 
 		
 		Args:
-			| localizedDeltaPrice(localizedDeltaPrice) - The properties of the price difference between the product extra and the base product.
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| value (string) - The value string to create.
-			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| localizedDeltaPrice(localizedDeltaPrice) - 
+			| productCode (string) - 
+			| attributeFQN (string) - 
+			| value (string) - 
+			| currencyCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductExtraValueDeltaPrice 
@@ -230,13 +230,13 @@ class ProductExtra(object):
 	
 		
 	def updateExtra(self,productExtra, productCode, attributeFQN, responseFields = None):
-		""" Updates the configuration of an extra attribute for the product specified in the request.
+		""" 
 		
 		Args:
-			| productExtra(productExtra) - Properties of an extra attribute to defined for a product that is associated with a product type that uses the extra. Setting up extras for a product enables shopper-entered information, such as initials for a monogram.
-			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| productExtra(productExtra) - Properties of the extra attribute to update for the specified product.
+			| productCode (string) - 
+			| attributeFQN (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductExtra 
@@ -256,11 +256,11 @@ class ProductExtra(object):
 	
 		
 	def deleteExtra(self,productCode, attributeFQN):
-		""" Delete a product extra configuration for the product specified in the request.
+		""" 
 		
 		Args:
-			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| productCode (string) - 
+			| attributeFQN (string) - 
 		
 		Raises:
 			| ApiException
@@ -275,13 +275,13 @@ class ProductExtra(object):
 	
 		
 	def deleteExtraValueLocalizedDeltaPrice(self,productCode, attributeFQN, value, currencyCode):
-		""" Deletes the localized delta price value for a product extra. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		""" 
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| value (string) - Use this field to include those fields which are not included by default.
-			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.
+			| productCode (string) - 
+			| attributeFQN (string) - 
+			| value (string) - 
+			| currencyCode (string) - 
 		
 		Raises:
 			| ApiException

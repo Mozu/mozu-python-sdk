@@ -21,14 +21,14 @@ class Location(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getLocations(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		""" Retrieves a list of all locations associated with a tenant, according to any filter and sort criteria specified in the request.
+		""" 
 		
 		Args:
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-			| sortBy (string) - The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
-			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| startIndex (int) - 
+			| pageSize (int) - 
+			| sortBy (string) - 
+			| filter (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| LocationCollection 
@@ -50,11 +50,11 @@ class Location(object):
 	
 		
 	def getLocation(self,locationCode, responseFields = None):
-		""" Retrieves the details of the location specified in the request by location code.
+		""" 
 		
 		Args:
-			| locationCode (string) - The unique, user-defined code that identifies a location. 
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| locationCode (string) - The merchant-defined code of the location to retrieve.
+			| responseFields (string) - 
 		
 		Returns:
 			| Location 
@@ -73,11 +73,11 @@ class Location(object):
 	
 		
 	def addLocation(self,location, responseFields = None):
-		""" Creates a new physical location for the tenant specified in the request header.
+		""" 
 		
 		Args:
-			| location(location) - Properties of a physical location a tenant uses to manage inventory and fulfills orders, provide store finder functionality, or both.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| location(location) - Properties of the location to create.
+			| responseFields (string) - 
 		
 		Returns:
 			| Location 
@@ -95,12 +95,12 @@ class Location(object):
 	
 		
 	def updateLocation(self,location, locationCode, responseFields = None):
-		""" Updates one or more details of a the location specified in the request by location code.
+		""" 
 		
 		Args:
-			| location(location) - Properties of a physical location a tenant uses to manage inventory and fulfills orders, provide store finder functionality, or both.
-			| locationCode (string) - The unique, user-defined code that identifies a location. 
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| location(location) - Properties of the location to update.
+			| locationCode (string) - The merchant-defined code associated with the location to update.
+			| responseFields (string) - 
 		
 		Returns:
 			| Location 
@@ -119,10 +119,10 @@ class Location(object):
 	
 		
 	def deleteLocation(self,locationCode):
-		""" Deletes the location specified in the request.
+		""" 
 		
 		Args:
-			| locationCode (string) - The unique, user-defined code that identifies a location. 
+			| locationCode (string) - The merchant-defined code of the location to delete.
 		
 		Raises:
 			| ApiException

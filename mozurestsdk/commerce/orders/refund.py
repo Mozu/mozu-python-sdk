@@ -21,12 +21,12 @@ class Refund(object):
 			self.client.withApiContext(ApiContext());
 	
 	def createRefund(self,refund, orderId, responseFields = None):
-		""" Creates a refund based on the information supplied in the request.  
+		""" 
 		
 		Args:
-			| refund(refund) - The details of the refund.
-			| orderId (string) - Unique identifier of the order.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| refund(refund) - 
+			| orderId (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| Refund 
@@ -45,12 +45,11 @@ class Refund(object):
 	
 		
 	def resendRefundEmail(self,orderId, refundId):
-		""" Resends the order refund email previously sent to the shopper. 
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| refundId (string) - Unique ID of the refund.
-        
+			| orderId (string) - 
+			| refundId (string) - 
 		
 		Raises:
 			| ApiException

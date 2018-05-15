@@ -21,12 +21,12 @@ class SecureAppData(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getDBValue(self,appKeyId, dbEntryQuery, responseFields = None):
-		""" platform-secureappdata Get GetDBValue description DOCUMENT_HERE 
+		""" 
 		
 		Args:
 			| appKeyId (string) - 
-			| dbEntryQuery (string) - The database entry string to create.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| dbEntryQuery (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| JObject 
@@ -46,12 +46,12 @@ class SecureAppData(object):
 	
 		
 	def createDBValue(self,value, appKeyId, dbEntryQuery):
-		""" platform-secureappdata Post CreateDBValue description DOCUMENT_HERE 
+		""" 
 		
 		Args:
-			| value(value) - The value string to create.
+			| value(value) - 
 			| appKeyId (string) - 
-			| dbEntryQuery (string) - The database entry string to create.
+			| dbEntryQuery (string) - 
 		
 		Raises:
 			| ApiException
@@ -66,12 +66,12 @@ class SecureAppData(object):
 	
 		
 	def updateDBValue(self,value, appKeyId, dbEntryQuery):
-		""" platform-secureappdata Put UpdateDBValue description DOCUMENT_HERE 
+		""" 
 		
 		Args:
-			| value(value) - The value string to create.
+			| value(value) - 
 			| appKeyId (string) - 
-			| dbEntryQuery (string) - The database entry string to create.
+			| dbEntryQuery (string) - 
 		
 		Raises:
 			| ApiException
@@ -86,11 +86,11 @@ class SecureAppData(object):
 	
 		
 	def deleteDBValue(self,appKeyId, dbEntryQuery):
-		""" platform-secureappdata Delete DeleteDBValue description DOCUMENT_HERE 
+		""" 
 		
 		Args:
 			| appKeyId (string) - 
-			| dbEntryQuery (string) - The database entry string to create.
+			| dbEntryQuery (string) - 
 		
 		Raises:
 			| ApiException

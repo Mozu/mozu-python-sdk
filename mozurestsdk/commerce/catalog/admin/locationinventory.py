@@ -22,12 +22,12 @@ class LocationInventory(object):
 		self.client.withApiContext(apiContext);
 	
 	def getLocationInventory(self,locationCode, productCode, responseFields = None):
-		""" Retrieves the details of a product's active inventory at the location specified in the request.
+		""" 
 		
 		Args:
-			| locationCode (string) - The unique, user-defined code that identifies a location. 
-			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| locationCode (string) - User-defined code that uniquely identifies the location.
+			| productCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| LocationInventory 
@@ -47,16 +47,16 @@ class LocationInventory(object):
 	
 		
 	def getLocationInventories(self,locationCode, startIndex = None, pageSize = None, sortBy = None, filter = None, filterFunctions = None, responseFields = None):
-		""" Retrieves a list of all product inventory definitions for the location code specified in the request.
+		""" 
 		
 		Args:
-			| locationCode (string) - The unique, user-defined code that identifies a location. 
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-			| sortBy (string) - The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
-			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-			| filterFunctions (string) - Functions that optimize commonly used filters for efficiency.For the  operation, you have access to the  filter function. For example, use  to filter only for product inventory that is currently active.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| locationCode (string) - 
+			| startIndex (int) - 
+			| pageSize (int) - 
+			| sortBy (string) - 
+			| filter (string) - 
+			| filterFunctions (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| LocationInventoryCollection 
@@ -80,12 +80,12 @@ class LocationInventory(object):
 	
 		
 	def addLocationInventory(self,locationInventoryList, locationCode, performUpserts = False):
-		""" Creates an array of product inventory definitions for the location specified in the request. When adding a new inventory definition, you must specify the productCode and stockOnHand value in each array you define. All other properties are system-supplied and read only.
+		""" 
 		
 		Args:
-			| locationInventoryList(array|locationInventoryList) - Properties of an inventory definition that defines the level of inventory for a specific product at a given location.
-			| locationCode (string) - The unique, user-defined code that identifies a location. 
-			| performUpserts (bool) - Query string parameter lets the service perform an update for a new or existing record. When run, the update occurs without throwing a conflict exception that the record exists. If true, the updates completes regardless of the record currently existing. By default, if no value is specified, the service assumes this value is false.
+			| locationInventoryList(array|locationInventoryList) - Array list of product inventory definitions for all associated locations. For each location inventory in the list, define the productCode and stockOnHand values.
+			| locationCode (string) - User-defined code that uniquely identifies the location.
+			| performUpserts (bool) - 
 		
 		Returns:
 			| array of LocationInventory 
@@ -104,11 +104,11 @@ class LocationInventory(object):
 	
 		
 	def updateLocationInventory(self,locationInventoryAdjustments, locationCode):
-		""" Updates the active stock on hand inventory of products for the location code specified in the request.
+		""" 
 		
 		Args:
-			| locationInventoryAdjustments(array|locationInventoryAdjustments) - Properties of an adjustment to the active product inventory of a specific location.
-			| locationCode (string) - The unique, user-defined code that identifies a location. 
+			| locationInventoryAdjustments(array|locationInventoryAdjustments) - Properties of the inventory adjustments to perform for the specified location.
+			| locationCode (string) - User-defined code that uniquely identifies the location.
 		
 		Returns:
 			| array of LocationInventory 
@@ -126,11 +126,11 @@ class LocationInventory(object):
 	
 		
 	def deleteLocationInventory(self,locationCode, productCode):
-		""" Deletes the product code inventory definition for the location specified in the request.
+		""" 
 		
 		Args:
-			| locationCode (string) - The unique, user-defined code that identifies a location. 
-			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			| locationCode (string) - User-defined code that uniquely identifies the location.
+			| productCode (string) - 
 		
 		Raises:
 			| ApiException

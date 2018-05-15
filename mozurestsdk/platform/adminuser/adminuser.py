@@ -16,11 +16,11 @@ class AdminUser(object):
 		self.client = mozuClient or default_client();
 	
 	def getTenantScopesForUser(self,userId, responseFields = None):
-		""" Retrieves a list of the  tenants or development stores for which the specified user has an assigned role.
+		""" 
 		
 		Args:
 			| userId (string) - Unique identifier of the user whose tenant scopes you want to retrieve.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| TenantCollection 
@@ -39,11 +39,11 @@ class AdminUser(object):
 	
 		
 	def getUser(self,userId, responseFields = None):
-		""" Retrieves the details of the specified administrator user account.
+		""" 
 		
 		Args:
-			| userId (string) - Unique identifier of the user whose tenant scopes you want to retrieve.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| userId (string) - Unique identifier of the administrator account to retrieve.
+			| responseFields (string) - 
 		
 		Returns:
 			| User 

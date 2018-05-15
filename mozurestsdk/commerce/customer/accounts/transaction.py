@@ -21,10 +21,10 @@ class Transaction(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getTransactions(self,accountId):
-		""" Retrieves a list of transactions associated with the customer account specified in the request.
+		""" 
 		
 		Args:
-			| accountId (int) - Unique identifier of the customer account.
+			| accountId (int) - Unique identifier of the customer account for which to retrieve transactions.
 		
 		Returns:
 			| array of Transaction 
@@ -42,12 +42,12 @@ class Transaction(object):
 	
 		
 	def addTransaction(self,transaction, accountId, responseFields = None):
-		""" Creates a new transaction for the customer account specified in the request.
+		""" 
 		
 		Args:
-			| transaction(transaction) - Properties of a transaction performed by a customer account. The system creates a transaction each time the customer submits an order, returns an item, picks up items for an order, or manages items on a wish list.
+			| transaction(transaction) - Properties of the transaction to create for the customer account.
 			| accountId (int) - Unique identifier of the customer account.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| Transaction 
@@ -66,10 +66,10 @@ class Transaction(object):
 	
 		
 	def removeTransaction(self,accountId, transactionId):
-		""" Deletes a transaction from the customer account specified in the request.
+		""" 
 		
 		Args:
-			| accountId (int) - Unique identifier of the customer account.
+			| accountId (int) - Unique identifier of the customer account from which to delete the transaction.
 			| transactionId (string) - Unique identifier of the transaction to delete.
 		
 		Raises:

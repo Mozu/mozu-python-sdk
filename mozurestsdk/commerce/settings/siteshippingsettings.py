@@ -21,10 +21,10 @@ class SiteShippingSettings(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getSiteShippingSettings(self,responseFields = None):
-		""" Retrieves a list of the shipping settings configured for a site.
+		""" 
 		
 		Args:
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| SiteShippingSettings 

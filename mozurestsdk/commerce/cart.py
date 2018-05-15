@@ -21,11 +21,11 @@ class Cart(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getCart(self,cartId, responseFields = None):
-		""" Retrieves the cart specified in the request.
+		""" 
 		
 		Args:
-			| cartId (string) - Identifier of the cart to delete.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| cartId (string) - Identifier of the cart to retrieve.
+			| responseFields (string) - 
 		
 		Returns:
 			| Cart 
@@ -44,10 +44,10 @@ class Cart(object):
 	
 		
 	def getOrCreateCart(self,responseFields = None):
-		""" Retrieves a cart's contents for the current shopper. If the shopper does not have an active cart on the site, the service creates one.
+		""" 
 		
 		Args:
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| Cart 
@@ -65,10 +65,10 @@ class Cart(object):
 	
 		
 	def getCartSummary(self,responseFields = None):
-		""" Retrieves summary information associated with the cart of the current shopper, including the number of items, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
+		""" 
 		
 		Args:
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| CartSummary 
@@ -86,11 +86,11 @@ class Cart(object):
 	
 		
 	def getUserCartSummary(self,userId, responseFields = None):
-		""" Retrieves summary information associated with the cart of user specified in the request, including the number of items in the cart, the current total, and whether the cart has expired. All anonymous idle carts that do not proceed to checkout expire after 14 days.
+		""" 
 		
 		Args:
-			| userId (string) - Unique identifier of the user whose tenant scopes you want to retrieve.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| userId (string) - Unique identifier of the user whose cart details you want to retrieve.
+			| responseFields (string) - 
 		
 		Returns:
 			| CartSummary 
@@ -109,11 +109,11 @@ class Cart(object):
 	
 		
 	def getUserCart(self,userId, responseFields = None):
-		""" Retrieves the cart of the user specified in the request.
+		""" 
 		
 		Args:
-			| userId (string) - Unique identifier of the user whose tenant scopes you want to retrieve.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| userId (string) - Unique identifier of the user whose cart you want to retrieve.
+			| responseFields (string) - 
 		
 		Returns:
 			| Cart 
@@ -132,11 +132,11 @@ class Cart(object):
 	
 		
 	def updateCart(self,cart, responseFields = None):
-		""" Update the current shopper's cart.
+		""" 
 		
 		Args:
-			| cart(cart) - Properties of a shopping cart.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| cart(cart) - All of the properties of the cart to update. The product code is required.
+			| responseFields (string) - 
 		
 		Returns:
 			| Cart 
@@ -154,7 +154,7 @@ class Cart(object):
 	
 		
 	def deleteCart(self,cartId):
-		""" Deletes the cart specified in the request.
+		""" 
 		
 		Args:
 			| cartId (string) - Identifier of the cart to delete.
@@ -171,7 +171,7 @@ class Cart(object):
 	
 		
 	def deleteCurrentCart(self,):
-		""" Deletes the cart of the currently active shopper.
+		""" 
 		
 		Raises:
 			| ApiException

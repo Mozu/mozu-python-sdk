@@ -21,12 +21,12 @@ class Facet(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getFacet(self,facetId, validate = False, responseFields = None):
-		""" Retrieves a facet specified by its unique identifier and displays its properties.
+		""" 
 		
 		Args:
 			| facetId (int) - Unique identifier of the facet to retrieve.
 			| validate (bool) - Validates that the product category associated with a facet is active. System-supplied and read only.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| Facet 
@@ -46,13 +46,13 @@ class Facet(object):
 	
 		
 	def getFacetCategoryList(self,categoryId, includeAvailable = False, validate = False, responseFields = None):
-		""" Retrieves a list of the facets defined for the specified category.
+		""" 
 		
 		Args:
-			| categoryId (int) - Unique identifier of the category to modify.
+			| categoryId (int) - Unique identifier of the category associated with the facets to retrieve.
 			| includeAvailable (bool) - If true, returns a list of the attributes and categories associated with a product type that have not been defined as a facet for the category.
 			| validate (bool) - Validates that the product category associated with a facet is active. System-supplied and read only.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| FacetSet 
@@ -73,11 +73,11 @@ class Facet(object):
 	
 		
 	def addFacet(self,facet, responseFields = None):
-		""" Creates a new category, price, or attribute facet. Define the category or attribute source to use for the facet values.
+		""" 
 		
 		Args:
-			| facet(facet) - Properties of the facet used to retrieve documents.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| facet(facet) - Properties of the new facet to create. You must specify the source, type, and category.
+			| responseFields (string) - 
 		
 		Returns:
 			| Facet 
@@ -95,12 +95,12 @@ class Facet(object):
 	
 		
 	def updateFacet(self,facet, facetId, responseFields = None):
-		""" Modifies one or more properties of a defined facet.
+		""" 
 		
 		Args:
-			| facet(facet) - Properties of the facet used to retrieve documents.
-			| facetId (int) - Unique identifier of the facet to retrieve.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| facet(facet) - Properties of the defined facet to modify.
+			| facetId (int) - Unique identifier of the facet to modify.
+			| responseFields (string) - 
 		
 		Returns:
 			| Facet 
@@ -119,10 +119,10 @@ class Facet(object):
 	
 		
 	def deleteFacetById(self,facetId):
-		""" Deletes the facet specified by its unique identifier.
+		""" 
 		
 		Args:
-			| facetId (int) - Unique identifier of the facet to retrieve.
+			| facetId (int) - Unique identifier of the facet to delete.
 		
 		Raises:
 			| ApiException

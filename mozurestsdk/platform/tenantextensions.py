@@ -21,10 +21,10 @@ class TenantExtensions(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getExtensions(self,responseFields = None):
-		""" Retrieves the Arc.js configuration settings for a site.
+		""" 
 		
 		Args:
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| responseFields (string) - 
 		
 		Returns:
 			| TenantExtensions 
@@ -42,11 +42,11 @@ class TenantExtensions(object):
 	
 		
 	def updateExtensions(self,extensions, responseFields = None):
-		""" Updates the Arc.js configuration settings for a site.
+		""" 
 		
 		Args:
-			| extensions(extensions) - The updated details of the Arc.js configuration settings.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| extensions(extensions) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| TenantExtensions 

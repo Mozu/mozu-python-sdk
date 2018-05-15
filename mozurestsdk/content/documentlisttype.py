@@ -22,12 +22,12 @@ class DocumentListType(object):
 		self.client.withApiContext(apiContext);
 	
 	def getDocumentListTypes(self,pageSize = None, startIndex = None, responseFields = None):
-		""" Gets all the available documentListTypes.
+		""" 
 		
 		Args:
-			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| pageSize (int) - 
+			| startIndex (int) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| DocumentListTypeCollection 
@@ -47,11 +47,11 @@ class DocumentListType(object):
 	
 		
 	def getDocumentListType(self,documentListTypeFQN, responseFields = None):
-		""" Gets a documentListType.
+		""" 
 		
 		Args:
 			| documentListTypeFQN (string) - 
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| responseFields (string) - 
 		
 		Returns:
 			| DocumentListType 
@@ -70,11 +70,11 @@ class DocumentListType(object):
 	
 		
 	def createDocumentListType(self,list, responseFields = None):
-		""" Creates a new documentListType.
+		""" 
 		
 		Args:
-			| list(list) - Properties for the document list type. Document lists contain documents with an associated document type, such as web pages.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| list(list) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| DocumentListType 
@@ -92,12 +92,12 @@ class DocumentListType(object):
 	
 		
 	def updateDocumentListType(self,list, documentListTypeFQN, responseFields = None):
-		""" Updates a DocumentListType
+		""" 
 		
 		Args:
-			| list(list) - Properties for the document list type. Document lists contain documents with an associated document type, such as web pages.
+			| list(list) - 
 			| documentListTypeFQN (string) - 
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| DocumentListType 

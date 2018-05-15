@@ -21,14 +21,14 @@ class ChannelGroup(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getChannelGroups(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		""" Retrieves a list of defined channel groups according to any filter and sort criteria specified in the request.
+		""" 
 		
 		Args:
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-			| sortBy (string) - The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
-			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| startIndex (int) - 
+			| pageSize (int) - 
+			| sortBy (string) - 
+			| filter (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ChannelGroupCollection 
@@ -50,11 +50,11 @@ class ChannelGroup(object):
 	
 		
 	def getChannelGroup(self,code, responseFields = None):
-		""" Retrieves the details of a defined channel group.
+		""" 
 		
 		Args:
-			| code (string) - User-defined code that uniqely identifies the channel group.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| code (string) - The code that uniquely identifies the channel group.
+			| responseFields (string) - 
 		
 		Returns:
 			| ChannelGroup 
@@ -73,11 +73,11 @@ class ChannelGroup(object):
 	
 		
 	def createChannelGroup(self,channelGroup, responseFields = None):
-		""" Creates a new group of channels with common information.
+		""" 
 		
 		Args:
-			| channelGroup(channelGroup) - Properties of a group of channels that share common information.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| channelGroup(channelGroup) - Properties of the channel group to create.
+			| responseFields (string) - 
 		
 		Returns:
 			| ChannelGroup 
@@ -95,12 +95,12 @@ class ChannelGroup(object):
 	
 		
 	def updateChannelGroup(self,channelGroup, code, responseFields = None):
-		""" Updates one or more properties of a defined channel group.
+		""" 
 		
 		Args:
-			| channelGroup(channelGroup) - Properties of a group of channels that share common information.
-			| code (string) - User-defined code that uniqely identifies the channel group.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| channelGroup(channelGroup) - Properties of the channel group to update.
+			| code (string) - Code that identifies the channel group.
+			| responseFields (string) - 
 		
 		Returns:
 			| ChannelGroup 
@@ -119,7 +119,7 @@ class ChannelGroup(object):
 	
 		
 	def deleteChannelGroup(self,code):
-		""" Deletes a defined group of channels, which removes the group association with each channel in the group but does not delete the channel definitions themselves.
+		""" 
 		
 		Args:
 			| code (string) - User-defined code that uniqely identifies the channel group.

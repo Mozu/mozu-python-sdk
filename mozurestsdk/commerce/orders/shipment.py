@@ -21,12 +21,12 @@ class Shipment(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getShipment(self,orderId, shipmentId, responseFields = None):
-		""" Retrieves the details of the order shipment specified in the request.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
+			| orderId (string) - Unique identifier of the order associated with the shipment to retrieve.
 			| shipmentId (string) - Unique identifier of the shipment to retrieve.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| Shipment 
@@ -46,11 +46,11 @@ class Shipment(object):
 	
 		
 	def getAvailableShipmentMethods(self,orderId, draft = False):
-		""" Retrieves the available shipping methods applicable to the order. Typically used to display available shipping method options on the checkout page.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
+			| orderId (string) - Unique identifier of the order for the available shipment methods being retrieved.
+			| draft (bool) - 
 		
 		Returns:
 			| array of ShippingRate 
@@ -69,11 +69,11 @@ class Shipment(object):
 	
 		
 	def createPackageShipments(self,packageIds, orderId):
-		""" Creates a shipment from one or more package associated with an order and assign a label and tracking number to an order shipment.
+		""" 
 		
 		Args:
 			| packageIds(array|packageIds) - List of unique identifiers for each package associated with this shipment. Not all packages must belong to the same shipment.
-			| orderId (string) - Unique identifier of the order.
+			| orderId (string) - Unique identifier of the order for this shipment.
 		
 		Returns:
 			| array of Package 
@@ -91,11 +91,11 @@ class Shipment(object):
 	
 		
 	def deleteShipment(self,orderId, shipmentId):
-		""" Deletes the shipment specified in the request.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| shipmentId (string) - Unique identifier of the shipment to retrieve.
+			| orderId (string) - Unique identifier of the order to cancel shipment.
+			| shipmentId (string) - Unique identifier of the shipment to cancel.
 		
 		Raises:
 			| ApiException

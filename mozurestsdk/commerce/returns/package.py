@@ -21,12 +21,12 @@ class Package(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getPackageLabel(self,returnId, packageId, returnAsBase64Png = False):
-		""" Retrieves the package label image supplied by the carrier for a return replacement.
+		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| packageId (string) - Unique identifier of the package for which to retrieve the label.
-			| returnAsBase64Png (bool) - Specifies whether to return the RMA label image as Base64-encoded PNG image instead of as a byte array encoded in the original image format. The default is .
+			| returnId (string) - Unique identifier of the return associated with the replacement package label to retrieve.
+			| packageId (string) - Unique identifier of the return replacement package for which to retrieve the label.
+			| returnAsBase64Png (bool) - 
 		
 		Returns:
 			| Stream 
@@ -46,12 +46,12 @@ class Package(object):
 	
 		
 	def getPackage(self,returnId, packageId, responseFields = None):
-		""" Retrieves the details of a package of return replacement items.
+		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| packageId (string) - Unique identifier of the package for which to retrieve the label.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| returnId (string) - Unique identifier of the return associated with the replacement package to retrieve.
+			| packageId (string) - Unique identifier of the return replacement package to retrieve.
+			| responseFields (string) - 
 		
 		Returns:
 			| Package 
@@ -71,12 +71,12 @@ class Package(object):
 	
 		
 	def createPackage(self,package, returnId, responseFields = None):
-		""" Creates a new physical package of return replacement items.
+		""" 
 		
 		Args:
-			| package(package) - Properties of a physical package shipped for an order.
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| package(package) - Properties of the physical package for a return replacement.
+			| returnId (string) - Unique identifier of the return for which to create a replacement package.
+			| responseFields (string) - 
 		
 		Returns:
 			| Package 
@@ -95,13 +95,13 @@ class Package(object):
 	
 		
 	def updatePackage(self,package, returnId, packageId, responseFields = None):
-		""" Updates one or more properties of a package associated with a return replacement.
+		""" 
 		
 		Args:
-			| package(package) - Properties of a physical package shipped for an order.
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| packageId (string) - Unique identifier of the package for which to retrieve the label.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| package(package) - Properties of the return replacement package to update.
+			| returnId (string) - Unique identifier of the return associated with the replacement package to update.
+			| packageId (string) - Unique identifier of the return replacement package to update.
+			| responseFields (string) - 
 		
 		Returns:
 			| Package 
@@ -121,11 +121,11 @@ class Package(object):
 	
 		
 	def deletePackage(self,returnId, packageId):
-		""" Deletes a package associated with a return replacement.
+		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| packageId (string) - Unique identifier of the package for which to retrieve the label.
+			| returnId (string) - Unique identifier of the return associated with the replacement package to delete.
+			| packageId (string) - Unique identifier of the return replacement package to delete.
 		
 		Raises:
 			| ApiException

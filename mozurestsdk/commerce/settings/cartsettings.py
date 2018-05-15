@@ -21,10 +21,10 @@ class CartSettings(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getCartSettings(self,responseFields = None):
-		""" Retrieves cart settings.
+		""" 
 		
 		Args:
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| responseFields (string) - 
 		
 		Returns:
 			| CartSettings 
@@ -42,11 +42,11 @@ class CartSettings(object):
 	
 		
 	def createCartSettings(self,cartSettings, responseFields = None):
-		""" Creates cart settings.
+		""" 
 		
 		Args:
 			| cartSettings(cartSettings) - 
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| responseFields (string) - 
 		
 		Returns:
 			| CartSettings 
@@ -64,11 +64,11 @@ class CartSettings(object):
 	
 		
 	def updateCartSettings(self,cartSettings, responseFields = None):
-		""" Updates cart settings.
+		""" 
 		
 		Args:
 			| cartSettings(cartSettings) - 
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| responseFields (string) - 
 		
 		Returns:
 			| CartSettings 

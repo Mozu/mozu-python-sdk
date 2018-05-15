@@ -22,12 +22,12 @@ class PropertyType(object):
 		self.client.withApiContext(apiContext);
 	
 	def getPropertyTypes(self,pageSize = None, startIndex = None, responseFields = None):
-		""" Retrieves a list of the content property types.
+		""" 
 		
 		Args:
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| pageSize (int) - 
+			| startIndex (int) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| PropertyTypeCollection 
@@ -47,11 +47,11 @@ class PropertyType(object):
 	
 		
 	def getPropertyType(self,propertyTypeName, responseFields = None):
-		""" Retrieves the details of the content property type.
+		""" 
 		
 		Args:
-			| propertyTypeName (string) - The name of the property type.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| propertyTypeName (string) - The name of the content property type.
+			| responseFields (string) - 
 		
 		Returns:
 			| PropertyType 
@@ -70,11 +70,11 @@ class PropertyType(object):
 	
 		
 	def createPropertyType(self,propertyType, responseFields = None):
-		""" Creates a new
+		""" 
 		
 		Args:
-			| propertyType(propertyType) - Property type available for content. Property types are like templates that can be reused.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| propertyType(propertyType) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| PropertyType 
@@ -92,12 +92,12 @@ class PropertyType(object):
 	
 		
 	def updatePropertyType(self,propertyType, propertyTypeName, responseFields = None):
-		""" Updates a
+		""" 
 		
 		Args:
-			| propertyType(propertyType) - Property type available for content. Property types are like templates that can be reused.
-			| propertyTypeName (string) - The name of the property type.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| propertyType(propertyType) - 
+			| propertyTypeName (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| PropertyType 
@@ -116,10 +116,10 @@ class PropertyType(object):
 	
 		
 	def deletePropertyType(self,propertyTypeName):
-		""" Delete a specific
+		""" 
 		
 		Args:
-			| propertyTypeName (string) - The name of the property type.
+			| propertyTypeName (string) - 
 		
 		Raises:
 			| ApiException

@@ -21,11 +21,11 @@ class Payment(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getPayments(self,orderId, responseFields = None):
-		""" Retrieves information about all payment transactions submitted for the specified order.
+		""" 
 		
 		Args:
 			| orderId (string) - Unique identifier of the order.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| PaymentCollection 
@@ -44,11 +44,11 @@ class Payment(object):
 	
 		
 	def getAvailablePaymentActions(self,orderId, paymentId):
-		""" Retrieves the list of all available payment actions dependent on the order payment status by specifying the order ID.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| paymentId (string) - Unique identifier of the payment for which to perform the action.
+			| orderId (string) - Unique identifier of the order associated with the payment.
+			| paymentId (string) - Unique identifer of the payment for which to retrieve available actions.
 		
 		Returns:
 			| array of string 
@@ -67,12 +67,12 @@ class Payment(object):
 	
 		
 	def getPayment(self,orderId, paymentId, responseFields = None):
-		""" Retrieves information about a specific payment transaction submitted for the specified order.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| paymentId (string) - Unique identifier of the payment for which to perform the action.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| orderId (string) - Unique identifier of the order associated with the payment transaction.
+			| paymentId (string) - Unique identifier of the payment transaction submitted for the order.
+			| responseFields (string) - 
 		
 		Returns:
 			| Payment 
@@ -92,13 +92,13 @@ class Payment(object):
 	
 		
 	def performPaymentAction(self,action, orderId, paymentId, responseFields = None):
-		""" Performs the specified action for an individual order payment transaction.
+		""" 
 		
 		Args:
-			| action(action) - Properties of the payment action performed for an order.
-			| orderId (string) - Unique identifier of the order.
-			| paymentId (string) - Unique identifier of the payment for which to perform the action.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| action(action) - The action to perform for the payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.
+			| orderId (string) - Unique identifier of the order associated with the payment.
+			| paymentId (string) - Unique identifer of the payment for which to perform the action.
+			| responseFields (string) - 
 		
 		Returns:
 			| Order 
@@ -118,12 +118,12 @@ class Payment(object):
 	
 		
 	def createPaymentAction(self,action, orderId, responseFields = None):
-		""" Creates a new payment transaction for the specified order and performs the specified action.
+		""" 
 		
 		Args:
-			| action(action) - Properties of the payment action performed for an order.
-			| orderId (string) - Unique identifier of the order.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| action(action) - To action to perform for the newly created payment. Possible values are AuthAndCapture, AuthorizePayment, CapturePayment, VoidPayment, CreditPayment, RequestCheck, ApplyCheck, DeclineCheck.
+			| orderId (string) - Unique identifier of the order for which to apply the payment.
+			| responseFields (string) - 
 		
 		Returns:
 			| Order 

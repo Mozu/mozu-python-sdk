@@ -21,15 +21,15 @@ class Return(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getReturns(self,startIndex = None, pageSize = None, sortBy = None, filter = None, q = None, responseFields = None):
-		""" Retrieves a list of all returns according to any filter and sort criteria.
+		""" 
 		
 		Args:
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-			| sortBy (string) - The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
-			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-			| q (string) - A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| startIndex (int) - 
+			| pageSize (int) - 
+			| sortBy (string) - 
+			| filter (string) - 
+			| q (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ReturnCollection 
@@ -52,10 +52,10 @@ class Return(object):
 	
 		
 	def getAvailableReturnActions(self,returnId):
-		""" Retrieves a list of the actions available to perform for the specified return based on its current state.
+		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| returnId (string) - Unique identifier of the return for which to retrieve available actions.
 		
 		Returns:
 			| array of string 
@@ -73,12 +73,12 @@ class Return(object):
 	
 		
 	def getReturnItem(self,returnId, returnItemId, responseFields = None):
-		""" Retrieves the details of a single return item.
+		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| returnItemId (string) - Unique identifier of the return item whose details you want to get.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| returnId (string) - 
+			| returnItemId (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ReturnItem 
@@ -98,11 +98,11 @@ class Return(object):
 	
 		
 	def getReturnItems(self,returnId, responseFields = None):
-		""" Retrieves the details of all return items in an order.
+		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| returnId (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ReturnItemCollection 
@@ -121,10 +121,10 @@ class Return(object):
 	
 		
 	def getAvailablePaymentActionsForReturn(self,returnId, paymentId):
-		""" Retrieves a list of the payment actions available to perform for the specified return when a return results in a refund to the customer.
+		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| returnId (string) - Unique identifier of the return associated with the payment.
 			| paymentId (string) - Unique identifier of the payment for which to perform the action.
 		
 		Returns:
@@ -144,12 +144,12 @@ class Return(object):
 	
 		
 	def getPayment(self,returnId, paymentId, responseFields = None):
-		""" Retrieves the details of a payment submitted as part of a refund associated with a customer return.
+		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| paymentId (string) - Unique identifier of the payment for which to perform the action.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| returnId (string) - Unique identifier of the return associated with the payment.
+			| paymentId (string) - Unique identifier of the return payment to retrieve.
+			| responseFields (string) - 
 		
 		Returns:
 			| Payment 
@@ -169,11 +169,11 @@ class Return(object):
 	
 		
 	def getPayments(self,returnId, responseFields = None):
-		""" Retrieves a list of all payments submitted as part of a refund associated with a customer return.
+		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| returnId (string) - Returns the details of the refund payment associated with the return specified in the request.
+			| responseFields (string) - 
 		
 		Returns:
 			| PaymentCollection 
@@ -192,11 +192,11 @@ class Return(object):
 	
 		
 	def getReturn(self,returnId, responseFields = None):
-		""" Retrieves a list of properties for the specified return.
+		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| returnId (string) - Returns the properties of the return specified in the request as well as system-supplied information.
+			| responseFields (string) - 
 		
 		Returns:
 			| Return 
@@ -215,10 +215,10 @@ class Return(object):
 	
 		
 	def getReasons(self,responseFields = None):
-		""" Returns a list of reasons for a return.
+		""" 
 		
 		Args:
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| responseFields (string) - 
 		
 		Returns:
 			| ReasonCollection 
@@ -236,35 +236,11 @@ class Return(object):
 	
 		
 	def createReturn(self,ret, responseFields = None):
-		""" Creates a return for previously fulfilled items. Each return must either be associated with an original order or a product definition to represent each returned item.When you create a return, you must specify the following fields:
-* 
-
-* 
-* 
-
-*  (Optional, but recommended)
-
-* 
-* 
-
-* 
-
-
-*  (required for bundle items or product extras, but null for parent product or bundles)
-* 
-
-* 
-
-
-*  (required for product extras, but otherwise null)
-
-*  (set to  to target parent products or bundles without extras)
-
-
+		""" 
 		
 		Args:
-			| ret(ret) - Properties of a return of one or more previously fulfilled items.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| ret(ret) - Wrapper for the properties of the return to create.
+			| responseFields (string) - 
 		
 		Returns:
 			| Return 
@@ -282,12 +258,12 @@ class Return(object):
 	
 		
 	def createReturnItem(self,returnItem, returnId, responseFields = None):
-		""" Adds a return item to the return.
+		""" 
 		
 		Args:
-			| returnItem(returnItem) - Properties of a previously fulfilled item associated with a return.
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| returnItem(returnItem) - 
+			| returnId (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| Return 
@@ -306,13 +282,13 @@ class Return(object):
 	
 		
 	def performPaymentActionForReturn(self,action, returnId, paymentId, responseFields = None):
-		""" Updates a refund payment associated with a customer return by performing the specified action.
+		""" 
 		
 		Args:
-			| action(action) - Properties of the payment action performed for an order.
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| paymentId (string) - Unique identifier of the payment for which to perform the action.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| action(action) - The payment action to perform for the refund payment.
+			| returnId (string) - Unique identifier of the return associated with the refund payment.
+			| paymentId (string) - Unique identifier of the return payment to update.
+			| responseFields (string) - 
 		
 		Returns:
 			| Return 
@@ -332,12 +308,12 @@ class Return(object):
 	
 		
 	def createPaymentActionForReturn(self,action, returnId, responseFields = None):
-		""" Creates a new payment for a return that results in a refund to the customer.
+		""" 
 		
 		Args:
-			| action(action) - Properties of the payment action performed for an order.
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| action(action) - The payment action to perform for the customer return.
+			| returnId (string) - Unique identifier of the return associated with the payment action.
+			| responseFields (string) - 
 		
 		Returns:
 			| Return 
@@ -356,12 +332,12 @@ class Return(object):
 	
 		
 	def createReturnShippingOrder(self,itemQuantities, returnId, responseFields = None):
-		""" Creates a replacement order for the return.
+		""" 
 		
 		Args:
 			| itemQuantities(array|itemQuantities) - 
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| returnId (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| Order 
@@ -380,11 +356,11 @@ class Return(object):
 	
 		
 	def performReturnActions(self,action, responseFields = None):
-		""" Updates the return by performing the action specified in the request.
+		""" 
 		
 		Args:
-			| action(action) - Properties of an action a user can perform for a return.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| action(action) - The name of the return action to perform, such as "Reject" or "Authorize".
+			| responseFields (string) - 
 		
 		Returns:
 			| ReturnCollection 
@@ -402,12 +378,12 @@ class Return(object):
 	
 		
 	def updateReturn(self,ret, returnId, responseFields = None):
-		""" Updates one or more properties of a return for items previously shipped in a completed order.
+		""" 
 		
 		Args:
-			| ret(ret) - Properties of a return of one or more previously fulfilled items.
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| ret(ret) - Wrapper for the array of properties to update for the return.
+			| returnId (string) - Unique identifier of the return.
+			| responseFields (string) - 
 		
 		Returns:
 			| Return 
@@ -426,10 +402,10 @@ class Return(object):
 	
 		
 	def resendReturnEmail(self,action):
-		""" Resend the email notification to a shopper that a return has been created.
+		""" 
 		
 		Args:
-			| action(action) - Properties of an action a user can perform for a return.
+			| action(action) - 
 		
 		Raises:
 			| ApiException
@@ -442,11 +418,11 @@ class Return(object):
 	
 		
 	def deleteOrderItem(self,returnId, returnItemId):
-		""" Removes a particular order item from the order of the current shopper.
+		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| returnItemId (string) - Unique identifier of the return item whose details you want to get.
+			| returnId (string) - 
+			| returnItemId (string) - 
 		
 		Returns:
 			| Return 
@@ -465,10 +441,10 @@ class Return(object):
 	
 		
 	def deleteReturn(self,returnId):
-		""" Deletes the return specified in the request.
+		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| returnId (string) - Unique identifier of the return to delete.
 		
 		Raises:
 			| ApiException

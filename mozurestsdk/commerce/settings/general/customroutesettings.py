@@ -21,10 +21,10 @@ class CustomRouteSettings(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getCustomRouteSettings(self,responseFields = None):
-		""" Retrieves the custom route settings configured for a site. These are the same settings configured through  in the Custom Routing JSON Editor.
+		""" 
 		
 		Args:
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomRouteSettings 
@@ -42,11 +42,11 @@ class CustomRouteSettings(object):
 	
 		
 	def createCustomRouteSettings(self,settings, responseFields = None):
-		""" Create new custom route settings.
+		""" 
 		
 		Args:
-			| settings(settings) - The details of the new custom route setting.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| settings(settings) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomRouteSettings 
@@ -64,11 +64,11 @@ class CustomRouteSettings(object):
 	
 		
 	def updateCustomRouteSettings(self,settings, responseFields = None):
-		""" Updates custom route settings.
+		""" 
 		
 		Args:
-			| settings(settings) - The updated details of the custom route settings.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| settings(settings) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomRouteSettings 
@@ -86,7 +86,7 @@ class CustomRouteSettings(object):
 	
 		
 	def deleteCustomRouteSettings(self,):
-		""" Deletes all the custom route settings for a site, returning all routes to their  defaults.
+		""" 
 		
 		Raises:
 			| ApiException

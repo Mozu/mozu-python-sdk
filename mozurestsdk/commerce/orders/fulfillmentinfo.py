@@ -21,12 +21,12 @@ class FulfillmentInfo(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getFulfillmentInfo(self,orderId, draft = False, responseFields = None):
-		""" Retrieves a list of the fulfillment information for the specified order.
+		""" 
 		
 		Args:
 			| orderId (string) - Unique identifier of the order.
-			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| draft (bool) - If true, retrieve the draft version of the order's fulfillment information, which might include uncommitted changes.
+			| responseFields (string) - 
 		
 		Returns:
 			| FulfillmentInfo 
@@ -46,14 +46,14 @@ class FulfillmentInfo(object):
 	
 		
 	def setFulFillmentInfo(self,fulfillmentInfo, orderId, updateMode = None, version = None, responseFields = None):
-		""" Updates one or more properties of fulfillment information for the specified order.
+		""" 
 		
 		Args:
-			| fulfillmentInfo(fulfillmentInfo) - Properties of the information needed to fulfill an order, whether via in-store pickup or direct shipping.
+			| fulfillmentInfo(fulfillmentInfo) - Array list of fulfillment information associated with an order.
 			| orderId (string) - Unique identifier of the order.
-			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| updateMode (string) - Specifies whether to set the fulfillment information by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| FulfillmentInfo 

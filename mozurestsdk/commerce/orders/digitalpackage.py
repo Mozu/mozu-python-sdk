@@ -21,10 +21,10 @@ class DigitalPackage(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getAvailableDigitalPackageFulfillmentActions(self,orderId, digitalPackageId):
-		""" Retrieves a collection of fulfillment options for digital packages. Options may include emailed files/links or provided links. 
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
+			| orderId (string) - This parameter provides the unique identifier of the order on which to get a list of available actions.
 			| digitalPackageId (string) - This parameter supplies package ID to get fulfillment actions for the digital package.
 		
 		Returns:
@@ -44,12 +44,12 @@ class DigitalPackage(object):
 	
 		
 	def getDigitalPackage(self,orderId, digitalPackageId, responseFields = None):
-		""" This operation retreives a digital package within an order and it requires two parameters: orderId and digitalPackageId.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| digitalPackageId (string) - This parameter supplies package ID to get fulfillment actions for the digital package.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| orderId (string) - This parameter provides the unique identifier of the order with which to associate the digital package.
+			| digitalPackageId (string) - This parameter provides the digital package Id.
+			| responseFields (string) - 
 		
 		Returns:
 			| DigitalPackage 
@@ -69,12 +69,12 @@ class DigitalPackage(object):
 	
 		
 	def createDigitalPackage(self,digitalPackage, orderId, responseFields = None):
-		""" Lets you apply a digital package to the order using the orderId and digitalPackage parameters.
+		""" 
 		
 		Args:
-			| digitalPackage(digitalPackage) - Lets you manage an order's digital packages, by applying a digital package to the order.
-			| orderId (string) - Unique identifier of the order.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| digitalPackage(digitalPackage) - The digitalPackage parameter is a required parameter for the CreateDigitalPackages operation. The digitalPackage is the digital package to create and add to the order.
+			| orderId (string) - The orderID is a required paramter for the digitalpackages operation. The orderId is a unique identifier of the order with which to associate the digital package.
+			| responseFields (string) - 
 		
 		Returns:
 			| DigitalPackage 
@@ -93,13 +93,13 @@ class DigitalPackage(object):
 	
 		
 	def updateDigitalPackage(self,digitalPackage, orderId, digitalPackageId, responseFields = None):
-		""" This method operates on one digital package, specified by the id given. This method ensures that the digital package ID provided is in the order with the id given, and then updates the properties of that package with the properties of the one passed in using the ‘digitalpackage’ parameter.
+		""" 
 		
 		Args:
-			| digitalPackage(digitalPackage) - Lets you manage an order's digital packages, by applying a digital package to the order.
-			| orderId (string) - Unique identifier of the order.
-			| digitalPackageId (string) - This parameter supplies package ID to get fulfillment actions for the digital package.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| digitalPackage(digitalPackage) - This parameter provides the package content to update in the order.
+			| orderId (string) - This parameter provides the unique identifier of the order with which to associate the digital package.
+			| digitalPackageId (string) - This parameter specifies the digital package to update in the order.
+			| responseFields (string) - 
 		
 		Returns:
 			| DigitalPackage 
@@ -119,11 +119,11 @@ class DigitalPackage(object):
 	
 		
 	def deleteDigitalPackage(self,orderId, digitalPackageId):
-		""" This operation deletes a digital package from an order. This operation requires three parameters: orderId, digitalPackageId, and digitalPackage.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| digitalPackageId (string) - This parameter supplies package ID to get fulfillment actions for the digital package.
+			| orderId (string) - The orderId is unique identifier of the order with which to associate the package.
+			| digitalPackageId (string) - The digitalPackage ID is unique package ID to update on the order.
 		
 		Raises:
 			| ApiException

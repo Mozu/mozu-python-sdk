@@ -21,12 +21,12 @@ class ShippingInclusionRule(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getShippingInclusionRule(self,profilecode, id, responseFields = None):
-		""" Retrieves the details of the specified shipping inclusion rule.
+		""" 
 		
 		Args:
-			| profilecode (string) - The unique, user-defined code of the profile with which the shipping inclusion rule is associated.
-			| id (string) - Unique identifier of the customer segment to retrieve.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| profilecode (string) - 
+			| id (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ShippingInclusionRule 
@@ -46,11 +46,11 @@ class ShippingInclusionRule(object):
 	
 		
 	def getShippingInclusionRules(self,profilecode, responseFields = None):
-		""" Retrieves a list of shipping inclusion rules and their details.
+		""" 
 		
 		Args:
-			| profilecode (string) - The unique, user-defined code of the profile with which the shipping inclusion rule is associated.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| profilecode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ShippingInclusionRuleCollection 
@@ -69,12 +69,12 @@ class ShippingInclusionRule(object):
 	
 		
 	def createShippingInclusionRule(self,rule, profilecode, responseFields = None):
-		""" Creates a new shipping inclusion rule.
+		""" 
 		
 		Args:
-			| rule(rule) - The details of the new shipping inclusion rule.
-			| profilecode (string) - The unique, user-defined code of the profile with which the shipping inclusion rule is associated.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| rule(rule) - 
+			| profilecode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ShippingInclusionRule 
@@ -93,13 +93,13 @@ class ShippingInclusionRule(object):
 	
 		
 	def updateShippingInclusionRule(self,rule, profilecode, id, responseFields = None):
-		""" Updates the details of the specified shipping inclusion rule.
+		""" 
 		
 		Args:
-			| rule(rule) - The updated details of the shipping inclusion rule.
-			| profilecode (string) - The unique, user-defined code of the profile with which the shipping inclusion rule is associated.
-			| id (string) - Unique identifier of the customer segment to retrieve.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| rule(rule) - 
+			| profilecode (string) - 
+			| id (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ShippingInclusionRule 
@@ -119,11 +119,11 @@ class ShippingInclusionRule(object):
 	
 		
 	def deleteShippingInclusionRule(self,profilecode, id):
-		""" Deletes the specified shipping inclusion rule.
+		""" 
 		
 		Args:
-			| profilecode (string) - The unique, user-defined code of the profile with which the shipping inclusion rule is associated.
-			| id (string) - Unique identifier of the customer segment to retrieve.
+			| profilecode (string) - 
+			| id (string) - 
 		
 		Raises:
 			| ApiException

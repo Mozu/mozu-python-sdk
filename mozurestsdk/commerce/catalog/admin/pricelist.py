@@ -21,14 +21,14 @@ class PriceList(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getPriceLists(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		""" Retrieves a list of price lists according to any specified facets, filter criteria, and sort options.
+		""" 
 		
 		Args:
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
-			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
-			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
-			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| startIndex (int) - 
+			| pageSize (int) - 
+			| sortBy (string) - 
+			| filter (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| PriceListCollection 
@@ -50,11 +50,11 @@ class PriceList(object):
 	
 		
 	def getPriceList(self,priceListCode, responseFields = None):
-		""" Retrieves the details of the specified price list.
+		""" 
 		
 		Args:
-			| priceListCode (string) - The unique, user-defined code of the price list.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| priceListCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| PriceList 
@@ -73,11 +73,11 @@ class PriceList(object):
 	
 		
 	def addPriceList(self,priceList, responseFields = None):
-		""" Adds a new price list to the tenant.
+		""" 
 		
 		Args:
-			| priceList(priceList) - The details of the new price list.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| priceList(priceList) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| PriceList 
@@ -95,7 +95,7 @@ class PriceList(object):
 	
 		
 	def bulkAddPriceListEntries(self,priceListEntriesIn, publishEvents = False, invalidateCache = False):
-		""" admin-pricelists Post BulkAddPriceListEntries description DOCUMENT_HERE 
+		""" 
 		
 		Args:
 			| priceListEntriesIn(array|priceListEntriesIn) - 
@@ -115,7 +115,7 @@ class PriceList(object):
 	
 		
 	def bulkDeletePriceListEntries(self,priceListEntriesIn, publishEvents = False, invalidateCache = False):
-		""" admin-pricelists Post BulkDeletePriceListEntries description DOCUMENT_HERE 
+		""" 
 		
 		Args:
 			| priceListEntriesIn(array|priceListEntriesIn) - 
@@ -135,7 +135,7 @@ class PriceList(object):
 	
 		
 	def bulkUpdatePriceListEntries(self,priceListEntriesIn, publishEvents = False, invalidateCache = False):
-		""" admin-pricelists Post BulkUpdatePriceListEntries description DOCUMENT_HERE 
+		""" 
 		
 		Args:
 			| priceListEntriesIn(array|priceListEntriesIn) - 
@@ -155,12 +155,12 @@ class PriceList(object):
 	
 		
 	def updatePriceList(self,priceList, priceListCode, responseFields = None):
-		""" Updates the details of the specified price list.
+		""" 
 		
 		Args:
-			| priceList(priceList) - The details of the updated price list.
-			| priceListCode (string) - The unique, user-defined code of the price list.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| priceList(priceList) - 
+			| priceListCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| PriceList 
@@ -179,11 +179,11 @@ class PriceList(object):
 	
 		
 	def deletePriceList(self,priceListCode, cascadeDeleteEntries = False):
-		""" Deletes the specified price list from the tenant.
+		""" 
 		
 		Args:
-			| priceListCode (string) - The unique, user-defined code of the price list.
-			| cascadeDeleteEntries (bool) - Specifies whether to deletes all price list entries associated with the price list.
+			| priceListCode (string) - 
+			| cascadeDeleteEntries (bool) - 
 		
 		Raises:
 			| ApiException

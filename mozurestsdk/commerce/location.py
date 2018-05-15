@@ -20,12 +20,13 @@ class Location(object):
 		else:
 			self.client.withApiContext(ApiContext());
 	
-	def getLocation(self,code, responseFields = None):
-		""" Retrieves the details of the location specified in the request.
+	def getLocation(self,locationCode, includeAttributeDefinition = False, responseFields = None):
+		""" 
 		
 		Args:
-			| code (string) - User-defined code that uniqely identifies the channel group.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| locationCode (string) - 
+			| includeAttributeDefinition (bool) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| Location 
@@ -35,24 +36,26 @@ class Location(object):
 		
 		"""
 
-		url = MozuUrl("/api/commerce/storefront/locations/{code}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
-		url.formatUrl("code", code);
+		url = MozuUrl("/api/commerce/storefront/locations/{locationCode}?includeAttributeDefinition={includeAttributeDefinition}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("includeAttributeDefinition", includeAttributeDefinition);
+		url.formatUrl("locationCode", locationCode);
 		url.formatUrl("responseFields", responseFields);
 		self.client.withResourceUrl(url).execute();
 		return self.client.result();
 
 	
 		
-	def getLocationsInUsageType(self,locationUsageType, startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		""" Retrieves a list of the locations configured for a specified location usage type for the specified site, according to any defined filter or sort criteria.
+	def getLocationsInUsageType(self,locationUsageType, startIndex = None, pageSize = None, sortBy = None, filter = None, includeAttributeDefinition = False, responseFields = None):
+		""" 
 		
 		Args:
 			| locationUsageType (string) - System-defined location usage type code, which is DS for direct ship, SP for in-store pickup, or storeFinder.
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-			| sortBy (string) - The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
-			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| startIndex (int) - 
+			| pageSize (int) - 
+			| sortBy (string) - 
+			| filter (string) - 
+			| includeAttributeDefinition (bool) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| LocationCollection 
@@ -62,8 +65,9 @@ class Location(object):
 		
 		"""
 
-		url = MozuUrl("/api/commerce/storefront/locationUsageTypes/{locationUsageType}/locations?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/commerce/storefront/locationUsageTypes/{locationUsageType}/locations?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&includeAttributeDefinition={includeAttributeDefinition}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
 		url.formatUrl("filter", filter);
+		url.formatUrl("includeAttributeDefinition", includeAttributeDefinition);
 		url.formatUrl("locationUsageType", locationUsageType);
 		url.formatUrl("pageSize", pageSize);
 		url.formatUrl("responseFields", responseFields);
@@ -74,11 +78,12 @@ class Location(object):
 
 	
 		
-	def getDirectShipLocation(self,responseFields = None):
-		""" Retrieves the details of the location configured for the direct shipping (DS) location usage type for the site specified in the request. This location acts as an origin address from which order packages will ship, as well as the location where product reservations are created when order items are submitted with the direct ship fulfillment type (DS). If the direct ship location usage type is not configured for this site, the operation returns an error.
+	def getDirectShipLocation(self,includeAttributeDefinition = False, responseFields = None):
+		""" 
 		
 		Args:
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| includeAttributeDefinition (bool) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| Location 
@@ -88,19 +93,21 @@ class Location(object):
 		
 		"""
 
-		url = MozuUrl("/api/commerce/storefront/locationUsageTypes/DS/location?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/commerce/storefront/locationUsageTypes/DS/location?includeAttributeDefinition={includeAttributeDefinition}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("includeAttributeDefinition", includeAttributeDefinition);
 		url.formatUrl("responseFields", responseFields);
 		self.client.withResourceUrl(url).execute();
 		return self.client.result();
 
 	
 		
-	def getInStorePickupLocation(self,code, responseFields = None):
-		""" Retrieves the details of the location configured for the in-store pickup (SP) location usage type for the site specified in the request. If the location is not associated with a location type configured for the in-store pickup location usage type (SP), the operation returns an error.
+	def getInStorePickupLocation(self,locationCode, includeAttributeDefinition = False, responseFields = None):
+		""" 
 		
 		Args:
-			| code (string) - User-defined code that uniqely identifies the channel group.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| locationCode (string) - 
+			| includeAttributeDefinition (bool) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| Location 
@@ -110,23 +117,25 @@ class Location(object):
 		
 		"""
 
-		url = MozuUrl("/api/commerce/storefront/locationUsageTypes/SP/locations/{code}?responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
-		url.formatUrl("code", code);
+		url = MozuUrl("/api/commerce/storefront/locationUsageTypes/SP/locations/{locationCode}?includeAttributeDefinition={includeAttributeDefinition}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url.formatUrl("includeAttributeDefinition", includeAttributeDefinition);
+		url.formatUrl("locationCode", locationCode);
 		url.formatUrl("responseFields", responseFields);
 		self.client.withResourceUrl(url).execute();
 		return self.client.result();
 
 	
 		
-	def getInStorePickupLocations(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		""" Retrieves a list of locations valid for in-store pickup of an item in an order according to any filter and sort criteria. For example, an application could use this operation to provide a store finder feature based on the shopper's GPS coordinates. If the location types for the in-store pickup location usage type are not configured for the site, this operation returns an error.
+	def getInStorePickupLocations(self,startIndex = None, pageSize = None, sortBy = None, filter = None, includeAttributeDefinition = False, responseFields = None):
+		""" 
 		
 		Args:
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-			| sortBy (string) - The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
-			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| startIndex (int) - 
+			| pageSize (int) - 
+			| sortBy (string) - 
+			| filter (string) - 
+			| includeAttributeDefinition (bool) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| LocationCollection 
@@ -136,8 +145,9 @@ class Location(object):
 		
 		"""
 
-		url = MozuUrl("/api/commerce/storefront/locationUsageTypes/SP/locations?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
+		url = MozuUrl("/api/commerce/storefront/locationUsageTypes/SP/locations?startIndex={startIndex}&pageSize={pageSize}&sortBy={sortBy}&filter={filter}&includeAttributeDefinition={includeAttributeDefinition}&responseFields={responseFields}", "GET", UrlLocation.TenantPod, False);
 		url.formatUrl("filter", filter);
+		url.formatUrl("includeAttributeDefinition", includeAttributeDefinition);
 		url.formatUrl("pageSize", pageSize);
 		url.formatUrl("responseFields", responseFields);
 		url.formatUrl("sortBy", sortBy);

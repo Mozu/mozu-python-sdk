@@ -16,11 +16,11 @@ class PublicCard(object):
 		self.client = mozuClient or default_client();
 	
 	def create(self,request, responseFields = None):
-		""" payments-cards Post Create description DOCUMENT_HERE 
+		""" 
 		
 		Args:
-			| request(request) - Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE 
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| request(request) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| SyncResponse 
@@ -38,12 +38,12 @@ class PublicCard(object):
 	
 		
 	def update(self,request, cardId, responseFields = None):
-		""" payments-cards Put Update description DOCUMENT_HERE 
+		""" 
 		
 		Args:
-			| request(request) - Mozu.PaymentService.Contracts.PublicCard ApiType DOCUMENT_HERE 
-			| cardId (string) - Unique identifier of the card associated with the customer account billing contact.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| request(request) - 
+			| cardId (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| SyncResponse 
@@ -62,10 +62,10 @@ class PublicCard(object):
 	
 		
 	def delete(self,cardId):
-		""" payments-cards Delete Delete description DOCUMENT_HERE 
+		""" 
 		
 		Args:
-			| cardId (string) - Unique identifier of the card associated with the customer account billing contact.
+			| cardId (string) - 
 		
 		Raises:
 			| ApiException

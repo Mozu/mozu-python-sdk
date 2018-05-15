@@ -21,10 +21,10 @@ class OrderNote(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getReturnNotes(self,returnId):
-		""" Retrieves all internal notes associated with a return.
+		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return whose items you want to get.
+			| returnId (string) - 
 		
 		Returns:
 			| array of OrderNote 
@@ -42,12 +42,12 @@ class OrderNote(object):
 	
 		
 	def getReturnNote(self,returnId, noteId, responseFields = None):
-		""" Retrieves a specific internal note from a return.
+		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| noteId (string) - Unique identifier of a particular note to retrieve.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| returnId (string) - 
+			| noteId (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| OrderNote 
@@ -67,12 +67,12 @@ class OrderNote(object):
 	
 		
 	def createReturnNote(self,returnNote, returnId, responseFields = None):
-		""" Creates an internal note on a given return. This note is visible in  for customer service representatives to see.
+		""" 
 		
 		Args:
 			| returnNote(returnNote) - 
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| returnId (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| OrderNote 
@@ -91,13 +91,13 @@ class OrderNote(object):
 	
 		
 	def updateReturnNote(self,returnNote, returnId, noteId, responseFields = None):
-		""" Updates an internal note on a given return. This note is visible in  for customer service representatives to see.
+		""" 
 		
 		Args:
 			| returnNote(returnNote) - 
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| noteId (string) - Unique identifier of a particular note to retrieve.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| returnId (string) - 
+			| noteId (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| OrderNote 
@@ -117,11 +117,11 @@ class OrderNote(object):
 	
 		
 	def deleteReturnNote(self,returnId, noteId):
-		""" Deletes an internal note from a given return.
+		""" 
 		
 		Args:
-			| returnId (string) - Unique identifier of the return whose items you want to get.
-			| noteId (string) - Unique identifier of a particular note to retrieve.
+			| returnId (string) - 
+			| noteId (string) - 
 		
 		Raises:
 			| ApiException

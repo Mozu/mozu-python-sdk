@@ -16,11 +16,11 @@ class Application(object):
 		self.client = mozuClient or default_client();
 	
 	def getAppPackageNames(self,applicationKey, responseFields = None):
-		""" Returns a collection of package names for the application specified in the request.
+		""" 
 		
 		Args:
-			| applicationKey (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| applicationKey (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| PackageNamesCollection 
@@ -39,11 +39,11 @@ class Application(object):
 	
 		
 	def getAppVersions(self,nsAndAppId, responseFields = None):
-		""" Retrieves the available versions for the application specified in the request.
+		""" 
 		
 		Args:
-			| nsAndAppId (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| nsAndAppId (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ApplicationVersionsCollection 
@@ -62,12 +62,12 @@ class Application(object):
 	
 		
 	def getPackageFileMetadata(self,applicationKey, filepath, responseFields = None):
-		""" Retrieves the metadata for a file in an application package.
+		""" 
 		
 		Args:
-			| applicationKey (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
-			| filepath (string) - Represents the file name and location.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| applicationKey (string) - 
+			| filepath (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| FileMetadata 
@@ -87,11 +87,11 @@ class Application(object):
 	
 		
 	def getPackageMetadata(self,applicationKey, responseFields = None):
-		""" Retrieves the metadata for a folder in an application package.
+		""" 
 		
 		Args:
-			| applicationKey (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| applicationKey (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| FolderMetadata 
@@ -110,14 +110,14 @@ class Application(object):
 	
 		
 	def upsertPackageFile(self,stream, applicationKey, filepath, lastModifiedTime = None, responseFields = None, contentType = None):
-		""" Insert or update the specified file into the specified application package.
+		""" 
 		
 		Args:
-			| stream(stream) - Data stream that delivers information. Used to input and output data.
-			| applicationKey (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
-			| filepath (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
-			| lastModifiedTime (string) - The date and time of the last file insert or update. This parameter is optional.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| stream(stream) - 
+			| applicationKey (string) - 
+			| filepath (string) - 
+			| lastModifiedTime (string) - 
+			| responseFields (string) - 
 			| contentType (string) - set content type of the data uploaded|
 		
 		Returns:
@@ -139,12 +139,12 @@ class Application(object):
 	
 		
 	def renamePackageFile(self,renameInfo, applicationKey, responseFields = None):
-		""" Renames a file in an application package.
+		""" 
 		
 		Args:
-			| renameInfo(renameInfo) - Information required to update the name of a file in a package, which consists of the original name and the new name.
-			| applicationKey (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| renameInfo(renameInfo) - 
+			| applicationKey (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| FileMetadata 
@@ -163,11 +163,11 @@ class Application(object):
 	
 		
 	def deletePackageFile(self,applicationKey, filepath):
-		""" Deletes the specified file from the specified application package.
+		""" 
 		
 		Args:
-			| applicationKey (string) - The application key uniquely identifies the developer namespace, application ID, version, and package in Dev Center. The format is {Dev Account namespace}.{Application ID}.{Application Version}.{Package name}.
-			| filepath (string) - Represents the file name and location.
+			| applicationKey (string) - 
+			| filepath (string) - 
 		
 		Raises:
 			| ApiException

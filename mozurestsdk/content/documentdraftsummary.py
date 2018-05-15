@@ -21,13 +21,13 @@ class DocumentDraftSummary(object):
 			self.client.withApiContext(ApiContext());
 	
 	def listDocumentDraftSummaries(self,pageSize = None, startIndex = None, documentLists = None, responseFields = None):
-		""" Retrieves a list of the documents currently in draft state, according to any defined filter and sort criteria.
+		""" 
 		
 		Args:
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
-			| documentLists (string) - List of document lists that contain documents to delete.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| pageSize (int) - 
+			| startIndex (int) - 
+			| documentLists (string) - Lists that contain the document drafts.
+			| responseFields (string) - 
 		
 		Returns:
 			| DocumentDraftSummaryPagedCollection 
@@ -48,7 +48,7 @@ class DocumentDraftSummary(object):
 	
 		
 	def deleteDocumentDrafts(self,documentIds, documentLists = None):
-		""" Deletes the drafts of the specified documents. Published documents cannot be deleted.
+		""" 
 		
 		Args:
 			| documentIds(array|documentIds) - Unique identifiers of the documents to delete.
@@ -66,11 +66,11 @@ class DocumentDraftSummary(object):
 	
 		
 	def publishDocuments(self,documentIds, documentLists = None):
-		""" Publish one or more document drafts to live content on the site.
+		""" 
 		
 		Args:
-			| documentIds(array|documentIds) - Unique identifiers of the documents to delete.
-			| documentLists (string) - List of document lists that contain documents to delete.
+			| documentIds(array|documentIds) - List of unique identifiers of the document drafts to publish.
+			| documentLists (string) - List of document lists that contain documents to publish.
 		
 		Raises:
 			| ApiException

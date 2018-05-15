@@ -22,12 +22,12 @@ class DocumentType(object):
 		self.client.withApiContext(apiContext);
 	
 	def getDocumentTypes(self,pageSize = None, startIndex = None, responseFields = None):
-		""" Retrieves a paged list of the system-defined document types.
+		""" 
 		
 		Args:
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| pageSize (int) - 
+			| startIndex (int) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| DocumentTypeCollection 
@@ -47,11 +47,11 @@ class DocumentType(object):
 	
 		
 	def getDocumentType(self,documentTypeName, responseFields = None):
-		""" Retrieves a system-defined document type.
+		""" 
 		
 		Args:
 			| documentTypeName (string) - The name of the document type to retrieve.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| DocumentType 
@@ -70,11 +70,11 @@ class DocumentType(object):
 	
 		
 	def createDocumentType(self,documentType, responseFields = None):
-		""" Creates a new DocumentType
+		""" 
 		
 		Args:
-			| documentType(documentType) - The type of documents used in the CMS such as "web_page" or "template" or "image_url".
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| documentType(documentType) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| DocumentType 
@@ -92,12 +92,12 @@ class DocumentType(object):
 	
 		
 	def updateDocumentType(self,documentType, documentTypeName, responseFields = None):
-		""" Updates a DocumentType
+		""" 
 		
 		Args:
-			| documentType(documentType) - The type of documents used in the CMS such as "web_page" or "template" or "image_url".
-			| documentTypeName (string) - The name of the document type to retrieve.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| documentType(documentType) - 
+			| documentTypeName (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| DocumentType 

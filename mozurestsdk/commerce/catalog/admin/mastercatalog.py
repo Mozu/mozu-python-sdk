@@ -21,10 +21,10 @@ class MasterCatalog(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getMasterCatalogs(self,responseFields = None):
-		""" Retrieve the details of all master catalog associated with a tenant.
+		""" 
 		
 		Args:
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| MasterCatalogCollection 
@@ -42,11 +42,11 @@ class MasterCatalog(object):
 	
 		
 	def getMasterCatalog(self,masterCatalogId, responseFields = None):
-		""" Retrieve the details of the master catalog specified in the request.
+		""" 
 		
 		Args:
-			| masterCatalogId (int) - The unique identifier of the master catalog associated with the entity.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| masterCatalogId (int) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| MasterCatalog 
@@ -65,12 +65,12 @@ class MasterCatalog(object):
 	
 		
 	def updateMasterCatalog(self,masterCatalog, masterCatalogId, responseFields = None):
-		""" Updates the product publishing mode for the master catalog specified in the request.
+		""" 
 		
 		Args:
-			| masterCatalog(masterCatalog) - Properties of a master product catalog defined for a tenant. All catalogs and sites associated with a master catalog share product definitions.
+			| masterCatalog(masterCatalog) - Properties of the master catalog to update, which consists of the product publishing mode. Possible values are "Pending" which saves product updates in draft mode until they are published, and "Live" which publishes all product changes immediately.
 			| masterCatalogId (int) - 
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| MasterCatalog 

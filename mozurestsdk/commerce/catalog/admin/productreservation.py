@@ -22,14 +22,14 @@ class ProductReservation(object):
 		self.client.withApiContext(apiContext);
 	
 	def getProductReservations(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		""" Retrieves a list of product reservations according to any specified filter criteria and sort options.
+		""" 
 		
 		Args:
 			| startIndex (int) - 
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-			| sortBy (string) - 
-			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| pageSize (int) - Used to page results from a query. Indicates the maximum number of entities to return from a query. Default value: 20. Max value: 200.
+			| sortBy (string) - The element to sort the results by and the order in which the results appear. Either ascending order (a-z) which accepts 'asc' or 'asc' or descending order (z-a) which accepts 'desc' or 'desc'. The sortBy parameter follows an available property.
+			| filter (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductReservationCollection 
@@ -51,11 +51,11 @@ class ProductReservation(object):
 	
 		
 	def getProductReservation(self,productReservationId, responseFields = None):
-		""" Retrieves the details of a product reservation.
+		""" 
 		
 		Args:
 			| productReservationId (int) - Unique identifier of the product reservation.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductReservation 
@@ -74,10 +74,10 @@ class ProductReservation(object):
 	
 		
 	def addProductReservations(self,productReservations, skipInventoryCheck = False):
-		""" Creates a new product reservation for a product. This action places a hold on the product inventory for the quantity specified during the ordering process.
+		""" 
 		
 		Args:
-			| productReservations(array|productReservations) - A hold placed on product inventory for a particular product so that the quantity specified is set aside and available for purchase during the ordering process.
+			| productReservations(array|productReservations) - Details of the product reservations to add.
 			| skipInventoryCheck (bool) - If true, skip the process to validate inventory when creating this product reservation.
 		
 		Returns:
@@ -96,10 +96,10 @@ class ProductReservation(object):
 	
 		
 	def commitReservations(self,productReservations):
-		""" Commits a product reservation to decrement the product's inventory by the quantity specified then release the reservation once the order process completed successfully.
+		""" 
 		
 		Args:
-			| productReservations(array|productReservations) - A hold placed on product inventory for a particular product so that the quantity specified is set aside and available for purchase during the ordering process.
+			| productReservations(array|productReservations) - List of unique identifiers of the reservations to commit.
 		
 		Raises:
 			| ApiException
@@ -112,11 +112,11 @@ class ProductReservation(object):
 	
 		
 	def updateProductReservations(self,productReservations, skipInventoryCheck = False):
-		""" Updates an existing product reservation for a product.
+		""" 
 		
 		Args:
-			| productReservations(array|productReservations) - A hold placed on product inventory for a particular product so that the quantity specified is set aside and available for purchase during the ordering process.
-			| skipInventoryCheck (bool) - If true, skip the process to validate inventory when creating this product reservation.
+			| productReservations(array|productReservations) - Properties of the product reservations to update.
+			| skipInventoryCheck (bool) - If true, skip the inventory validation process when updating this product reservation.
 		
 		Returns:
 			| array of ProductReservation 
@@ -134,10 +134,10 @@ class ProductReservation(object):
 	
 		
 	def deleteProductReservation(self,productReservationId):
-		""" Deletes a product reservation. For example, delete a reservation when an order is not processed to return the product quantity back to inventory.
+		""" 
 		
 		Args:
-			| productReservationId (int) - Unique identifier of the product reservation.
+			| productReservationId (int) - Unique identifier of the reservation.
 		
 		Raises:
 			| ApiException

@@ -21,11 +21,11 @@ class ExtendedProperty(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getExtendedProperties(self,orderId, draft = False):
-		""" Retrieves the extended property string associated with the order. 
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
+			| orderId (string) - 
+			| draft (bool) - 
 		
 		Returns:
 			| array of ExtendedProperty 
@@ -44,13 +44,13 @@ class ExtendedProperty(object):
 	
 		
 	def addExtendedProperties(self,extendedProperties, orderId, updateMode = None, version = None):
-		""" Creates an extended property for the order.
+		""" 
 		
 		Args:
-			| extendedProperties(array|extendedProperties) - The details of the extended property.
-			| orderId (string) - Unique identifier of the order.
-			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| extendedProperties(array|extendedProperties) - 
+			| orderId (string) - 
+			| updateMode (string) - 
+			| version (string) - 
 		
 		Returns:
 			| array of ExtendedProperty 
@@ -70,17 +70,16 @@ class ExtendedProperty(object):
 	
 		
 	def updateExtendedProperty(self,extendedProperty, orderId, key, updateMode = None, version = None, upsert = False, responseFields = None):
-		""" Updates one ore more extended properties.
+		""" 
 		
 		Args:
-			| extendedProperty(extendedProperty) - The details of the updated extended property.
-			| orderId (string) - Unique identifier of the order.
-			| key (string) - The extended property key.
-			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
-			| upsert (bool) - Inserts and updates an extended property.
-        
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| extendedProperty(extendedProperty) - 
+			| orderId (string) - 
+			| key (string) - 
+			| updateMode (string) - 
+			| version (string) - 
+			| upsert (bool) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ExtendedProperty 
@@ -103,15 +102,14 @@ class ExtendedProperty(object):
 	
 		
 	def updateExtendedProperties(self,extendedProperties, orderId, updateMode = None, version = None, upsert = False):
-		""" Updates one or more extended properties.
+		""" 
 		
 		Args:
-			| extendedProperties(array|extendedProperties) - The details of the updated extended properties.
-			| orderId (string) - Unique identifier of the order.
-			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
-			| upsert (bool) - Inserts and updates the extended property.
-        
+			| extendedProperties(array|extendedProperties) - 
+			| orderId (string) - 
+			| updateMode (string) - 
+			| version (string) - 
+			| upsert (bool) - 
 		
 		Returns:
 			| array of ExtendedProperty 
@@ -132,13 +130,13 @@ class ExtendedProperty(object):
 	
 		
 	def deleteExtendedProperty(self,orderId, key, updateMode = None, version = None):
-		""" Deletes one or more extended properties.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| key (string) - The extended property key.
-			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| orderId (string) - 
+			| key (string) - 
+			| updateMode (string) - 
+			| version (string) - 
 		
 		Raises:
 			| ApiException
@@ -155,13 +153,13 @@ class ExtendedProperty(object):
 	
 		
 	def deleteExtendedProperties(self,keys, orderId, updateMode = None, version = None):
-		""" Deletes the extended property associated with the order. 
+		""" 
 		
 		Args:
-			| keys(array|keys) - The extended property keys.
-			| orderId (string) - Unique identifier of the order.
-			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
+			| keys(array|keys) - 
+			| orderId (string) - 
+			| updateMode (string) - 
+			| version (string) - 
 		
 		Raises:
 			| ApiException

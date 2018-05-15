@@ -21,7 +21,7 @@ class TaxableTerritory(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getTaxableTerritories(self,):
-		""" Retrieves a list of the taxable territories configured for the site.
+		""" 
 		
 		Returns:
 			| array of TaxableTerritory 
@@ -38,11 +38,11 @@ class TaxableTerritory(object):
 	
 		
 	def addTaxableTerritory(self,taxableTerritory, responseFields = None):
-		""" Creates a new territory for which to calculate sales tax.
+		""" 
 		
 		Args:
-			| taxableTerritory(taxableTerritory) - Properties of the territory which is subject to sales tax.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| taxableTerritory(taxableTerritory) - Properties of the taxable territory to create.
+			| responseFields (string) - 
 		
 		Returns:
 			| TaxableTerritory 
@@ -60,10 +60,10 @@ class TaxableTerritory(object):
 	
 		
 	def updateTaxableTerritories(self,taxableterritories):
-		""" Updates one or more taxable territories configured for a site.
+		""" 
 		
 		Args:
-			| taxableterritories(array|taxableterritories) - Properties of the territory which is subject to sales tax.
+			| taxableterritories(array|taxableterritories) - Properties of the taxable territories to update.
 		
 		Returns:
 			| array of TaxableTerritory 

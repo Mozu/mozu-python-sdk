@@ -22,11 +22,11 @@ class ProductVariation(object):
 		self.client.withApiContext(apiContext);
 	
 	def getProductVariationLocalizedDeltaPrices(self,productCode, variationKey):
-		""" Retrieves a collection of the localized delta price values for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		""" 
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
+			| productCode (string) - 
+			| variationKey (string) - 
 		
 		Returns:
 			| array of ProductVariationDeltaPrice 
@@ -45,13 +45,13 @@ class ProductVariation(object):
 	
 		
 	def getProductVariationLocalizedDeltaPrice(self,productCode, variationKey, currencyCode, responseFields = None):
-		""" Retrieves the localized delta price value for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		""" 
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
-			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| productCode (string) - 
+			| variationKey (string) - 
+			| currencyCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductVariationDeltaPrice 
@@ -72,11 +72,11 @@ class ProductVariation(object):
 	
 		
 	def getProductVariationLocalizedPrices(self,productCode, variationKey):
-		""" Retrieves a list of details of the localized price values for a product variation.
+		""" 
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
+			| productCode (string) - 
+			| variationKey (string) - 
 		
 		Returns:
 			| array of ProductVariationFixedPrice 
@@ -95,13 +95,13 @@ class ProductVariation(object):
 	
 		
 	def getProductVariationLocalizedPrice(self,productCode, variationKey, currencyCode, responseFields = None):
-		""" Retrieves the details of the localized price value for a product variation and a specific localized currency.
+		""" 
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
-			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| productCode (string) - 
+			| variationKey (string) - 
+			| currencyCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductVariationFixedPrice 
@@ -122,12 +122,12 @@ class ProductVariation(object):
 	
 		
 	def getProductVariation(self,productCode, variationKey, responseFields = None):
-		""" Retrieves the details of a product variation based on the supplied product code and variation key.
+		""" 
 		
 		Args:
-			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			| productCode (string) - 
 			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductVariation 
@@ -147,15 +147,15 @@ class ProductVariation(object):
 	
 		
 	def getProductVariations(self,productCode, startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		""" Retrieves a list of the product variations configured for the specified product code.
+		""" 
 		
 		Args:
-			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-			| sortBy (string) - The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
-			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| productCode (string) - 
+			| startIndex (int) - 
+			| pageSize (int) - 
+			| sortBy (string) - 
+			| filter (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductVariationPagedCollection 
@@ -178,13 +178,13 @@ class ProductVariation(object):
 	
 		
 	def addProductVariationLocalizedDeltaPrice(self,localizedDeltaPrice, productCode, variationKey, responseFields = None):
-		""" Adds the localized delta price value for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		""" 
 		
 		Args:
-			| localizedDeltaPrice(localizedDeltaPrice) - The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| localizedDeltaPrice(localizedDeltaPrice) - 
+			| productCode (string) - 
+			| variationKey (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductVariationDeltaPrice 
@@ -204,13 +204,13 @@ class ProductVariation(object):
 	
 		
 	def addProductVariationLocalizedPrice(self,localizedPrice, productCode, variationKey, responseFields = None):
-		""" Adds the localized price value for a product variation and a specific localized currency.
+		""" 
 		
 		Args:
-			| localizedPrice(localizedPrice) - The details of the product variation localized price.
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| localizedPrice(localizedPrice) - 
+			| productCode (string) - 
+			| variationKey (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductVariationFixedPrice 
@@ -230,12 +230,12 @@ class ProductVariation(object):
 	
 		
 	def updateProductVariationLocalizedDeltaPrices(self,localizedDeltaPrice, productCode, variationKey):
-		""" Updates all localized delta price values for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		""" 
 		
 		Args:
-			| localizedDeltaPrice(array|localizedDeltaPrice) - The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
+			| localizedDeltaPrice(array|localizedDeltaPrice) - 
+			| productCode (string) - 
+			| variationKey (string) - 
 		
 		Returns:
 			| array of ProductVariationDeltaPrice 
@@ -254,14 +254,14 @@ class ProductVariation(object):
 	
 		
 	def updateProductVariationLocalizedDeltaPrice(self,localizedDeltaPrice, productCode, variationKey, currencyCode, responseFields = None):
-		""" Updates the localized delta price value for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		""" 
 		
 		Args:
-			| localizedDeltaPrice(localizedDeltaPrice) - The difference between the base price for the product and this variation of the product, which can be a positive or negative decimal value. For example, if the base price for a t-shirt product is $10, but the XL variation should cost $12, the DeltaPrice value should be "2". However, if the XS variation should only cost $8, the DeltaPrice value should be "-2".
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
-			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| localizedDeltaPrice(localizedDeltaPrice) - 
+			| productCode (string) - 
+			| variationKey (string) - 
+			| currencyCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductVariationDeltaPrice 
@@ -282,12 +282,12 @@ class ProductVariation(object):
 	
 		
 	def updateProductVariationLocalizedPrices(self,localizedPrice, productCode, variationKey):
-		""" Updates a list of localized price values for a product variation.
+		""" 
 		
 		Args:
-			| localizedPrice(array|localizedPrice) - The details of the product variation localized price.
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
+			| localizedPrice(array|localizedPrice) - 
+			| productCode (string) - 
+			| variationKey (string) - 
 		
 		Returns:
 			| array of ProductVariationFixedPrice 
@@ -306,14 +306,14 @@ class ProductVariation(object):
 	
 		
 	def updateProductVariationLocalizedPrice(self,localizedPrice, productCode, variationKey, currencyCode, responseFields = None):
-		""" Updates the localized price value for a product variation and a specific localized currency.
+		""" 
 		
 		Args:
-			| localizedPrice(localizedPrice) - The details of the product variation localized price.
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
-			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| localizedPrice(localizedPrice) - 
+			| productCode (string) - 
+			| variationKey (string) - 
+			| currencyCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductVariationFixedPrice 
@@ -334,13 +334,13 @@ class ProductVariation(object):
 	
 		
 	def updateProductVariation(self,productVariation, productCode, variationKey, responseFields = None):
-		""" Modifies the details of a variation, based on the supplied variation key, for the specified product code.
+		""" 
 		
 		Args:
-			| productVariation(productVariation) - Properties of a specific product variation.
-			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			| productVariation(productVariation) - Wrapper for the properties of the specified product variation.
+			| productCode (string) - 
 			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductVariation 
@@ -360,12 +360,12 @@ class ProductVariation(object):
 	
 		
 	def updateProductVariations(self,productVariations, productCode, responseFields = None):
-		""" Modifies the collection of variations for the specified product code. Because this PUT replaces the existing resource, supply all information necessary to maintain for the product variation.
+		""" 
 		
 		Args:
-			| productVariations(productVariations) - Collection of variations configured for a product.
-			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| productVariations(productVariations) - Wrapper for the collection of variations configured for the specified product code.
+			| productCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductVariationCollection 
@@ -384,10 +384,10 @@ class ProductVariation(object):
 	
 		
 	def deleteProductVariation(self,productCode, variationKey):
-		""" Deletes a variation, based on the supplied variation key, for the specified product code.
+		""" 
 		
 		Args:
-			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
+			| productCode (string) - 
 			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
 		
 		Raises:
@@ -403,12 +403,12 @@ class ProductVariation(object):
 	
 		
 	def deleteProductVariationLocalizedDeltaPrice(self,productCode, variationKey, currencyCode):
-		""" Deletes the localized delta price value for a product variation. Localized delta prices are deltas between two differing monetary conversion amounts between countries, such as US Dollar vs Euro.
+		""" 
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
-			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.
+			| productCode (string) - 
+			| variationKey (string) - 
+			| currencyCode (string) - 
 		
 		Raises:
 			| ApiException
@@ -424,12 +424,12 @@ class ProductVariation(object):
 	
 		
 	def deleteProductVariationLocalizedPrice(self,productCode, variationKey, currencyCode):
-		""" Deletes the localized price value for a product variation and a specific localized currency.
+		""" 
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| variationKey (string) - System-generated key that represents the attribute values that uniquely identify a specific product variation.
-			| currencyCode (string) - The three character ISO currency code, such as USD for US Dollars.
+			| productCode (string) - 
+			| variationKey (string) - 
+			| currencyCode (string) - 
 		
 		Raises:
 			| ApiException

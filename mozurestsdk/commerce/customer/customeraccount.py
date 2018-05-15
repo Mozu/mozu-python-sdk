@@ -21,18 +21,18 @@ class CustomerAccount(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getAccounts(self,startIndex = None, pageSize = None, sortBy = None, filter = None, fields = None, q = None, qLimit = None, isAnonymous = False, responseFields = None):
-		""" Retrieves a list of customer accounts.
+		""" 
 		
 		Args:
 			| startIndex (int) - 
 			| pageSize (int) - 
 			| sortBy (string) - 
-			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
+			| filter (string) - 
 			| fields (string) - The fields to include in the response.
-			| q (string) - A list of order search terms (not phrases) to use in the query when searching across order number and the name or email of the billing contact. When entering, separate multiple search terms with a space character.
+			| q (string) - A list of customer account search terms to use in the query when searching across customer name and email. Separate multiple search terms with a space character.
 			| qLimit (int) - The maximum number of search results to return in the response. You can limit any range between 1-100.
 			| isAnonymous (bool) - If true, retrieve anonymous shopper accounts in the response.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerAccountCollection 
@@ -58,11 +58,11 @@ class CustomerAccount(object):
 	
 		
 	def getLoginState(self,accountId, responseFields = None):
-		""" Retrieves the current login state of the customer account specified in the request.
+		""" 
 		
 		Args:
 			| accountId (int) - Unique identifier of the customer account.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| LoginState 
@@ -81,11 +81,11 @@ class CustomerAccount(object):
 	
 		
 	def getAccount(self,accountId, responseFields = None):
-		""" Retrieve details of a customer account.
+		""" 
 		
 		Args:
-			| accountId (int) - Unique identifier of the customer account.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| accountId (int) - Unique identifier of the customer account to retrieve.
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerAccount 
@@ -104,11 +104,11 @@ class CustomerAccount(object):
 	
 		
 	def addAccount(self,account, responseFields = None):
-		""" Creates a new customer account based on the information specified in the request.
+		""" 
 		
 		Args:
-			| account(account) - Properties of the customer account.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| account(account) - Properties of the customer account to update.
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerAccount 
@@ -126,12 +126,12 @@ class CustomerAccount(object):
 	
 		
 	def changePassword(self,passwordInfo, accountId, unlockAccount = False):
-		""" Modifies the password associated with a customer account.
+		""" 
 		
 		Args:
-			| passwordInfo(passwordInfo) - The information required to modify a shopper account password.
-			| accountId (int) - Unique identifier of the customer account.
-			| unlockAccount (bool) - Specifies whether to unlock the specified customer account.
+			| passwordInfo(passwordInfo) - The password information required to change the user password.
+			| accountId (int) - The customer account information required to change the userpassword.
+			| unlockAccount (bool) - 
 		
 		Raises:
 			| ApiException
@@ -146,12 +146,12 @@ class CustomerAccount(object):
 	
 		
 	def addLoginToExistingCustomer(self,customerAuthInfo, accountId, responseFields = None):
-		""" Adds a new user login to a defined customer account.
+		""" 
 		
 		Args:
-			| customerAuthInfo(customerAuthInfo) - The login information for a customer account.
+			| customerAuthInfo(customerAuthInfo) - The authentication information for the customer account.
 			| accountId (int) - Unique identifier of the customer account.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerAuthTicket 
@@ -170,10 +170,10 @@ class CustomerAccount(object):
 	
 		
 	def recomputeCustomerLifetimeValue(self,accountId):
-		""" Updates the customer lifetime value of the specified customer account in the event of an order import or a lifetime value calculation error.
+		""" 
 		
 		Args:
-			| accountId (int) - Unique identifier of the customer account.
+			| accountId (int) - The unique identifier of the customer account for which to calculate customer lifetime value.
 		
 		Raises:
 			| ApiException
@@ -187,11 +187,11 @@ class CustomerAccount(object):
 	
 		
 	def setLoginLocked(self,isLocked, accountId):
-		""" Lock or unlock a customer account.
+		""" 
 		
 		Args:
 			| isLocked(isLocked) - If true, the customer account is locked from logging in.
-			| accountId (int) - Unique identifier of the customer account.
+			| accountId (int) - The unique identifier of the customer account.
 		
 		Raises:
 			| ApiException
@@ -205,7 +205,7 @@ class CustomerAccount(object):
 	
 		
 	def setPasswordChangeRequired(self,isPasswordChangeRequired, accountId):
-		""" Requires the password for the customer account to be changed.
+		""" 
 		
 		Args:
 			| isPasswordChangeRequired(isPasswordChangeRequired) - If true, the password for the customer account must be changed.
@@ -223,11 +223,11 @@ class CustomerAccount(object):
 	
 		
 	def addAccountAndLogin(self,accountAndAuthInfo, responseFields = None):
-		""" Creates a new customer account and logs the user associated with the customer account into the site.
+		""" 
 		
 		Args:
-			| accountAndAuthInfo(accountAndAuthInfo) - The authentication information associated with a customer account. The data includes the account properties such as the name, username, authorization access, and email address, the required password to match, and indicates if the account was imported from a third party resource. 
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| accountAndAuthInfo(accountAndAuthInfo) - Properties of the customer account to create, including the user authentication information.
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerAuthTicket 
@@ -245,11 +245,11 @@ class CustomerAccount(object):
 	
 		
 	def addAccounts(self,customers, responseFields = None):
-		""" Creates multiple customer accounts based on the information specified in the request.
+		""" 
 		
 		Args:
-			| customers(array|customers) - The authentication information associated with a customer account. The data includes the account properties such as the name, username, authorization access, and email address, the required password to match, and indicates if the account was imported from a third party resource. 
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| customers(array|customers) - Properties of the customer accounts to create.
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerAccountCollection 
@@ -267,11 +267,11 @@ class CustomerAccount(object):
 	
 		
 	def changePasswords(self,accountPasswordInfos, responseFields = None):
-		""" Changes a collection of customer account passwords.
+		""" 
 		
 		Args:
-			| accountPasswordInfos(accountPasswordInfos) - The details of the changed customer account passwords.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| accountPasswordInfos(accountPasswordInfos) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ChangePasswordResultCollection 
@@ -289,12 +289,12 @@ class CustomerAccount(object):
 	
 		
 	def getLoginStateByEmailAddress(self,emailAddress, customerSetCode = None, responseFields = None):
-		""" Retrieves the current login state of a customer account by providing the customer's email address.
+		""" 
 		
 		Args:
 			| emailAddress (string) - The email address associated with the customer account.
-			| customerSetCode (string) - The unique idenfitier of the customer set.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| customerSetCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| LoginState 
@@ -314,12 +314,12 @@ class CustomerAccount(object):
 	
 		
 	def getLoginStateByUserName(self,userName, customerSetCode = None, responseFields = None):
-		""" Retrieves the current login state of a customer account by providing the user name associated with the customer account.
+		""" 
 		
 		Args:
 			| userName (string) - The user name associated with the customer account.
-			| customerSetCode (string) - The unique idenfitier of the customer set.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| customerSetCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| LoginState 
@@ -339,13 +339,13 @@ class CustomerAccount(object):
 	
 		
 	def getCustomersPurchaseOrderAccounts(self,startIndex = None, pageSize = None, sortBy = None, responseFields = None):
-		""" Retrieves a list of customer purchase order accounts according to according to any specified sort options.
+		""" 
 		
 		Args:
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
-			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
-			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| startIndex (int) - 
+			| pageSize (int) - 
+			| sortBy (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerPurchaseOrderAccountCollection 
@@ -366,7 +366,7 @@ class CustomerAccount(object):
 	
 		
 	def resetPassword(self,resetPasswordInfo):
-		""" Resets the password for a customer account.
+		""" 
 		
 		Args:
 			| resetPasswordInfo(resetPasswordInfo) - Information required to reset the password for a customer account.
@@ -382,12 +382,12 @@ class CustomerAccount(object):
 	
 		
 	def updateAccount(self,account, accountId, responseFields = None):
-		""" Updates a customer account.
+		""" 
 		
 		Args:
-			| account(account) - Properties of the customer account.
+			| account(account) - Properties of the customer account to update.
 			| accountId (int) - Unique identifier of the customer account.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerAccount 
@@ -406,10 +406,10 @@ class CustomerAccount(object):
 	
 		
 	def deleteAccount(self,accountId):
-		""" Deletes a customer account. A customer account cannot be deleted if any orders exist, past or present.
+		""" 
 		
 		Args:
-			| accountId (int) - Unique identifier of the customer account.
+			| accountId (int) - Unique identifier of the customer account to delete.
 		
 		Raises:
 			| ApiException

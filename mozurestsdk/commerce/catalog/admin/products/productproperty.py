@@ -22,10 +22,10 @@ class ProductProperty(object):
 		self.client.withApiContext(apiContext);
 	
 	def getProperties(self,productCode):
-		""" Retrieves a list of the property attributes configured for the product specified in the request.
+		""" 
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
+			| productCode (string) - 
 		
 		Returns:
 			| array of ProductProperty 
@@ -43,12 +43,12 @@ class ProductProperty(object):
 	
 		
 	def getPropertyValueLocalizedContents(self,productCode, attributeFQN, value):
-		""" Retrieves a collection of property values for localized content. This content is set by the locale code. 
+		""" 
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| value (string) - The value string to create.
+			| productCode (string) - 
+			| attributeFQN (string) - 
+			| value (string) - 
 		
 		Returns:
 			| array of ProductPropertyValueLocalizedContent 
@@ -68,14 +68,14 @@ class ProductProperty(object):
 	
 		
 	def getPropertyValueLocalizedContent(self,productCode, attributeFQN, value, localeCode, responseFields = None):
-		""" Retrieves the property value for localized content. This content is set by the locale code. 
+		""" 
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| value (string) - The value string to create.
-			| localeCode (string) - Language used for the entity. Currently, only "en-US" is supported.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| productCode (string) - 
+			| attributeFQN (string) - 
+			| value (string) - 
+			| localeCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductPropertyValueLocalizedContent 
@@ -97,12 +97,12 @@ class ProductProperty(object):
 	
 		
 	def getProperty(self,productCode, attributeFQN, responseFields = None):
-		""" Retrieves the details of a property attribute configuration for the product specified in the request.
+		""" 
 		
 		Args:
-			| productCode (string) - Merchant-created code that uniquely identifies the product such as a SKU or item number. Once created, the product code is read-only.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| productCode (string) - 
+			| attributeFQN (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductProperty 
@@ -122,14 +122,14 @@ class ProductProperty(object):
 	
 		
 	def addPropertyValueLocalizedContent(self,localizedContent, productCode, attributeFQN, value, responseFields = None):
-		""" Adds a property value for localized content. This content is set by the locale code. 
+		""" 
 		
 		Args:
-			| localizedContent(localizedContent) - Use this field to include those fields which are not included by default.
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| value (string) - The value string to create.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| localizedContent(localizedContent) - 
+			| productCode (string) - 
+			| attributeFQN (string) - 
+			| value (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductPropertyValueLocalizedContent 
@@ -150,12 +150,12 @@ class ProductProperty(object):
 	
 		
 	def addProperty(self,productProperty, productCode, responseFields = None):
-		""" Configures a property attribute for the product specified in the request.
+		""" 
 		
 		Args:
-			| productProperty(productProperty) - Details of a property defined for a product.
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| productProperty(productProperty) - Properties of the property attribute to configure for a product.
+			| productCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductProperty 
@@ -174,13 +174,13 @@ class ProductProperty(object):
 	
 		
 	def updatePropertyValueLocalizedContents(self,localizedContent, productCode, attributeFQN, value):
-		""" Updates all property values for localized content. This content is set by the locale code. 
+		""" 
 		
 		Args:
-			| localizedContent(array|localizedContent) - Content of the product property value in the language defined for the locale code.
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| value (string) - The value string to create.
+			| localizedContent(array|localizedContent) - 
+			| productCode (string) - 
+			| attributeFQN (string) - 
+			| value (string) - 
 		
 		Returns:
 			| array of ProductPropertyValueLocalizedContent 
@@ -200,15 +200,15 @@ class ProductProperty(object):
 	
 		
 	def updatePropertyValueLocalizedContent(self,localizedContent, productCode, attributeFQN, value, localeCode, responseFields = None):
-		""" Updates the property value for localized content. This content is set by the locale code. 
+		""" 
 		
 		Args:
-			| localizedContent(localizedContent) - Content of the product property value in the language defined for the locale code.
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| value (string) - The value string to create.
-			| localeCode (string) - Language used for the entity. Currently, only "en-US" is supported.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| localizedContent(localizedContent) - 
+			| productCode (string) - 
+			| attributeFQN (string) - 
+			| value (string) - 
+			| localeCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductPropertyValueLocalizedContent 
@@ -230,13 +230,13 @@ class ProductProperty(object):
 	
 		
 	def updateProperty(self,productProperty, productCode, attributeFQN, responseFields = None):
-		""" Update one or more details of a property attribute configuration for the product specified in the request.
+		""" 
 		
 		Args:
-			| productProperty(productProperty) - Details of a property defined for a product.
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| productProperty(productProperty) - Details of the property attribute to update for the product configuration.
+			| productCode (string) - 
+			| attributeFQN (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ProductProperty 
@@ -256,11 +256,11 @@ class ProductProperty(object):
 	
 		
 	def deleteProperty(self,productCode, attributeFQN):
-		""" Deletes the configuration of a property attribute for the product specified in the request.
+		""" 
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| productCode (string) - 
+			| attributeFQN (string) - 
 		
 		Raises:
 			| ApiException
@@ -275,13 +275,13 @@ class ProductProperty(object):
 	
 		
 	def deletePropertyValueLocalizedContent(self,productCode, attributeFQN, value, localeCode):
-		""" Deletes the property value for localized content. This content is set by the locale code. 
+		""" 
 		
 		Args:
-			| productCode (string) - The unique, user-defined product code of a product, used throughout  to reference and associate to a product.
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| value (string) - The value string to create.
-			| localeCode (string) - Language used for the entity. Currently, only "en-US" is supported.
+			| productCode (string) - 
+			| attributeFQN (string) - 
+			| value (string) - 
+			| localeCode (string) - 
 		
 		Raises:
 			| ApiException

@@ -16,12 +16,12 @@ class DeveloperAdminUserAuthTicket(object):
 		self.client = mozuClient or default_client();
 	
 	def createDeveloperUserAuthTicket(self,userAuthInfo, developerAccountId = None, responseFields = None):
-		""" Generate an authentication ticket for a developer account.
+		""" 
 		
 		Args:
-			| userAuthInfo(userAuthInfo) - Information required to authenticate a user.
+			| userAuthInfo(userAuthInfo) - The user authentication information required to generate the developer account user authentication ticket, which consists of a user name and password.
 			| developerAccountId (int) - Unique identifier of the developer account.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| DeveloperAdminUserAuthTicket 
@@ -40,12 +40,12 @@ class DeveloperAdminUserAuthTicket(object):
 	
 		
 	def refreshDeveloperAuthTicket(self,existingAuthTicket, developerAccountId = None, responseFields = None):
-		""" Generates a new developer account authentication ticket for the specified tenant by supplying the defined refresh token information.
+		""" 
 		
 		Args:
-			| existingAuthTicket(existingAuthTicket) - Properties of the authentication ticket to be used in developer account claims with the  API.
+			| existingAuthTicket(existingAuthTicket) - Properties of the authentication ticket to refresh. The refresh token is required to complete this request.
 			| developerAccountId (int) - Unique identifier of the developer account.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| DeveloperAdminUserAuthTicket 
@@ -64,10 +64,10 @@ class DeveloperAdminUserAuthTicket(object):
 	
 		
 	def deleteUserAuthTicket(self,refreshToken):
-		""" Deletes the authentication ticket for the developer account by supplying the refresh token.
+		""" 
 		
 		Args:
-			| refreshToken (string) - Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.
+			| refreshToken (string) - Refresh token string associated with the developer account authentication ticket.
 		
 		Raises:
 			| ApiException

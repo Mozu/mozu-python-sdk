@@ -22,11 +22,11 @@ class DiscountTarget(object):
 		self.client.withApiContext(apiContext);
 	
 	def getDiscountTarget(self,discountId, responseFields = None):
-		""" Retrieves the discount target, that is which products, categories, or shipping methods are eligible for the discount.
+		""" 
 		
 		Args:
-			| discountId (int) - discountId parameter description DOCUMENT_HERE 
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
+			| responseFields (string) - 
 		
 		Returns:
 			| DiscountTarget 
@@ -45,12 +45,12 @@ class DiscountTarget(object):
 	
 		
 	def updateDiscountTarget(self,discountTarget, discountId, responseFields = None):
-		""" Modifies properties of the discount target, for example, the dollar amount, or precentage off the price.
+		""" 
 		
 		Args:
-			| discountTarget(discountTarget) - Properties of the target to which the discount applies, such as the type of discount and which products, categories, or shipping methods are eligible for the discount and the properties of this discount target.
-			| discountId (int) - discountId parameter description DOCUMENT_HERE 
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| discountTarget(discountTarget) - Properties of the discount target to modify. Required properties: Target.Type. Any unspecified properties are set to null and boolean variables to false.
+			| discountId (int) - Unique identifier of the discount. System-supplied and read-only.
+			| responseFields (string) - 
 		
 		Returns:
 			| DiscountTarget 

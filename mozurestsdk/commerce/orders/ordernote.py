@@ -21,7 +21,7 @@ class OrderNote(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getOrderNotes(self,orderId):
-		""" Retrieves a list of all notes for an order.
+		""" 
 		
 		Args:
 			| orderId (string) - Unique identifier of the order.
@@ -42,12 +42,12 @@ class OrderNote(object):
 	
 		
 	def getOrderNote(self,orderId, noteId, responseFields = None):
-		""" Retrieves the details of a specific order note.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| noteId (string) - Unique identifier of a particular note to retrieve.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| orderId (string) - Unique identifier of the order associated with the note.
+			| noteId (string) - Unique identifier of the order note to retrieve.
+			| responseFields (string) - 
 		
 		Returns:
 			| OrderNote 
@@ -67,12 +67,12 @@ class OrderNote(object):
 	
 		
 	def createOrderNote(self,orderNote, orderId, responseFields = None):
-		""" Creates a new merchant note for the specified order.
+		""" 
 		
 		Args:
-			| orderNote(orderNote) - Properties of an order note for a merchant, which is internal only for administrative purposes and not available to the shopper.
-			| orderId (string) - Unique identifier of the order.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| orderNote(orderNote) - The alphanumeric text contained in the note. The maximum length is 256 characters.
+			| orderId (string) - Unique identifier of the order for which to add a note.
+			| responseFields (string) - 
 		
 		Returns:
 			| OrderNote 
@@ -91,13 +91,13 @@ class OrderNote(object):
 	
 		
 	def updateOrderNote(self,orderNote, orderId, noteId, responseFields = None):
-		""" Updates a specific note for an order.
+		""" 
 		
 		Args:
-			| orderNote(orderNote) - Properties of an order note for a merchant, which is internal only for administrative purposes and not available to the shopper.
+			| orderNote(orderNote) - The content of the order note. The maximum length is 256 characters.
 			| orderId (string) - Unique identifier of the order.
-			| noteId (string) - Unique identifier of a particular note to retrieve.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| noteId (string) - Unique identifier of the order note.
+			| responseFields (string) - 
 		
 		Returns:
 			| OrderNote 
@@ -117,11 +117,11 @@ class OrderNote(object):
 	
 		
 	def deleteOrderNote(self,orderId, noteId):
-		""" Deletes the specified order note.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| noteId (string) - Unique identifier of a particular note to retrieve.
+			| orderId (string) - Unique identifier of the order associated with the note.
+			| noteId (string) - Unique identifier of the order note to delete.
 		
 		Raises:
 			| ApiException

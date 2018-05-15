@@ -22,14 +22,14 @@ class Discount(object):
 		self.client.withApiContext(apiContext);
 	
 	def getDiscounts(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		""" Retrieves a list of discounts according to any specified filter criteria and sort options.
+		""" 
 		
 		Args:
 			| startIndex (int) - 
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+			| pageSize (int) - 
 			| sortBy (string) - 
-			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| filter (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| DiscountCollection 
@@ -51,11 +51,11 @@ class Discount(object):
 	
 		
 	def getDiscountContent(self,discountId, responseFields = None):
-		""" Retrieves the localized content specified for the specified discount.
+		""" 
 		
 		Args:
-			| discountId (int) - discountId parameter description DOCUMENT_HERE 
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| discountId (int) - Unique identifier of the discount. System-supplied and read-only.
+			| responseFields (string) - 
 		
 		Returns:
 			| DiscountLocalizedContent 
@@ -74,11 +74,11 @@ class Discount(object):
 	
 		
 	def getDiscount(self,discountId, responseFields = None):
-		""" Retrieves the details of a single discount.
+		""" 
 		
 		Args:
-			| discountId (int) - discountId parameter description DOCUMENT_HERE 
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| discountId (int) - Unique identifier of the discount. System-supplied and read-only.
+			| responseFields (string) - 
 		
 		Returns:
 			| Discount 
@@ -97,10 +97,10 @@ class Discount(object):
 	
 		
 	def generateRandomCoupon(self,responseFields = None):
-		""" Generates a random code for a coupon.
+		""" 
 		
 		Args:
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| string 
@@ -118,11 +118,11 @@ class Discount(object):
 	
 		
 	def createDiscount(self,discount, responseFields = None):
-		""" Creates a new discount or coupon to apply to a product, category, order, or shipping.
+		""" 
 		
 		Args:
-			| discount(discount) - Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| discount(discount) - Properties of the discount to create. You must specify the discount name, amount type, start date, and target.
+			| responseFields (string) - 
 		
 		Returns:
 			| Discount 
@@ -140,12 +140,12 @@ class Discount(object):
 	
 		
 	def updateDiscountContent(self,content, discountId, responseFields = None):
-		""" Updates the localizable content for the specified discount or renames the discount without modifying its other properties.
+		""" 
 		
 		Args:
-			| content(content) - The container for the language-specific name of the discount. A container exists for each supported language (LocaleCode). This parameter enables you to display the discount name in multiple languages yet manage it as a single discount internally.
-			| discountId (int) - discountId parameter description DOCUMENT_HERE 
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| content(content) - The discount content to update, including the discount name.
+			| discountId (int) - Unique identifier of the discount. System-supplied and read-only.
+			| responseFields (string) - 
 		
 		Returns:
 			| DiscountLocalizedContent 
@@ -164,12 +164,12 @@ class Discount(object):
 	
 		
 	def updateDiscount(self,discount, discountId, responseFields = None):
-		""" Updates one or more properties of the specified discount.
+		""" 
 		
 		Args:
-			| discount(discount) - Name of the discount added and applied to a shopping cart and order for a shopper's purchase. 
-			| discountId (int) - discountId parameter description DOCUMENT_HERE 
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| discount(discount) - Properties of the discount to update.
+			| discountId (int) - Unique identifier of the discount to update.
+			| responseFields (string) - 
 		
 		Returns:
 			| Discount 
@@ -188,10 +188,10 @@ class Discount(object):
 	
 		
 	def deleteDiscount(self,discountId):
-		""" Deletes a discount specified by its discount ID.
+		""" 
 		
 		Args:
-			| discountId (int) - discountId parameter description DOCUMENT_HERE 
+			| discountId (int) - Unique identifier of the discount. System-supplied and read-only.
 		
 		Raises:
 			| ApiException

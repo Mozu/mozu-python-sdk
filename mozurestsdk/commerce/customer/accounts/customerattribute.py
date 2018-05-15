@@ -21,12 +21,12 @@ class CustomerAttribute(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getAccountAttribute(self,accountId, attributeFQN, responseFields = None):
-		""" Retrieves the contents of an attribute associated with the specified customer account.
+		""" 
 		
 		Args:
-			| accountId (int) - Unique identifier of the customer account.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| accountId (int) - Identifier of the customer account associated with the attribute to retrieve.
+			| attributeFQN (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerAttribute 
@@ -46,15 +46,15 @@ class CustomerAttribute(object):
 	
 		
 	def getAccountAttributes(self,accountId, startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		""" Retrieves the list of customer account attributes.
+		""" 
 		
 		Args:
-			| accountId (int) - Unique identifier of the customer account.
+			| accountId (int) - Identifier of the customer account associated with the attributes to retrieve.
 			| startIndex (int) - 
 			| pageSize (int) - 
 			| sortBy (string) - 
 			| filter (string) - 
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerAttributeCollection 
@@ -77,12 +77,12 @@ class CustomerAttribute(object):
 	
 		
 	def addAccountAttribute(self,attribute, accountId, responseFields = None):
-		""" Applies a defined attribute to the customer account specified in the request and assigns a value to the customer attribute.
+		""" 
 		
 		Args:
-			| attribute(attribute) - Properties of an attribute associated with a customer account.
+			| attribute(attribute) - The attribute to add to the customer account.
 			| accountId (int) - Unique identifier of the customer account.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerAttribute 
@@ -101,13 +101,13 @@ class CustomerAttribute(object):
 	
 		
 	def updateAccountAttribute(self,attribute, accountId, attributeFQN, responseFields = None):
-		""" Updates one or more details of a customer account attribute.
+		""" 
 		
 		Args:
-			| attribute(attribute) - Properties of an attribute associated with a customer account.
-			| accountId (int) - Unique identifier of the customer account.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| attribute(attribute) - Properties of the customer account attribute to update.
+			| accountId (int) - Identifier of the customer account associated with the attribute.
+			| attributeFQN (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerAttribute 
@@ -127,11 +127,11 @@ class CustomerAttribute(object):
 	
 		
 	def deleteAccountAttribute(self,accountId, attributeFQN):
-		""" Removes the attribute specified in the request from the customer account.
+		""" 
 		
 		Args:
 			| accountId (int) - Unique identifier of the customer account.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| attributeFQN (string) - 
 		
 		Raises:
 			| ApiException

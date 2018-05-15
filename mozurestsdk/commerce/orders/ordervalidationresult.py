@@ -21,7 +21,7 @@ class OrderValidationResult(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getValidationResults(self,orderId):
-		""" Retrieves a list of the validation results associated with the order.
+		""" 
 		
 		Args:
 			| orderId (string) - Unique identifier of the order.
@@ -42,12 +42,12 @@ class OrderValidationResult(object):
 	
 		
 	def addValidationResult(self,validationResult, orderId, responseFields = None):
-		""" Add a new order validation result to a submitted order.
+		""" 
 		
 		Args:
-			| validationResult(validationResult) - Properties of the resulting order validation performed by an order validation capability.
+			| validationResult(validationResult) - Properties of the validation result to add for the order.
 			| orderId (string) - Unique identifier of the order.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| OrderValidationResult 

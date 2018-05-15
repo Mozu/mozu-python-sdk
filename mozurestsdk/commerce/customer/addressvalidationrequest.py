@@ -21,11 +21,11 @@ class AddressValidationRequest(object):
 			self.client.withApiContext(ApiContext());
 	
 	def validateAddress(self,addressValidationRequest, responseFields = None):
-		""" Validates the customer address supplied in the request.
+		""" 
 		
 		Args:
-			| addressValidationRequest(addressValidationRequest) - Properties of the address used for validation of the account's full address. This content may include multiple lines of an address, city, state/province, zip/postal code, and country.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| addressValidationRequest(addressValidationRequest) - Properties of the address to validate.
+			| responseFields (string) - 
 		
 		Returns:
 			| AddressValidationResponse 

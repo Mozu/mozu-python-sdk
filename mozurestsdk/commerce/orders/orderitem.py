@@ -21,13 +21,13 @@ class OrderItem(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getOrderItemViaLineId(self,orderId, lineId, draft = False, responseFields = None):
-		""" Retrieves an order item with the order line ID.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| lineId (int) - The specific line id that's associated with the order item.
-			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| orderId (string) - 
+			| lineId (int) - 
+			| draft (bool) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| OrderItem 
@@ -48,13 +48,13 @@ class OrderItem(object):
 	
 		
 	def getOrderItem(self,orderId, orderItemId, draft = False, responseFields = None):
-		""" Retrieves the details of a single order item.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| orderItemId (string) - Unique identifier of the item to remove from the order.
-			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| orderId (string) - Unique identifier of the order item to retrieve.
+			| orderItemId (string) - Unique identifier of the order item details to retrieve.
+			| draft (bool) - If true, retrieve the draft version of this order item, which might include uncommitted changes to the order item, the order, or other order components.
+			| responseFields (string) - 
 		
 		Returns:
 			| OrderItem 
@@ -75,12 +75,12 @@ class OrderItem(object):
 	
 		
 	def getOrderItems(self,orderId, draft = False, responseFields = None):
-		""" Retrieves the details of all items in an order.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| draft (bool) - If true, retrieve the draft version of the order, which might include uncommitted changes to the order or its components.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| orderId (string) - Unique identifier of the order items to retrieve.
+			| draft (bool) - If true, retrieve the draft version of the order's items, which might include uncommitted changes to one or more order items, the order itself, or other order components.
+			| responseFields (string) - 
 		
 		Returns:
 			| OrderItemCollection 
@@ -100,15 +100,15 @@ class OrderItem(object):
 	
 		
 	def createOrderItem(self,orderItem, orderId, updateMode = None, version = None, skipInventoryCheck = False, responseFields = None):
-		""" Adds a new item to a defined order.
+		""" 
 		
 		Args:
-			| orderItem(orderItem) - The details associated with a specific item in an order.
-			| orderId (string) - Unique identifier of the order.
-			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
-			| skipInventoryCheck (bool) - If true, skip the process to validate inventory when creating this product reservation.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| orderItem(orderItem) - The properties of the item to create in the existing order.
+			| orderId (string) - Unique identifier of the order for which to add the item.
+			| updateMode (string) - Specifies whether to add the item by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - 
+			| skipInventoryCheck (bool) - If true, do not validate the product inventory when adding this item to the order.
+			| responseFields (string) - 
 		
 		Returns:
 			| Order 
@@ -130,16 +130,16 @@ class OrderItem(object):
 	
 		
 	def updateOrderItemDiscount(self,discount, orderId, orderItemId, discountId, updateMode = None, version = None, responseFields = None):
-		""" Update the discount applied to an item in an order.
+		""" 
 		
 		Args:
-			| discount(discount) - Properties of all applied discounts for an associated cart, order, or product. 
-			| orderId (string) - Unique identifier of the order.
-			| orderItemId (string) - Unique identifier of the item to remove from the order.
-			| discountId (int) - discountId parameter description DOCUMENT_HERE 
-			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| discount(discount) - Properties of the discount to modify for the order item.
+			| orderId (string) - Unique identifier of the order associated with the item discount.
+			| orderItemId (string) - Unique identifier of the item in the order.
+			| discountId (int) - Unique identifier of the discount. System-supplied and read only.
+			| updateMode (string) - Specifies whether to change the item discount by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| Order 
@@ -162,16 +162,15 @@ class OrderItem(object):
 	
 		
 	def updateItemDuty(self,orderId, orderItemId, dutyAmount, updateMode = None, version = None, responseFields = None):
-		""" Update the duty fee information for an order item.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| orderItemId (string) - Unique identifier of the item to remove from the order.
-			| dutyAmount (decimal) - The amount added to the order item for duty fees.
-        
-			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - Determines whether or not to check versioning of items for concurrency purposes.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| orderId (string) - 
+			| orderItemId (string) - 
+			| dutyAmount (decimal) - 
+			| updateMode (string) - 
+			| version (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| Order 
@@ -194,15 +193,15 @@ class OrderItem(object):
 	
 		
 	def updateItemFulfillment(self,orderItem, orderId, orderItemId, updateMode = None, version = None, responseFields = None):
-		""" Updates the item fulfillment information for the order specified in the request.
+		""" 
 		
 		Args:
-			| orderItem(orderItem) - The details associated with a specific item in an order.
+			| orderItem(orderItem) - Properties of the order item to update for fulfillment.
 			| orderId (string) - Unique identifier of the order.
-			| orderItemId (string) - Unique identifier of the item to remove from the order.
-			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| orderItemId (string) - Unique identifier of the item in the order.
+			| updateMode (string) - Specifies whether to apply the coupon by updating the original order, updating the order in draft mode, or updating the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| Order 
@@ -224,15 +223,15 @@ class OrderItem(object):
 	
 		
 	def updateItemProductPrice(self,orderId, orderItemId, price, updateMode = None, version = None, responseFields = None):
-		""" Override the price of an individual product on a line item in the specified order.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| orderItemId (string) - Unique identifier of the item to remove from the order.
+			| orderId (string) - Unique identifier of the order containing the item to price override.
+			| orderItemId (string) - Unique identifier of the item in the order to price override.
 			| price (decimal) - The override price to specify for this item in the specified order.
-			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| updateMode (string) - Specifies whether to change the product price by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| Order 
@@ -255,15 +254,15 @@ class OrderItem(object):
 	
 		
 	def updateItemQuantity(self,orderId, orderItemId, quantity, updateMode = None, version = None, responseFields = None):
-		""" Update the quantity of an item in an order.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| orderItemId (string) - Unique identifier of the item to remove from the order.
-			| quantity (int) - The number of cart items in the shopper's active cart.
-			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| orderId (string) - Unique identifier of the order containing the item to update quantity.
+			| orderItemId (string) - Unique identifier of the item in the order to update quantity.
+			| quantity (int) - The quantity of the item in the order to update.
+			| updateMode (string) - Specifies whether to change the item quantity by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| Order 
@@ -286,13 +285,13 @@ class OrderItem(object):
 	
 		
 	def deleteOrderItem(self,orderId, orderItemId, updateMode = None, version = None):
-		""" Removes a previously added item from a defined order.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
+			| orderId (string) - Unique identifier of the order with the item to remove.
 			| orderItemId (string) - Unique identifier of the item to remove from the order.
-			| updateMode (string) - Specifies whether to update the original order, update the order in draft mode, or update the order in draft mode and then commit the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
-			| version (string) - System-supplied integer that represents the current version of the order, which prevents users from unintentionally overriding changes to the order. When a user performs an operation for a defined order, the system validates that the version of the updated order matches the version of the order on the server. After the operation completes successfully, the system increments the version number by one.
+			| updateMode (string) - Specifies whether to remove the item by updating the original order, updating the order in draft mode, or updating the order in draft mode and then committing the changes to the original. Draft mode enables users to make incremental order changes before committing the changes to the original order. Valid values are "ApplyToOriginal," "ApplyToDraft," or "ApplyAndCommit."
+			| version (string) - 
 		
 		Returns:
 			| Order 

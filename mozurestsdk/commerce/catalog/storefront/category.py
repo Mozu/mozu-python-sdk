@@ -22,14 +22,14 @@ class Category(object):
 		self.client.withApiContext(apiContext);
 	
 	def getCategories(self,filter = None, startIndex = None, pageSize = None, sortBy = None, responseFields = None):
-		""" Retrieves a list of categories according to any specified filter criteria and sort options.
+		""" 
 		
 		Args:
-			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
+			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter product category search results by any of its properties, including its position in the category hierarchy. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
 			| startIndex (int) - 
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+			| pageSize (int) - 
 			| sortBy (string) - 
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| responseFields (string) - 
 		
 		Returns:
 			| CategoryPagedCollection 
@@ -51,12 +51,12 @@ class Category(object):
 	
 		
 	def getCategory(self,categoryId, allowInactive = False, responseFields = None):
-		""" Retrieves the details of a single category.
+		""" 
 		
 		Args:
-			| categoryId (int) - Unique identifier for the storefront container used to organize products.
+			| categoryId (int) - Unique identifier of the product category.
 			| allowInactive (bool) - If true, allow inactive categories to be retrieved in the category list response. If false, the categories retrieved will not include ones marked inactive.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| responseFields (string) - 
 		
 		Returns:
 			| Category 
@@ -76,10 +76,10 @@ class Category(object):
 	
 		
 	def getCategoryTree(self,responseFields = None):
-		""" Retrieves the list of product categories that appear on the storefront organized in a hierarchical format. Hidden categories do not appear in the list.
+		""" 
 		
 		Args:
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| responseFields (string) - 
 		
 		Returns:
 			| CategoryCollection 

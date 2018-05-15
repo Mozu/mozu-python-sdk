@@ -21,7 +21,7 @@ class LocationType(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getLocationTypes(self,):
-		""" Retrieve a list of all location types defined for the tenant.
+		""" 
 		
 		Returns:
 			| array of LocationType 
@@ -38,11 +38,11 @@ class LocationType(object):
 	
 		
 	def getLocationType(self,locationTypeCode, responseFields = None):
-		""" Retrieves the details of the location type specified in the request.
+		""" 
 		
 		Args:
 			| locationTypeCode (string) - The user-defined code that identifies the location type.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| LocationType 
@@ -61,11 +61,11 @@ class LocationType(object):
 	
 		
 	def addLocationType(self,locationType, responseFields = None):
-		""" Creates a new location type based on the information specified in the request.
+		""" 
 		
 		Args:
-			| locationType(locationType) - Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| locationType(locationType) - Properties of the location type to create.
+			| responseFields (string) - 
 		
 		Returns:
 			| LocationType 
@@ -83,12 +83,12 @@ class LocationType(object):
 	
 		
 	def updateLocationType(self,locationType, locationTypeCode, responseFields = None):
-		""" Updates the name of a defined location type.
+		""" 
 		
 		Args:
-			| locationType(locationType) - Properties of a type of physical location, such as warehouse or kiosk. Location types enable tenants to group similar locations for filtering and location usage type definition.
+			| locationType(locationType) - Properties of the location type to update.
 			| locationTypeCode (string) - The user-defined code that identifies the location type.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| LocationType 
@@ -107,10 +107,10 @@ class LocationType(object):
 	
 		
 	def deleteLocationType(self,locationTypeCode):
-		""" Deletes the location type specified in the request.
+		""" 
 		
 		Args:
-			| locationTypeCode (string) - The user-defined code that identifies the location type.
+			| locationTypeCode (string) - User-defined code used to identify the location type.
 		
 		Raises:
 			| ApiException

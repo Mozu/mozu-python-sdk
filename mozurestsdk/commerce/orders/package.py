@@ -21,11 +21,11 @@ class Package(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getAvailablePackageFulfillmentActions(self,orderId, packageId):
-		""" Retrieves a list of the actions available to perform for a package associated with order fulfillment.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| packageId (string) - Unique identifier of the package for which to retrieve the label.
+			| orderId (string) - Unique identifier of the order associated with the package fulfillment.
+			| packageId (string) - Unique identifier of the package associated with the fulfillment actions to retrieve.
 		
 		Returns:
 			| array of string 
@@ -44,10 +44,10 @@ class Package(object):
 	
 		
 	def getPackageLabel(self,orderId, packageId):
-		""" Retrieves the package label image supplied by the carrier.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
+			| orderId (string) - Unique identifier of the order associated with the package label to retrieve.
 			| packageId (string) - Unique identifier of the package for which to retrieve the label.
 		
 		Returns:
@@ -67,12 +67,12 @@ class Package(object):
 	
 		
 	def getPackage(self,orderId, packageId, responseFields = None):
-		""" Retrieves the details of a package of order items.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| packageId (string) - Unique identifier of the package for which to retrieve the label.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| orderId (string) - Unique identifier of the order associated with the package to retrieve.
+			| packageId (string) - Unique identifier of the package to retrieve.
+			| responseFields (string) - 
 		
 		Returns:
 			| Package 
@@ -92,12 +92,12 @@ class Package(object):
 	
 		
 	def createPackage(self,package, orderId, responseFields = None):
-		""" Creates a new physical package of order items.
+		""" 
 		
 		Args:
-			| package(package) - Properties of a physical package shipped for an order.
-			| orderId (string) - Unique identifier of the order.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| package(package) - Properties of the physical package of order items.
+			| orderId (string) - Unique identifier of the order associated with this package.
+			| responseFields (string) - 
 		
 		Returns:
 			| Package 
@@ -116,13 +116,13 @@ class Package(object):
 	
 		
 	def updatePackage(self,package, orderId, packageId, responseFields = None):
-		""" Updates one or more properties of a physical package of order items.
+		""" 
 		
 		Args:
-			| package(package) - Properties of a physical package shipped for an order.
-			| orderId (string) - Unique identifier of the order.
-			| packageId (string) - Unique identifier of the package for which to retrieve the label.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| package(package) - Wrapper of properties for the package of order items to update.
+			| orderId (string) - Unique identifier of the order associated with the package to update.
+			| packageId (string) - Unique identifier of the package of order items to update.
+			| responseFields (string) - 
 		
 		Returns:
 			| Package 
@@ -142,11 +142,11 @@ class Package(object):
 	
 		
 	def deletePackage(self,orderId, packageId):
-		""" Removes a physical package of items from the specified order.
+		""" 
 		
 		Args:
-			| orderId (string) - Unique identifier of the order.
-			| packageId (string) - Unique identifier of the package for which to retrieve the label.
+			| orderId (string) - Unique identifier of the order associated with the package to delete.
+			| packageId (string) - Unique identifier of the package to delete.
 		
 		Raises:
 			| ApiException

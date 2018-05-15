@@ -21,13 +21,13 @@ class ListView(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getViewEntity(self,entityListFullName, viewName, entityId, responseFields = None):
-		""" Retrieves a view for associated entities. A view provides display context levels (site, tenant, catalog, master catalog) and settings.
+		""" 
 		
 		Args:
-			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
-			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
-			| entityId (string) - Unique identifier for an entity, which defines the schema, rules, and formats for JSON entities within the MZDB ( Mongo DB).
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| entityListFullName (string) - 
+			| viewName (string) - 
+			| entityId (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| JObject 
@@ -48,15 +48,15 @@ class ListView(object):
 	
 		
 	def getViewEntities(self,entityListFullName, viewName, pageSize = None, startIndex = None, filter = None, responseFields = None):
-		""" Retrieves a collection of views for associated entities. Each view provides display context levels (site, tenant, catalog, master catalog) and settings.
+		""" 
 		
 		Args:
-			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
-			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
-			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
-			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| entityListFullName (string) - 
+			| viewName (string) - 
+			| pageSize (int) - 
+			| startIndex (int) - 
+			| filter (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| EntityCollection 
@@ -79,13 +79,13 @@ class ListView(object):
 	
 		
 	def getViewEntityContainer(self,entityListFullName, viewName, entityId, responseFields = None):
-		""" Retrieves a collection of container data for creating and displaying a view of entities. 
+		""" 
 		
 		Args:
-			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
-			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
-			| entityId (string) - Unique identifier for an entity, which defines the schema, rules, and formats for JSON entities within the MZDB ( Mongo DB).
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| entityListFullName (string) - 
+			| viewName (string) - 
+			| entityId (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| EntityContainer 
@@ -106,15 +106,15 @@ class ListView(object):
 	
 		
 	def getViewEntityContainers(self,entityListFullName, viewName, pageSize = None, startIndex = None, filter = None, responseFields = None):
-		""" Retrieves a collection of container data for creating and displaying a view of entities. 
+		""" 
 		
 		Args:
-			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
-			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
-			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
-			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| entityListFullName (string) - 
+			| viewName (string) - 
+			| pageSize (int) - 
+			| startIndex (int) - 
+			| filter (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| EntityContainerCollection 
@@ -137,12 +137,12 @@ class ListView(object):
 	
 		
 	def getEntityListView(self,entityListFullName, viewName, responseFields = None):
-		""" Retrieves a specific  EntityListView . These views provide schema, rules, and formatting for all associated entities. 
+		""" 
 		
 		Args:
-			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
-			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| entityListFullName (string) - 
+			| viewName (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ListView 
@@ -162,11 +162,11 @@ class ListView(object):
 	
 		
 	def getEntityListViews(self,entityListFullName, responseFields = None):
-		""" Retrieves a collection of  EntityListViews . These views provide schema, rules, and formatting for all associated entities. 
+		""" 
 		
 		Args:
-			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| entityListFullName (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ListViewCollection 
@@ -185,12 +185,12 @@ class ListView(object):
 	
 		
 	def createEntityListView(self,listView, entityListFullName, responseFields = None):
-		""" Creates an entity list view. Each view provides display context levels (site, tenant, catalog, master catalog) and settings for the list of entities.
+		""" 
 		
 		Args:
-			| listView(listView) - Properties for the list view that specifies what fields and content display per page load. All associated fields in the list view correspond with object data.
-			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| listView(listView) - 
+			| entityListFullName (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ListView 
@@ -209,13 +209,13 @@ class ListView(object):
 	
 		
 	def updateEntityListView(self,listView, entityListFullName, viewName, responseFields = None):
-		""" Updates an existing entity list view. Each view provides display context levels (site, tenant, catalog, master catalog) and settings for the list of entities.
+		""" 
 		
 		Args:
-			| listView(listView) - Properties for the list view that specifies what fields and content display per page load. All associated fields in the list view correspond with object data.
-			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
-			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| listView(listView) - 
+			| entityListFullName (string) - 
+			| viewName (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ListView 
@@ -235,11 +235,11 @@ class ListView(object):
 	
 		
 	def deleteEntityListView(self,entityListFullName, viewName):
-		""" Deletes an entity list view. Any associated entities have the association removed.
+		""" 
 		
 		Args:
-			| entityListFullName (string) - The full name of the EntityList including namespace in name@nameSpace format
-			| viewName (string) - The name for a view. Views are used to render data in , such as document and entity lists. Each view includes a schema, format, name, ID, and associated data types to render.
+			| entityListFullName (string) - 
+			| viewName (string) - 
 		
 		Raises:
 			| ApiException

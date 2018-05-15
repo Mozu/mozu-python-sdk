@@ -21,11 +21,11 @@ class TenantData(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getDBValue(self,dbEntryQuery, responseFields = None):
-		""" Retrieves the value of a record in the  database.
+		""" 
 		
 		Args:
-			| dbEntryQuery (string) - The database entry string to create.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| dbEntryQuery (string) - The database entry query string used to retrieve the record information.
+			| responseFields (string) - 
 		
 		Returns:
 			| string 
@@ -44,7 +44,7 @@ class TenantData(object):
 	
 		
 	def createDBValue(self,value, dbEntryQuery):
-		""" Creates a new record in the  database based on the information supplied in the request.
+		""" 
 		
 		Args:
 			| value(value) - The value string to create.
@@ -62,11 +62,11 @@ class TenantData(object):
 	
 		
 	def updateDBValue(self,value, dbEntryQuery):
-		""" Updates a record in the  database based on the information supplied in the request.
+		""" 
 		
 		Args:
-			| value(value) - The value string to create.
-			| dbEntryQuery (string) - The database entry string to create.
+			| value(value) - The database value to update.
+			| dbEntryQuery (string) - The database entry query string used to update the record information.
 		
 		Raises:
 			| ApiException
@@ -80,10 +80,10 @@ class TenantData(object):
 	
 		
 	def deleteDBValue(self,dbEntryQuery):
-		""" Removes a previously defined record in the  database.
+		""" 
 		
 		Args:
-			| dbEntryQuery (string) - The database entry string to create.
+			| dbEntryQuery (string) - The database entry string to delete.
 		
 		Raises:
 			| ApiException

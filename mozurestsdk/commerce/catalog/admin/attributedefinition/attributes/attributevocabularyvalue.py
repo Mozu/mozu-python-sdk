@@ -21,10 +21,10 @@ class AttributeVocabularyValue(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getAttributeVocabularyValues(self,attributeFQN):
-		""" Retrieves a list of vocabulary values defined for the attribute specified in the request.
+		""" 
 		
 		Args:
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| attributeFQN (string) - 
 		
 		Returns:
 			| array of AttributeVocabularyValue 
@@ -42,11 +42,11 @@ class AttributeVocabularyValue(object):
 	
 		
 	def getAttributeVocabularyValueLocalizedContents(self,attributeFQN, value):
-		""" Retrieves a collection of localized content for vocabulary value attributes based on a  localeCode . 
+		""" 
 		
 		Args:
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| value (string) - The value string to create.
+			| attributeFQN (string) - 
+			| value (string) - 
 		
 		Returns:
 			| array of AttributeVocabularyValueLocalizedContent 
@@ -65,13 +65,13 @@ class AttributeVocabularyValue(object):
 	
 		
 	def getAttributeVocabularyValueLocalizedContent(self,attributeFQN, value, localeCode, responseFields = None):
-		""" Retrieves the localized content for a vocabulary value attribute based on a  localeCode . 
+		""" 
 		
 		Args:
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| value (string) - The value string to create.
-			| localeCode (string) - Language used for the entity. Currently, only "en-US" is supported.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| attributeFQN (string) - 
+			| value (string) - 
+			| localeCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| AttributeVocabularyValueLocalizedContent 
@@ -92,12 +92,12 @@ class AttributeVocabularyValue(object):
 	
 		
 	def getAttributeVocabularyValue(self,attributeFQN, value, responseFields = None):
-		""" Retrieves the details of a vocabulary value defined for an attribute by providing the attribute's fully qualified name and the value to retrieve.
+		""" 
 		
 		Args:
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
-			| value (string) - The value string to create.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| attributeFQN (string) - 
+			| value (string) - The actual unique value of the attribute vocabulary to retrieve. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
+			| responseFields (string) - 
 		
 		Returns:
 			| AttributeVocabularyValue 
@@ -117,13 +117,13 @@ class AttributeVocabularyValue(object):
 	
 		
 	def addAttributeVocabularyValueLocalizedContent(self,localizedContent, attributeFQN, value, responseFields = None):
-		""" Creates and saves localized vocabulary value content for an attribute, based on the  localeCode .
+		""" 
 		
 		Args:
-			| localizedContent(localizedContent) - The localized text for the string value of a product attribute.
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| value (string) - The value string to create.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| localizedContent(localizedContent) - 
+			| attributeFQN (string) - 
+			| value (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| AttributeVocabularyValueLocalizedContent 
@@ -143,12 +143,12 @@ class AttributeVocabularyValue(object):
 	
 		
 	def addAttributeVocabularyValue(self,attributeVocabularyValue, attributeFQN, responseFields = None):
-		""" Creates a vocabulary value for a defined product attribute.
+		""" 
 		
 		Args:
-			| attributeVocabularyValue(attributeVocabularyValue) - Properties of a vocabulary value defined for an extensible attribute.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| attributeVocabularyValue(attributeVocabularyValue) - The predefined vocabulary value to add to the attribute content.
+			| attributeFQN (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| AttributeVocabularyValue 
@@ -167,11 +167,11 @@ class AttributeVocabularyValue(object):
 	
 		
 	def updateAttributeVocabularyValues(self,vocabularyValues, attributeFQN):
-		""" Update existing vocabulary values for an attribute.
+		""" 
 		
 		Args:
-			| vocabularyValues(array|vocabularyValues) - Properties of a vocabulary value defined for an extensible attribute.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| vocabularyValues(array|vocabularyValues) - The actual vocabulary values for the attribute being updated.
+			| attributeFQN (string) - 
 		
 		Returns:
 			| array of AttributeVocabularyValue 
@@ -189,12 +189,12 @@ class AttributeVocabularyValue(object):
 	
 		
 	def updateAttributeVocabularyValueLocalizedContents(self,localizedContent, attributeFQN, value):
-		""" Updates a collection of localized vocabulary value content for existing attributes, based on the  localeCode .
+		""" 
 		
 		Args:
-			| localizedContent(array|localizedContent) - The localized text for the string value of a product attribute.
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| value (string) - The value string to create.
+			| localizedContent(array|localizedContent) - 
+			| attributeFQN (string) - 
+			| value (string) - 
 		
 		Returns:
 			| array of AttributeVocabularyValueLocalizedContent 
@@ -213,14 +213,14 @@ class AttributeVocabularyValue(object):
 	
 		
 	def updateAttributeVocabularyValueLocalizedContent(self,localizedContent, attributeFQN, value, localeCode, responseFields = None):
-		""" Updates localized vocabulary value content for an existing attribute, based on the  localeCode .
+		""" 
 		
 		Args:
-			| localizedContent(localizedContent) - The localized text for the string value of a product attribute.
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| value (string) - The value string to create.
-			| localeCode (string) - The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| localizedContent(localizedContent) - 
+			| attributeFQN (string) - 
+			| value (string) - 
+			| localeCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| AttributeVocabularyValueLocalizedContent 
@@ -241,13 +241,13 @@ class AttributeVocabularyValue(object):
 	
 		
 	def updateAttributeVocabularyValue(self,attributeVocabularyValue, attributeFQN, value, responseFields = None):
-		""" Updates existing attribute vocabulary values.
+		""" 
 		
 		Args:
-			| attributeVocabularyValue(attributeVocabularyValue) - Properties of a vocabulary value defined for an extensible attribute.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
-			| value (string) - The value string to create.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| attributeVocabularyValue(attributeVocabularyValue) - The predefined vocabulary value to add to the attribute content to update.
+			| attributeFQN (string) - 
+			| value (string) - The actual unique value of the attribute vocabulary value to update. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
+			| responseFields (string) - 
 		
 		Returns:
 			| AttributeVocabularyValue 
@@ -267,11 +267,11 @@ class AttributeVocabularyValue(object):
 	
 		
 	def deleteAttributeVocabularyValue(self,attributeFQN, value):
-		""" Deletes an attribute's vocabulary value.
+		""" 
 		
 		Args:
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
-			| value (string) - The value string to create.
+			| attributeFQN (string) - 
+			| value (string) - The actual unique value of the attribute vocabulary to delete. A single attribute must have a unique value and match the attribute's data type. If a string value returns null, the system will generate a value. The actual string content displayed shoud be stored as "Content" and actual content is required for string values.
 		
 		Raises:
 			| ApiException
@@ -286,12 +286,12 @@ class AttributeVocabularyValue(object):
 	
 		
 	def deleteAttributeVocabularyValueLocalizedContent(self,attributeFQN, value, localeCode):
-		""" Removes localized content for a vocabulary value attribute. 
+		""" 
 		
 		Args:
-			| attributeFQN (string) - Fully qualified name for an attribute.
-			| value (string) - The value string to create.
-			| localeCode (string) - Language used for the entity. Currently, only "en-US" is supported.
+			| attributeFQN (string) - 
+			| value (string) - 
+			| localeCode (string) - 
 		
 		Raises:
 			| ApiException

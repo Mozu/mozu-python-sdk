@@ -21,10 +21,10 @@ class CustomerAuthTicket(object):
 			self.client.withApiContext(ApiContext());
 	
 	def createAnonymousShopperAuthTicket(self,responseFields = None):
-		""" Creates an authentication ticket for an anonymous shopper user.
+		""" 
 		
 		Args:
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerAuthTicket 
@@ -42,11 +42,11 @@ class CustomerAuthTicket(object):
 	
 		
 	def createUserAuthTicket(self,userAuthInfo, responseFields = None):
-		""" Generates a new authentication ticket for a customer account.
+		""" 
 		
 		Args:
-			| userAuthInfo(userAuthInfo) - The authentication information required to generate an authentication ticket for a customer account.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| userAuthInfo(userAuthInfo) - The authentication information required to generate an authetication ticket for a user, which consists of a user name and password.
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerAuthTicket 
@@ -64,11 +64,11 @@ class CustomerAuthTicket(object):
 	
 		
 	def refreshUserAuthTicket(self,refreshToken, responseFields = None):
-		""" Refreshes an existing authentication ticket for a customer account by providing the refresh token string.
+		""" 
 		
 		Args:
-			| refreshToken (string) - Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| refreshToken (string) - The refresh token string required to refresh a user's authentication ticket.
+			| responseFields (string) - 
 		
 		Returns:
 			| CustomerAuthTicket 

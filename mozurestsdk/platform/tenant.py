@@ -16,11 +16,11 @@ class Tenant(object):
 		self.client = mozuClient or default_client();
 	
 	def getTenant(self,tenantId, responseFields = None):
-		""" Retrieve details about a specific tenant by providing the tenant ID.
+		""" 
 		
 		Args:
-			| tenantId (int) - Unique identifier of the Mozu tenant.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| tenantId (int) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| Tenant 

@@ -21,11 +21,11 @@ class PriceList(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getPriceList(self,priceListCode, responseFields = None):
-		""" Retrieves the details of the specified price list.
+		""" 
 		
 		Args:
-			| priceListCode (string) - The unique code of the price list for which you want to retrieve the details.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| priceListCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| PriceList 
@@ -44,11 +44,11 @@ class PriceList(object):
 	
 		
 	def getResolvedPriceList(self,customerAccountId = None, responseFields = None):
-		""" Retrieves the details of a price list to which the specified customer resolves. This is primarly used when creating an offline order for a shopper.You can use this operation alongside custom Arc.js actions to alter the price list to which a shopper resolves.
+		""" 
 		
 		Args:
-			| customerAccountId (int) - The unique identifier of the customer account for which to retrieve wish lists.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| customerAccountId (int) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ResolvedPriceList 

@@ -21,11 +21,11 @@ class Search(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getSearchTuningRule(self,searchTuningRuleCode, responseFields = None):
-		""" Retrieves the details of the specified search tuning rule.
+		""" 
 		
 		Args:
-			| searchTuningRuleCode (string) - The unique identifier of the search tuning rule.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| searchTuningRuleCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| SearchTuningRule 
@@ -44,14 +44,14 @@ class Search(object):
 	
 		
 	def getSearchTuningRules(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		""" Retrieves a list of search tuning rules and their properties.
+		""" 
 		
 		Args:
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
-			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
-			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
-			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| startIndex (int) - 
+			| pageSize (int) - 
+			| sortBy (string) - 
+			| filter (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| SearchTuningRuleCollection 
@@ -73,10 +73,10 @@ class Search(object):
 	
 		
 	def getSearchTuningRuleSortFields(self,responseFields = None):
-		""" Retrieves the details of the specified search tuning rule sort fields. Sort fields allow you to control the product relevance whenver shoppers sort products on a page. For more information about sort relevance, refer to [Search Tuning Rules and Sorting](../../../developer/api-guides/search-tuning-rules.htm#search_tuning_rules_and_sorting).
+		""" 
 		
 		Args:
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| responseFields (string) - 
 		
 		Returns:
 			| SearchTuningRuleSortFields 
@@ -94,10 +94,10 @@ class Search(object):
 	
 		
 	def getSettings(self,responseFields = None):
-		""" Retrieves the search settings for the specified site.Refer to [Search Settings API Overview](../../../../developer/api-guides/search-settings.htm) for more information about 's search settings.
+		""" 
 		
 		Args:
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| responseFields (string) - 
 		
 		Returns:
 			| SearchSettings 
@@ -115,11 +115,11 @@ class Search(object):
 	
 		
 	def getSynonymDefinitionCollection(self,localeCode, responseFields = None):
-		""" Retrieves a collection of synonyms definitions for product searches.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		""" 
 		
 		Args:
-			| localeCode (string) - The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| localeCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| SynonymDefinitionCollection 
@@ -138,14 +138,14 @@ class Search(object):
 	
 		
 	def getSynonymDefinitions(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		""" Retrieves a list of synonym definitions according to any specified filter criteria and sort options.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		""" 
 		
 		Args:
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
-			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
-			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
-			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| startIndex (int) - 
+			| pageSize (int) - 
+			| sortBy (string) - 
+			| filter (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| SynonymDefinitionPagedCollection 
@@ -167,11 +167,11 @@ class Search(object):
 	
 		
 	def getSynonymDefinition(self,synonymId, responseFields = None):
-		""" Retrieves the details of the specified synonym defintion.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		""" 
 		
 		Args:
-			| synonymId (int) - The unique identifier of the synonym definition.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| synonymId (int) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| SynonymDefinition 
@@ -190,11 +190,11 @@ class Search(object):
 	
 		
 	def addSearchTuningRule(self,searchTuningRuleIn, responseFields = None):
-		""" Creates a search tuning rule for your site. You can use search tuning rules to fine tune the product search results that appear when a shopper searches for a specific keyword, or navigates to a category page.For more information on search tuning rules, refer to [Search Tuning Rules](../../../../developer/api-guides/search-tuning-rules.htm).
+		""" 
 		
 		Args:
-			| searchTuningRuleIn(searchTuningRuleIn) - The details of the new search tuning rule.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| searchTuningRuleIn(searchTuningRuleIn) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| SearchTuningRule 
@@ -212,11 +212,11 @@ class Search(object):
 	
 		
 	def updateSearchTuningRuleSortFields(self,searchTuningRuleSortFieldsIn, responseFields = None):
-		""" Updates the details of the search tuning rule sort fields.
+		""" 
 		
 		Args:
-			| searchTuningRuleSortFieldsIn(searchTuningRuleSortFieldsIn) - The details of the updated search tuning rule sort fields.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| searchTuningRuleSortFieldsIn(searchTuningRuleSortFieldsIn) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| SearchTuningRuleSortFields 
@@ -234,12 +234,12 @@ class Search(object):
 	
 		
 	def updateSynonymDefinitionCollection(self,collection, localeCode, responseFields = None):
-		""" Updates a collection of synonym definitions.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		""" 
 		
 		Args:
-			| collection(collection) - The updated details of the synonym definition collection.
-			| localeCode (string) - The two character country code that sets the locale, such as US for United States. Sites, tenants, and catalogs use locale codes for localizing content, such as translated product text per supported country.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| collection(collection) - 
+			| localeCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| SynonymDefinitionCollection 
@@ -258,11 +258,11 @@ class Search(object):
 	
 		
 	def addSynonymDefinition(self,synonymDefinition, responseFields = None):
-		""" Creates a new synonym definition.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		""" 
 		
 		Args:
-			| synonymDefinition(synonymDefinition) - The details of the new synonym definition.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| synonymDefinition(synonymDefinition) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| SynonymDefinition 
@@ -280,12 +280,12 @@ class Search(object):
 	
 		
 	def updateSearchTuningRule(self,searchTuningRuleIn, searchTuningRuleCode, responseFields = None):
-		""" Updates the details of the specified search tuning rule.
+		""" 
 		
 		Args:
-			| searchTuningRuleIn(searchTuningRuleIn) - The details of the updated search tuning rule.
-			| searchTuningRuleCode (string) - The unique identifier of the search tuning rule.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| searchTuningRuleIn(searchTuningRuleIn) - 
+			| searchTuningRuleCode (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| SearchTuningRule 
@@ -304,11 +304,11 @@ class Search(object):
 	
 		
 	def updateSettings(self,settings, responseFields = None):
-		""" Updates the search setting properties for a specific site.Refer to [Search Settings API Overview](../../../../developer/api-guides/search-settings.htm) for more information about 's search settings.
+		""" 
 		
 		Args:
-			| settings(settings) - The search settings to update.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| settings(settings) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| SearchSettings 
@@ -326,12 +326,12 @@ class Search(object):
 	
 		
 	def updateSynonymDefinition(self,synonymDefinition, synonymId, responseFields = None):
-		""" Updates the details of a synonym definition.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		""" 
 		
 		Args:
-			| synonymDefinition(synonymDefinition) - The updated synonym definition details.
-			| synonymId (int) - The unique identifier of the synonym definition.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| synonymDefinition(synonymDefinition) - 
+			| synonymId (int) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| SynonymDefinition 
@@ -350,10 +350,10 @@ class Search(object):
 	
 		
 	def deleteSearchTuningRule(self,searchTuningRuleCode):
-		""" Deletes the specified search tuning rule from the site.
+		""" 
 		
 		Args:
-			| searchTuningRuleCode (string) - The unique identifier of the search tuning rule.
+			| searchTuningRuleCode (string) - 
 		
 		Raises:
 			| ApiException
@@ -367,10 +367,10 @@ class Search(object):
 	
 		
 	def deleteSynonymDefinition(self,synonymId):
-		""" Deletes the specified synonym definition.Refer to [Search Synonyms](../../../../developer/api-guides/search-settings.htm#search_synonyms) for more information about search synonyms.
+		""" 
 		
 		Args:
-			| synonymId (int) - The unique identifier of the synonym definition.
+			| synonymId (int) - 
 		
 		Raises:
 			| ApiException

@@ -21,10 +21,10 @@ class CheckoutSettings(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getCheckoutSettings(self,responseFields = None):
-		""" Retrieves all checkout settings defined for the site including payment settings (payment gateway ID and credentials), shopper checkout settings (login requirement or guest mode and custom attributes), and order processing settings (when payment is authorized and captured plus any custom attributes).
+		""" 
 		
 		Args:
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| CheckoutSettings 

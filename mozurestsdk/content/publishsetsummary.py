@@ -21,12 +21,12 @@ class PublishSetSummary(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getPublishSets(self,pageSize = None, startIndex = None, responseFields = None):
-		""" Returns a list of content publish sets.
+		""" 
 		
 		Args:
-			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| pageSize (int) - 
+			| startIndex (int) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| PublishSetSummaryPagedCollection 
@@ -46,15 +46,15 @@ class PublishSetSummary(object):
 	
 		
 	def getPublishSetItems(self,code, pageSize = None, startIndex = None, sortBy = None, filter = None, responseFields = None):
-		""" Retrieves a list of content publish sets and their properties.
+		""" 
 		
 		Args:
-			| code (string) - User-defined code that uniqely identifies the channel group.
-			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
-			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
-			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| code (string) - 
+			| pageSize (int) - 
+			| startIndex (int) - 
+			| sortBy (string) - 
+			| filter (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| DocumentDraftSummaryPagedCollection 
@@ -77,12 +77,12 @@ class PublishSetSummary(object):
 	
 		
 	def deletePublishSet(self,code, shouldDiscard = False, responseFields = None):
-		""" Deletes the specified content publish set. You can use the shouldDiscard parameter to specify whether to discard the content drafts assigned to the content publish set.
+		""" 
 		
 		Args:
-			| code (string) - User-defined code that uniqely identifies the channel group.
-			| shouldDiscard (bool) - Specifies whether to discard the pending content changes assigned to the content publish set when the publish set is deleted.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| code (string) - 
+			| shouldDiscard (bool) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| object 
@@ -102,12 +102,12 @@ class PublishSetSummary(object):
 	
 		
 	def addPublishSetItems(self,itemsToPublish, code, responseFields = None):
-		""" Adds a set of documents by id to a specified publish set.
+		""" 
 		
 		Args:
-			| itemsToPublish(array|itemsToPublish) - The details of the items that you want to add to a specified publish set.
-			| code (string) - User-defined code that uniqely identifies the channel group.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| itemsToPublish(array|itemsToPublish) - 
+			| code (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| object 

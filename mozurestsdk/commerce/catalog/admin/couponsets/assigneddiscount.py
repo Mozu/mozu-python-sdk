@@ -21,10 +21,10 @@ class AssignedDiscount(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getAssignedDiscounts(self,couponSetCode):
-		""" Retrieves the discountIds of any assigned discounts for the specified coupon set.
+		""" 
 		
 		Args:
-			| couponSetCode (string) - The unique identifier of the coupon set.
+			| couponSetCode (string) - 
 		
 		Returns:
 			| array of AssignedDiscount 
@@ -42,11 +42,11 @@ class AssignedDiscount(object):
 	
 		
 	def assignDiscount(self,assignedDiscount, couponSetCode):
-		""" Assigns or associates an existing discount to a specified coupon set. Use the couponSetCode parameter to specify the coupon set.
+		""" 
 		
 		Args:
-			| assignedDiscount(assignedDiscount) - The details of the discount assigned to the coupon set.
-			| couponSetCode (string) - The unique identifier of the coupon set.
+			| assignedDiscount(assignedDiscount) - 
+			| couponSetCode (string) - 
 		
 		Raises:
 			| ApiException
@@ -60,11 +60,11 @@ class AssignedDiscount(object):
 	
 		
 	def unAssignDiscount(self,couponSetCode, discountId):
-		""" Unassigns or disassociates the specified discount with the specified coupon set.
+		""" 
 		
 		Args:
-			| couponSetCode (string) - The unique identifier of the coupon set.
-			| discountId (int) - discountId parameter description DOCUMENT_HERE 
+			| couponSetCode (string) - 
+			| discountId (int) - 
 		
 		Raises:
 			| ApiException

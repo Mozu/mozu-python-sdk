@@ -21,10 +21,10 @@ class ShippingStates(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getStates(self,profileCode):
-		""" Retrieves a list of shipping states and their details.
+		""" 
 		
 		Args:
-			| profileCode (string) - The unique, user-defined code of the profile with which the shipping state is associated.
+			| profileCode (string) - 
 		
 		Returns:
 			| array of ShippingStates 
@@ -42,11 +42,11 @@ class ShippingStates(object):
 	
 		
 	def updateStates(self,states, profilecode):
-		""" Updates the details of the shipping states.
+		""" 
 		
 		Args:
-			| states(array|states) - The updated details of the shipping states associated with the specified profilecode.
-			| profilecode (string) - The unique, user-defined code of the profile with which the shipping state is associated.
+			| states(array|states) - 
+			| profilecode (string) - 
 		
 		Returns:
 			| array of ShippingStates 

@@ -21,10 +21,10 @@ class GeneralSettings(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getGeneralSettings(self,responseFields = None):
-		""" Retrieve a site's general global settings.
+		""" 
 		
 		Args:
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| GeneralSettings 
@@ -42,11 +42,11 @@ class GeneralSettings(object):
 	
 		
 	def updateGeneralSettings(self,generalSettings, responseFields = None):
-		""" Updates a site's general global settings.
+		""" 
 		
 		Args:
-			| generalSettings(generalSettings) - General settings used on the storefront site.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| generalSettings(generalSettings) - The properties of the site's general settings to update.
+			| responseFields (string) - 
 		
 		Returns:
 			| GeneralSettings 

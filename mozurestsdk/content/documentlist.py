@@ -22,12 +22,12 @@ class DocumentList(object):
 		self.client.withApiContext(apiContext);
 	
 	def getDocumentLists(self,pageSize = None, startIndex = None, responseFields = None):
-		""" Retrieves a collection of document lists.
+		""" 
 		
 		Args:
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+			| pageSize (int) - 
 			| startIndex (int) - 
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| DocumentListCollection 
@@ -47,11 +47,11 @@ class DocumentList(object):
 	
 		
 	def getDocumentList(self,documentListName, responseFields = None):
-		""" Retrieve the details of a document list by providing the list name.
+		""" 
 		
 		Args:
-			| documentListName (string) - Name of content documentListName to delete
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| documentListName (string) - The name of the document list.
+			| responseFields (string) - 
 		
 		Returns:
 			| DocumentList 
@@ -70,11 +70,11 @@ class DocumentList(object):
 	
 		
 	def createDocumentList(self,list, responseFields = None):
-		""" Creates a new documentList
+		""" 
 		
 		Args:
-			| list(list) - The list of document types and related properties that define content used by the content management system (CMS).
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| list(list) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| DocumentList 
@@ -92,12 +92,12 @@ class DocumentList(object):
 	
 		
 	def updateDocumentList(self,list, documentListName, responseFields = None):
-		""" Updates a  DocumentListName .
+		""" 
 		
 		Args:
-			| list(list) - The list of document types and related properties that define content used by the content management system (CMS).
-			| documentListName (string) - Name of content documentListName to delete
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| list(list) - 
+			| documentListName (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| DocumentList 
@@ -116,10 +116,10 @@ class DocumentList(object):
 	
 		
 	def deleteDocumentList(self,documentListName):
-		""" Deletes the specified  DocumentListName .
+		""" 
 		
 		Args:
-			| documentListName (string) - Name of content documentListName to delete
+			| documentListName (string) - 
 		
 		Raises:
 			| ApiException

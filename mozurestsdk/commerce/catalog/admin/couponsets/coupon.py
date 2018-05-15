@@ -21,13 +21,13 @@ class Coupon(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getCoupon(self,couponSetCode, couponCode, includeCounts = False, responseFields = None):
-		""" Retrieves the details of the specified coupon. Use the couponSetCode and the couponCode parameter to specify the coupon within a coupon set. Use the includeCounts paramter to specify whether to return the redemptionCount property in the response body object.
+		""" 
 		
 		Args:
-			| couponSetCode (string) - The unique identifier of the coupon set that the coupon belongs to.
-			| couponCode (string) - Code associated with the coupon to remove from the cart.
-			| includeCounts (bool) - Specifies whether to return the redemptionCount property in the response body object.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| couponSetCode (string) - 
+			| couponCode (string) - 
+			| includeCounts (bool) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| Coupon 
@@ -48,16 +48,16 @@ class Coupon(object):
 	
 		
 	def getCoupons(self,couponSetCode, startIndex = None, pageSize = None, sortBy = None, filter = None, includeCounts = False, responseFields = None):
-		""" Retrieves a list of coupons in a specified coupon set according to any specified filter criteria and sort options.
+		""" 
 		
 		Args:
-			| couponSetCode (string) - The unique identifier of the coupon set that the coupons belongs to.
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with pageSize set to 25, to get the 51st through the 75th items, set this parameter to 50.
-			| pageSize (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with this parameter set to 25, to get the 51st through the 75th items, set startIndex to 50.
-			| sortBy (string) - The element to sort the results by and the channel in which the results appear. Either ascending (a-z) or descending (z-a) channel. Optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for more information.
-			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
-			| includeCounts (bool) - Specifies whether to include the redemptionCount property in the response body object.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| couponSetCode (string) - 
+			| startIndex (int) - 
+			| pageSize (int) - 
+			| sortBy (string) - 
+			| filter (string) - 
+			| includeCounts (bool) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| CouponCollection 
@@ -81,11 +81,11 @@ class Coupon(object):
 	
 		
 	def addCoupons(self,coupons, couponSetCode):
-		""" Adds coupons  to a specified manual coupon set. Use the couponSetCode parameter to specify the manual coupon set.
+		""" 
 		
 		Args:
-			| coupons(array|coupons) - The details necessary to assign the discount to a coupon set, including .
-			| couponSetCode (string) - The unique identifier of the coupon set.
+			| coupons(array|coupons) - 
+			| couponSetCode (string) - 
 		
 		Raises:
 			| ApiException
@@ -99,11 +99,11 @@ class Coupon(object):
 	
 		
 	def deleteCoupons(self,couponCodes, couponSetCode):
-		""" Deletes the specified coupons and removes them from the coupon set. You can only delete a coupon if it has not been redeemed. Use the canBeDeleted property to determine whether a coupon can be deleted.
+		""" 
 		
 		Args:
-			| couponCodes(array|couponCodes) - The unique identifiers of the coupons to delete.
-			| couponSetCode (string) - The unique identifier of the coupon set that the coupon belongs to.
+			| couponCodes(array|couponCodes) - 
+			| couponSetCode (string) - 
 		
 		Raises:
 			| ApiException
@@ -117,11 +117,11 @@ class Coupon(object):
 	
 		
 	def deleteCoupon(self,couponSetCode, couponCode):
-		""" Deletes the specified coupon and remove it from the coupon set. You can only delete a coupon if it has not been redeemed. Use the canBeDeleted property to determine whether a coupon can be deleted.
+		""" 
 		
 		Args:
-			| couponSetCode (string) - The unique identifier of the coupon set that the coupon belongs to.
-			| couponCode (string) - Code associated with the coupon to remove from the cart.
+			| couponSetCode (string) - 
+			| couponCode (string) - 
 		
 		Raises:
 			| ApiException

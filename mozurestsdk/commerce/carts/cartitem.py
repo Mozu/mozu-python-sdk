@@ -21,11 +21,11 @@ class CartItem(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getCartItem(self,cartItemId, responseFields = None):
-		""" Retrieves a particular cart item by providing the cart item ID.
+		""" 
 		
 		Args:
-			| cartItemId (string) - Identifier of the cart item to delete.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| cartItemId (string) - Identifier of the cart item to retrieve.
+			| responseFields (string) - 
 		
 		Returns:
 			| CartItem 
@@ -44,10 +44,10 @@ class CartItem(object):
 	
 		
 	def getCartItems(self,responseFields = None):
-		""" Retrieves a list of cart items including the total number of items in the cart.
+		""" 
 		
 		Args:
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| CartItemCollection 
@@ -65,11 +65,11 @@ class CartItem(object):
 	
 		
 	def addItemToCart(self,cartItem, responseFields = None):
-		""" Adds a product to the current shopper's cart.
+		""" 
 		
 		Args:
-			| cartItem(cartItem) - Properties of an item added to an active shopping cart.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| cartItem(cartItem) - All properties of the new cart item. The product code is required.
+			| responseFields (string) - 
 		
 		Returns:
 			| CartItem 
@@ -87,12 +87,12 @@ class CartItem(object):
 	
 		
 	def updateCartItemQuantity(self,cartItemId, quantity, responseFields = None):
-		""" Update the quantity of an individual cart item in the cart of the current shopper.
+		""" 
 		
 		Args:
-			| cartItemId (string) - Identifier of the cart item to delete.
+			| cartItemId (string) - Identifier of the cart item to update quantity.
 			| quantity (int) - The number of cart items in the shopper's active cart.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| CartItem 
@@ -112,12 +112,12 @@ class CartItem(object):
 	
 		
 	def updateCartItem(self,cartItem, cartItemId, responseFields = None):
-		""" Update the product or product quantity of an item in the current shopper's cart.
+		""" 
 		
 		Args:
-			| cartItem(cartItem) - Properties of an item added to an active shopping cart.
-			| cartItemId (string) - Identifier of the cart item to delete.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| cartItem(cartItem) - The properties of the cart item to update.
+			| cartItemId (string) - Identifier of the cart item to update.
+			| responseFields (string) - 
 		
 		Returns:
 			| CartItem 
@@ -136,7 +136,7 @@ class CartItem(object):
 	
 		
 	def removeAllCartItems(self,):
-		""" Removes all items in the current shopper's active cart.
+		""" 
 		
 		Returns:
 			| Cart 
@@ -153,7 +153,7 @@ class CartItem(object):
 	
 		
 	def deleteCartItem(self,cartItemId):
-		""" Deletes a specific cart item by providing the cart item ID.
+		""" 
 		
 		Args:
 			| cartItemId (string) - Identifier of the cart item to delete.

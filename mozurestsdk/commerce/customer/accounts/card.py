@@ -21,12 +21,12 @@ class Card(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getAccountCard(self,accountId, cardId, responseFields = None):
-		""" Retrieves the details of a credit card stored with a customer account billing contact.
+		""" 
 		
 		Args:
 			| accountId (int) - Unique identifier of the customer account.
 			| cardId (string) - Unique identifier of the card associated with the customer account billing contact.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| Card 
@@ -46,11 +46,11 @@ class Card(object):
 	
 		
 	def getAccountCards(self,accountId, responseFields = None):
-		""" Retrieves all stored credit cards for the customer account.
+		""" 
 		
 		Args:
 			| accountId (int) - Unique identifier of the customer account.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| CardCollection 
@@ -69,12 +69,12 @@ class Card(object):
 	
 		
 	def addAccountCard(self,card, accountId, responseFields = None):
-		""" Creates a new credit card record and stores it for the customer account.
+		""" 
 		
 		Args:
-			| card(card) - Properties of a credit card used to submit payment for an order.
+			| card(card) - Properties of the customer credit card to add to the account.
 			| accountId (int) - Unique identifier of the customer account.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| Card 
@@ -93,13 +93,13 @@ class Card(object):
 	
 		
 	def updateAccountCard(self,card, accountId, cardId, responseFields = None):
-		""" Update one or more properties of a credit card defined for a customer account.
+		""" 
 		
 		Args:
-			| card(card) - Properties of a credit card used to submit payment for an order.
+			| card(card) - Properties of the customer account credit card to update.
 			| accountId (int) - Unique identifier of the customer account.
-			| cardId (string) - Unique identifier of the card associated with the customer account billing contact.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| cardId (string) - Unique identifier of the credit card.
+			| responseFields (string) - 
 		
 		Returns:
 			| Card 
@@ -119,11 +119,11 @@ class Card(object):
 	
 		
 	def deleteAccountCard(self,accountId, cardId):
-		""" Removes a stored credit card from a customer account.
+		""" 
 		
 		Args:
 			| accountId (int) - Unique identifier of the customer account.
-			| cardId (string) - Unique identifier of the card associated with the customer account billing contact.
+			| cardId (string) - Unique identifier of the credit card to delete.
 		
 		Raises:
 			| ApiException

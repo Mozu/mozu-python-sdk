@@ -21,7 +21,7 @@ class ExtendedProperty(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getExtendedProperties(self,):
-		""" Retrieves a list of cart extended properties specified in the request.
+		""" 
 		
 		Returns:
 			| array of ExtendedProperty 
@@ -38,10 +38,10 @@ class ExtendedProperty(object):
 	
 		
 	def addExtendedProperties(self,extendedProperties):
-		""" Adds one or more specified extended properties to the carts extended properties collection.
+		""" 
 		
 		Args:
-			| extendedProperties(array|extendedProperties) - The details of the new extended property.
+			| extendedProperties(array|extendedProperties) - 
 		
 		Returns:
 			| array of ExtendedProperty 
@@ -58,13 +58,13 @@ class ExtendedProperty(object):
 	
 		
 	def updateExtendedProperty(self,extendedProperty, key, upsert = False, responseFields = None):
-		""" Updates one or more details of the extended property specified in the request.
+		""" 
 		
 		Args:
-			| extendedProperty(extendedProperty) - The details of the updated extended property.
-			| key (string) - Key used for metadata defined for objects, including extensible attributes, custom attributes associated with a shipping provider, and search synonyms definitions. This content may be user-defined depending on the object and usage.
-			| upsert (bool) - Any set of key value pairs to be stored in the extended properties of a cart.
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| extendedProperty(extendedProperty) - 
+			| key (string) - 
+			| upsert (bool) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| ExtendedProperty 
@@ -84,11 +84,11 @@ class ExtendedProperty(object):
 	
 		
 	def updateExtendedProperties(self,extendedProperties, upsert = False):
-		""" Updates one or more details of the extended properties specified in the request.
+		""" 
 		
 		Args:
-			| extendedProperties(array|extendedProperties) - The details of the updated extended properties.
-			| upsert (bool) - Any set of key value pairs to be stored in the extended properties of a cart.
+			| extendedProperties(array|extendedProperties) - 
+			| upsert (bool) - 
 		
 		Returns:
 			| array of ExtendedProperty 
@@ -106,7 +106,7 @@ class ExtendedProperty(object):
 	
 		
 	def deleteExtendedProperties(self,keys):
-		""" Deletes the extended properties cart extended properties collection.
+		""" 
 		
 		Args:
 			| keys(array|keys) - 
@@ -122,7 +122,7 @@ class ExtendedProperty(object):
 	
 		
 	def deleteExtendedProperty(self,key):
-		""" Deletes a specific extended property from the cart extended property collection.
+		""" 
 		
 		Args:
 			| key (string) - 

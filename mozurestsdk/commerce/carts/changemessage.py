@@ -21,10 +21,10 @@ class ChangeMessage(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getMessages(self,responseFields = None):
-		""" Retrieves the messages associated with the current shopper's cart.
+		""" 
 		
 		Args:
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| CartChangeMessageCollection 
@@ -42,7 +42,7 @@ class ChangeMessage(object):
 	
 		
 	def removeAllMessages(self,):
-		""" Deletes all messages associated with the cart of the current shopper.
+		""" 
 		
 		Raises:
 			| ApiException
@@ -55,7 +55,7 @@ class ChangeMessage(object):
 	
 		
 	def removeMessage(self,messageId):
-		""" Removes a single message associated with the cart of the current shopper.
+		""" 
 		
 		Args:
 			| messageId (string) - Identifier of the message to remove from the cart.

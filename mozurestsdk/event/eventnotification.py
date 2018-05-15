@@ -16,14 +16,14 @@ class EventNotification(object):
 		self.client = mozuClient or default_client();
 	
 	def getEvents(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		""" Retrieves a list of events.
+		""" 
 		
 		Args:
 			| startIndex (int) - 
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+			| pageSize (int) - 
 			| sortBy (string) - 
-			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| filter (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| EventCollection 
@@ -45,11 +45,11 @@ class EventNotification(object):
 	
 		
 	def getEvent(self,eventId, responseFields = None):
-		""" Retrieves an event by providing the event ID.
+		""" 
 		
 		Args:
 			| eventId (string) - The unique identifier of the event being retrieved. An event is a notification about a create, read, update, or delete on an order, product, discount or category.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| Event 

@@ -22,7 +22,7 @@ class ProductTypeExtra(object):
 		self.client.withApiContext(apiContext);
 	
 	def getExtras(self,productTypeId):
-		""" Retrieves a list of extra attributes defined for the specified product type.
+		""" 
 		
 		Args:
 			| productTypeId (int) - Identifier of the product type.
@@ -43,12 +43,12 @@ class ProductTypeExtra(object):
 	
 		
 	def getExtra(self,productTypeId, attributeFQN, responseFields = None):
-		""" Retrieves the details of an extra attribute definition for the specified product type.
+		""" 
 		
 		Args:
-			| productTypeId (int) - Identifier of the product type.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| productTypeId (int) - Identifier of the product type whose extra is being retrieved.
+			| attributeFQN (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| AttributeInProductType 
@@ -68,12 +68,12 @@ class ProductTypeExtra(object):
 	
 		
 	def addExtra(self,attributeInProductType, productTypeId, responseFields = None):
-		""" Assigns a defined extra attribute to the product type based on the information supplied in the request.
+		""" 
 		
 		Args:
-			| attributeInProductType(attributeInProductType) - Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.
+			| attributeInProductType(attributeInProductType) - The properties of the extra attribute definition for this product type assignment.
 			| productTypeId (int) - Identifier of the product type.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| AttributeInProductType 
@@ -92,13 +92,13 @@ class ProductTypeExtra(object):
 	
 		
 	def updateExtra(self,attributeInProductType, productTypeId, attributeFQN, responseFields = None):
-		""" Update the definition of an extra attribute for the specified product type.
+		""" 
 		
 		Args:
-			| attributeInProductType(attributeInProductType) - Properties of an attribute definition associated with a specific product type. When an attribute is applied to a product type, each product of that type maintains the same set of attributes.
+			| attributeInProductType(attributeInProductType) - The properties of the extra attribute definition to update for the product type.
 			| productTypeId (int) - Identifier of the product type.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| attributeFQN (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| AttributeInProductType 
@@ -118,11 +118,11 @@ class ProductTypeExtra(object):
 	
 		
 	def deleteExtra(self,productTypeId, attributeFQN):
-		""" Removes an extra attribute definition from the specified product type.
+		""" 
 		
 		Args:
 			| productTypeId (int) - Identifier of the product type.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| attributeFQN (string) - 
 		
 		Raises:
 			| ApiException

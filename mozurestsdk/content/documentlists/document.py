@@ -22,11 +22,11 @@ class Document(object):
 		self.client.withApiContext(apiContext);
 	
 	def getDocumentContent(self,documentListName, documentId):
-		""" Retrieve the content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
+		""" 
 		
 		Args:
-			| documentListName (string) - Name of content documentListName to delete
-			| documentId (string) - Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.
+			| documentListName (string) - The name of the document list associated with the document.
+			| documentId (string) - Unique identifier of the document.
 		
 		Returns:
 			| Stream 
@@ -45,18 +45,18 @@ class Document(object):
 	
 		
 	def transformDocumentContent(self,documentListName, documentId, width = None, height = None, max = None, maxWidth = None, maxHeight = None, crop = None, quality = None):
-		""" Performs transformations on a document. For example, resizing an image.
+		""" 
 		
 		Args:
-			| documentListName (string) - Name of content documentListName to delete
-			| documentId (string) - Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.
-			| width (int) - Specifies an exact width dimension for the image, in pixels.
-			| height (int) - Specifies an exact height dimension for the image, in pixels.
-			| max (int) - Specifies a pixel limitation for the largest side of an image.
-			| maxWidth (int) - Specifies a pixel limitation for the width of the image, preserving the aspect ratio if the image needs resizing.
-			| maxHeight (int) - Specifies a pixel limitation for the height of the image, preserving the aspect ratio if the image needs resizing.
-			| crop (string) - Crops the image based on the specified coordinates. The reference point for positive coordinates is the top-left corner of the image, and the reference point for negative coordinates is the bottom-right corner of the image.Usage: Example:  removes 10 pixels from all edges of the image.  leaves the image uncropped.
-			| quality (int) - Adjusts the image compression. Accepts values from 0-100, where 100 = highest quality, least compression.
+			| documentListName (string) - 
+			| documentId (string) - 
+			| width (int) - 
+			| height (int) - 
+			| max (int) - 
+			| maxWidth (int) - 
+			| maxHeight (int) - 
+			| crop (string) - 
+			| quality (int) - 
 		
 		Returns:
 			| Stream 
@@ -82,13 +82,13 @@ class Document(object):
 	
 		
 	def getDocument(self,documentListName, documentId, includeInactive = False, responseFields = None):
-		""" Retrieves a document within the specified document list.
+		""" 
 		
 		Args:
-			| documentListName (string) - Name of content documentListName to delete
-			| documentId (string) - Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.
-			| includeInactive (bool) - Include inactive content.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| documentListName (string) - The name of the document list associated with the document to retrieve.
+			| documentId (string) - Identifier of the document being retrieved.
+			| includeInactive (bool) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| Document 
@@ -109,16 +109,16 @@ class Document(object):
 	
 		
 	def getDocuments(self,documentListName, filter = None, sortBy = None, pageSize = None, startIndex = None, includeInactive = False, responseFields = None):
-		""" Retrieves a collection of documents according to any filter and sort criteria.
+		""" 
 		
 		Args:
-			| documentListName (string) - Name of content documentListName to delete
-			| filter (string) - A set of filter expressions representing the search parameters for a query. This parameter is optional. Refer to [Sorting and Filtering](../../../../Developer/api-guides/sorting-filtering.htm) for a list of supported filters.
-			| sortBy (string) - The property by which to sort results and whether the results appear in ascending (a-z) order, represented by ASC or in descending (z-a) order, represented by DESC. The sortBy parameter follows an available property. For example: "sortBy=productCode+asc"
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
-			| startIndex (int) - When creating paged results from a query, this value indicates the zero-based offset in the complete result set where the returned entities begin. For example, with a PageSize of 25, to get the 51st through the 75th items, use startIndex=3.
-			| includeInactive (bool) - Include inactive content.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| documentListName (string) - The name of the document list.
+			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. You can filter a document's search results by any of its properties, including its name or folder path. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=Name+sw+Events"
+			| sortBy (string) - 
+			| pageSize (int) - 
+			| startIndex (int) - 
+			| includeInactive (bool) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| DocumentCollection 
@@ -142,12 +142,12 @@ class Document(object):
 	
 		
 	def createDocument(self,document, documentListName, responseFields = None):
-		""" Creates a new document in an defined document list.
+		""" 
 		
 		Args:
-			| document(document) - The document properties that define the content used by the content management system (CMS).
-			| documentListName (string) - Name of content documentListName to delete
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| document(document) - The descriptive name of the newly created document.
+			| documentListName (string) - The descriptive alphanumeric document list name being created.
+			| responseFields (string) - 
 		
 		Returns:
 			| Document 
@@ -166,12 +166,12 @@ class Document(object):
 	
 		
 	def updateDocumentContent(self,stream, documentListName, documentId, contentType = None):
-		""" Updates the binary data or content associated with a document, such as a product image or PDF specifications file, by supplying the document ID.
+		""" 
 		
 		Args:
-			| stream(stream) - Data stream that delivers information. Used to input and output data.
-			| documentListName (string) - Name of content documentListName to delete
-			| documentId (string) - Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.
+			| stream(stream) - Input output stream that delivers information.
+			| documentListName (string) - The name of the document list associated with the document.
+			| documentId (string) - Unique identifier of the document.
 			| contentType (string) - set content type of the data uploaded|
 		
 		Raises:
@@ -187,13 +187,13 @@ class Document(object):
 	
 		
 	def updateDocument(self,document, documentListName, documentId, responseFields = None):
-		""" Updates a document in a document list.
+		""" 
 		
 		Args:
-			| document(document) - The document properties that define the content used by the content management system (CMS).
-			| documentListName (string) - Name of content documentListName to delete
-			| documentId (string) - Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| document(document) - Properties of the document to update.
+			| documentListName (string) - Name of the document list associated with the document.
+			| documentId (string) - Unique identifier of the document to update.
+			| responseFields (string) - 
 		
 		Returns:
 			| Document 
@@ -213,11 +213,11 @@ class Document(object):
 	
 		
 	def deleteDocument(self,documentListName, documentId):
-		""" Deletes a specific document based on the specified document ID.
+		""" 
 		
 		Args:
-			| documentListName (string) - Name of content documentListName to delete
-			| documentId (string) - Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.
+			| documentListName (string) - The name of the document list associated with the document list being deleted.
+			| documentId (string) - Identifier of the document being deleted.
 		
 		Raises:
 			| ApiException
@@ -232,11 +232,11 @@ class Document(object):
 	
 		
 	def deleteDocumentContent(self,documentListName, documentId):
-		""" Deletes the content associated with a document, such as a product image or PDF specification, by supplying the document ID.
+		""" 
 		
 		Args:
-			| documentListName (string) - Name of content documentListName to delete
-			| documentId (string) - Unique identifier for a document, used by content and document calls. Document IDs are associated with document types, document type lists, sites, and tenants.
+			| documentListName (string) - The name of the document list associated with the document.
+			| documentId (string) - Unique identifier of the document.
 		
 		Raises:
 			| ApiException

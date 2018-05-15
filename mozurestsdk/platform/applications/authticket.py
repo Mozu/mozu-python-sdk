@@ -16,11 +16,11 @@ class AuthTicket(object):
 		self.client = mozuClient or default_client();
 	
 	def authenticateApp(self,appAuthInfo, responseFields = None):
-		""" Generate an authentication ticket for an application.
+		""" 
 		
 		Args:
-			| appAuthInfo(appAuthInfo) - The information required to authenticate third party applications against the  API.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| appAuthInfo(appAuthInfo) - Authentication information required to generate an authentication ticket includes the application id and the shared secret.
+			| responseFields (string) - 
 		
 		Returns:
 			| AuthTicket 
@@ -38,11 +38,11 @@ class AuthTicket(object):
 	
 		
 	def refreshAppAuthTicket(self,authTicketRequest, responseFields = None):
-		""" Refreshes the application's authentication ticket and generates a new access token by providing the refresh token string.
+		""" 
 		
 		Args:
-			| authTicketRequest(authTicketRequest) - Properties of the authentication ticket refresh requests, which includes the refresh token string.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| authTicketRequest(authTicketRequest) - The refresh token string required to update the application authentication ticket.
+			| responseFields (string) - 
 		
 		Returns:
 			| AuthTicket 
@@ -60,10 +60,10 @@ class AuthTicket(object):
 	
 		
 	def deleteAppAuthTicket(self,refreshToken):
-		""" Deletes an authentication for an application based on the specified refresh token.
+		""" 
 		
 		Args:
-			| refreshToken (string) - Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.
+			| refreshToken (string) - The refresh token string from the application's authentication ticket.
 		
 		Raises:
 			| ApiException

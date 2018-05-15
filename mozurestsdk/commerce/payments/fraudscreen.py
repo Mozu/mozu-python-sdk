@@ -21,11 +21,11 @@ class FraudScreen(object):
 			self.client.withApiContext(ApiContext());
 	
 	def screen(self,request, responseFields = None):
-		""" payments-fraudscreen Post Screen description DOCUMENT_HERE 
+		""" 
 		
 		Args:
-			| request(request) - Mozu.PaymentService.Contracts.Request.FraudScreenRequest ApiType DOCUMENT_HERE 
-			| responseFields (string) - Filtering syntax appended to an API call to increase or decrease the amount of data returned inside a JSON object. This parameter should only be used to retrieve data. Attempting to update data using this parameter may cause data loss.
+			| request(request) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| FraudScreen 

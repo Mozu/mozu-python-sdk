@@ -21,14 +21,14 @@ class Attribute(object):
 			self.client.withApiContext(ApiContext());
 	
 	def getAttributes(self,startIndex = None, pageSize = None, sortBy = None, filter = None, responseFields = None):
-		""" Retrieves a paged list of attributes according to any specified filter criteria and sort options.
+		""" 
 		
 		Args:
 			| startIndex (int) - 
-			| pageSize (int) - The number of results to display on each page when creating paged results from a query. The maximum value is 200.
+			| pageSize (int) - 
 			| sortBy (string) - 
-			| filter (string) - A set of expressions that consist of a field, operator, and value and represent search parameter syntax when filtering results of a query. Valid operators include equals (eq), does not equal (ne), greater than (gt), less than (lt), greater than or equal to (ge), less than or equal to (le), starts with (sw), or contains (cont). For example - "filter=IsDisplayed+eq+true"
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| filter (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| AttributeCollection 
@@ -50,11 +50,11 @@ class Attribute(object):
 	
 		
 	def getAttribute(self,attributeFQN, responseFields = None):
-		""" Retrieves the details of the specified product attribute.
+		""" 
 		
 		Args:
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| attributeFQN (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| Attribute 
@@ -73,11 +73,11 @@ class Attribute(object):
 	
 		
 	def addAttribute(self,attribute, responseFields = None):
-		""" Creates a new attribute to describe one aspect of a product such as color or size, based on its defined product type. The attribute name, attribute type, input type, and data type are required.
+		""" 
 		
 		Args:
-			| attribute(attribute) - Properties of an attribute used to describe customers or orders.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| attribute(attribute) - Properties of the new product attribute to create.
+			| responseFields (string) - 
 		
 		Returns:
 			| Attribute 
@@ -95,12 +95,12 @@ class Attribute(object):
 	
 		
 	def updateAttribute(self,attribute, attributeFQN, responseFields = None):
-		""" Updates an existing attribute with attribute properties to set.
+		""" 
 		
 		Args:
-			| attribute(attribute) - Properties of an attribute used to describe customers or orders.
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| attribute(attribute) - Any properties of the attribute that to update.
+			| attributeFQN (string) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| Attribute 
@@ -119,10 +119,10 @@ class Attribute(object):
 	
 		
 	def deleteAttribute(self,attributeFQN):
-		""" Deletes a defined product attribute. You cannot delete an attribute assigned a value for a product.
+		""" 
 		
 		Args:
-			| attributeFQN (string) - The fully qualified name of the attribute, which is a user defined attribute identifier.
+			| attributeFQN (string) - 
 		
 		Raises:
 			| ApiException

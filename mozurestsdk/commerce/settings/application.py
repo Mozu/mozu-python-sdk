@@ -21,10 +21,10 @@ class Application(object):
 			self.client.withApiContext(ApiContext());
 	
 	def thirdPartyGetApplication(self,responseFields = None):
-		""" Retrieve the settings of a third-party application.
+		""" 
 		
 		Args:
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| Application 
@@ -42,11 +42,11 @@ class Application(object):
 	
 		
 	def thirdPartyUpdateApplication(self,application, responseFields = None):
-		""" Initializes an application with the necessary configured settings.
+		""" 
 		
 		Args:
-			| application(application) - Properties of an application installed in a tenant.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| application(application) - Properties of the application to update.
+			| responseFields (string) - 
 		
 		Returns:
 			| Application 

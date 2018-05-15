@@ -21,12 +21,12 @@ class AppliedDiscount(object):
 			self.client.withApiContext(ApiContext());
 	
 	def applyCoupon(self,cartId, couponCode, responseFields = None):
-		""" Applies a defined coupon to the cart specified in the request.
+		""" 
 		
 		Args:
-			| cartId (string) - Identifier of the cart to delete.
-			| couponCode (string) - Code associated with the coupon to remove from the cart.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| cartId (string) - Unique identifier of the cart to which to apply the coupon.
+			| couponCode (string) - Code associated with the coupon to apply to the cart.
+			| responseFields (string) - 
 		
 		Returns:
 			| Cart 
@@ -46,10 +46,10 @@ class AppliedDiscount(object):
 	
 		
 	def removeCoupons(self,cartId):
-		""" Removes all coupons from the cart specified in the request.
+		""" 
 		
 		Args:
-			| cartId (string) - Identifier of the cart to delete.
+			| cartId (string) - Unique identifier of the cart.
 		
 		Returns:
 			| Cart 
@@ -67,10 +67,10 @@ class AppliedDiscount(object):
 	
 		
 	def removeCoupon(self,cartId, couponCode):
-		""" Removes an applied coupon from the cart specified in the request.
+		""" 
 		
 		Args:
-			| cartId (string) - Identifier of the cart to delete.
+			| cartId (string) - Unique identifier of the cart.
 			| couponCode (string) - Code associated with the coupon to remove from the cart.
 		
 		Returns:

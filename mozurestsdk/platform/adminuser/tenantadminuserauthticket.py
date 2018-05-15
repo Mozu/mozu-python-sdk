@@ -16,12 +16,12 @@ class TenantAdminUserAuthTicket(object):
 		self.client = mozuClient or default_client();
 	
 	def createUserAuthTicket(self,userAuthInfo, tenantId = None, responseFields = None):
-		""" Creates an authentication ticket for the supplied user to specify in API requests associated with the supplied tenant.
+		""" 
 		
 		Args:
-			| userAuthInfo(userAuthInfo) - Information required to authenticate a user.
+			| userAuthInfo(userAuthInfo) - The user authentication information required to generate the user authentication ticket, which consists of a user name and password.
 			| tenantId (int) - Unique identifier of the development or production tenant for which to generate the user authentication ticket.
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| TenantAdminUserAuthTicket 
@@ -40,12 +40,12 @@ class TenantAdminUserAuthTicket(object):
 	
 		
 	def refreshAuthTicket(self,existingAuthTicket, tenantId = None, responseFields = None):
-		""" Generates a new user authentication ticket for the specified tenant by supplying the user's existing refresh token information.
+		""" 
 		
 		Args:
-			| existingAuthTicket(existingAuthTicket) - Properties of the authentication ticket to be used in user claims with the  API.
+			| existingAuthTicket(existingAuthTicket) - Properties of the authentication ticket to refresh. The refresh token is required to complete this request.
 			| tenantId (int) - 
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| responseFields (string) - 
 		
 		Returns:
 			| TenantAdminUserAuthTicket 
@@ -64,10 +64,10 @@ class TenantAdminUserAuthTicket(object):
 	
 		
 	def deleteUserAuthTicket(self,refreshToken):
-		""" Deletes the authentication ticket for the user by supplying the refresh token.
+		""" 
 		
 		Args:
-			| refreshToken (string) - Alphanumeric string used for access tokens. This token refreshes access for accounts by generating a new developer or application account authentication ticket after an access token expires.
+			| refreshToken (string) - Refresh token string associated with the user authentication ticket.
 		
 		Raises:
 			| ApiException

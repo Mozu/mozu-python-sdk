@@ -20,13 +20,35 @@ class Shipping(object):
 		else:
 			self.client.withApiContext(ApiContext());
 	
-	def getRates(self,rateRequest, includeRawResponse = False, responseFields = None):
-		""" Retrieves the shipping rates applicable for the site.
+	def getMultiRates(self,rateRequestGroupList, includeRawResponse = False):
+		""" 
 		
 		Args:
-			| rateRequest(rateRequest) - Properties required to request a shipping rate calculation.
-			| includeRawResponse (bool) - Set this parameter to  to retrieve the full raw JSON response from a shipping carrier (instead of just the shipping rate).
-			| responseFields (string) - Use this field to include those fields which are not included by default.
+			| rateRequestGroupList(array|rateRequestGroupList) - 
+			| includeRawResponse (bool) - 
+		
+		Returns:
+			| array of RatesResponseGroup 
+		
+		Raises:
+			| ApiException
+		
+		"""
+
+		url = MozuUrl("/api/commerce/catalog/storefront/shipping/request-multi-rates", "POST", UrlLocation.TenantPod, False);
+		url.formatUrl("includeRawResponse", includeRawResponse);
+		self.client.withResourceUrl(url).withBody(rateRequestGroupList).execute();
+		return self.client.result();
+
+	
+		
+	def getRates(self,rateRequest, includeRawResponse = False, responseFields = None):
+		""" 
+		
+		Args:
+			| rateRequest(rateRequest) - Properties of the shipping rate request sent on behalf of the storefront website.
+			| includeRawResponse (bool) - 
+			| responseFields (string) - 
 		
 		Returns:
 			| RatesResponse 
